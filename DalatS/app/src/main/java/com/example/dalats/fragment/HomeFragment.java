@@ -1,5 +1,7 @@
 package com.example.dalats.fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
@@ -30,7 +32,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import com.example.dalats.activity.MainActivity;
-import com.example.dalats.fragment.MapFragment;
 public class HomeFragment extends Fragment {
 
     // --- Khai báo View ---
@@ -123,6 +124,23 @@ public class HomeFragment extends Fragment {
             Toast.makeText(getContext(), "Xem thống kê số liệu", Toast.LENGTH_SHORT).show();
         });
         return view;
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateUsername();
+    }
+    private void updateUsername() {
+        if (getContext() == null) return;
+
+        SharedPreferences pref = getContext().getSharedPreferences("UserSession", Context.MODE_PRIVATE);
+        String fullName = pref.getString("FULL_NAME", null); // Key "FULL_NAME" lưu ở LoginActivity
+
+        if (fullName != null && !fullName.isEmpty()) {
+            tvUsername.setText(fullName);
+        } else {
+            tvUsername.setText("Khách"); // Hoặc "Người dùng" nếu chưa đăng nhập
+        }
     }
 
     // --- LOGIC 1: THỜI TIẾT ---

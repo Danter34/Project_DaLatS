@@ -3,6 +3,7 @@ package com.example.dalats.model;
 import com.google.gson.annotations.SerializedName;
 
 public class IncidentMap {
+
     @SerializedName("incidentId")
     private int incidentId;
 
@@ -24,7 +25,6 @@ public class IncidentMap {
     @SerializedName("categoryName")
     private String categoryName;
 
-    // Getters
     public int getIncidentId() { return incidentId; }
     public String getTitle() { return title; }
     public double getLatitude() { return latitude; }

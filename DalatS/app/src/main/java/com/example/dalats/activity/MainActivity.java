@@ -1,5 +1,6 @@
 package com.example.dalats.activity;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -11,8 +12,10 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.dalats.R;
+import com.example.dalats.api.ApiClient;
 import com.example.dalats.fragment.HomeFragment;
 import com.example.dalats.fragment.MapFragment;
+import com.example.dalats.fragment.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,6 +33,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        SharedPreferences pref = getSharedPreferences("UserSession", MODE_PRIVATE);
+        String savedToken = pref.getString("TOKEN", null);
+        if (savedToken != null) {
+            ApiClient.setAuthToken(savedToken);
+        }
         // 1. Khởi tạo màu sắc
         // colorActive = ContextCompat.getColor(this, R.color.green_primary); // Nếu dùng colors.xml
         // colorInactive = ContextCompat.getColor(this, R.color.text_gray);
@@ -69,9 +77,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnProfile.setOnClickListener(v -> {
-            // loadFragment(new ProfileFragment());
+            loadFragment(new ProfileFragment());
             setTabState(4);
-            Toast.makeText(this, "Cá nhân", Toast.LENGTH_SHORT).show();
         });
     }
 

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SnuqdBjHL08=",
+  "dgSpecHash": "opXXbwRK3gA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\atush\\OneDrive\\Desktop\\Project_Dalat_Smart-65993845e795c9d327edf1be0044028132de0fd2\\SafeDalat_API\\SafeDalat_API\\SafeDalat_API.csproj",
+  "projectFilePath": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\SafeDalat_API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\atush\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\atush\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
