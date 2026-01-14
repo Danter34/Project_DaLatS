@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="90dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Xin chào,"
+                    android:textColor="@color/text_gray"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Người dùng"
+                    android:textColor="@color/text_dark"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/bell" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="4dp"
+            android:baselineAligned="false">
+
+            <RelativeLayout
+                android:id="@+id/layout_weather"
+                android:layout_width="0dp"
+                android:layout_height="160dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="2dp"
+                android:background="@drawable/bg_weather_card"
+                android:padding="12dp"> <ImageView
+                android:id="@+id/img_weather_icon"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/tt" />
+
+                <TextView
+                    android:id="@+id/tv_temp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="24°"
+                    android:textColor="@color/white"
+                    android:textSize="48sp"
+                    android:fontFamily="sans-serif-black"
+                    android:textStyle="bold"
+                    android:includeFontPadding="false"/>
+
+                <TextView
+                    android:id="@+id/tv_weather_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_temp"
+                    android:layout_marginTop="0dp"
+                    android:text="Nắng đẹp"
+                    android:textColor="#EEF"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_glass_chip"
+                        android:gravity="center"
+                        android:paddingVertical="6dp"
+                        android:layout_marginEnd="2dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/tv_humidity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="90%"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_glass_chip"
+                        android:gravity="center"
+                        android:paddingVertical="6dp"
+                        android:layout_marginStart="2dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/tv_wind"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1.2m"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layout_air"
+                android:layout_width="0dp"
+                android:layout_height="160dp"
+                android:layout_weight="1"
+                android:layout_marginStart="2dp"
+                android:background="@drawable/bg_weather_card"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AQI⁺"
+                    android:textColor="#DDDDDD"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"/>
+
+                <TextView
+                    android:id="@+id/tv_pollutant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/bg_glass_chip"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="2dp"
+                    android:text="PM2.5"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tv_aqi_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="82"
+                    android:textColor="@color/white"
+                    android:textSize="56sp"
+                    android:fontFamily="sans-serif-black"
+                    android:textStyle="bold"
+                    android:includeFontPadding="false"/>
+
+                <TextView
+                    android:id="@+id/tv_aqi_level"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/bg_glass_chip"
+                    android:gravity="center"
+                    android:paddingVertical="6dp"
+                    android:text="Trung bình"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:textStyle="bold"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="24dp"
+            android:text="TIỆN ÍCH"
+            android:textColor="@color/text_dark"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alignmentMode="alignMargins"
+            android:columnCount="3"
+            android:padding="8dp"
+            android:useDefaultMargins="true">
+
+            <LinearLayout
+                android:id="@+id/btn_feature_report"
+                style="@style/GridItemStyle"
+                android:layout_width="0dp"
+                android:layout_columnWeight="1"
+                android:clickable="true"
+                android:focusable="true"> <androidx.cardview.widget.CardView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/bg_red">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="12dp"
+                    android:src="@drawable/pa"
+                    app:tint="@color/icon_red"/>
+            </androidx.cardview.widget.CardView>
+                <TextView style="@style/GridTextStyle" android:text="Phản ánh" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_feature_map"
+                style="@style/GridItemStyle"
+                android:layout_width="0dp"
+                android:layout_columnWeight="1"
+                android:clickable="true"
+                android:focusable="true"> <androidx.cardview.widget.CardView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/bg_blue">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="12dp"
+                    android:src="@drawable/ic_map"
+                    app:tint="@color/icon_blue"/>
+            </androidx.cardview.widget.CardView>
+                <TextView style="@style/GridTextStyle" android:text="Bản đồ" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_feature_warning"
+                style="@style/GridItemStyle"
+                android:layout_width="0dp"
+                android:layout_columnWeight="1"
+                android:clickable="true"
+                android:focusable="true"> <androidx.cardview.widget.CardView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/bg_orange">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="12dp"
+                    android:src="@drawable/cb"
+                    app:tint="@color/icon_orange"/>
+            </androidx.cardview.widget.CardView>
+                <TextView style="@style/GridTextStyle" android:text="Cảnh báo" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_feature_chat"
+                style="@style/GridItemStyle"
+                android:layout_width="0dp"
+                android:layout_columnWeight="1"
+                android:clickable="true"
+                android:focusable="true"> <androidx.cardview.widget.CardView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/bg_green">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="12dp"
+                    android:src="@drawable/hd"
+                    app:tint="@color/icon_green"/>
+            </androidx.cardview.widget.CardView>
+                <TextView style="@style/GridTextStyle" android:text="Hỏi đáp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_feature_profile"
+                style="@style/GridItemStyle"
+                android:layout_width="0dp"
+                android:layout_columnWeight="1"
+                android:clickable="true"
+                android:focusable="true"> <androidx.cardview.widget.CardView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/bg_purple">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="12dp"
+                    android:src="@drawable/cn"
+                    app:tint="@color/icon_purple"/>
+            </androidx.cardview.widget.CardView>
+                <TextView style="@style/GridTextStyle" android:text="Cá nhân" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_feature_stats"
+                style="@style/GridItemStyle"
+                android:layout_width="0dp"
+                android:layout_columnWeight="1"
+                android:clickable="true"
+                android:focusable="true"> <androidx.cardview.widget.CardView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/bg_yellow">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="12dp"
+                    android:src="@drawable/tk"
+                    app:tint="@color/icon_yellow"/>
+            </androidx.cardview.widget.CardView>
+                <TextView style="@style/GridTextStyle" android:text="Thống kê" />
+            </LinearLayout>
+
+        </GridLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="10dp"
+            android:text="TIN TỨC MỚI"
+            android:textColor="@color/text_dark"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcv_feed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:nestedScrollingEnabled="false"
+            android:paddingHorizontal="16dp" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
