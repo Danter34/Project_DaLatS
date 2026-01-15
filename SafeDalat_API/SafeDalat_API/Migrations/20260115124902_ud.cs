@@ -6,11 +6,26 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SafeDalat_API.Migrations
 {
     /// <inheritdoc />
-    public partial class first : Migration
+    public partial class ud : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Departments",
+                columns: table => new
+                {
+                    DepartmentId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Departments", x => x.DepartmentId);
+                });
+
             migrationBuilder.CreateTable(
                 name: "IncidentCategories",
                 columns: table => new
@@ -25,6 +40,19 @@ namespace SafeDalat_API.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "QuestionCategories",
+                columns: table => new
+                {
+                    CategoryId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_QuestionCategories", x => x.CategoryId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
@@ -35,11 +63,23 @@ namespace SafeDalat_API.Migrations
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Role = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsLocked = table.Column<bool>(type: "bit", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    EmailVerified = table.Column<bool>(type: "bit", nullable: false),
+                    VerifyToken = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    VerifyTokenExpire = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ResetPasswordCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ResetCodeExpire = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DepartmentId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.UserId);
+                    table.ForeignKey(
+                        name: "FK_Users_Departments_DepartmentId",
+                        column: x => x.DepartmentId,
+                        principalTable: "Departments",
+                        principalColumn: "DepartmentId",
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateTable(
@@ -60,11 +100,19 @@ namespace SafeDalat_API.Migrations
                     IsMaster = table.Column<bool>(type: "bit", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
-                    CategoryId = table.Column<int>(type: "int", nullable: false)
+                    CategoryId = table.Column<int>(type: "int", nullable: false),
+                    AssignedDepartmentId = table.Column<int>(type: "int", nullable: true),
+                    IsPublic = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Incidents", x => x.IncidentId);
+                    table.ForeignKey(
+                        name: "FK_Incidents_Departments_AssignedDepartmentId",
+                        column: x => x.AssignedDepartmentId,
+                        principalTable: "Departments",
+                        principalColumn: "DepartmentId",
+                        onDelete: ReferentialAction.SetNull);
                     table.ForeignKey(
                         name: "FK_Incidents_IncidentCategories_CategoryId",
                         column: x => x.CategoryId,
@@ -109,17 +157,59 @@ namespace SafeDalat_API.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false)
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    QuestionCategoryId = table.Column<int>(type: "int", nullable: false),
+                    AssignedDepartmentId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Questions", x => x.QuestionId);
+                    table.ForeignKey(
+                        name: "FK_Questions_Departments_AssignedDepartmentId",
+                        column: x => x.AssignedDepartmentId,
+                        principalTable: "Departments",
+                        principalColumn: "DepartmentId",
+                        onDelete: ReferentialAction.SetNull);
+                    table.ForeignKey(
+                        name: "FK_Questions_QuestionCategories_QuestionCategoryId",
+                        column: x => x.QuestionCategoryId,
+                        principalTable: "QuestionCategories",
+                        principalColumn: "CategoryId",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Questions_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "IncidentComments",
+                columns: table => new
+                {
+                    CommentId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IncidentId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_IncidentComments", x => x.CommentId);
+                    table.ForeignKey(
+                        name: "FK_IncidentComments_Incidents_IncidentId",
+                        column: x => x.IncidentId,
+                        principalTable: "Incidents",
+                        principalColumn: "IncidentId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_IncidentComments_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "UserId",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -211,7 +301,7 @@ namespace SafeDalat_API.Migrations
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     QuestionId = table.Column<int>(type: "int", nullable: false),
-                    AdminId = table.Column<int>(type: "int", nullable: false)
+                    ResponderId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -223,22 +313,32 @@ namespace SafeDalat_API.Migrations
                         principalColumn: "QuestionId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Answers_Users_AdminId",
-                        column: x => x.AdminId,
+                        name: "FK_Answers_Users_ResponderId",
+                        column: x => x.ResponderId,
                         principalTable: "Users",
                         principalColumn: "UserId",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Answers_AdminId",
-                table: "Answers",
-                column: "AdminId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Answers_QuestionId",
                 table: "Answers",
                 column: "QuestionId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Answers_ResponderId",
+                table: "Answers",
+                column: "ResponderId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_IncidentComments_IncidentId",
+                table: "IncidentComments",
+                column: "IncidentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_IncidentComments_UserId",
+                table: "IncidentComments",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_IncidentDuplicates_DuplicateIncidentId",
@@ -255,6 +355,11 @@ namespace SafeDalat_API.Migrations
                 name: "IX_IncidentImages_IncidentId",
                 table: "IncidentImages",
                 column: "IncidentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Incidents_AssignedDepartmentId",
+                table: "Incidents",
+                column: "AssignedDepartmentId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Incidents_CategoryId",
@@ -282,9 +387,24 @@ namespace SafeDalat_API.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Questions_AssignedDepartmentId",
+                table: "Questions",
+                column: "AssignedDepartmentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Questions_QuestionCategoryId",
+                table: "Questions",
+                column: "QuestionCategoryId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Questions_UserId",
                 table: "Questions",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_DepartmentId",
+                table: "Users",
+                column: "DepartmentId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Users_Email",
@@ -298,6 +418,9 @@ namespace SafeDalat_API.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Answers");
+
+            migrationBuilder.DropTable(
+                name: "IncidentComments");
 
             migrationBuilder.DropTable(
                 name: "IncidentDuplicates");
@@ -318,10 +441,16 @@ namespace SafeDalat_API.Migrations
                 name: "Incidents");
 
             migrationBuilder.DropTable(
+                name: "QuestionCategories");
+
+            migrationBuilder.DropTable(
                 name: "IncidentCategories");
 
             migrationBuilder.DropTable(
                 name: "Users");
+
+            migrationBuilder.DropTable(
+                name: "Departments");
         }
     }
 }

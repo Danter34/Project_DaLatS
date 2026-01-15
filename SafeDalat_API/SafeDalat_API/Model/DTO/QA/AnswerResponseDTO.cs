@@ -6,7 +6,10 @@
         public string Content { get; set; } = null!;
         public DateTime CreatedAt { get; set; }
 
-        public int AdminId { get; set; }
-        public string AdminName { get; set; } = null!;
+        public int ResponderId { get; set; }
+        public string ResponderName { get; set; } = null!;
+
+
+        public string? DepartmentName { get; set; }
     }
 }

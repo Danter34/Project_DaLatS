@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema; 
 
 namespace SafeDalat_API.Model.Domain
 {
@@ -10,11 +11,12 @@ namespace SafeDalat_API.Model.Domain
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
 
+        // Liên kết với Câu hỏi
         public int QuestionId { get; set; }
         public Question Question { get; set; }
+        public int ResponderId { get; set; }
 
-        public int AdminId { get; set; }
-        public User Admin { get; set; }
+        [ForeignKey("ResponderId")]
+        public User Responder { get; set; }
     }
-
 }

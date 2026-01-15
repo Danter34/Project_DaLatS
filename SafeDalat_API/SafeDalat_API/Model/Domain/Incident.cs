@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SafeDalat_API.Model.Domain
 {
@@ -19,9 +20,8 @@ namespace SafeDalat_API.Model.Domain
         public double Latitude { get; set; }
         public double Longitude { get; set; }
 
-        //  Trạng thái xử lý
-        public string Status { get; set; } 
-       
+        //  Trạng thái xử lý: "Pending", "Assigned", "InProgress", "Resolved", "Closed"
+        public string Status { get; set; }
 
         // Mức cảnh báo
         public AlertLevel AlertLevel { get; set; } = AlertLevel.Green;
@@ -31,18 +31,20 @@ namespace SafeDalat_API.Model.Domain
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
 
-        // FK
+        // FK Người gửi (Dân)
         public int UserId { get; set; }
         public User User { get; set; }
 
         public int CategoryId { get; set; }
         public IncidentCategory Category { get; set; }
+        public int? AssignedDepartmentId { get; set; }
+        [ForeignKey("AssignedDepartmentId")]
+        public Department? AssignedDepartment { get; set; }
 
         public ICollection<IncidentImage> Images { get; set; }
         public ICollection<IncidentDuplicate> AsMasterDuplicates { get; set; }
         public ICollection<IncidentDuplicate> AsDuplicate { get; set; }
         public bool IsPublic { get; set; }
-
     }
     public enum AlertLevel
     {

@@ -13,11 +13,13 @@ namespace SafeDalat_API.Repositories.Services
     {
         private readonly IConfiguration _config;
         private readonly AppDbContext _context;
+        private readonly IEmailService _emailService;
 
-        public AuthRepository(IConfiguration config, AppDbContext context)
+        public AuthRepository(IConfiguration config, AppDbContext context, IEmailService emailService)
         {
             _config = config;
             _context = context;
+            _emailService = emailService;
         }
 
         public string GenerateToken(User user)
@@ -73,15 +75,49 @@ namespace SafeDalat_API.Repositories.Services
                 })
                 .FirstAsync();
         }
-        public async Task<bool> UpdateProfileAsync(int userId, UpdateProfileDTO dto)
+        public async Task<string> UpdateProfileAsync(int userId, UpdateProfileDTO dto)
         {
             var user = await _context.Users.FindAsync(userId);
-            if (user == null) return false;
+            if (user == null) return "Người dùng không tồn tại";
 
             user.FullName = dto.FullName;
+
+            // Nếu Email thay đổi
+            if (user.Email != dto.Email)
+            {
+                // Kiểm tra email mới có trùng ai không
+                if (await _context.Users.AnyAsync(x => x.Email == dto.Email && x.UserId != userId))
+                    return "Email mới đã được sử dụng bởi tài khoản khác";
+
+                // Cập nhật email mới
+                user.Email = dto.Email;
+
+                // Reset trạng thái xác minh
+                user.EmailVerified = false;
+                user.IsLocked = true; // Khóa tạm thời cho đến khi xác minh
+
+                // Tạo token xác minh mới
+                var token = Guid.NewGuid().ToString();
+                user.VerifyToken = token;
+                user.VerifyTokenExpire = DateTime.UtcNow.AddHours(24);
+
+                // Gửi mail xác minh
+                try
+                {
+                    await _emailService.SendVerifyEmail(user.Email, token);
+                }
+                catch
+                {
+                    return "Lỗi gửi email xác minh. Vui lòng thử lại.";
+                }
+            }
+
             await _context.SaveChangesAsync();
 
-            return true;
+            if (!user.EmailVerified)
+                return "Cập nhật thành công. Vui lòng kiểm tra email để xác minh lại tài khoản mới.";
+
+            return "Cập nhật thông tin thành công.";
         }
         public async Task<UserDashboardDTO> GetDashboardAsync(int userId)
         {
@@ -116,23 +152,41 @@ namespace SafeDalat_API.Repositories.Services
                 })
                 .ToListAsync();
         }
-        public async Task<bool> LockUserAsync(int userId)
+        public async Task<bool> LockUserAsync(int userId, string reason)
         {
             var user = await _context.Users.FindAsync(userId);
             if (user == null) return false;
 
             user.IsLocked = true;
+
+
             await _context.SaveChangesAsync();
+
+            // Gửi mail kèm lý do
+            try
+            {
+                await _emailService.SendAccountLockedNotification(user.Email, reason);
+            }
+            catch { }
+
             return true;
         }
 
-        public async Task<bool> UnlockUserAsync(int userId)
+        public async Task<bool> UnlockUserAsync(int userId, string reason)
         {
             var user = await _context.Users.FindAsync(userId);
             if (user == null) return false;
 
             user.IsLocked = false;
             await _context.SaveChangesAsync();
+
+            // Gửi mail kèm lý do (hoặc lời nhắn)
+            try
+            {
+                await _emailService.SendAccountUnlockedNotification(user.Email, reason);
+            }
+            catch { }
+
             return true;
         }
 

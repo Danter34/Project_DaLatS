@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SafeDalat_API.Model.Domain
 {
@@ -12,6 +13,15 @@ namespace SafeDalat_API.Model.Domain
 
         public int UserId { get; set; }
         public User User { get; set; }
+
+
+        public int QuestionCategoryId { get; set; }
+        public QuestionCategory QuestionCategory { get; set; }
+
+
+        public int? AssignedDepartmentId { get; set; }
+        [ForeignKey("AssignedDepartmentId")]
+        public Department? AssignedDepartment { get; set; }
 
         public ICollection<Answer> Answers { get; set; }
     }

@@ -4,5 +4,8 @@
     {
         Task SendVerifyEmail(string email, string token);
         Task SendResetCode(string email, string code);
+
+        Task SendAccountLockedNotification(string email, string reason);
+        Task SendAccountUnlockedNotification(string email, string reason);
     }
 }

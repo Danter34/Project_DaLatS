@@ -297,4 +297,3 @@ C:\Users\atush\OneDrive\Desktop\Project_Dalat_Smart-65993845e795c9d327edf1be0044
 C:\Users\atush\OneDrive\Desktop\Project_Dalat_Smart-65993845e795c9d327edf1be0044028132de0fd2\SafeDalat_API\SafeDalat_API\obj\Debug\net8.0\SafeDalat_API.pdb
 C:\Users\atush\OneDrive\Desktop\Project_Dalat_Smart-65993845e795c9d327edf1be0044028132de0fd2\SafeDalat_API\SafeDalat_API\obj\Debug\net8.0\SafeDalat_API.genruntimeconfig.cache
 C:\Users\atush\OneDrive\Desktop\Project_Dalat_Smart-65993845e795c9d327edf1be0044028132de0fd2\SafeDalat_API\SafeDalat_API\obj\Debug\net8.0\ref\SafeDalat_API.dll
-D:\Project\SafeDalat\SafeDalat_API\SafeDalat_API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

@@ -4,10 +4,16 @@
     {
         public string Email { get; set; } = null!;
     }
-    public class VerifyResetCodeDTO
+    public class ResetPasswordDTO
     {
         public string Email { get; set; } = null!;
         public string Code { get; set; } = null!;
         public string NewPassword { get; set; } = null!;
+    }
+
+    public class CheckResetCodeDTO
+    {
+        public string Email { get; set; } = null!;
+        public string Code { get; set; } = null!;
     }
 }

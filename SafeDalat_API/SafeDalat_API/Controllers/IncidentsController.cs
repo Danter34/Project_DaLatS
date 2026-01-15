@@ -36,11 +36,35 @@ namespace SafeDalat_API.Controllers
             return Ok(await _repo.GetByUserAsync(userId));
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Staff")] 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            return Ok(await _repo.GetAllAsync());
+            var role = User.FindFirst(ClaimTypes.Role)?.Value;
+            var userId = User.GetUserId();
+
+
+            if (role == "Admin")
+            {
+                return Ok(await _repo.GetAllAsync());
+            }
+
+
+            if (role == "Staff")
+            {
+
+                var deptId = await _repo.GetUserDepartmentIdAsync(userId);
+
+                if (deptId == null)
+                {
+
+                    return BadRequest("Tài khoản nhân viên này chưa được gán vào phòng ban nào.");
+                }
+
+                return Ok(await _repo.GetByDepartmentAsync(deptId.Value));
+            }
+
+            return Forbid();
         }
 
         [HttpGet("get-by-id/{id}")]
@@ -49,7 +73,7 @@ namespace SafeDalat_API.Controllers
             var result = await _repo.GetDetailAsync(id);
             if (result == null) return NotFound();
 
-            // nếu chưa public  chỉ admin hoặc chủ bài xem
+
             if (!result.IsPublic)
             {
                 if (!User.Identity!.IsAuthenticated)
@@ -58,7 +82,12 @@ namespace SafeDalat_API.Controllers
                 var userId = User.GetUserId();
                 var role = User.FindFirst(ClaimTypes.Role)!.Value;
 
-                if (role != "Admin" && result.UserId != userId)
+               
+                bool isOwner = result.UserId == userId;
+                bool isAdmin = role == "Admin";
+                bool isStaff = role == "Staff"; 
+
+                if (!isAdmin && !isOwner && !isStaff)
                     return Forbid();
             }
 
@@ -66,13 +95,13 @@ namespace SafeDalat_API.Controllers
         }
 
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Staff")]
         [HttpPut("update-by-id/{id}")]
         public async Task<IActionResult> UpdateStatus(int id, UpdateIncidentStatusDTO dto)
         {
-            int adminId = User.GetUserId();
+            int responderId = User.GetUserId(); 
 
-            if (!await _repo.UpdateStatusAsync(id, adminId, dto))
+            if (!await _repo.UpdateStatusAsync(id, responderId, dto))
                 return NotFound();
 
             return NoContent();

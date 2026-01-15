@@ -9,11 +9,11 @@ namespace SafeDalat_API.Repositories.Interface
 
         Task<bool> ChangePasswordAsync(int userId, ChangePasswordDTO dto);
         Task<UserProfileDTO> GetProfileAsync(int userId);
-        Task<bool> UpdateProfileAsync(int userId, UpdateProfileDTO dto);
+        Task<string> UpdateProfileAsync(int userId, UpdateProfileDTO dto);  
         Task<UserDashboardDTO> GetDashboardAsync(int userId);
         Task<List<AdminUserDTO>> GetAllUsersAsync();
-        Task<bool> LockUserAsync(int userId);
-        Task<bool> UnlockUserAsync(int userId);
+        Task<bool> LockUserAsync(int userId, string reason);
+        Task<bool> UnlockUserAsync(int userId, string reason);
 
     }
 }

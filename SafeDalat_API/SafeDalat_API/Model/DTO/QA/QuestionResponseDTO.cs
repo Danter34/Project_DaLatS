@@ -9,6 +9,9 @@
         public int UserId { get; set; }
         public string UserName { get; set; } = null!;
 
+        public string QuestionCategoryName { get; set; } = null!;
+        public string? AssignedDepartmentName { get; set; } // Nếu đã được điều phối
+
         public List<AnswerResponseDTO> Answers { get; set; } = new();
     }
 }

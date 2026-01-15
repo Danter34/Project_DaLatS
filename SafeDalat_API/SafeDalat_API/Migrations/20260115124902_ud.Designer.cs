@@ -12,8 +12,8 @@ using SafeDalat_API.Data;
 namespace SafeDalat_API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260112092307_ud-IsPublic")]
-    partial class udIsPublic
+    [Migration("20260115124902_ud")]
+    partial class ud
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,9 +33,6 @@ namespace SafeDalat_API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AnswerId"));
 
-                    b.Property<int>("AdminId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -46,13 +43,39 @@ namespace SafeDalat_API.Migrations
                     b.Property<int>("QuestionId")
                         .HasColumnType("int");
 
-                    b.HasKey("AnswerId");
+                    b.Property<int>("ResponderId")
+                        .HasColumnType("int");
 
-                    b.HasIndex("AdminId");
+                    b.HasKey("AnswerId");
 
                     b.HasIndex("QuestionId");
 
+                    b.HasIndex("ResponderId");
+
                     b.ToTable("Answers");
+                });
+
+            modelBuilder.Entity("SafeDalat_API.Model.Domain.Department", b =>
+                {
+                    b.Property<int>("DepartmentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DepartmentId"));
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("DepartmentId");
+
+                    b.ToTable("Departments");
                 });
 
             modelBuilder.Entity("SafeDalat_API.Model.Domain.Incident", b =>
@@ -68,6 +91,9 @@ namespace SafeDalat_API.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("AlertLevel")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("AssignedDepartmentId")
                         .HasColumnType("int");
 
                     b.Property<int>("CategoryId")
@@ -113,6 +139,8 @@ namespace SafeDalat_API.Migrations
 
                     b.HasKey("IncidentId");
 
+                    b.HasIndex("AssignedDepartmentId");
+
                     b.HasIndex("CategoryId");
 
                     b.HasIndex("UserId");
@@ -135,6 +163,36 @@ namespace SafeDalat_API.Migrations
                     b.HasKey("CategoryId");
 
                     b.ToTable("IncidentCategories");
+                });
+
+            modelBuilder.Entity("SafeDalat_API.Model.Domain.IncidentComment", b =>
+                {
+                    b.Property<int>("CommentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CommentId"));
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("IncidentId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CommentId");
+
+                    b.HasIndex("IncidentId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("IncidentComments");
                 });
 
             modelBuilder.Entity("SafeDalat_API.Model.Domain.IncidentDuplicate", b =>
@@ -269,6 +327,9 @@ namespace SafeDalat_API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("QuestionId"));
 
+                    b.Property<int?>("AssignedDepartmentId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -276,14 +337,38 @@ namespace SafeDalat_API.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("QuestionCategoryId")
+                        .HasColumnType("int");
+
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("QuestionId");
 
+                    b.HasIndex("AssignedDepartmentId");
+
+                    b.HasIndex("QuestionCategoryId");
+
                     b.HasIndex("UserId");
 
                     b.ToTable("Questions");
+                });
+
+            modelBuilder.Entity("SafeDalat_API.Model.Domain.QuestionCategory", b =>
+                {
+                    b.Property<int>("CategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CategoryId");
+
+                    b.ToTable("QuestionCategories");
                 });
 
             modelBuilder.Entity("SafeDalat_API.Model.Domain.User", b =>
@@ -297,9 +382,15 @@ namespace SafeDalat_API.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("DepartmentId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<bool>("EmailVerified")
+                        .HasColumnType("bit");
 
                     b.Property<string>("FullName")
                         .IsRequired()
@@ -312,11 +403,25 @@ namespace SafeDalat_API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("ResetCodeExpire")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ResetPasswordCode")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Role")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("VerifyToken")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("VerifyTokenExpire")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("UserId");
+
+                    b.HasIndex("DepartmentId");
 
                     b.HasIndex("Email")
                         .IsUnique();
@@ -326,25 +431,30 @@ namespace SafeDalat_API.Migrations
 
             modelBuilder.Entity("SafeDalat_API.Model.Domain.Answer", b =>
                 {
-                    b.HasOne("SafeDalat_API.Model.Domain.User", "Admin")
-                        .WithMany()
-                        .HasForeignKey("AdminId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.HasOne("SafeDalat_API.Model.Domain.Question", "Question")
                         .WithMany("Answers")
                         .HasForeignKey("QuestionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Admin");
+                    b.HasOne("SafeDalat_API.Model.Domain.User", "Responder")
+                        .WithMany()
+                        .HasForeignKey("ResponderId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.Navigation("Question");
+
+                    b.Navigation("Responder");
                 });
 
             modelBuilder.Entity("SafeDalat_API.Model.Domain.Incident", b =>
                 {
+                    b.HasOne("SafeDalat_API.Model.Domain.Department", "AssignedDepartment")
+                        .WithMany("AssignedIncidents")
+                        .HasForeignKey("AssignedDepartmentId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
                     b.HasOne("SafeDalat_API.Model.Domain.IncidentCategory", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
@@ -357,7 +467,28 @@ namespace SafeDalat_API.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.Navigation("AssignedDepartment");
+
                     b.Navigation("Category");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("SafeDalat_API.Model.Domain.IncidentComment", b =>
+                {
+                    b.HasOne("SafeDalat_API.Model.Domain.Incident", "Incident")
+                        .WithMany()
+                        .HasForeignKey("IncidentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SafeDalat_API.Model.Domain.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Incident");
 
                     b.Navigation("User");
                 });
@@ -424,13 +555,47 @@ namespace SafeDalat_API.Migrations
 
             modelBuilder.Entity("SafeDalat_API.Model.Domain.Question", b =>
                 {
+                    b.HasOne("SafeDalat_API.Model.Domain.Department", "AssignedDepartment")
+                        .WithMany("AssignedQuestions")
+                        .HasForeignKey("AssignedDepartmentId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.HasOne("SafeDalat_API.Model.Domain.QuestionCategory", "QuestionCategory")
+                        .WithMany()
+                        .HasForeignKey("QuestionCategoryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("SafeDalat_API.Model.Domain.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("AssignedDepartment");
+
+                    b.Navigation("QuestionCategory");
+
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("SafeDalat_API.Model.Domain.User", b =>
+                {
+                    b.HasOne("SafeDalat_API.Model.Domain.Department", "Department")
+                        .WithMany("Staffs")
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.Navigation("Department");
+                });
+
+            modelBuilder.Entity("SafeDalat_API.Model.Domain.Department", b =>
+                {
+                    b.Navigation("AssignedIncidents");
+
+                    b.Navigation("AssignedQuestions");
+
+                    b.Navigation("Staffs");
                 });
 
             modelBuilder.Entity("SafeDalat_API.Model.Domain.Incident", b =>

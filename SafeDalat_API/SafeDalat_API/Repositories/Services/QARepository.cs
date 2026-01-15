@@ -15,39 +15,58 @@ namespace SafeDalat_API.Repositories.Services
             _context = context;
         }
 
-        public async Task<QuestionResponseDTO> CreateQuestionAsync(
-            int userId,
-            CreateQuestionDTO dto)
+        
+        public async Task<QuestionResponseDTO> CreateQuestionAsync(int userId, CreateQuestionDTO dto)
         {
+           
+            var category = await _context.QuestionCategories
+                .Include(c => c.ResponsibleDepartment)
+                .FirstOrDefaultAsync(c => c.CategoryId == dto.QuestionCategoryId);
+
+            
+            var user = await _context.Users.FindAsync(userId);
+            if (user == null) throw new Exception("User not found");
+
+           
             var question = new Question
             {
                 Content = dto.Content,
                 UserId = userId,
+                QuestionCategoryId = dto.QuestionCategoryId,
+                
+                AssignedDepartmentId = category?.ResponsibleDepartmentId,
                 CreatedAt = DateTime.UtcNow
             };
 
             _context.Questions.Add(question);
+
+           
             await _context.SaveChangesAsync();
 
-            var user = await _context.Users.FindAsync(userId);
-
+           
             return new QuestionResponseDTO
             {
                 QuestionId = question.QuestionId,
                 Content = question.Content,
                 CreatedAt = question.CreatedAt,
                 UserId = userId,
-                UserName = user!.FullName
+                UserName = user.FullName, 
+                QuestionCategoryName = category?.Name ?? "Chung",
+                AssignedDepartmentName = category?.ResponsibleDepartment?.Name 
             };
         }
 
+       
         public async Task<List<QuestionResponseDTO>> GetAllQuestionsAsync()
         {
             return await _context.Questions
                 .AsNoTracking()
                 .Include(q => q.User)
+                .Include(q => q.QuestionCategory) 
+                .Include(q => q.AssignedDepartment) 
                 .Include(q => q.Answers)
-                    .ThenInclude(a => a.Admin)
+                    .ThenInclude(a => a.Responder) 
+                        .ThenInclude(u => u.Department) 
                 .OrderByDescending(q => q.CreatedAt)
                 .Select(q => new QuestionResponseDTO
                 {
@@ -56,22 +75,55 @@ namespace SafeDalat_API.Repositories.Services
                     CreatedAt = q.CreatedAt,
                     UserId = q.UserId,
                     UserName = q.User.FullName,
+                    QuestionCategoryName = q.QuestionCategory.Name,
+                    AssignedDepartmentName = q.AssignedDepartment != null ? q.AssignedDepartment.Name : null,
+
                     Answers = q.Answers.Select(a => new AnswerResponseDTO
                     {
                         AnswerId = a.AnswerId,
                         Content = a.Content,
                         CreatedAt = a.CreatedAt,
-                        AdminId = a.AdminId,
-                        AdminName = a.Admin.FullName
+                        ResponderId = a.ResponderId, 
+                        ResponderName = a.Responder.FullName,
+                        DepartmentName = a.Responder.Department != null ? a.Responder.Department.Name : "Quản trị viên"
                     }).ToList()
                 })
                 .ToListAsync();
         }
-
-        public async Task<bool> CreateAnswerAsync(
-            int questionId,
-            int adminId,
-            CreateAnswerDTO dto)
+        public async Task<List<QuestionResponseDTO>> GetQuestionsByDepartmentAsync(int departmentId)
+        {
+            return await _context.Questions
+                .AsNoTracking()
+                .Where(q => q.AssignedDepartmentId == departmentId) 
+                .Include(q => q.User)
+                .Include(q => q.QuestionCategory)
+                .Include(q => q.AssignedDepartment)
+                .Include(q => q.Answers)
+                    .ThenInclude(a => a.Responder)
+                .OrderByDescending(q => q.CreatedAt)
+                .Select(q => new QuestionResponseDTO
+                {
+                    QuestionId = q.QuestionId,
+                    Content = q.Content,
+                    CreatedAt = q.CreatedAt,
+                    UserId = q.UserId,
+                    UserName = q.User.FullName,
+                    QuestionCategoryName = q.QuestionCategory.Name,
+                    AssignedDepartmentName = q.AssignedDepartment != null ? q.AssignedDepartment.Name : null,
+                    Answers = q.Answers.Select(a => new AnswerResponseDTO
+                    {
+                        AnswerId = a.AnswerId,
+                        Content = a.Content,
+                        CreatedAt = a.CreatedAt,
+                        ResponderId = a.ResponderId,
+                        ResponderName = a.Responder.FullName,
+                        DepartmentName = a.Responder.Department != null ? a.Responder.Department.Name : "Quản trị viên"
+                    }).ToList()
+                })
+                .ToListAsync();
+        }
+        // TRẢ LỜI (Cho phép Staff/Admin)
+        public async Task<bool> CreateAnswerAsync(int questionId, int responderId, CreateAnswerDTO dto)
         {
             var question = await _context.Questions.FindAsync(questionId);
             if (question == null) return false;
@@ -80,7 +132,7 @@ namespace SafeDalat_API.Repositories.Services
             {
                 Content = dto.Content,
                 QuestionId = questionId,
-                AdminId = adminId,
+                ResponderId = responderId, 
                 CreatedAt = DateTime.UtcNow
             };
 

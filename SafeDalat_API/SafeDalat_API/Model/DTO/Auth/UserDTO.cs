@@ -10,5 +10,6 @@
     public class UpdateProfileDTO
     {
         public string FullName { get; set; } = null!;
+        public string Email { get; set; } = null!; // Cho phép sửa Email
     }
 }

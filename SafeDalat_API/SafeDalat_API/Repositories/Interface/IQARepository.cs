@@ -6,6 +6,8 @@ namespace SafeDalat_API.Repositories.Interface
     {
         Task<QuestionResponseDTO> CreateQuestionAsync(int userId, CreateQuestionDTO dto);
         Task<List<QuestionResponseDTO>> GetAllQuestionsAsync();
-        Task<bool> CreateAnswerAsync(int questionId, int adminId, CreateAnswerDTO dto);
+
+        Task<bool> CreateAnswerAsync(int questionId, int responderId, CreateAnswerDTO dto);
+        Task<List<QuestionResponseDTO>> GetQuestionsByDepartmentAsync(int departmentId);
     }
 }

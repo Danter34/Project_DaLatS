@@ -57,6 +57,7 @@ namespace SafeDalat_API.Repositories.Services
                 .Where(x => x.UserId == userId)
                 .Include(x => x.Category)
                 .Include(x => x.Images)
+                .Include(x => x.AssignedDepartment) 
                 .OrderByDescending(x => x.CreatedAt)
                 .ToListAsync();
 
@@ -70,6 +71,7 @@ namespace SafeDalat_API.Repositories.Services
                 .AsNoTracking()
                 .Include(x => x.Category)
                 .Include(x => x.Images)
+                .Include(x => x.AssignedDepartment) 
                 .OrderByDescending(x => x.CreatedAt)
                 .ToListAsync();
 
@@ -83,40 +85,62 @@ namespace SafeDalat_API.Repositories.Services
                 .AsNoTracking()
                 .Include(x => x.Category)
                 .Include(x => x.Images)
+                .Include(x => x.AssignedDepartment) 
                 .FirstOrDefaultAsync(x => x.IncidentId == id);
 
             return incident == null ? null : MapToDto(incident);
         }
 
         //  UPDATE STATUS 
-        public async Task<bool> UpdateStatusAsync(
-            int incidentId,
-            int adminId,
-            UpdateIncidentStatusDTO dto)
+        public async Task<bool> UpdateStatusAsync(int incidentId, int responderId, UpdateIncidentStatusDTO dto)
         {
             var incident = await _context.Incidents.FindAsync(incidentId);
             if (incident == null) return false;
 
+ 
             incident.Status = dto.Status;
 
+          
+            if (dto.AssignedDepartmentId.HasValue)
+            {
+                // Gán phòng ban
+                incident.AssignedDepartmentId = dto.AssignedDepartmentId.Value;
+
+         
+                var staffMembers = await _context.Users
+                    .Where(u => u.DepartmentId == dto.AssignedDepartmentId.Value && u.Role == "Staff")
+                    .ToListAsync();
+
+                foreach (var staff in staffMembers)
+                {
+                    await _notificationRepo.CreateAsync(
+                        staff.UserId, // Gửi cho từng nhân viên
+                        $"NHIỆM VỤ MỚI: Sự cố #{incidentId} tại {incident.Ward} đã được giao cho phòng ban của bạn."
+                    );
+                }
+            }
+
+       
             if (dto.Status == "Đang xử lý" || dto.Status == "Đã hoàn thành")
                 incident.IsPublic = true;
-
             if (dto.Status == "Từ chối")
                 incident.IsPublic = false;
 
+     
             _context.IncidentStatusHistories.Add(new IncidentStatusHistory
             {
                 IncidentId = incidentId,
                 Status = dto.Status,
                 Note = dto.Note,
-                AdminId = adminId,
+                AdminId = responderId,
                 UpdatedAt = DateTime.UtcNow
             });
 
+           
+            string deptInfo = incident.AssignedDepartmentId != null ? " đã được chuyển tiếp xử lý" : "";
             await _notificationRepo.CreateAsync(
                 incident.UserId,
-                $"Sự cố \"{incident.Title}\" đã được cập nhật trạng thái: {dto.Status}"
+                $"Sự cố \"{incident.Title}\": {dto.Status}{deptInfo}"
             );
 
             await _context.SaveChangesAsync();
@@ -144,6 +168,10 @@ namespace SafeDalat_API.Repositories.Services
                 UserId = x.UserId,
                 CategoryName = x.Category?.Name ?? string.Empty,
 
+                // BỔ SUNG MAP
+                AssignedDepartmentId = x.AssignedDepartmentId,
+                AssignedDepartmentName = x.AssignedDepartment?.Name,
+
                 Images = x.Images?.Select(i => new IncidentImageDTO
                 {
                     ImageId = i.ImageId,
@@ -159,6 +187,7 @@ namespace SafeDalat_API.Repositories.Services
                 .AsNoTracking()
                 .Include(x => x.Category)
                 .Include(x => x.Images)
+                .Include(x => x.AssignedDepartment) 
                 .Where(x =>
                     x.IsMaster &&
                     x.Status != "Chờ xử lý" &&
@@ -179,6 +208,10 @@ namespace SafeDalat_API.Repositories.Services
                 AlertLevel = (int)x.AlertLevel,
                 CreatedAt = x.CreatedAt,
                 CategoryName = x.Category!.Name,
+
+                
+                AssignedDepartmentName = x.AssignedDepartment?.Name,
+
                 Images = x.Images.Select(i => new IncidentImageDTO
                 {
                     ImageId = i.ImageId,
@@ -329,6 +362,30 @@ namespace SafeDalat_API.Repositories.Services
                     FilePath = i.FilePath
                 }).ToList()
             }).ToList();
+        }
+        public async Task<int?> GetUserDepartmentIdAsync(int userId)
+        {
+            var user = await _context.Users
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.UserId == userId);
+
+            return user?.DepartmentId;
+        }
+
+ 
+        public async Task<List<IncidentResponseDTO>> GetByDepartmentAsync(int departmentId)
+        {
+            var incidents = await _context.Incidents
+                .AsNoTracking()
+                .Where(x => x.AssignedDepartmentId == departmentId) 
+                .Include(x => x.Category)
+                .Include(x => x.Images)
+                .Include(x => x.AssignedDepartment)
+                .OrderByDescending(x => x.CreatedAt) 
+                .ToListAsync();
+
+         
+            return incidents.Select(MapToDto).ToList();
         }
     }
 }
