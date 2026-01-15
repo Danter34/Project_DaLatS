@@ -1,8 +1,15 @@
 ﻿namespace SafeDalat_API.Model.DTO.Auth
 {
+    using System.ComponentModel.DataAnnotations;
+
     public class LoginDTO
     {
-        public string Email { get; set; }
-        public string Password { get; set; }
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; } = null!;
+
+        [Required]
+        public string Password { get; set; } = null!;
     }
+
 }

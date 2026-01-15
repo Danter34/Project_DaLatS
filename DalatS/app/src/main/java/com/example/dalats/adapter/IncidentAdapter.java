@@ -1,6 +1,7 @@
 package com.example.dalats.adapter;
 
 import android.content.Context;
+import android.content.Intent; // Import Intent
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.util.TypedValue;
@@ -11,9 +12,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
 import com.example.dalats.R;
+import com.example.dalats.activity.IncidentDetailActivity; // Import trang chi tiết
 import com.example.dalats.model.Incident;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -40,7 +44,7 @@ public class IncidentAdapter extends RecyclerView.Adapter<IncidentAdapter.Incide
     public void onBindViewHolder(@NonNull IncidentViewHolder holder, int position) {
         Incident incident = incidentList.get(position);
 
-        // 1. Category Styling (Pastel colors)
+        // --- 1. Category Styling (Giữ nguyên code cũ của bạn) ---
         holder.tvCategory.setText(incident.getCategoryName());
 
         int level = incident.getAlertLevel();
@@ -49,15 +53,14 @@ public class IncidentAdapter extends RecyclerView.Adapter<IncidentAdapter.Incide
 
         switch (level) {
             case 1: // VÀNG
-                bgColor = Color.parseColor("#FFFDE7"); // vàng nhạt
-                textColor = Color.parseColor("#F9A825"); // vàng đậm
+                bgColor = Color.parseColor("#FFFDE7");
+                textColor = Color.parseColor("#F9A825");
                 break;
-
             case 2: // CAM
-                bgColor = Color.parseColor("#FFF3E0"); // cam nhạt
-                textColor = Color.parseColor("#EF6C00"); // cam đậm
+                bgColor = Color.parseColor("#FFF3E0");
+                textColor = Color.parseColor("#EF6C00");
                 break;
-            case 3:
+            case 3: // ĐỎ
                 bgColor = Color.parseColor("#FFEBEE");
                 textColor = Color.parseColor("#C62828");
                 break;
@@ -74,10 +77,10 @@ public class IncidentAdapter extends RecyclerView.Adapter<IncidentAdapter.Incide
         holder.tvCategory.setBackground(shape);
         holder.tvCategory.setTextColor(textColor);
 
-        // 2. Title
+        // --- 2. Title ---
         holder.tvTitle.setText(incident.getTitle());
 
-        // 3. Date Formatting
+        // --- 3. Date Formatting ---
         String rawDate = incident.getCreatedAt();
         if (rawDate != null) {
             try {
@@ -96,10 +99,18 @@ public class IncidentAdapter extends RecyclerView.Adapter<IncidentAdapter.Incide
             holder.tvTime.setText("Đang cập nhật");
         }
 
-        // 4. Image Loading
+        // --- 4. Image Loading ---
         if (incident.getImages() != null && !incident.getImages().isEmpty()) {
             String path = incident.getImages().get(0).getFilePath();
-            String fullUrl = "http://10.0.2.2:5084" + path;
+
+            // Lưu ý: Nếu chạy máy thật thì đổi 10.0.2.2 thành IP LAN
+            // Nếu path từ API đã có "http" thì không cần nối chuỗi, còn nếu chỉ là "/uploads..." thì nối.
+            String fullUrl;
+            if (path.startsWith("http")) {
+                fullUrl = path;
+            } else {
+                fullUrl = "http://10.0.2.2:5084" + path;
+            }
 
             Glide.with(context)
                     .load(fullUrl)
@@ -110,6 +121,18 @@ public class IncidentAdapter extends RecyclerView.Adapter<IncidentAdapter.Incide
         } else {
             holder.imgIncident.setImageResource(R.drawable.ic_camera);
         }
+
+        // --- 5. XỬ LÝ CLICK (Code mới thêm) ---
+        holder.itemView.setOnClickListener(v -> {
+            // Tạo Intent chuyển sang trang chi tiết
+            Intent intent = new Intent(context, IncidentDetailActivity.class);
+
+            // Truyền ID sự cố sang
+            intent.putExtra("INCIDENT_ID", incident.getIncidentId());
+
+            // Bắt đầu Activity
+            context.startActivity(intent);
+        });
     }
 
     @Override

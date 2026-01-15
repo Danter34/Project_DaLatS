@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SafeDalat_API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+56f68fb8597e557b65fe76eb473c76bbe5fb6ac9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+32da8aabdb5c6708ad30eb38e6b95dd4e3e1ebc1")]
 [assembly: System.Reflection.AssemblyProductAttribute("SafeDalat_API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SafeDalat_API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
