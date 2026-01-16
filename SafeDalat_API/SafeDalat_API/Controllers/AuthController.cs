@@ -79,12 +79,23 @@ namespace SafeDalat_API.Controllers
             if (user == null || !BCrypt.Net.BCrypt.Verify(dto.Password, user.Password))
                 return Unauthorized("Sai tài khoản hoặc mật khẩu");
 
-            if (user.IsLocked || !user.EmailVerified)
+            if (!user.EmailVerified)
                 return Unauthorized("Tài khoản chưa xác minh email");
+            if(user.IsLocked)
+                return Unauthorized("Tài khoản của bạn đã bị khóa vui lòng kiểm tra email");
+                var token = _jwt.GenerateToken(user);
 
-            var token = _jwt.GenerateToken(user);
-
-            return Ok(new { token });
+            return Ok(new
+            {
+                token,
+                user = new
+                {
+                    user.UserId,
+                    user.FullName,
+                    user.Email,
+                    user.Role
+                }
+            });
         }
 
         [Authorize]

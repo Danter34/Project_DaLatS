@@ -12,12 +12,14 @@
         android:gravity="center"
         android:orientation="vertical"
         android:padding="32dp"
-        android:visibility="visible"> <ImageView
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:src="@drawable/cn"
-        app:tint="#BDBDBD"
-        android:layout_marginBottom="24dp"/>
+        android:visibility="visible">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/cn"
+            app:tint="#BDBDBD"
+            android:layout_marginBottom="24dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -46,102 +48,192 @@
             android:background="@drawable/bg_button_green"/>
     </LinearLayout>
 
-
     <androidx.core.widget.NestedScrollView
         android:id="@+id/layout_logged_in"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"> <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@color/white"
-            android:gravity="center"
-            android:padding="32dp">
+            android:orientation="vertical">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                app:cardCornerRadius="40dp"
-                app:cardBackgroundColor="#E0F2F1">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:gravity="center"
+                android:padding="32dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    app:cardCornerRadius="40dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="#E0F2F1">
+                    <TextView
+                        android:id="@+id/tv_avatar_char"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="A"
+                        android:textSize="32sp"
+                        android:textStyle="bold"
+                        android:textColor="#009688"/>
+                </androidx.cardview.widget.CardView>
+
                 <TextView
-                    android:id="@+id/tv_avatar_char"
+                    android:id="@+id/tv_fullname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="A"
-                    android:textSize="32sp"
+                    android:text="Nguyễn Văn A"
+                    android:textSize="20sp"
                     android:textStyle="bold"
-                    android:textColor="#009688"/>
-            </androidx.cardview.widget.CardView>
+                    android:textColor="#333333"
+                    android:layout_marginTop="16dp"/>
 
-            <TextView
-                android:id="@+id/tv_fullname"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/tv_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="email@example.com"
+                    android:textColor="#757575"
+                    android:layout_marginTop="4dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nguyễn Văn A"
-                android:textSize="20sp"
+                android:orientation="horizontal"
+                android:background="@color/white"
+                android:padding="16dp"
+                android:layout_marginTop="8dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tv_stat_pending"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="#FF9800"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Chờ xử lý"
+                        android:textSize="12sp"
+                        android:textColor="#757575"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tv_stat_processing"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="#2196F3"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Đang xử lý"
+                        android:textSize="12sp"
+                        android:textColor="#757575"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tv_stat_completed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="#4CAF50"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hoàn thành"
+                        android:textSize="12sp"
+                        android:textColor="#757575"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp"
+                android:background="@color/white"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tài khoản"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView
+                    android:id="@+id/btn_edit_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Chỉnh sửa thông tin"
+                    android:paddingVertical="12dp"
+                    android:textSize="14sp"
+                    android:drawableEnd="@drawable/ic_home"
+                    android:drawableTint="#BDBDBD"
+                    android:background="?attr/selectableItemBackground"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#F0F0F0"
+                    android:layout_marginVertical="4dp"/>
+
+                <TextView
+                    android:id="@+id/btn_change_pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Đổi mật khẩu"
+                    android:paddingVertical="12dp"
+                    android:textSize="14sp"
+                    android:drawableEnd="@drawable/ic_home"
+                    android:drawableTint="#BDBDBD"
+                    android:background="?attr/selectableItemBackground"/>
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_logout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="ĐĂNG XUẤT"
+                android:textColor="@color/white"
                 android:textStyle="bold"
-                android:textColor="#333333"
-                android:layout_marginTop="16dp"/>
+                android:background="@drawable/bg_button_red"
+                android:layout_margin="24dp"/>
 
-            <TextView
-                android:id="@+id/tv_email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="email@example.com"
-                android:textColor="#757575"
-                android:layout_marginTop="4dp"/>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="16dp"
-            android:background="@color/white"
-            android:padding="16dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Tài khoản"
-                android:textStyle="bold"
-                android:layout_marginBottom="16dp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Chỉnh sửa thông tin"
-                android:paddingVertical="12dp"
-                android:drawableEnd="@drawable/ic_home"
-                android:drawableTint="#BDBDBD"/>
-
-            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F0F0F0"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Đổi mật khẩu"
-                android:paddingVertical="12dp"/>
-        </LinearLayout>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_logout"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="ĐĂNG XUẤT"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:background="@drawable/bg_button_red"
-            android:layout_margin="24dp"/>
-
-    </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
 </FrameLayout>

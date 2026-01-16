@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     private boolean isPasswordVisible = false;
     private EditText edtEmail, edtPass;
     private Button btnLogin;
-    private TextView tvRegister;
+    private TextView tvRegister, tvForgotPass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,11 +50,15 @@ public class LoginActivity extends AppCompatActivity {
         tvRegister = findViewById(R.id.tv_register);
         edtPass = findViewById(R.id.edt_password);
         imgTogglePass = findViewById(R.id.img_toggle_login_pass);
+        tvForgotPass = findViewById(R.id.tv_forgot_pass);
         // Chuyển sang màn hình Đăng ký
         tvRegister.setOnClickListener(v -> {
             startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
         });
-
+        tvForgotPass.setOnClickListener(v -> {
+            Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
+            startActivity(intent);
+        });
         // Xử lý nút Đăng nhập
         btnLogin.setOnClickListener(v -> {
             String email = edtEmail.getText().toString().trim();
@@ -91,22 +95,30 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<AuthResponse> call, Response<AuthResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    // 1. Lưu Token và thông tin User
                     saveUserSession(response.body());
-
-                    // 2. Cập nhật Token cho ApiClient ngay lập tức
                     ApiClient.setAuthToken(response.body().getToken());
-
                     Toast.makeText(LoginActivity.this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
                     goToMainActivity();
                 } else {
-                    Toast.makeText(LoginActivity.this, "Sai email hoặc mật khẩu", Toast.LENGTH_SHORT).show();
+                    // --- XỬ LÝ LỖI CHI TIẾT TỪ SERVER ---
+                    String errorMsg = "Đăng nhập thất bại";
+                    try {
+                        // Đọc message từ API (ví dụ: "Tài khoản chưa xác minh email")
+                        if (response.errorBody() != null) {
+                            errorMsg = response.errorBody().string();
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                    // Hiển thị thông báo lỗi cụ thể
+                    Toast.makeText(LoginActivity.this, errorMsg, Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<AuthResponse> call, Throwable t) {
-                Toast.makeText(LoginActivity.this, "Lỗi kết nối: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "Lỗi kết nối server", Toast.LENGTH_SHORT).show();
             }
         });
     }

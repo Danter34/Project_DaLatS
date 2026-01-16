@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@drawable/bg_dialog_rounded"> <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Cập nhật thông tin"
+    android:textSize="20sp"
+    android:textStyle="bold"
+    android:textColor="#333"
+    android:layout_marginBottom="24dp"
+    android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HỌ TÊN"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/edt_edit_name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_edittext"
+        android:hint="Nhập họ tên"
+        android:inputType="textPersonName"
+        android:paddingHorizontal="16dp"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EMAIL"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/edt_edit_email"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_edittext"
+        android:hint="Nhập email mới"
+        android:inputType="textEmailAddress"
+        android:paddingHorizontal="16dp"
+        android:layout_marginBottom="24dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_save_profile"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="LƯU THAY ĐỔI"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:background="@drawable/bg_button_green"/>
+
+</LinearLayout>

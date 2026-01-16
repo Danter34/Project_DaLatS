@@ -1,46 +1,75 @@
 package com.example.dalats.api;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import com.example.dalats.activity.MyApplication; // Import class vừa tạo
+import com.example.dalats.activity.LoginActivity;
+
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
-
+    // Đổi IP nếu chạy máy thật
     private static final String BASE_URL = "http://10.0.2.2:5084/";
+    private static Retrofit retrofit;
+    private static String authToken = null;
 
-    private static Retrofit retrofit = null;
-    private static String authToken = null; // Biến lưu Token
-
-    // Hàm cập nhật Token sau khi Login
     public static void setAuthToken(String token) {
         authToken = token;
-        retrofit = null; // Reset để khởi tạo lại với token mới
     }
 
-    private static Retrofit getClient() {
+    public static Retrofit getClient() {
         if (retrofit == null) {
-            OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();
+            // Cấu hình OkHttp với Interceptor
+            OkHttpClient client = new OkHttpClient.Builder()
+                    .addInterceptor(chain -> {
+                        Request original = chain.request();
+                        Request.Builder builder = original.newBuilder();
 
-            // Thêm Interceptor để tự động kẹp Token vào Header
-            clientBuilder.addInterceptor(chain -> {
-                Request original = chain.request();
-                Request.Builder builder = original.newBuilder();
+                        // 1. Gắn Token vào Header
+                        if (authToken != null) {
+                            builder.header("Authorization", "Bearer " + authToken);
+                        }
 
-                if (authToken != null && !authToken.isEmpty()) {
-                    builder.header("Authorization", "Bearer " + authToken);
-                }
+                        Request request = builder.build();
+                        Response response = chain.proceed(request);
 
-                return chain.proceed(builder.build());
-            });
+                        // 2. TỰ ĐỘNG ĐĂNG XUẤT NẾU BỊ KHÓA (LỖI 401)
+                        if (response.code() == 401) {
+                            handleGlobalLogout();
+                        }
+
+                        return response;
+                    })
+                    .build();
 
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
+                    .client(client)
                     .addConverterFactory(GsonConverterFactory.create())
-                    .client(clientBuilder.build())
                     .build();
         }
         return retrofit;
+    }
+
+    // Hàm đăng xuất toàn cục
+    private static void handleGlobalLogout() {
+        Context context = MyApplication.getInstance();
+        if (context != null) {
+            // Xóa dữ liệu đăng nhập
+            SharedPreferences pref = context.getSharedPreferences("UserSession", Context.MODE_PRIVATE);
+            pref.edit().clear().apply();
+            authToken = null;
+
+            // Chuyển về màn hình Login và xóa hết Activity cũ
+            Intent intent = new Intent(context, LoginActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            context.startActivity(intent);
+        }
     }
 
     // --- Services ---

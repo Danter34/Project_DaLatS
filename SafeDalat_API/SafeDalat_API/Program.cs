@@ -110,6 +110,7 @@ app.UseHttpsRedirection();
 app.UseCors("AllowAll");
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseMiddleware<SafeDalat_API.Middleware.CheckAccountStatusMiddleware>();
 
 app.MapControllers();
 
