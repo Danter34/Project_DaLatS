@@ -94,39 +94,50 @@ namespace SafeDalat_API.Repositories.Services
         //  UPDATE STATUS 
         public async Task<bool> UpdateStatusAsync(int incidentId, int responderId, UpdateIncidentStatusDTO dto)
         {
+
             var incident = await _context.Incidents.FindAsync(incidentId);
             if (incident == null) return false;
 
- 
+
             incident.Status = dto.Status;
 
-          
+
+            if (dto.AlertLevel.HasValue)
+            {
+                incident.AlertLevel = dto.AlertLevel.Value;
+            }
+
+  
+            string deptNameForUser = ""; 
+
             if (dto.AssignedDepartmentId.HasValue)
             {
-                // Gán phòng ban
                 incident.AssignedDepartmentId = dto.AssignedDepartmentId.Value;
 
-         
+                var department = await _context.Departments.FindAsync(dto.AssignedDepartmentId.Value);
+                string deptName = department?.Name ?? "Bộ phận chuyên môn";
+                deptNameForUser = $" bởi {deptName}";
+
                 var staffMembers = await _context.Users
                     .Where(u => u.DepartmentId == dto.AssignedDepartmentId.Value && u.Role == "Staff")
                     .ToListAsync();
 
                 foreach (var staff in staffMembers)
                 {
+                    string urgency = incident.AlertLevel == AlertLevel.Red ? "[KHẨN CẤP] " : "";
+
                     await _notificationRepo.CreateAsync(
-                        staff.UserId, // Gửi cho từng nhân viên
-                        $"NHIỆM VỤ MỚI: Sự cố #{incidentId} tại {incident.Ward} đã được giao cho phòng ban của bạn."
+                        staff.UserId,
+                        $"{urgency}NHIỆM VỤ MỚI: Sự cố #{incidentId} tại {incident.Ward} đã được giao cho {deptName}."
                     );
                 }
             }
 
-       
             if (dto.Status == "Đang xử lý" || dto.Status == "Đã hoàn thành")
                 incident.IsPublic = true;
-            if (dto.Status == "Từ chối")
+            else if (dto.Status == "Từ chối" || dto.Status == "Chờ xử lý")
                 incident.IsPublic = false;
 
-     
             _context.IncidentStatusHistories.Add(new IncidentStatusHistory
             {
                 IncidentId = incidentId,
@@ -136,12 +147,27 @@ namespace SafeDalat_API.Repositories.Services
                 UpdatedAt = DateTime.UtcNow
             });
 
-           
-            string deptInfo = incident.AssignedDepartmentId != null ? " đã được chuyển tiếp xử lý" : "";
-            await _notificationRepo.CreateAsync(
-                incident.UserId,
-                $"Sự cố \"{incident.Title}\": {dto.Status}{deptInfo}"
-            );
+            string userMessage = "";
+            switch (dto.Status)
+            {
+                case "Từ chối":
+                    userMessage = $"Sự cố \"{incident.Title}\" đã bị từ chối. Lý do: {dto.Note ?? "Không đúng quy định"}";
+                    break;
+
+                case "Đã hoàn thành":
+                    userMessage = $"Tin vui! Sự cố \"{incident.Title}\" đã được xử lý hoàn tất.";
+                    break;
+
+                case "Đang xử lý":
+                    userMessage = $"Sự cố \"{incident.Title}\" đang được xử lý{deptNameForUser}.";
+                    break;
+
+                default:
+                    userMessage = $"Sự cố \"{incident.Title}\": Trạng thái cập nhật thành {dto.Status}.";
+                    break;
+            }
+
+            await _notificationRepo.CreateAsync(incident.UserId, userMessage);
 
             await _context.SaveChangesAsync();
             return true;
@@ -193,6 +219,7 @@ namespace SafeDalat_API.Repositories.Services
                     x.Status != "Chờ xử lý" &&
                     x.Status != "Từ chối")
                 .OrderByDescending(x => x.CreatedAt)
+                .Take(5)
                 .ToListAsync();
 
             return incidents.Select(x => new IncidentFeedDTO
@@ -340,8 +367,10 @@ namespace SafeDalat_API.Repositories.Services
             }
 
             var incidents = await query
-                .OrderByDescending(x => x.CreatedAt)
-                .ToListAsync();
+        .OrderByDescending(x => x.CreatedAt)
+        .Skip((dto.PageIndex - 1) * dto.PageSize) 
+        .Take(dto.PageSize)                   
+        .ToListAsync();
 
             return incidents.Select(x => new IncidentFeedDTO
             {

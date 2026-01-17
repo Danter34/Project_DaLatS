@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.dalats"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
@@ -54,4 +54,6 @@ dependencies {
     //map
     implementation("com.google.android.gms:play-services-maps:18.2.0")
     implementation("com.github.chrisbanes:PhotoView:2.3.0")
+    implementation("com.google.android.gms:play-services-location:21.2.0")
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 }

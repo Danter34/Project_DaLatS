@@ -11,5 +11,8 @@
         public double? Latitude { get; set; }
         public double? Longitude { get; set; }
         public double? RadiusKm { get; set; }
+
+        public int PageIndex { get; set; } = 1; // Trang hiện tại (Mặc định 1)
+        public int PageSize { get; set; } = 10;
     }
 }

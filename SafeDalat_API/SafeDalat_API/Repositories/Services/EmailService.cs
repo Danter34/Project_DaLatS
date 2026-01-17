@@ -10,7 +10,7 @@ namespace SafeDalat_API.Repositories.Services
         private readonly IConfiguration _config;
 
       
-        private string LogoUrl => _config["Email:LogoUrl"] ?? "https://i.postimg.cc/MHgrHBsm/Chat-GPT-Image-07-56-17-15-thg-1-2026.jpg";
+        private string LogoUrl => _config["Email:LogoUrl"] ?? "http://localhost:5084/assets/email/logo.png";
 
         private const string BrandColor = "#2E7D32";
         private const string BrandName = "SafeDalat";

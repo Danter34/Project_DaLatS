@@ -13,10 +13,12 @@ import androidx.fragment.app.Fragment;
 
 import com.example.dalats.R;
 import com.example.dalats.api.ApiClient;
+import com.example.dalats.fragment.ChatFragment;
 import com.example.dalats.fragment.HomeFragment;
 import com.example.dalats.fragment.MapFragment;
 import com.example.dalats.fragment.ProfileFragment;
-
+import android.content.Intent;
+import com.example.dalats.activity.ReportIncidentActivity;
 public class MainActivity extends AppCompatActivity {
 
     // Khai báo View
@@ -65,15 +67,21 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnReport.setOnClickListener(v -> {
-            // Nút giữa thường là hành động (chụp ảnh/gửi form)
-            // Nếu muốn chuyển trang thì loadFragment(new ReportFragment());
-            Toast.makeText(this, "Mở chức năng Phản ánh", Toast.LENGTH_SHORT).show();
+            if (!isLoggedIn()) {
+                Toast.makeText(this, "Vui lòng đăng nhập để gửi phản ánh", Toast.LENGTH_SHORT).show();
+
+                // Tự động chuyển sang tab Cá nhân (Profile) để người dùng đăng nhập
+                switchToTab(4);
+                return;
+            }
+            Intent intent = new Intent(MainActivity.this, ReportIncidentActivity.class);
+            startActivity(intent);
         });
 
+
         btnChat.setOnClickListener(v -> { // Hỏi đáp
-            // loadFragment(new ChatFragment());
-            setTabState(3);
-            Toast.makeText(this, "Hỏi đáp", Toast.LENGTH_SHORT).show();
+           loadFragment(new ChatFragment());
+           setTabState(3);
         });
 
         btnProfile.setOnClickListener(v -> {
@@ -81,7 +89,10 @@ public class MainActivity extends AppCompatActivity {
             setTabState(4);
         });
     }
-
+    private boolean isLoggedIn() {
+        SharedPreferences pref = getSharedPreferences("UserSession", MODE_PRIVATE);
+        return pref.contains("TOKEN");
+    }
     private void initViews() {
         // Layout nút bấm
         btnHome = findViewById(R.id.btn_nav_home);
@@ -160,8 +171,8 @@ public class MainActivity extends AppCompatActivity {
         switch (tabIndex) {
             case 1: loadFragment(new HomeFragment()); break;
             case 2: loadFragment(new MapFragment()); break;
-            // case 3: loadFragment(new ChatFragment()); break; // Bỏ comment khi có
-            // case 4: loadFragment(new ProfileFragment()); break; // Bỏ comment khi có
+            case 3: loadFragment(new ChatFragment()); break; // Bỏ comment khi có
+            case 4: loadFragment(new ProfileFragment()); break;
         }
     }
 }

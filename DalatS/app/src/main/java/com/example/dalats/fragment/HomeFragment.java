@@ -1,6 +1,7 @@
 package com.example.dalats.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout; // Cần import cái này
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -20,11 +22,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dalats.R;
+import com.example.dalats.activity.DashboardActivity;
+import com.example.dalats.activity.NotificationActivity;
+import com.example.dalats.activity.ReportIncidentActivity;
+import com.example.dalats.activity.SearchIncidentActivity;
+import com.example.dalats.activity.WeatherActivity;
 import com.example.dalats.adapter.IncidentAdapter;
 import com.example.dalats.api.ApiClient;
 import com.example.dalats.model.AirQualityResponse;
 import com.example.dalats.model.Incident;
-import com.example.dalats.model.WeatherResponse;
+import com.example.dalats.model.NotificationDTO;
+
+import com.example.dalats.model.wt;
 
 import java.util.List;
 
@@ -32,30 +41,84 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import com.example.dalats.activity.MainActivity;
+
 public class HomeFragment extends Fragment {
 
     // --- Khai báo View ---
-
-    // 1. Thẻ Thời tiết
     private TextView tvTemp, tvWeatherDesc, tvHumidity, tvWind;
     private ImageView imgWeatherIcon;
     private RelativeLayout layoutWeather;
-
-    // 2. Thẻ AQI (Mới)
     private TextView tvAqiScore, tvAqiLevel, tvPollutant;
     private RelativeLayout layoutAir;
-
-    // 3. Phần chung
     private TextView tvUsername;
     private RecyclerView rcvFeed;
     private IncidentAdapter adapter;
+
+    // --- KHAI BÁO BIẾN MỚI CHO THÔNG BÁO ---
+    private FrameLayout btnNotificationContainer; // Khung chứa chuông
+    private View viewUnreadBadge; // Chấm đỏ
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        // Ánh xạ View Thời tiết
+        // Gọi hàm ánh xạ View
+        initViews(view);
+
+        // Setup RecyclerView
+        rcvFeed.setLayoutManager(new LinearLayoutManager(getContext()));
+        tvUsername.setText("Khách");
+
+        // Gọi API dữ liệu
+        loadWeather();
+        loadAirQuality();
+        loadFeed();
+
+        // --- SỰ KIỆN CLICK (Đã sửa lại dùng Container) ---
+
+        // 1. Click vào Chuông -> Mở trang thông báo
+        if (btnNotificationContainer != null) {
+            btnNotificationContainer.setOnClickListener(v -> {
+                startActivity(new Intent(getActivity(), NotificationActivity.class));
+            });
+        }
+
+        // 2. Click thẻ Thời tiết
+        if (layoutWeather != null) {
+            layoutWeather.setOnClickListener(v -> {
+                startActivity(new Intent(getActivity(), WeatherActivity.class));
+            });
+        }
+
+        // --- CÁC NÚT TIỆN ÍCH ---
+        // Sử dụng findViewById trực tiếp từ view cha cho gọn
+        view.findViewById(R.id.btn_feature_report).setOnClickListener(v -> startActivity(new Intent(getActivity(), ReportIncidentActivity.class)));
+
+        view.findViewById(R.id.btn_feature_warning).setOnClickListener(v -> startActivity(new Intent(getActivity(), SearchIncidentActivity.class)));
+
+        view.findViewById(R.id.btn_feature_stats).setOnClickListener(v -> startActivity(new Intent(getActivity(), DashboardActivity.class)));
+
+        view.findViewById(R.id.btn_feature_weather_shortcut).setOnClickListener(v -> startActivity(new Intent(getActivity(), WeatherActivity.class)));
+
+        view.findViewById(R.id.btn_feature_incident_list).setOnClickListener(v -> startActivity(new Intent(getActivity(), SearchIncidentActivity.class)));
+
+        // Các nút chuyển Tab
+        view.findViewById(R.id.btn_feature_map).setOnClickListener(v -> {
+            if (getActivity() instanceof MainActivity) ((MainActivity) getActivity()).switchToTab(2);
+        });
+        view.findViewById(R.id.btn_feature_chat).setOnClickListener(v -> {
+            if (getActivity() instanceof MainActivity) ((MainActivity) getActivity()).switchToTab(3);
+        });
+        view.findViewById(R.id.btn_feature_profile).setOnClickListener(v -> {
+            if (getActivity() instanceof MainActivity) ((MainActivity) getActivity()).switchToTab(4);
+        });
+
+        return view;
+    }
+
+    // Hàm ánh xạ View (Giúp code gọn gàng hơn)
+    private void initViews(View view) {
         tvTemp = view.findViewById(R.id.tv_temp);
         tvWeatherDesc = view.findViewById(R.id.tv_weather_desc);
         tvHumidity = view.findViewById(R.id.tv_humidity);
@@ -63,98 +126,85 @@ public class HomeFragment extends Fragment {
         imgWeatherIcon = view.findViewById(R.id.img_weather_icon);
         layoutWeather = view.findViewById(R.id.layout_weather);
 
-        // Ánh xạ View AQI
         tvAqiScore = view.findViewById(R.id.tv_aqi_score);
         tvAqiLevel = view.findViewById(R.id.tv_aqi_level);
         tvPollutant = view.findViewById(R.id.tv_pollutant);
         layoutAir = view.findViewById(R.id.layout_air);
 
-        // Ánh xạ phần chung
         tvUsername = view.findViewById(R.id.tv_username);
         rcvFeed = view.findViewById(R.id.rcv_feed);
 
-        // Setup cơ bản
-        rcvFeed.setLayoutManager(new LinearLayoutManager(getContext()));
-        tvUsername.setText("Khách");
-
-        // GỌI API SONG SONG
-        loadWeather();
-        loadAirQuality();
-        loadFeed();
-
-        // 1. Nút Phản ánh (Report) -> Giả sử mở Toast hoặc Activity mới
-        view.findViewById(R.id.btn_feature_report).setOnClickListener(v -> {
-            Toast.makeText(getContext(), "Mở chức năng Phản ánh", Toast.LENGTH_SHORT).show();
-            // Nếu muốn mở Activity riêng:
-            // startActivity(new Intent(getActivity(), ReportActivity.class));
-        });
-
-        // 2. Nút Bản đồ (Map) -> Chuyển sang Tab Map (Index 2)
-        view.findViewById(R.id.btn_feature_map).setOnClickListener(v -> {
-            if (getActivity() instanceof MainActivity) {
-                ((MainActivity) getActivity()).switchToTab(2);
-            }
-        });
-
-        // 3. Nút Cảnh báo (Warning) -> Toast
-        view.findViewById(R.id.btn_feature_warning).setOnClickListener(v -> {
-            Toast.makeText(getContext(), "Xem danh sách Cảnh báo", Toast.LENGTH_SHORT).show();
-        });
-
-        // 4. Nút Hỏi đáp (Chat) -> Chuyển sang Tab Chat (Index 3)
-        view.findViewById(R.id.btn_feature_chat).setOnClickListener(v -> {
-            if (getActivity() instanceof MainActivity) {
-                ((MainActivity) getActivity()).switchToTab(3);
-            } else {
-                Toast.makeText(getContext(), "Chức năng Hỏi đáp", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        // 5. Nút Cá nhân (Profile) -> Chuyển sang Tab Profile (Index 4)
-        view.findViewById(R.id.btn_feature_profile).setOnClickListener(v -> {
-            if (getActivity() instanceof MainActivity) {
-                ((MainActivity) getActivity()).switchToTab(4);
-            } else {
-                Toast.makeText(getContext(), "Trang cá nhân", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        // 6. Nút Thống kê (Stats) -> Toast
-        view.findViewById(R.id.btn_feature_stats).setOnClickListener(v -> {
-            Toast.makeText(getContext(), "Xem thống kê số liệu", Toast.LENGTH_SHORT).show();
-        });
-        return view;
+        // --- ÁNH XẠ ĐÚNG ID TỪ FILE XML MỚI ---
+        btnNotificationContainer = view.findViewById(R.id.btn_notification_container);
+        viewUnreadBadge = view.findViewById(R.id.view_unread_badge);
     }
+
     @Override
     public void onResume() {
         super.onResume();
         updateUsername();
+        checkUnreadNotifications(); // Kiểm tra thông báo mỗi khi quay lại màn hình
     }
-    private void updateUsername() {
+
+    // --- LOGIC KIỂM TRA THÔNG BÁO ---
+    private void checkUnreadNotifications() {
         if (getContext() == null) return;
 
         SharedPreferences pref = getContext().getSharedPreferences("UserSession", Context.MODE_PRIVATE);
-        String fullName = pref.getString("FULL_NAME", null); // Key "FULL_NAME" lưu ở LoginActivity
+        String token = pref.getString("TOKEN", null);
 
+        // Nếu chưa đăng nhập thì ẩn chấm đỏ
+        if (token == null) {
+            if (viewUnreadBadge != null) viewUnreadBadge.setVisibility(View.GONE);
+            return;
+        }
+
+        // Gọi API lấy danh sách thông báo
+        ApiClient.getNotificationService().getMyNotifications().enqueue(new Callback<List<NotificationDTO>>() {
+            @Override
+            public void onResponse(Call<List<NotificationDTO>> call, Response<List<NotificationDTO>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    boolean hasUnread = false;
+                    for (NotificationDTO item : response.body()) {
+                        if (!item.isRead()) { // Nếu có tin chưa đọc
+                            hasUnread = true;
+                            break;
+                        }
+                    }
+                    // Hiện hoặc ẩn chấm đỏ
+                    if (viewUnreadBadge != null) {
+                        viewUnreadBadge.setVisibility(hasUnread ? View.VISIBLE : View.GONE);
+                    }
+                }
+            }
+            @Override
+            public void onFailure(Call<List<NotificationDTO>> call, Throwable t) {}
+        });
+    }
+
+    private void updateUsername() {
+        if (getContext() == null) return;
+        SharedPreferences pref = getContext().getSharedPreferences("UserSession", Context.MODE_PRIVATE);
+        String fullName = pref.getString("FULL_NAME", null);
         if (fullName != null && !fullName.isEmpty()) {
             tvUsername.setText(fullName);
         } else {
-            tvUsername.setText("Khách"); // Hoặc "Người dùng" nếu chưa đăng nhập
+            tvUsername.setText("Khách");
         }
     }
 
-    // --- LOGIC 1: THỜI TIẾT ---
+    // --- LOGIC THỜI TIẾT ---
     private void loadWeather() {
-        ApiClient.getEnviService().getWeather().enqueue(new Callback<WeatherResponse>() {
+        ApiClient.getEnviService().getWeather().enqueue(new Callback<wt>() {
             @Override
-            public void onResponse(Call<WeatherResponse> call, Response<WeatherResponse> response) {
+            public void onResponse(Call<wt> call, Response<wt> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    WeatherResponse w = response.body();
+                    wt w = response.body();
                     updateWeatherUI(w.getTemperature(), w.getDescription(), w.getHumidity(), w.getWindSpeed());
                 }
             }
             @Override
-            public void onFailure(Call<WeatherResponse> call, Throwable t) {
+            public void onFailure(Call<wt> call, Throwable t) {
                 tvWeatherDesc.setText("Lỗi kết nối");
             }
         });
@@ -164,42 +214,32 @@ public class HomeFragment extends Fragment {
         if (getContext() == null) return;
 
         tvTemp.setText(Math.round(temp) + "°");
-
-        String capDesc = (description != null && !description.isEmpty())
-                ? description.substring(0, 1).toUpperCase() + description.substring(1)
-                : "";
+        String capDesc = (description != null && !description.isEmpty()) ? description.substring(0, 1).toUpperCase() + description.substring(1) : "";
         tvWeatherDesc.setText(capDesc);
-
-        // Thêm icon emoji vào text để hiển thị trong Chip
         tvHumidity.setText("💧 " + humidity + "%");
         tvWind.setText("💨 " + String.format("%.1f", windSpeed) + " m/s");
 
-        // Logic màu sắc (Giữ nguyên như cũ vì đã tốt rồi)
         String condition = (description != null) ? description.toLowerCase() : "";
         int startColor, endColor, iconResId;
 
         if (condition.contains("mưa") || condition.contains("dông")) {
             startColor = Color.parseColor("#373B44"); endColor = Color.parseColor("#4286f4");
             iconResId = R.drawable.rainy;
-        }
-        else if (condition.contains("nắng") && temp > 25) {
+        } else if (condition.contains("nắng") && temp > 25) {
             startColor = Color.parseColor("#FF512F"); endColor = Color.parseColor("#DD2476");
             iconResId = R.drawable.sunny;
-        }
-        else if (temp < 18) {
+        } else if (temp < 18) {
             startColor = Color.parseColor("#00c6ff"); endColor = Color.parseColor("#0072ff");
             iconResId = R.drawable.cloudy;
-        }
-        else {
+        } else {
             startColor = Color.parseColor("#8E2DE2"); endColor = Color.parseColor("#4A00E0");
             iconResId = R.drawable.tt;
         }
-
         applyGradient(layoutWeather, startColor, endColor);
         imgWeatherIcon.setImageResource(iconResId);
     }
 
-    // --- LOGIC 2: KHÔNG KHÍ (AQI) ---
+    // --- LOGIC KHÔNG KHÍ ---
     private void loadAirQuality() {
         ApiClient.getEnviService().getAirQuality().enqueue(new Callback<AirQualityResponse>() {
             @Override
@@ -211,19 +251,17 @@ public class HomeFragment extends Fragment {
             }
             @Override
             public void onFailure(Call<AirQualityResponse> call, Throwable t) {
-                tvAqiLevel.setText("Lỗi tải");
+                if (tvAqiLevel != null) tvAqiLevel.setText("Lỗi");
             }
         });
     }
 
     private void updateAirQualityUI(int aqi, String level, String pollutant) {
         if (getContext() == null) return;
-
         tvAqiScore.setText(String.valueOf(aqi));
         tvAqiLevel.setText(level);
         tvPollutant.setText(pollutant != null ? pollutant.toUpperCase() : "PM2.5");
 
-        // Logic màu AQI (Giữ nguyên)
         int startColor, endColor;
         if (aqi <= 50) {
             startColor = Color.parseColor("#11998e"); endColor = Color.parseColor("#38ef7d");
@@ -237,12 +275,9 @@ public class HomeFragment extends Fragment {
         applyGradient(layoutAir, startColor, endColor);
     }
 
-    // --- TIỆN ÍCH CHUNG ---
     private void applyGradient(View view, int startColor, int endColor) {
-        GradientDrawable gradient = new GradientDrawable(
-                GradientDrawable.Orientation.TL_BR,
-                new int[]{startColor, endColor});
-        gradient.setCornerRadius(dpToPx(16)); // Bo góc 16dp
+        GradientDrawable gradient = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[]{startColor, endColor});
+        gradient.setCornerRadius(dpToPx(16));
         view.setBackground(gradient);
     }
 
@@ -251,7 +286,7 @@ public class HomeFragment extends Fragment {
         return (int) (dp * getResources().getDisplayMetrics().density);
     }
 
-    // --- LOAD FEED (Giữ nguyên) ---
+    // --- LOAD FEED ---
     private void loadFeed() {
         ApiClient.getIncidentService().getPublicFeed().enqueue(new Callback<List<Incident>>() {
             @Override

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_edittext"
+    android:padding="12dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginStart="24dp"> <TextView
+    android:id="@+id/tv_ans_responder"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Admin (Kỹ thuật)"
+    android:textStyle="bold"
+    android:textColor="#4CAF50"/>
+
+    <TextView
+        android:id="@+id/tv_ans_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nội dung trả lời..."
+        android:layout_marginTop="4dp"
+        android:textColor="#333"/>
+
+    <TextView
+        android:id="@+id/tv_ans_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2024-01-01"
+        android:textSize="10sp"
+        android:textColor="#999"
+        android:gravity="end"/>
+</LinearLayout>

@@ -67,5 +67,18 @@ namespace SafeDalat_API.Controllers
 
             return NoContent();
         }
+        [HttpGet("categories")]
+        [AllowAnonymous] 
+        public async Task<IActionResult> GetCategories()
+        {
+            return Ok(await _repo.GetAllCategoriesAsync());
+        }
+        [HttpGet("my-questions")]
+        [Authorize] // Bắt buộc đăng nhập
+        public async Task<IActionResult> GetMyQuestions()
+        {
+            int userId = User.GetUserId(); // Lấy ID từ Token
+            return Ok(await _repo.GetQuestionsByUserIdAsync(userId));
+        }
     }
 }

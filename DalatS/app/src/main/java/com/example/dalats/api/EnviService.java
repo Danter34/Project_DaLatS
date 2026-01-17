@@ -1,7 +1,7 @@
 package com.example.dalats.api;
 
 import com.example.dalats.model.AirQualityResponse;
-import com.example.dalats.model.WeatherResponse;
+import com.example.dalats.model.wt;
 
 import java.util.List;
 
@@ -12,8 +12,8 @@ public interface EnviService {
 
     //ẩn để giảm số lần rq khi app đang ở prototype
 
-    @GET("api//weather")
-    Call<WeatherResponse> getWeather();
+    @GET("api/e/weather")
+    Call<wt> getWeather();
     @GET("api/E/air-quality")
     Call<AirQualityResponse> getAirQuality();
 }

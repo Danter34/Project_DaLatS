@@ -80,7 +80,12 @@ public class ApiClient {
     public static IncidentService getIncidentService() {
         return getClient().create(IncidentService.class);
     }
-
+    public static QAService getQAService() {
+        return getClient().create(QAService.class);
+    }
+    public static NotificationService getNotificationService() {
+        return getClient().create(NotificationService.class);
+    }
     public static EnviService getEnviService() {
         return getClient().create(EnviService.class);
     }

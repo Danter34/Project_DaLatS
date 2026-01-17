@@ -31,4 +31,10 @@
 
     <color name="bg_gray">#F3F4F6</color>
     <color name="icon_gray">#6B7280</color>
+
+    <color name="bg_cyan">#E0F7FA</color>
+    <color name="icon_cyan">#00BCD4</color>
+
+    <color name="bg_teal">#E0F2F1</color>
+    <color name="icon_teal">#009688</color>
 </resources>

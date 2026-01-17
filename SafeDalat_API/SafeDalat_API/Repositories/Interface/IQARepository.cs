@@ -1,4 +1,5 @@
-﻿using SafeDalat_API.Model.DTO.QA;
+﻿using SafeDalat_API.Model.Domain;
+using SafeDalat_API.Model.DTO.QA;
 
 namespace SafeDalat_API.Repositories.Interface
 {
@@ -9,5 +10,7 @@ namespace SafeDalat_API.Repositories.Interface
 
         Task<bool> CreateAnswerAsync(int questionId, int responderId, CreateAnswerDTO dto);
         Task<List<QuestionResponseDTO>> GetQuestionsByDepartmentAsync(int departmentId);
+        Task<List<QuestionCategory>> GetAllCategoriesAsync();
+        Task<List<QuestionResponseDTO>> GetQuestionsByUserIdAsync(int userId);
     }
 }

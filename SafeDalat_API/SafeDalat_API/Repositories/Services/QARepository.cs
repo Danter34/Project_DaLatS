@@ -140,5 +140,44 @@ namespace SafeDalat_API.Repositories.Services
             await _context.SaveChangesAsync();
             return true;
         }
+        public async Task<List<QuestionCategory>> GetAllCategoriesAsync()
+        {
+            return await _context.QuestionCategories
+                .AsNoTracking() // Tối ưu hiệu năng, không cần theo dõi thay đổi
+                .ToListAsync();
+        }
+        public async Task<List<QuestionResponseDTO>> GetQuestionsByUserIdAsync(int userId)
+        {
+            return await _context.Questions
+                .AsNoTracking()
+                .Where(q => q.UserId == userId) // Lọc theo UserId
+                .Include(q => q.User)
+                .Include(q => q.QuestionCategory)
+                .Include(q => q.AssignedDepartment)
+                .Include(q => q.Answers)
+                    .ThenInclude(a => a.Responder)
+                        .ThenInclude(u => u.Department)
+                .OrderByDescending(q => q.CreatedAt)
+                .Select(q => new QuestionResponseDTO
+                {
+                    QuestionId = q.QuestionId,
+                    Content = q.Content,
+                    CreatedAt = q.CreatedAt,
+                    UserId = q.UserId,
+                    UserName = q.User.FullName,
+                    QuestionCategoryName = q.QuestionCategory.Name,
+                    AssignedDepartmentName = q.AssignedDepartment != null ? q.AssignedDepartment.Name : null,
+                    Answers = q.Answers.Select(a => new AnswerResponseDTO
+                    {
+                        AnswerId = a.AnswerId,
+                        Content = a.Content,
+                        CreatedAt = a.CreatedAt,
+                        ResponderId = a.ResponderId,
+                        ResponderName = a.Responder.FullName,
+                        DepartmentName = a.Responder.Department != null ? a.Responder.Department.Name : "Quản trị viên"
+                    }).ToList()
+                })
+                .ToListAsync();
+        }
     }
 }

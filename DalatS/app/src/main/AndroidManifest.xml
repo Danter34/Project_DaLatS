@@ -7,6 +7,23 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+
+    <uses-feature android:name="android.hardware.camera" android:required="true" />
+
+    <queries>
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.GET_CONTENT" />
+        </intent>
+    </queries>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -31,9 +48,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.WeatherActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name=".activity.SearchIncidentActivity"/>
+        <activity android:name=".activity.NotificationActivity"/>
+        <activity android:name=".activity.SettingsActivity" />
+        <activity android:name=".activity.AppInfoActivity" />
+        <activity android:name=".activity.CreateQuestionActivity" />
+        <activity android:name=".activity.QuestionDetailActivity" />
+        <activity android:name=".activity.DashboardActivity" />
         <activity android:name=".activity.RegisterActivity" />
         <activity android:name=".activity.LoginActivity" />
         <activity android:name=".activity.ForgotPasswordActivity"/>
+        <activity android:name=".activity.ReportIncidentActivity"/>
         <activity android:name=".activity.ImageDetailActivity" android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".activity.IncidentDetailActivity" android:exported="false" />
     </application>
