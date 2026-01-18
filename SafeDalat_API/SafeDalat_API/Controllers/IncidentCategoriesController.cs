@@ -33,7 +33,7 @@ namespace SafeDalat_API.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        [HttpPut("update-by-id{id}")]
+        [HttpPut("update-by-id/{id}")]
         public async Task<IActionResult> Update(int id, CreateIncidentCategoryDTO dto)
         {
             var result = await _repo.UpdateAsync(id, dto);
@@ -43,7 +43,7 @@ namespace SafeDalat_API.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        [HttpDelete("delete-by-id{id}")]
+        [HttpDelete("delete-by-id/{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             if (!await _repo.DeleteAsync(id))

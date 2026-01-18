@@ -1,0 +1,102 @@
+<div class="page-container">
+  
+  <div class="card-header">
+    <h3>Quản lý Danh mục Sự cố</h3>
+    <button class="btn-add" (click)="openCreateModal()">
+      <i class="fas fa-plus"></i> Thêm mới
+    </button>
+  </div>
+
+  <div class="table-container">
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th style="width: 100px;">ID</th>
+          <th>Tên Danh Mục</th>
+          <th style="text-align: right; width: 150px;">Hành động</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cat of categories">
+          <td style="font-weight: bold; color: #666;">
+            #{{ cat.categoryId }}
+          </td>
+          
+          <td>
+            <span class="category-name">{{ cat.name }}</span>
+          </td>
+          
+          <td style="text-align: right;">
+            <button class="btn-icon btn-edit" (click)="openEditModal(cat)" title="Sửa">
+              <i class="fas fa-pen"></i>
+            </button>
+            <button class="btn-icon btn-delete" (click)="openDeleteModal(cat)" title="Xóa">
+              <i class="fas fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+        
+        <tr *ngIf="categories.length === 0 && !isLoading">
+          <td colspan="3" style="text-align: center; padding: 30px; color: #999;">
+            Chưa có danh mục nào.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal-backdrop" *ngIf="showFormModal">
+  <div class="modal-content">
+    <h3>{{ formMode === 'create' ? 'Thêm Danh Mục Mới' : 'Cập Nhật Danh Mục' }}</h3>
+    
+    <div style="margin: 20px 0;">
+      <label style="display: block; margin-bottom: 8px; font-weight: 500;">Tên danh mục:</label>
+      <input 
+        type="text" 
+        class="form-input" 
+        [(ngModel)]="categoryNameInput" 
+        placeholder="Ví dụ: Tai nạn giao thông..."
+        (keyup.enter)="submitForm()">
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-cancel" (click)="closeFormModal()">Hủy</button>
+      <button class="btn-confirm bg-blue" (click)="submitForm()">
+        Lưu lại
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" *ngIf="showDeleteModal">
+  <div class="modal-content">
+    <h3 style="color: #ff4d4f;">Xác nhận xóa?</h3>
+    <p style="color: #666; margin-bottom: 20px;">
+      Bạn có chắc muốn xóa danh mục <strong>{{ categoryToDelete?.name }}</strong>?<br>
+      <small>Lưu ý: Không thể xóa nếu danh mục này đang có sự cố liên quan.</small>
+    </p>
+
+    <div class="modal-actions">
+      <button class="btn-cancel" (click)="closeDeleteModal()">Hủy</button>
+      <button class="btn-confirm bg-red" (click)="confirmDelete()">
+        Xóa ngay
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" *ngIf="showSuccessModal">
+    <div class="modal-content success-content">
+      <div class="success-icon">
+        <i class="fas fa-check"></i>
+      </div>
+      <h3>Thành công!</h3>
+      <p style="color: #666; font-size: 14px; text-align: center; margin-bottom: 20px;">
+        {{ successMessage }}
+      </p>
+      <button class="btn-confirm bg-green" style="width: 100%;" (click)="closeSuccessModal()">
+        Đóng
+      </button>
+    </div>
+</div>

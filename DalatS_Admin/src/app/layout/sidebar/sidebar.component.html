@@ -1,0 +1,61 @@
+<div class="sidebar">
+  <div class="brand">
+    <i class="fas fa-shield-alt"></i> Safe Dalat
+  </div>
+
+  <ul class="nav-links">
+    
+    <li *ngIf="isAdmin" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <a routerLink="/admin/dashboard">
+        <i class="fas fa-th-large"></i> <span>Dashboard</span>
+      </a>
+    </li>
+
+    <li routerLinkActive="active">
+      <a routerLink="/admin/incidents">
+        <i class="fas fa-exclamation-circle"></i> <span>Quản lý sự cố</span>
+      </a>
+    </li>
+
+    <li *ngIf="isAdmin" routerLinkActive="active">
+      <a routerLink="/admin/citizens">
+        <i class="fas fa-users"></i> <span>Người dân</span>
+      </a>
+    </li>
+
+    <div *ngIf="isAdmin" class="menu-label">QUẢN TRỊ HỆ THỐNG</div>
+
+    <li *ngIf="isAdmin" routerLinkActive="active">
+      <a routerLink="/admin/staff">
+        <i class="fas fa-user-tie"></i> <span>Nhân viên</span>
+      </a>
+    </li>
+
+    <li *ngIf="isAdmin" routerLinkActive="active">
+      <a routerLink="/admin/departments">
+        <i class="fas fa-building"></i> <span>Phòng ban</span>
+      </a>
+    </li>
+
+    <div *ngIf="isAdmin" class="menu-label">CẤU HÌNH & KHÁC</div>
+    <div *ngIf="!isAdmin" class="menu-label">KHÁC</div>
+
+    <li *ngIf="isAdmin" routerLinkActive="active">
+      <a routerLink="/admin/categories">
+        <i class="fas fa-list"></i> <span>Danh mục sự cố</span>
+      </a>
+    </li>
+
+    <li routerLinkActive="active">
+      <a routerLink="/admin/qa">
+        <i class="fas fa-comments"></i> <span>Hỏi đáp (Q&A)</span>
+      </a>
+    </li>
+
+    <li class="logout-item">
+      <a (click)="logout()">
+        <i class="fas fa-sign-out-alt"></i> <span>Đăng xuất</span>
+      </a>
+    </li>
+  </ul>
+</div>

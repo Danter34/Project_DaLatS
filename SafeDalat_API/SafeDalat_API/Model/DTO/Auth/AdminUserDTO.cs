@@ -9,6 +9,11 @@
         public bool IsLocked { get; set; }
         public bool EmailVerified { get; set; }
         public DateTime CreatedAt { get; set; }
+
+        public int IncidentCount { get; set; }
+
+        public int? DepartmentId { get; set; }
+        public string? DepartmentName { get; set; }
     }
 
 }

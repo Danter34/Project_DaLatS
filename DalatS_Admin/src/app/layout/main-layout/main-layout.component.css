@@ -1,0 +1,28 @@
+.admin-wrapper {
+  display: flex;
+  height: 100vh; /* Bắt buộc: Chiều cao bằng màn hình */
+  width: 100%;
+  overflow: hidden; /* Khóa cuộn toàn trang */
+}
+
+/* Sidebar Component */
+
+
+.content-area {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column; /* Xếp Header và Main Content dọc */
+  margin-left: 250px; /* Chừa chỗ cho Sidebar fixed */
+  height: 100vh; /* Quan trọng */
+  overflow: hidden; /* Quan trọng: Không cho content-area cuộn */
+}
+
+.main-content {
+  padding: 24px;
+  flex-grow: 1; /* Tự động chiếm hết khoảng trống còn lại dưới Header */
+  overflow-y: auto; /* QUAN TRỌNG: Chỉ cho phép cuộn riêng vùng này */
+  
+  /* Tùy chỉnh thanh cuộn cho đẹp */
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e0 #f7fafc;
+}

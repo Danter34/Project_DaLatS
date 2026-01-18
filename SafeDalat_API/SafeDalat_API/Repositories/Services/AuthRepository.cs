@@ -139,6 +139,8 @@ namespace SafeDalat_API.Repositories.Services
         {
             return await _context.Users
                 .AsNoTracking()
+                .Include(u => u.Department) 
+                .Include(u => u.Incidents)
                 .OrderByDescending(x => x.CreatedAt)
                 .Select(x => new AdminUserDTO
                 {
@@ -148,7 +150,12 @@ namespace SafeDalat_API.Repositories.Services
                     Role = x.Role,
                     IsLocked = x.IsLocked,
                     EmailVerified = x.EmailVerified,
-                    CreatedAt = x.CreatedAt
+                    CreatedAt = x.CreatedAt,
+                    IncidentCount = x.Incidents.Count(),
+
+                    
+                    DepartmentId = x.DepartmentId,
+                    DepartmentName = x.Department != null ? x.Department.Name : null
                 })
                 .ToListAsync();
         }

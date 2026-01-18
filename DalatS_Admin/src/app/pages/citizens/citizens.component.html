@@ -1,0 +1,134 @@
+<div class="page-container">
+  
+  <div class="card-header">
+    <h3>Danh sách người dân</h3>
+    <div class="search-wrapper">
+      <input 
+        type="text" 
+        class="search-input"
+        placeholder="Tìm theo tên, email..." 
+        [(ngModel)]="searchText"
+        (keyup.enter)="onSearch()">
+      <button class="btn-search" (click)="onSearch()">Tìm kiếm</button>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th style="width: 80px;">ID</th>
+          
+          <th>Họ tên</th>
+          
+          <th>Email</th>
+          
+          <th style="text-align: center;">Số sự cố</th>
+          
+          <th>Ngày tham gia</th>
+
+          <th>Trạng thái</th>
+          
+          <th style="text-align: right;">Hành động</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of paginatedUsers">
+          <td style="font-weight: bold; color: #666;">
+            #{{ user.userId }}
+          </td>
+          
+          <td>
+            <span class="user-name" style="font-weight: 500; color: #333;">
+              {{ user.fullName }}
+            </span>
+          </td>
+          
+          <td>{{ user.email }}</td>
+          
+          <td style="text-align: center; font-weight: 600; color: #555;">
+            {{ user.incidentCount }}
+          </td>
+
+          <td style="color: #666;">
+            {{ user.createdAt | date:'dd/MM/yyyy' }}
+          </td>
+          
+          <td>
+            <span class="badge" [ngClass]="user.isLocked ? 'badge-locked' : 'badge-active'">
+              {{ user.isLocked ? 'Đã khóa' : 'Hoạt động' }}
+            </span>
+          </td>
+          
+          <td style="text-align: right;">
+            <button *ngIf="!user.isLocked" class="btn-link link-lock" (click)="openModal(user, 'lock')">
+              Khóa
+            </button>
+
+            <button *ngIf="user.isLocked" class="btn-link link-unlock" (click)="openModal(user, 'unlock')">
+              Mở khóa
+            </button>
+          </td>
+        </tr>
+        
+        <tr *ngIf="paginatedUsers.length === 0 && !isLoading">
+          <td colspan="7" style="text-align: center; padding: 30px; color: #999;">
+            Không tìm thấy dữ liệu phù hợp
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="pagination-controls" *ngIf="totalPages > 1" style="padding: 15px; display: flex; justify-content: flex-end; gap: 10px;">
+        <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1" class="btn-page"> < </button>
+        <span style="line-height: 32px; font-size: 14px;">Trang {{ currentPage }} / {{ totalPages }}</span>
+        <button (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages" class="btn-page"> > </button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" *ngIf="showModal">
+  <div class="modal-content">
+    <h3 style="margin-top: 0; font-size: 18px;">
+      {{ modalType === 'lock' ? 'Xác nhận khóa tài khoản' : 'Mở khóa tài khoản' }}
+    </h3>
+    <p style="color: #666; font-size: 14px; margin-bottom: 15px;">
+      Bạn đang thực hiện thao tác với người dùng <strong>{{ selectedUser?.fullName }}</strong>.
+    </p>
+    
+    <div style="margin-bottom: 20px;">
+      <label style="display: block; margin-bottom: 5px; font-weight: 500; font-size: 13px;">Lý do:</label>
+      <textarea 
+        [(ngModel)]="lockReason" 
+        rows="3" 
+        style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; resize: none; outline: none;"
+        placeholder="Nhập lý do gửi email thông báo...">
+      </textarea>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-cancel" (click)="closeModal()">Hủy bỏ</button>
+      <button 
+        class="btn-confirm" 
+        [ngClass]="modalType === 'lock' ? 'bg-red' : 'bg-green'"
+        (click)="confirmAction()">
+        {{ modalType === 'lock' ? 'Khóa ngay' : 'Mở khóa' }}
+      </button>
+    </div>
+  </div>
+  
+</div>
+<div class="modal-backdrop" *ngIf="showSuccessModal">
+    <div class="modal-content success-content">
+      <div class="success-icon">
+        <i class="fas fa-check"></i>
+      </div>
+      <h3>Thao tác thành công!</h3>
+      <p style="color: #666; font-size: 14px; text-align: center; margin-bottom: 20px;">
+        {{ successMessage }}
+      </p>
+      <button class="btn-confirm bg-green" style="width: 100%;" (click)="closeSuccessModal()">
+        Đóng
+      </button>
+    </div>
+</div>

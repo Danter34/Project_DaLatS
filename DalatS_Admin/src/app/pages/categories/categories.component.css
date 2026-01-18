@@ -1,0 +1,158 @@
+/* Container và Layout giống Citizens */
+.page-container {
+  padding: 0;
+  background-color: transparent;
+}
+
+.card-header {
+  background: white;
+  padding: 20px;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Nút Thêm Mới */
+.btn-add {
+  background-color: #1890ff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.2s;
+}
+
+.btn-add:hover {
+  background-color: #40a9ff;
+  transform: translateY(-1px);
+}
+
+/* Table Style */
+.table-container {
+  background: white;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.custom-table th {
+  background-color: #fafafa;
+  color: #555;
+  font-weight: 600;
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 14px;
+}
+
+.custom-table td {
+  padding: 16px;
+  border-bottom: 1px solid #f0f0f0;
+  color: #333;
+  vertical-align: middle;
+}
+
+.category-name {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+/* Action Icon Buttons (Edit/Delete) */
+.btn-icon {
+  width: 35px;
+  height: 35px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  margin-left: 8px;
+  transition: 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-edit {
+  background-color: #e6f7ff;
+  color: #1890ff;
+}
+.btn-edit:hover {
+  background-color: #1890ff;
+  color: white;
+}
+
+.btn-delete {
+  background-color: #fff1f0;
+  color: #ff4d4f;
+}
+.btn-delete:hover {
+  background-color: #ff4d4f;
+  color: white;
+}
+
+/* Modal Form Input */
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box; /* Quan trọng để không tràn khung */
+}
+.form-input:focus {
+  border-color: #40a9ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.1);
+}
+
+/* Modal Common */
+.modal-backdrop {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex; justify-content: center; align-items: center; z-index: 2000;
+  animation: fadeIn 0.2s;
+}
+
+.modal-content {
+  background: white; padding: 25px; border-radius: 8px; width: 400px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.modal-actions { margin-top: 25px; display: flex; justify-content: flex-end; gap: 10px; }
+.btn-confirm { padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; color: white; font-weight: 500;}
+.btn-cancel { padding: 10px 20px; border: 1px solid #d9d9d9; border-radius: 6px; cursor: pointer; background: white; }
+
+.bg-blue { background: #1890ff; }
+.bg-red { background: #ff4d4f; }
+.bg-green { background: #52c41a; }
+
+/* Success Modal Style */
+.success-content {
+    display: flex; flex-direction: column; align-items: center; width: 300px; padding: 30px;
+}
+.success-icon {
+    width: 60px; height: 60px; background-color: #d1fae5; color: #059669;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 24px; margin-bottom: 15px;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }

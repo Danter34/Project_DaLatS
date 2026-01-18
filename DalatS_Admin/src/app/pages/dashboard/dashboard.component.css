@@ -1,0 +1,124 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* --- Style chung cho Card --- */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  border: 1px solid #f0f0f0;
+}
+
+/* --- Grid hàng 1: 4 Cards --- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 cột bằng nhau */
+  gap: 20px;
+}
+
+.stat-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-title {
+  color: #8898aa;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.card-value {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #32325d;
+}
+
+.card-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+}
+
+/* Màu nền cho các icon */
+.bg-blue { background-color: #5e72e4; }
+.bg-yellow { background-color: #fb6340; } /* Trong hình là màu cam đậm/vàng */
+.bg-orange { background-color: #fd7e14; } /* Đang xử lý - màu cam */
+.bg-green { background-color: #2dce89; }
+
+/* --- Grid hàng 2: Chart (2 phần) + Map (1 phần) --- */
+.charts-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Cột trái rộng gấp đôi cột phải */
+  gap: 20px;
+}
+
+.section-title {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  color: #32325d;
+}
+
+.chart-wrapper {
+  height: 300px; /* Chiều cao cố định cho biểu đồ */
+  position: relative;
+}
+
+/* --- Giả lập Bản đồ nhiệt (CSS Only) --- */
+.map-placeholder {
+  height: 300px;
+  background-color: #f6f9fc;
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Tạo hiệu ứng đốm nhiệt mờ mờ */
+.heat-point {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255,87,34,0.6) 0%, rgba(255,87,34,0) 70%);
+  border-radius: 50%;
+}
+
+.map-pin {
+  font-size: 2rem;
+  color: #e74c3c;
+  z-index: 2;
+  position: relative;
+  top: 10px;
+}
+
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 992px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 cột mỗi hàng */
+  }
+  .charts-grid {
+    grid-template-columns: 1fr; /* Xếp chồng lên nhau */
+  }
+}
+
+@media (max-width: 576px) {
+  .stats-grid {
+    grid-template-columns: 1fr; /* 1 cột */
+  }
+}

@@ -251,5 +251,48 @@ namespace SafeDalat_API.Controllers
             return Ok("Xác minh email thành công");
         }
 
+        [Authorize(Roles = "Admin")] // Chỉ Admin mới được tạo nhân viên
+        [HttpPost("create-staff")]
+        public async Task<IActionResult> CreateStaff([FromBody] CreateStaffDTO dto)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            // 1. Kiểm tra Email trùng
+            if (_context.Users.Any(x => x.Email == dto.Email))
+                return BadRequest("Email này đã tồn tại trong hệ thống.");
+
+            // 2. Tạo User mới
+            var user = new User
+            {
+                FullName = dto.FullName,
+                Email = dto.Email,
+                // Mã hóa mật khẩu
+                Password = BCrypt.Net.BCrypt.HashPassword(dto.Password),
+
+                Role = dto.Role, // "Staff" hoặc "Manager"
+                DepartmentId = dto.DepartmentId,
+
+                // QUAN TRỌNG: Nhân viên do Admin tạo thì auto kích hoạt
+                IsLocked = false,
+                EmailVerified = true,
+                CreatedAt = DateTime.UtcNow
+            };
+
+            try
+            {
+                _context.Users.Add(user);
+                await _context.SaveChangesAsync();
+
+                // (Tùy chọn) Có thể gửi email thông báo password cho nhân viên tại đây
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Lỗi khi tạo nhân viên: " + ex.Message);
+            }
+
+            return Ok(new { message = "Tạo nhân viên thành công!", userId = user.UserId });
+        }
+
     }
 }

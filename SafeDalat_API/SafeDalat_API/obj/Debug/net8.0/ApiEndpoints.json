@@ -664,6 +664,26 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SafeDalat_API.Controllers.QAController",
+    "Method": "GetCategories",
+    "RelativePath": "api/QA/categories",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SafeDalat_API.Controllers.QAController",
+    "Method": "GetMyQuestions",
+    "RelativePath": "api/QA/my-questions",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SafeDalat_API.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",

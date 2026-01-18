@@ -1,0 +1,62 @@
+<div class="dashboard-container">
+  
+  <div class="stats-grid">
+    <div class="card stat-card">
+      <div class="card-info">
+        <span class="card-title">TỔNG PHẢN ÁNH</span>
+        <h3 class="card-value">{{ summary.tongSuCo | number }}</h3>
+      </div>
+      <div class="card-icon bg-blue"><i class="fas fa-file-alt"></i></div>
+    </div>
+
+    <div class="card stat-card">
+      <div class="card-info">
+        <span class="card-title">CHỜ XỬ LÝ</span>
+        <h3 class="card-value">{{ summary.choXuLy | number }}</h3>
+      </div>
+      <div class="card-icon bg-yellow"><i class="fas fa-clock"></i></div>
+    </div>
+
+    <div class="card stat-card">
+      <div class="card-info">
+        <span class="card-title">ĐANG XỬ LÝ</span>
+        <h3 class="card-value">{{ summary.dangXuLy | number }}</h3>
+      </div>
+      <div class="card-icon bg-orange"><i class="fas fa-exclamation-triangle"></i></div>
+    </div>
+
+    <div class="card stat-card">
+      <div class="card-info">
+        <span class="card-title">ĐÃ HOÀN THÀNH</span>
+        <h3 class="card-value">{{ summary.daHoanThanh | number }}</h3>
+      </div>
+      <div class="card-icon bg-green"><i class="fas fa-check-circle"></i></div>
+    </div>
+  </div>
+
+  <div class="charts-grid">
+    
+    <div class="card chart-section">
+      <h4 class="section-title">Thống kê theo Danh mục</h4>
+      <div class="chart-wrapper">
+        <canvas baseChart
+          [data]="categoryChartData"
+          [options]="categoryChartOptions"
+          [type]="categoryChartType">
+        </canvas>
+      </div>
+    </div>
+
+    <div class="card map-section">
+      <h4 class="section-title">Theo mức độ cảnh báo</h4>
+      <div class="chart-wrapper">
+        <canvas baseChart
+          [data]="alertChartData"
+          [options]="alertChartOptions"
+          [type]="alertChartType">
+        </canvas>
+      </div>
+    </div>
+
+  </div>
+</div>

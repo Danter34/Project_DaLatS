@@ -1,0 +1,112 @@
+<div class="page-container">
+  
+  <div class="card-header">
+    <h3>Quản lý Phòng Ban</h3>
+    <button class="btn-add" (click)="openCreateModal()">
+      <i class="fas fa-plus"></i> Thêm mới
+    </button>
+  </div>
+
+  <div class="table-container">
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th style="width: 80px;">ID</th>
+          <th>Tên Phòng Ban</th>
+          <th>Mô tả</th>
+          <th>Liên hệ</th>
+          <th style="text-align: center;">Nhân sự</th>
+          <th style="text-align: right; width: 120px;">Hành động</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dept of departments">
+          <td style="font-weight: bold; color: #666;">#{{ dept.departmentId }}</td>
+          
+          <td>
+            <span class="dept-name">{{ dept.name }}</span>
+          </td>
+          
+          <td style="color: #666; font-size: 13px;">
+            {{ dept.description || '---' }}
+          </td>
+
+          <td>
+            <span *ngIf="dept.phoneNumber"><i class="fas fa-phone-alt" style="font-size: 12px; margin-right: 5px;"></i> {{ dept.phoneNumber }}</span>
+            <span *ngIf="!dept.phoneNumber" style="color: #ccc;">---</span>
+          </td>
+
+          <td style="text-align: center;">
+            <span class="staff-badge">
+              {{ dept.staffCount }} nhân viên
+            </span>
+          </td>
+          
+          <td style="text-align: right;">
+            <button class="btn-icon btn-edit" (click)="openEditModal(dept)" title="Sửa">
+              <i class="fas fa-pen"></i>
+            </button>
+            <button class="btn-icon btn-delete" (click)="openDeleteModal(dept)" title="Xóa">
+              <i class="fas fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+        
+        <tr *ngIf="departments.length === 0 && !isLoading">
+          <td colspan="6" style="text-align: center; padding: 30px; color: #999;">
+            Chưa có phòng ban nào.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal-backdrop" *ngIf="showFormModal">
+  <div class="modal-content">
+    <h3>{{ formMode === 'create' ? 'Thêm Phòng Ban' : 'Cập Nhật Phòng Ban' }}</h3>
+    
+    <div class="form-group">
+      <label>Tên phòng ban <span style="color: red;">*</span></label>
+      <input type="text" class="form-input" [(ngModel)]="formData.name" placeholder="Ví dụ: Phòng Kỹ Thuật">
+    </div>
+
+    <div class="form-group">
+      <label>Số điện thoại</label>
+      <input type="text" class="form-input" [(ngModel)]="formData.phoneNumber" placeholder="Ví dụ: 02633...">
+    </div>
+
+    <div class="form-group">
+      <label>Mô tả chức năng</label>
+      <textarea rows="3" class="form-input" [(ngModel)]="formData.description" placeholder="Mô tả ngắn gọn..."></textarea>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-cancel" (click)="closeFormModal()">Hủy</button>
+      <button class="btn-confirm bg-blue" (click)="submitForm()">Lưu lại</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" *ngIf="showDeleteModal">
+  <div class="modal-content">
+    <h3 style="color: #ff4d4f;">Xác nhận xóa?</h3>
+    <p style="color: #666; margin-bottom: 20px;">
+      Bạn có chắc muốn xóa <strong>{{ deptToDelete?.name }}</strong>?<br>
+      <small>Hành động này không thể hoàn tác.</small>
+    </p>
+    <div class="modal-actions">
+      <button class="btn-cancel" (click)="closeDeleteModal()">Hủy</button>
+      <button class="btn-confirm bg-red" (click)="confirmDelete()">Xóa ngay</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" *ngIf="showSuccessModal">
+    <div class="modal-content success-content">
+      <div class="success-icon"><i class="fas fa-check"></i></div>
+      <h3>Thành công!</h3>
+      <p style="color: #666; font-size: 14px; text-align: center; margin-bottom: 20px;">{{ successMessage }}</p>
+      <button class="btn-confirm bg-green" style="width: 100%;" (click)="closeSuccessModal()">Đóng</button>
+    </div>
+</div>

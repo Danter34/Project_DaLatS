@@ -45,7 +45,7 @@ namespace SafeDalat_API.Controllers
             return Ok(result);
         }
 
-        [HttpDelete("delete-by-id{id}")]
+        [HttpDelete("delete-by-id/{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             if (!await _repo.DeleteAsync(id)) return NotFound();

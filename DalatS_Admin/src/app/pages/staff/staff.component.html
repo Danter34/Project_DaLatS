@@ -1,0 +1,155 @@
+<div class="page-container">
+  
+  <div class="card-header">
+    <h3>Danh sách Nhân viên</h3>
+    
+    <div class="filter-wrapper">
+      <button class="btn-add" (click)="openCreateModal()">
+      <i class="fas fa-plus"></i> Thêm nhân viên
+    </button>
+      <select class="filter-select" [(ngModel)]="selectedDeptId" (change)="onFilterChange()">
+        <option value="all">Tất cả phòng ban</option>
+        <option *ngFor="let dept of departments" [value]="dept.departmentId">
+          {{ dept.name }}
+        </option>
+      </select>
+
+      <div class="search-box">
+        <input 
+          type="text" 
+          class="search-input"
+          placeholder="Tìm tên, email..." 
+          [(ngModel)]="searchText"
+          (keyup)="onFilterChange()">
+        <button class="btn-search"><i class="fas fa-search"></i></button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="table-container">
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th style="width: 80px;">ID</th>
+          <th>Họ tên</th>
+          <th>Email</th>
+          <th>Phòng ban</th> <th>Ngày tạo</th>
+          <th>Trạng thái</th>
+          <th style="text-align: right;">Hành động</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let staff of paginatedStaff">
+          <td style="font-weight: bold; color: #666;">#{{ staff.userId }}</td>
+          
+          <td>
+            <span class="user-name" style="font-weight: 500;">{{ staff.fullName }}</span>
+            <span *ngIf="staff.role === 'Manager'" class="role-badge">QL</span>
+          </td>
+          
+          <td>{{ staff.email }}</td>
+          
+          <td>
+            <span class="dept-tag" *ngIf="staff.departmentName">{{ staff.departmentName }}</span>
+            <span class="dept-tag empty" *ngIf="!staff.departmentName">Chưa phân bổ</span>
+          </td>
+
+          <td style="color: #666;">{{ staff.createdAt | date:'dd/MM/yyyy' }}</td>
+          
+          <td>
+            <span class="badge" [ngClass]="staff.isLocked ? 'badge-locked' : 'badge-active'">
+              {{ staff.isLocked ? 'Đã khóa' : 'Hoạt động' }}
+            </span>
+          </td>
+          
+          <td style="text-align: right;">
+            <button *ngIf="!staff.isLocked" class="btn-link link-lock" (click)="openModal(staff, 'lock')">Khóa</button>
+            <button *ngIf="staff.isLocked" class="btn-link link-unlock" (click)="openModal(staff, 'unlock')">Mở khóa</button>
+          </td>
+        </tr>
+
+        <tr *ngIf="paginatedStaff.length === 0 && !isLoading">
+          <td colspan="7" style="text-align: center; padding: 30px; color: #999;">
+            Không tìm thấy nhân viên phù hợp.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="pagination-controls" *ngIf="totalPages > 1" style="padding: 15px; display: flex; justify-content: flex-end; gap: 10px;">
+        <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1" class="btn-page"> < </button>
+        <span style="line-height: 32px; font-size: 14px;">Trang {{ currentPage }} / {{ totalPages }}</span>
+        <button (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages" class="btn-page"> > </button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" *ngIf="showModal">
+  <div class="modal-content">
+    <h3>{{ modalType === 'lock' ? 'Khóa nhân viên' : 'Mở khóa nhân viên' }}</h3>
+    <p style="color: #666;">Bạn đang thao tác với: <strong>{{ selectedUser?.fullName }}</strong></p>
+    <div style="margin: 15px 0;">
+      <label>Lý do:</label>
+      <textarea [(ngModel)]="lockReason" rows="3" class="form-input"></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-cancel" (click)="closeModal()">Hủy</button>
+      <button class="btn-confirm" [ngClass]="modalType === 'lock' ? 'bg-red' : 'bg-green'" (click)="confirmAction()">Xác nhận</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" *ngIf="showSuccessModal">
+    <div class="modal-content success-content">
+      <div class="success-icon"><i class="fas fa-check"></i></div>
+      <h3>Thành công!</h3>
+      <p style="text-align: center;">{{ successMessage }}</p>
+      <button class="btn-confirm bg-green" style="width: 100%;" (click)="closeSuccessModal()">Đóng</button>
+    </div>
+</div>
+
+<div class="modal-backdrop" *ngIf="showCreateModal">
+  <div class="modal-content" style="width: 500px;"> <h3>Thêm Nhân viên mới</h3>
+    
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Họ và tên <span style="color: red">*</span></label>
+        <input type="text" class="form-input" [(ngModel)]="createData.fullName" placeholder="Nguyễn Văn A">
+      </div>
+
+      <div class="form-group">
+        <label>Email <span style="color: red">*</span></label>
+        <input type="email" class="form-input" [(ngModel)]="createData.email" placeholder="email@safedalat.com">
+      </div>
+
+      <div class="form-group">
+        <label>Mật khẩu <span style="color: red">*</span></label>
+        <input type="password" class="form-input" [(ngModel)]="createData.password" placeholder="******">
+      </div>
+
+      <div class="form-group">
+        <label>Vai trò</label>
+        <select class="form-input" [(ngModel)]="createData.role">
+          <option value="Staff">Nhân viên (Staff)</option>
+          <option value="Admin">Quản lý (Admin)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Phòng ban</label>
+        <select class="form-input" [(ngModel)]="createData.departmentId">
+          <option [ngValue]="null">-- Chưa phân bổ --</option>
+          <option *ngFor="let dept of departments" [value]="dept.departmentId">
+            {{ dept.name }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-cancel" (click)="closeCreateModal()">Hủy</button>
+      <button class="btn-confirm bg-green" (click)="submitCreate()">Tạo mới</button>
+    </div>
+  </div>
+</div>

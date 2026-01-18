@@ -1117,6 +1117,30 @@
         }
       }
     },
+    "/api/QA/categories": {
+      "get": {
+        "tags": [
+          "QA"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/QA/my-questions": {
+      "get": {
+        "tags": [
+          "QA"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/WeatherForecast": {
       "get": {
         "tags": [
@@ -1159,6 +1183,15 @@
   },
   "components": {
     "schemas": {
+      "AlertLevel": {
+        "enum": [
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
       "ChangePasswordDTO": {
         "type": "object",
         "properties": {
@@ -1339,6 +1372,14 @@
             "type": "number",
             "format": "double",
             "nullable": true
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -1460,6 +1501,9 @@
           "note": {
             "type": "string",
             "nullable": true
+          },
+          "alertLevel": {
+            "$ref": "#/components/schemas/AlertLevel"
           },
           "assignedDepartmentId": {
             "type": "integer",
