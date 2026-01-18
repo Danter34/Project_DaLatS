@@ -1,0 +1,105 @@
+.page-container {
+  padding: 0;
+}
+
+.profile-header {
+  margin-bottom: 30px;
+}
+.profile-header h3 { margin: 0; color: #333; font-weight: 700; }
+.profile-header p { margin: 5px 0 0; color: #666; font-size: 14px; }
+
+/* Grid Layout */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 350px 1fr; /* Cột trái cố định 350px, cột phải giãn */
+  gap: 30px;
+}
+
+/* Card Style chung */
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+/* --- PROFILE CARD (LEFT) --- */
+.profile-card {
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.avatar-section {
+  display: flex; flex-direction: column; align-items: center;
+  margin-bottom: 30px;
+}
+
+.avatar-circle {
+  width: 100px; height: 100px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-size: 40px; font-weight: bold;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 15px;
+  box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
+}
+
+.avatar-section h4 { margin: 0; font-size: 1.2rem; color: #333; }
+.role-badge {
+  background: #e6f7ff; color: #1890ff; font-size: 12px; font-weight: 600;
+  padding: 4px 12px; border-radius: 20px; margin-top: 8px;
+}
+
+.info-list { text-align: left; }
+.info-item {
+  display: flex; align-items: center; gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.info-item:last-child { border-bottom: none; }
+
+.info-item i {
+  width: 40px; height: 40px;
+  background: #f8f9fa; color: #666;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.info-item label { display: block; font-size: 12px; color: #999; margin-bottom: 2px; }
+.info-item span { font-weight: 500; color: #333; font-size: 14px; }
+.info-item span.highlight { color: #1890ff; font-weight: 600; }
+
+/* --- PASSWORD CARD (RIGHT) --- */
+.password-card { padding: 30px; }
+.password-card h4 { margin: 0; color: #333; display: flex; align-items: center; gap: 10px; }
+.card-subtitle { color: #666; font-size: 14px; margin-bottom: 25px; margin-top: 5px; }
+
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 500; color: #444; font-size: 14px; }
+.form-group input {
+  width: 100%; padding: 12px;
+  border: 1px solid #ddd; border-radius: 6px;
+  font-size: 14px; outline: none; box-sizing: border-box;
+  transition: all 0.2s;
+}
+.form-group input:focus { border-color: #1890ff; box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.1); }
+
+.btn-save {
+  background-color: #1890ff; color: white;
+  border: none; padding: 12px 25px; border-radius: 6px;
+  font-weight: 600; cursor: pointer; float: right;
+  transition: all 0.2s;
+}
+.btn-save:hover { background-color: #096dd9; transform: translateY(-1px); }
+.btn-save:disabled { background-color: #ccc; cursor: not-allowed; }
+
+/* Alert */
+.alert { padding: 12px; border-radius: 6px; margin-bottom: 20px; font-size: 14px; text-align: center; }
+.alert-danger { background: #fff1f0; color: #ff4d4f; border: 1px solid #ffccc7; }
+.alert-success { background: #f6ffed; color: #52c41a; border: 1px solid #b7eb8f; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .profile-grid { grid-template-columns: 1fr; }
+}

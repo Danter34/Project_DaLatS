@@ -66,12 +66,14 @@ namespace SafeDalat_API.Repositories.Services
         {
             return await _context.Users
                 .AsNoTracking()
+                .Include(u => u.Department)
                 .Where(x => x.UserId == userId)
                 .Select(x => new UserProfileDTO
                 {
                     FullName = x.FullName,
                     Email = x.Email,
-                    CreatedAt = x.CreatedAt
+                    CreatedAt = x.CreatedAt,
+                    DepartmentName = x.Department != null ? x.Department.Name : "Chưa phân bổ"
                 })
                 .FirstAsync();
         }

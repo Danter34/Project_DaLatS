@@ -1,1 +1,135 @@
-<p>qa works!</p>
+<div class="qa-container">
+  
+  <div class="qa-sidebar">
+    <div class="sidebar-header">
+      <h3><i class="far fa-comments"></i> Thảo luận & Hỏi đáp</h3>
+      
+      <div class="filter-tabs">
+        <button 
+          [class.active]="filterMode === 'all'" 
+          (click)="setFilter('all')">
+          Tất cả
+        </button>
+        <button 
+          [class.active]="filterMode === 'unanswered'" 
+          (click)="setFilter('unanswered')">
+          Chưa trả lời
+          <span class="badge-count" *ngIf="filterMode === 'all'">
+            {{ allQuestions.filter(isUnanswered).length }}
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <div class="question-list">
+      <div 
+        class="q-item" 
+        *ngFor="let q of filteredQuestions" 
+        [class.selected]="selectedQuestion?.questionId === q.questionId"
+        (click)="selectQuestion(q)">
+        
+        <div class="q-header-mini">
+          <span class="category-badge">{{ q.questionCategoryName }}</span>
+          <div *ngIf="isUnanswered(q)" class="dot-unread"></div>
+          <div *ngIf="!isUnanswered(q)" class="icon-replied"><i class="fas fa-check"></i></div>
+        </div>
+        
+        <div class="q-title-mini">{{ q.content }}</div>
+        
+        <div class="q-meta-mini">
+          <span><i class="far fa-user"></i> {{ q.userName }}</span>
+          <span>{{ q.createdAt | date:'HH:mm dd/MM' }}</span>
+        </div>
+      </div>
+
+      <div *ngIf="filteredQuestions.length === 0" class="empty-list">
+        Không có câu hỏi nào.
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-content">
+    
+    <div class="no-selection" *ngIf="!selectedQuestion">
+      <img src="assets/images/qa-placeholder.png" onerror="this.style.display='none'" alt="">
+      <p>Chọn một câu hỏi để xem chi tiết và trả lời.</p>
+    </div>
+
+    <div class="detail-wrapper" *ngIf="selectedQuestion">
+      
+      <div class="detail-header">
+        <div class="status-tag" [ngClass]="isUnanswered(selectedQuestion) ? 'tag-orange' : 'tag-green'">
+          {{ isUnanswered(selectedQuestion) ? 'ĐANG CHỜ TRẢ LỜI' : 'ĐÃ TRẢ LỜI' }}
+        </div>
+        <div class="question-id">#ID: QA-{{ selectedQuestion.createdAt | date:'yyyy' }}-{{ selectedQuestion.questionId }}</div>
+      </div>
+
+      <div class="main-question">
+        <h2>{{ selectedQuestion.content }}</h2>
+        <div class="asker-info">
+          <i class="far fa-user-circle"></i> Người tạo: <strong>{{ selectedQuestion.userName }}</strong>
+          <span class="separator">•</span>
+          <i class="far fa-clock"></i> {{ selectedQuestion.createdAt | date:'dd/MM/yyyy - HH:mm' }}
+          <span class="separator">•</span>
+          <i class="fas fa-tag"></i> {{ selectedQuestion.questionCategoryName }}
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="chat-history" id="chatHistory">
+        
+        <div class="chat-bubble user-bubble">
+          <div class="bubble-header">
+            <strong>{{ selectedQuestion.userName }}</strong>
+          </div>
+          <div class="bubble-content">
+            {{ selectedQuestion.content }}
+          </div>
+        </div>
+
+        <div class="chat-bubble admin-bubble" *ngFor="let ans of selectedQuestion.answers">
+          
+          <div class="bubble-header">
+            <div class="admin-info">
+              <div class="avatar-admin">
+                {{ getAvatarFromAnswer(ans) }}
+              </div>
+              
+              <div class="admin-details">
+                <span class="admin-name">{{ getResponderName(ans) }}</span>
+                
+                </div>
+                <span style="font-size: 11px; color: #999;">
+              {{ ans.createdAt | date:'HH:mm dd/MM' }}
+            </span>
+            </div>
+          </div>
+
+          <div class="bubble-content">
+            {{ ans.content }}
+          </div>
+        </div>
+
+      </div>
+
+      <div class="reply-box">
+        <div class="reply-header">
+          <i class="fas fa-pen"></i> Viết câu trả lời...
+        </div>
+        <textarea 
+          [(ngModel)]="replyContent" 
+          placeholder="Nhập nội dung phản hồi chính thức từ cơ quan chức năng..."
+          rows="3"></textarea>
+        
+        <div class="reply-actions">
+          <button class="btn-send" (click)="sendReply()" [disabled]="isSending || !replyContent.trim()">
+            <i class="fas fa-paper-plane"></i> 
+            {{ isSending ? 'Đang gửi...' : 'Gửi trả lời' }}
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

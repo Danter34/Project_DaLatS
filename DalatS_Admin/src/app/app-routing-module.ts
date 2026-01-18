@@ -13,6 +13,7 @@ import { DepartmentsComponent } from './pages/departments/departments.component'
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { QaComponent } from './pages/qa/qa.component';
 import { adminGuard } from './guards/admin.guard';
+import { ProfileComponent } from './pages/profile/profile.component';
 // Guard đơn giản (Bạn có thể tách ra file riêng)
 const authGuard = () => {
   const authService = inject(AuthService);
@@ -43,7 +44,7 @@ const routes: Routes = [
       // Mấy trang này ai vào cũng được (miễn là đã login)
       { path: 'incidents', component: IncidentsComponent },
       { path: 'qa', component: QaComponent },
-      
+      { path: 'profile', component: ProfileComponent },
       // Sửa lại redirect mặc định: Nếu gõ /admin không thì cho về incidents cho an toàn
       // Hoặc xử lý logic redirect ở component cha nếu cần
       { path: '', redirectTo: 'incidents', pathMatch: 'full' } 

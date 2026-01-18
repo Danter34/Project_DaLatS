@@ -20,6 +20,7 @@ import { DepartmentsComponent } from './pages/departments/departments.component'
 import { IncidentsComponent } from './pages/incidents/incidents.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { QaComponent } from './pages/qa/qa.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { QaComponent } from './pages/qa/qa.component';
     DepartmentsComponent,
     IncidentsComponent,
     CategoriesComponent,
-    QaComponent
+    QaComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
