@@ -1,1 +1,150 @@
-<p>incidents works!</p>
+<div class="incident-container">
+  
+  <div class="list-panel">
+    <div class="panel-header">
+      <h3><i class="fas fa-exclamation-triangle"></i> Danh sách sự cố</h3>
+    </div>
+    
+    <div class="incident-list">
+      <div 
+        class="incident-card" 
+        *ngFor="let item of incidents" 
+        [class.active]="selectedIncident?.incidentId === item.incidentId"
+        (click)="selectIncident(item)">
+        
+        <div class="card-thumb">
+          <img 
+            [src]="item.images && item.images.length > 0 ? getImageUrl(item.images[0].filePath) : 'assets/images/no-image.png'" 
+            alt="thumb">
+        </div>
+        
+        <div class="card-info">
+          <h4 class="card-title" title="{{ item.title }}">{{ item.title }}</h4>
+          <div class="card-addr">{{ item.ward }}</div>
+          
+          <span class="status-badge" [ngClass]="getStatusClass(item.status)">
+            {{ item.status }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="detail-panel">
+    
+    <div class="empty-state" *ngIf="!selectedIncident">
+      <img src="assets/images/select-incident.png" onerror="this.style.display='none'" width="150">
+      <p>Chọn một sự cố để xem chi tiết và xử lý</p>
+    </div>
+
+    <div class="detail-content" *ngIf="selectedIncident">
+      
+      <div class="detail-top">
+        
+        <div class="image-gallery">
+          
+          <div class="main-img-box">
+            <img 
+              [src]="activeImage ? getImageUrl(activeImage.filePath) : 'assets/images/no-image.png'" 
+              alt="Main">
+          </div>
+          
+          <div class="sub-images" *ngIf="selectedIncident.images && selectedIncident.images.length > 1">
+            <img 
+              *ngFor="let img of selectedIncident.images" 
+              [src]="getImageUrl(img.filePath)"
+              [class.active-thumb]="activeImage === img"
+              (click)="activeImage = img"
+              title="Xem ảnh này">
+          </div>
+        </div>
+
+        <div class="info-box">
+          <h2>{{ selectedIncident.title }}</h2>
+          <div class="meta-row">
+            <span><i class="fas fa-clock"></i> {{ selectedIncident.createdAt | date:'dd/MM/yyyy HH:mm' }}</span>
+            <span><i class="fas fa-tag"></i> {{ selectedIncident.categoryName }}</span>
+          </div>
+          
+          <div class="desc-box">
+            <strong>Mô tả chi tiết:</strong>
+            <p>{{ selectedIncident.description }}</p>
+          </div>
+
+          <div class="addr-box">
+            <i class="fas fa-map-marker-alt text-red"></i> 
+            {{ selectedIncident.address }}, {{ selectedIncident.streetName }}, {{ selectedIncident.ward }}
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="action-zone">
+        
+        <div class="admin-actions" *ngIf="isAdmin">
+          <h3><i class="fas fa-user-shield"></i> Duyệt & Điều phối</h3>
+          
+          <div class="control-row">
+            <div class="control-group">
+              <label>Mức độ cảnh báo:</label>
+              <select [(ngModel)]="updateData.alertLevel">
+                <option [value]="1">🟢 Bình thường (Xanh)</option>
+                <option [value]="2">🟠 Cảnh báo (Cam)</option>
+                <option [value]="3">🔴 Nguy hiểm (Đỏ)</option>
+              </select>
+            </div>
+
+            <div class="control-group">
+              <label>Đơn vị xử lý:</label>
+              <select [(ngModel)]="updateData.assignedDepartmentId">
+                <option [ngValue]="undefined">-- Chọn phòng ban --</option>
+                <option *ngFor="let d of departments" [value]="d.departmentId">{{ d.name }}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="duplicate-check" *ngIf="suggestedDuplicates.length > 0">
+            <div class="dup-title">⚠️ Phát hiện sự cố trùng lặp vị trí:</div>
+            <div class="dup-list">
+              <div class="dup-item" *ngFor="let dup of suggestedDuplicates">
+                <input type="checkbox" (change)="toggleDuplicate(dup.incidentId)">
+                <div style="flex: 1">
+                    <strong>{{ dup.title }}</strong> 
+                    <span style="font-size: 11px; color: #666"> ({{ dup.createdAt | date:'dd/MM' }})</span>
+                </div>
+                <span class="badge-dup">Chờ xử lý</span>
+              </div>
+            </div>
+            <small class="hint-text">* Chọn để gộp vào sự cố này (Sự cố được chọn sẽ đóng)</small>
+          </div>
+
+          <div class="btn-row">
+            <button class="btn-reject" (click)="reject()">🚫 Từ chối</button>
+            <button class="btn-approve" (click)="approveAndAssign()">✅ Duyệt & Chuyển xử lý</button>
+          </div>
+        </div>
+
+        <div class="staff-actions" *ngIf="!isAdmin">
+          <h3><i class="fas fa-tools"></i> Cập nhật tiến độ</h3>
+          
+          <div class="current-status">
+            Trạng thái hiện tại: <span class="status-text-bold">{{ selectedIncident.status }}</span>
+          </div>
+
+          <div class="control-group" style="margin-top: 15px;">
+            <label>Ghi chú tiến độ / Kết quả:</label>
+            <textarea [(ngModel)]="updateData.note" rows="3" placeholder="Nhập nội dung cập nhật..."></textarea>
+          </div>
+
+          <div class="btn-row">
+            <button class="btn-process" (click)="updateProgress('Đang xử lý')">🛠 Đang xử lý</button>
+            <button class="btn-complete" (click)="updateProgress('Đã hoàn thành')">🎉 Hoàn thành</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
