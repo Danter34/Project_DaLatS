@@ -75,6 +75,22 @@
   },
   {
     "ContainingType": "SafeDalat_API.Controllers.AuthController",
+    "Method": "CreateStaff",
+    "RelativePath": "api/Auth/create-staff",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "SafeDalat_API.Model.DTO.Auth.CreateStaffDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SafeDalat_API.Controllers.AuthController",
     "Method": "Dashboard",
     "RelativePath": "api/Auth/dashboard",
     "HttpMethod": "GET",
@@ -248,7 +264,7 @@
   {
     "ContainingType": "SafeDalat_API.Controllers.DepartmentsController",
     "Method": "Delete",
-    "RelativePath": "api/Departments/delete-by-id{id}",
+    "RelativePath": "api/Departments/delete-by-id/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -347,7 +363,7 @@
   {
     "ContainingType": "SafeDalat_API.Controllers.IncidentCategoriesController",
     "Method": "Delete",
-    "RelativePath": "api/IncidentCategories/delete-by-id{id}",
+    "RelativePath": "api/IncidentCategories/delete-by-id/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -373,7 +389,7 @@
   {
     "ContainingType": "SafeDalat_API.Controllers.IncidentCategoriesController",
     "Method": "Update",
-    "RelativePath": "api/IncidentCategories/update-by-id{id}",
+    "RelativePath": "api/IncidentCategories/update-by-id/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
