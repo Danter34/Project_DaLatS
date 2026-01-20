@@ -11,5 +11,10 @@
         public double Longitude { get; set; }
 
         public int CategoryId { get; set; }
+
+        public bool IsForceCreate { get; set; } = false;
+
+        public double DeviceLatitude { get; set; }
+        public double DeviceLongitude { get; set; }
     }
 }

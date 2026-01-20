@@ -293,6 +293,40 @@ namespace SafeDalat_API.Controllers
 
             return Ok(new { message = "Tạo nhân viên thành công!", userId = user.UserId });
         }
+        // [FIX] Thêm API để Admin xem Dashboard của User khác
+        [Authorize(Roles = "Admin")]
+        [HttpGet("admin/user-dashboard/{userId}")]
+        public async Task<IActionResult> GetUserDashboardForAdmin(int userId)
+        {
+            // 1. Lấy Dashboard (Thống kê + Điểm)
+            var stats = await _jwt.GetDashboardAsync(userId);
 
+            // 2. Lấy Profile (Tên, Email...)
+            var profile = await _jwt.GetProfileAsync(userId);
+
+            if (profile == null) return NotFound("User not found");
+
+            // 3. Trả về cục dữ liệu gộp
+            return Ok(new
+            {
+                Profile = profile,
+                Stats = stats
+            });
+        }
+        [Authorize(Roles = "Admin")]
+        [HttpGet("admin/staff-dashboard/{userId}")]
+        public async Task<IActionResult> GetStaffDashboardForAdmin(int userId)
+        {
+            var stats = await _jwt.GetStaffDashboardAsync(userId);
+            var profile = await _jwt.GetProfileAsync(userId);
+
+            if (profile == null) return NotFound("Staff not found");
+
+            return Ok(new
+            {
+                Profile = profile,
+                Stats = stats
+            });
+        }
     }
 }

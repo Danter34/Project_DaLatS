@@ -14,6 +14,7 @@ namespace SafeDalat_API.Repositories.Interface
         Task<List<AdminUserDTO>> GetAllUsersAsync();
         Task<bool> LockUserAsync(int userId, string reason);
         Task<bool> UnlockUserAsync(int userId, string reason);
+        Task<StaffDashboardDTO> GetStaffDashboardAsync(int userId);
 
     }
 }

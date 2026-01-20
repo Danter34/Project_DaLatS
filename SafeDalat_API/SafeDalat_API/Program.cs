@@ -97,6 +97,7 @@ builder.Services.AddScoped<IDashboardRepository, DashboardRepository>();
 builder.Services.AddHttpClient<IEnvironmentRepository, EnvironmentRepository>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+builder.Services.AddScoped<IImageAnalysisRepository, ImageAnalysisRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

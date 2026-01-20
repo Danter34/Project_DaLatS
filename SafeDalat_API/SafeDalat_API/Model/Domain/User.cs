@@ -29,5 +29,11 @@ namespace SafeDalat_API.Model.Domain
 
         public ICollection<Incident> Incidents { get; set; }
         public ICollection<IncidentStatusHistory> IncidentStatusHistories { get; set; }
+
+        public int TrustScore { get; set; } = 10;
+        public int ConsecutiveViolations { get; set; } = 0;
+
+        // [NEW] Thời gian được mở khóa (nếu bị khóa tạm)
+        public DateTime? LockUntil { get; set; }
     }
 }

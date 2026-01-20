@@ -1,0 +1,167 @@
+.detail-container { padding: 20px; background: #f0f2f5; min-height: 100vh; }
+
+/* Header */
+.header-row { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+.header-row h2 { margin: 0; color: #333; }
+.btn-back { border: none; background: white; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 500; display: flex; align-items: center; gap: 8px; transition: 0.2s; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+.btn-back:hover { background: #fafafa; transform: translateX(-2px); }
+
+/* Profile Card Horizontal */
+.profile-card-horizontal {
+  background: white; border-radius: 12px; padding: 25px;
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 25px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.pc-left { display: flex; gap: 20px; align-items: center; }
+.avatar-sq { width: 70px; height: 70px; background: #1890ff; color: white; border-radius: 12px; font-size: 32px; font-weight: bold; display: flex; align-items: center; justify-content: center; }
+.pc-info h3 { margin: 0 0 5px; font-size: 22px; }
+.pc-info p { margin: 5px 0 0; color: #666; font-size: 14px; }
+.role-badge { background: #e6f7ff; color: #1890ff; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; border: 1px solid #91d5ff; }
+
+.pc-right { display: flex; gap: 40px; text-align: right; }
+.pc-right div { display: flex; flex-direction: column; }
+.pc-right label { font-size: 12px; color: #888; text-transform: uppercase; margin-bottom: 5px; }
+.pc-right strong { font-size: 16px; color: #333; }
+
+/* KPI Grid */
+.kpi-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 20px; margin-bottom: 25px;
+}
+
+/* KPI Card Styles */
+.kpi-card {
+  background: white; border-radius: 12px; padding: 20px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: transform 0.2s;
+}
+.kpi-card:hover { transform: translateY(-5px); }
+
+/* Highlight Card (Hiệu suất) */
+.highlight { background: linear-gradient(135deg, #1890ff 0%, #0050b3 100%); color: white; }
+.highlight .kpi-title { font-size: 16px; font-weight: 600; margin-bottom: 15px; opacity: 0.9; }
+.kpi-circle-wrap { text-align: center; border: 4px solid rgba(255,255,255,0.3); border-radius: 50%; width: 100px; height: 100px; display: flex; flex-direction: column; justify-content: center; }
+.kpi-value { font-size: 24px; font-weight: bold; }
+.kpi-label { font-size: 10px; opacity: 0.8; }
+
+/* Normal Cards */
+.kpi-icon { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 10px; }
+.blue { background: #e6f7ff; color: #1890ff; }
+.green { background: #f6ffed; color: #52c41a; }
+.orange { background: #fff7e6; color: #fa8c16; }
+.red { background: #fff1f0; color: #ff4d4f; }
+
+.kpi-number { font-size: 28px; font-weight: bold; color: #333; }
+.kpi-text { font-size: 13px; color: #888; margin-top: 5px; }
+
+/* Task Panel */
+/* --- TASK PANEL (Khung chứa bảng) --- */
+.task-panel {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  margin-top: 25px;
+  min-height: 300px;
+}
+
+.task-panel h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* --- EMPTY STATE (Khi không có dữ liệu) --- */
+.empty-task {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+  color: #999;
+}
+
+.empty-task img {
+  opacity: 0.6;
+  margin-bottom: 15px;
+}
+
+/* --- TABLE STYLES (Bảng dữ liệu) --- */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto; /* Cho phép cuộn ngang trên mobile */
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.custom-table th {
+  text-align: left;
+  padding: 15px;
+  background-color: #f9fafb; /* Màu nền header nhẹ */
+  color: #6b7280;
+  font-weight: 600;
+  border-bottom: 1px solid #e5e7eb;
+  white-space: nowrap;
+}
+
+.custom-table td {
+  padding: 15px;
+  border-bottom: 1px solid #f3f4f6;
+  color: #374151;
+  vertical-align: middle;
+}
+
+.custom-table tr:hover {
+  background-color: #f9fafb; /* Hiệu ứng hover dòng */
+}
+
+.custom-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* --- STATUS BADGES (Màu trạng thái) --- */
+.status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Màu cam: Chờ xử lý */
+.status-pending {
+  background-color: #fff7ed;
+  color: #c2410c;
+  border: 1px solid #ffedd5;
+}
+
+/* Màu xanh dương: Đang xử lý */
+.status-processing {
+  background-color: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #dbeafe;
+}
+
+/* Màu xanh lá: Đã hoàn thành */
+.status-completed {
+  background-color: #f0fdf4;
+  color: #15803d;
+  border: 1px solid #dcfce7;
+}
+
+/* Màu đỏ: Từ chối */
+.status-rejected {
+  background-color: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fee2e2;
+}
+

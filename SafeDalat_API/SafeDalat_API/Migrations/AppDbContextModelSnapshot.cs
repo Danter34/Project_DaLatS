@@ -306,6 +306,10 @@ namespace SafeDalat_API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
@@ -381,6 +385,9 @@ namespace SafeDalat_API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
 
+                    b.Property<int>("ConsecutiveViolations")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
@@ -401,6 +408,9 @@ namespace SafeDalat_API.Migrations
                     b.Property<bool>("IsLocked")
                         .HasColumnType("bit");
 
+                    b.Property<DateTime?>("LockUntil")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -414,6 +424,9 @@ namespace SafeDalat_API.Migrations
                     b.Property<string>("Role")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TrustScore")
+                        .HasColumnType("int");
 
                     b.Property<string>("VerifyToken")
                         .HasColumnType("nvarchar(max)");

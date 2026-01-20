@@ -61,14 +61,19 @@
           </td>
           
           <td style="text-align: right;">
-            <button *ngIf="!user.isLocked" class="btn-link link-lock" (click)="openModal(user, 'lock')">
-              Khóa
-            </button>
+  <button class="btn-link link-detail" [routerLink]="['/admin/citizens', user.userId]"> Chi tiết
+  </button>
 
-            <button *ngIf="user.isLocked" class="btn-link link-unlock" (click)="openModal(user, 'unlock')">
-              Mở khóa
-            </button>
-          </td>
+  <span style="color: #ddd; margin: 0 5px;">|</span>
+
+  <button *ngIf="!user.isLocked" class="btn-link link-lock" (click)="openModal(user, 'lock')">
+    Khóa
+  </button>
+
+  <button *ngIf="user.isLocked" class="btn-link link-unlock" (click)="openModal(user, 'unlock')">
+    Mở khóa
+  </button>
+</td>
         </tr>
         
         <tr *ngIf="paginatedUsers.length === 0 && !isLoading">

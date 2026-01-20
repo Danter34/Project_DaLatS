@@ -26,7 +26,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Thống kê hoạt động"
+            android:text="Tổng quan tài khoản"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
@@ -43,14 +43,123 @@
             android:orientation="vertical"
             android:padding="16dp">
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@color/white"
+                android:layout_marginBottom="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ĐIỂM TIN CẬY"
+                        android:textSize="14sp"
+                        android:textColor="#757575"
+                        android:letterSpacing="0.1"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tv_trust_score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10"
+                        android:textSize="64sp"
+                        android:textStyle="bold"
+                        android:textColor="#4CAF50"
+                        android:layout_marginTop="4dp"/>
+
+                    <TextView
+                        android:id="@+id/tv_trust_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Thành viên mới"
+                        android:background="@drawable/bg_edittext"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="6dp"
+                        android:textSize="14sp"
+                        android:textColor="#333"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:text="Hạn mức báo cáo hôm nay"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#333"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                android:layout_marginBottom="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="8dp">
+                        <TextView
+                            android:id="@+id/tv_quota_text"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Đã dùng: 0/1"
+                            android:textColor="#555"/>
+                        <TextView
+                            android:id="@+id/tv_quota_percent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0%"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+
+                    <ProgressBar
+                        android:id="@+id/pb_daily_quota"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="12dp"
+                        android:progressDrawable="@drawable/custom_progress_bar"
+                        android:max="100"
+                        android:progress="0"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:text="Thống kê sự cố"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#333"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"/>
+
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:columnCount="2"
                 android:rowCount="2"
                 android:alignmentMode="alignMargins"
-                android:columnOrderPreserved="false"
-                android:layout_marginTop="8dp">
+                android:columnOrderPreserved="false">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp"
@@ -59,8 +168,7 @@
                     android:layout_marginBottom="16dp"
                     android:layout_marginEnd="8dp"
                     app:cardCornerRadius="12dp"
-                    app:cardElevation="4dp"
-                    app:cardBackgroundColor="@color/white">
+                    app:cardElevation="4dp">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -72,14 +180,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0"
-                            android:textSize="36sp"
+                            android:textSize="32sp"
                             android:textStyle="bold"
                             android:textColor="#FF9800"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Chờ xử lý"
-                            android:textSize="14sp"
+                            android:textSize="13sp"
                             android:layout_marginTop="4dp"
                             android:textColor="#757575"/>
                     </LinearLayout>
@@ -92,8 +200,7 @@
                     android:layout_marginBottom="16dp"
                     android:layout_marginStart="8dp"
                     app:cardCornerRadius="12dp"
-                    app:cardElevation="4dp"
-                    app:cardBackgroundColor="@color/white">
+                    app:cardElevation="4dp">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -105,14 +212,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0"
-                            android:textSize="36sp"
+                            android:textSize="32sp"
                             android:textStyle="bold"
                             android:textColor="#2196F3"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Đang xử lý"
-                            android:textSize="14sp"
+                            android:textSize="13sp"
                             android:layout_marginTop="4dp"
                             android:textColor="#757575"/>
                     </LinearLayout>
@@ -125,8 +232,7 @@
                     android:layout_marginBottom="16dp"
                     android:layout_marginEnd="8dp"
                     app:cardCornerRadius="12dp"
-                    app:cardElevation="4dp"
-                    app:cardBackgroundColor="@color/white">
+                    app:cardElevation="4dp">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -138,14 +244,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0"
-                            android:textSize="36sp"
+                            android:textSize="32sp"
                             android:textStyle="bold"
                             android:textColor="#4CAF50"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Hoàn thành"
-                            android:textSize="14sp"
+                            android:textSize="13sp"
                             android:layout_marginTop="4dp"
                             android:textColor="#757575"/>
                     </LinearLayout>
@@ -158,8 +264,7 @@
                     android:layout_marginBottom="16dp"
                     android:layout_marginStart="8dp"
                     app:cardCornerRadius="12dp"
-                    app:cardElevation="4dp"
-                    app:cardBackgroundColor="@color/white">
+                    app:cardElevation="4dp">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -171,14 +276,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0"
-                            android:textSize="36sp"
+                            android:textSize="32sp"
                             android:textStyle="bold"
                             android:textColor="#F44336"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Bị từ chối"
-                            android:textSize="14sp"
+                            android:textSize="13sp"
                             android:layout_marginTop="4dp"
                             android:textColor="#757575"/>
                     </LinearLayout>

@@ -7,5 +7,7 @@ namespace SafeDalat_API.Repositories.Interface
         Task<List<NotificationDTO>> GetMyAsync(int userId);
         Task MarkAsReadAsync(int notificationId, int userId);
         Task CreateAsync(int userId, string message);
+        // Thêm vào INotificationRepository
+        Task BroadcastAsync(SendNotificationDTO dto);
     }
 }

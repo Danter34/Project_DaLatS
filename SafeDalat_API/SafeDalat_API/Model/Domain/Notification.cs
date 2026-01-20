@@ -13,5 +13,6 @@ namespace SafeDalat_API.Model.Domain
 
         public int UserId { get; set; }
         public User User { get; set; }
+        public string Type { get; set; } = "Info";
     }
 }

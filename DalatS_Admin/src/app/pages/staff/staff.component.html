@@ -64,6 +64,9 @@
           </td>
           
           <td style="text-align: right;">
+            <button class="btn-link link-detail" [routerLink]="['/admin/staff', staff.userId]">
+    <i class="fas fa-chart-line"></i> KPI
+  </button>
             <button *ngIf="!staff.isLocked" class="btn-link link-lock" (click)="openModal(staff, 'lock')">Khóa</button>
             <button *ngIf="staff.isLocked" class="btn-link link-unlock" (click)="openModal(staff, 'unlock')">Mở khóa</button>
           </td>

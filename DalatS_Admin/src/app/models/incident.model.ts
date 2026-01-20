@@ -23,6 +23,7 @@ export interface IncidentDTO {
   isMaster: boolean;
   createdAt: string;
   isPublic: boolean;
+  voteCount: number;
   userId: number;
   categoryName: string;
   assignedDepartmentId?: number;
