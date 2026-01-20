@@ -363,6 +363,37 @@
         }
       }
     },
+    "/api/Auth/create-staff": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateStaffDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateStaffDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateStaffDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Dashboard/summary": {
       "get": {
         "tags": [
@@ -507,7 +538,7 @@
         }
       }
     },
-    "/api/Departments/delete-by-id{id}": {
+    "/api/Departments/delete-by-id/{id}": {
       "delete": {
         "tags": [
           "Departments"
@@ -597,7 +628,7 @@
         }
       }
     },
-    "/api/IncidentCategories/update-by-id{id}": {
+    "/api/IncidentCategories/update-by-id/{id}": {
       "put": {
         "tags": [
           "IncidentCategories"
@@ -639,7 +670,7 @@
         }
       }
     },
-    "/api/IncidentCategories/delete-by-id{id}": {
+    "/api/IncidentCategories/delete-by-id/{id}": {
       "delete": {
         "tags": [
           "IncidentCategories"
@@ -1323,6 +1354,40 @@
           "questionCategoryId": {
             "type": "integer",
             "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateStaffDTO": {
+        "required": [
+          "email",
+          "fullName",
+          "password",
+          "role"
+        ],
+        "type": "object",
+        "properties": {
+          "fullName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "email": {
+            "minLength": 1,
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "minLength": 6,
+            "type": "string"
+          },
+          "role": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "departmentId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
           }
         },
         "additionalProperties": false

@@ -52,6 +52,7 @@
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
+                android:fillViewport="true"
                 android:layout_marginBottom="16dp">
 
                 <LinearLayout
@@ -59,7 +60,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:gravity="center"
+                    android:layout_gravity="center">
 
                     <ImageView
                         android:id="@+id/btn_add_image"
@@ -67,8 +69,7 @@
                         android:layout_height="100dp"
                         android:src="@drawable/ic_camera"
                         android:background="#F5F5F5"
-                        android:scaleType="centerInside"
-                        android:layout_marginEnd="8dp"/>
+                        android:scaleType="centerInside"/>
                 </LinearLayout>
             </HorizontalScrollView>
 
