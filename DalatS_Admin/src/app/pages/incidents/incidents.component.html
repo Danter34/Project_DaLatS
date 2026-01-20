@@ -19,8 +19,14 @@
         </div>
         
         <div class="card-info">
-          <h4 class="card-title" title="{{ item.title }}">{{ item.title }}</h4>
-          <div class="card-addr">{{ item.ward }}</div>
+          <div class="title-row">
+             <h4 class="card-title" title="{{ item.title }}">{{ item.title }}</h4>
+             <span class="vote-badge" *ngIf="item.voteCount > 1" title="{{ item.voteCount }} người báo cáo">
+                🔥 {{ item.voteCount }}
+             </span>
+          </div>
+
+          <div class="card-addr"><i class="fas fa-map-marker-alt"></i> {{ item.ward }}</div>
           
           <span class="status-badge" [ngClass]="getStatusClass(item.status)">
             {{ item.status }}
@@ -40,34 +46,30 @@
     <div class="detail-content" *ngIf="selectedIncident">
       
       <div class="detail-top">
-        
         <div class="image-gallery">
-          
           <div class="main-img-box">
-            <img 
-              [src]="activeImage ? getImageUrl(activeImage.filePath) : 'assets/images/no-image.png'" 
-              alt="Main">
+            <img [src]="activeImage ? getImageUrl(activeImage.filePath) : 'assets/images/no-image.png'" alt="Main">
           </div>
-          
           <div class="sub-images" *ngIf="selectedIncident.images && selectedIncident.images.length > 1">
-            <img 
-              *ngFor="let img of selectedIncident.images" 
+            <img *ngFor="let img of selectedIncident.images" 
               [src]="getImageUrl(img.filePath)"
               [class.active-thumb]="activeImage === img"
-              (click)="activeImage = img"
-              title="Xem ảnh này">
+              (click)="activeImage = img">
           </div>
         </div>
 
         <div class="info-box">
           <h2>{{ selectedIncident.title }}</h2>
           <div class="meta-row">
-            <span><i class="fas fa-clock"></i> {{ selectedIncident.createdAt | date:'dd/MM/yyyy HH:mm' }}</span>
+            <span><i class="far fa-clock"></i> {{ selectedIncident.createdAt | date:'dd/MM/yyyy HH:mm' }}</span>
             <span><i class="fas fa-tag"></i> {{ selectedIncident.categoryName }}</span>
+            <span *ngIf="selectedIncident.voteCount > 1" style="color: #ff4d4f; font-weight: bold;">
+                <i class="fas fa-fire"></i> {{ selectedIncident.voteCount }} báo cáo trùng
+            </span>
           </div>
           
           <div class="desc-box">
-            <strong>Mô tả chi tiết:</strong>
+            <strong><i class="fas fa-align-left"></i> Mô tả chi tiết:</strong>
             <p>{{ selectedIncident.description }}</p>
           </div>
 
@@ -82,16 +84,28 @@
 
       <div class="action-zone">
         
-        <div class="admin-actions" *ngIf="isAdmin">
+        <div class="alert-processed" 
+             [class.alert-rejected]="selectedIncident.status === 'Từ chối'"
+             *ngIf="selectedIncident.status !== 'Chờ xử lý' && isAdmin">
+           <div>
+               <i class="fas" [ngClass]="selectedIncident.status === 'Từ chối' ? 'fa-times-circle' : 'fa-check-circle'"></i> 
+               Sự cố này đang ở trạng thái: <b>{{ selectedIncident.status }}</b>
+           </div>
+           <div *ngIf="selectedIncident.assignedDepartmentName">
+              <small>Đơn vị phụ trách: {{ selectedIncident.assignedDepartmentName }}</small>
+           </div>
+        </div>
+
+        <div class="admin-actions" *ngIf="isAdmin && selectedIncident.status === 'Chờ xử lý'">
           <h3><i class="fas fa-user-shield"></i> Duyệt & Điều phối</h3>
           
           <div class="control-row">
             <div class="control-group">
               <label>Mức độ cảnh báo:</label>
               <select [(ngModel)]="updateData.alertLevel">
-                <option [value]="1">🟢 Bình thường (Xanh)</option>
-                <option [value]="2">🟠 Cảnh báo (Cam)</option>
-                <option [value]="3">🔴 Nguy hiểm (Đỏ)</option>
+                <option [value]="1">🟢 Bình thường</option>
+                <option [value]="2">🟠 Cảnh báo</option>
+                <option [value]="3">🔴 Nguy hiểm</option>
               </select>
             </div>
 
@@ -104,24 +118,43 @@
             </div>
           </div>
 
-          <div class="duplicate-check" *ngIf="suggestedDuplicates.length > 0">
-            <div class="dup-title">⚠️ Phát hiện sự cố trùng lặp vị trí:</div>
+          <div class="duplicate-section" *ngIf="suggestedDuplicates.length > 0">
+            <div class="dup-header">
+              <i class="fas fa-clone"></i> Phát hiện {{ suggestedDuplicates.length }} sự cố trùng lặp
+            </div>
+            
             <div class="dup-list">
               <div class="dup-item" *ngFor="let dup of suggestedDuplicates">
-                <input type="checkbox" (change)="toggleDuplicate(dup.incidentId)">
-                <div style="flex: 1">
-                    <strong>{{ dup.title }}</strong> 
-                    <span style="font-size: 11px; color: #666"> ({{ dup.createdAt | date:'dd/MM' }})</span>
+                <label class="checkbox-container">
+                  <input type="checkbox" (change)="toggleDuplicate(dup.incidentId)">
+                  <span class="checkmark"></span>
+                </label>
+                
+                <div class="dup-info">
+                  <div class="dup-title">{{ dup.title }}</div>
+                  <div class="dup-meta">
+                    <i class="far fa-clock"></i> {{ dup.createdAt | date:'dd/MM' }}
+                  </div>
                 </div>
-                <span class="badge-dup">Chờ xử lý</span>
+                
+                <span class="badge-dup">Trùng lặp</span>
               </div>
             </div>
-            <small class="hint-text">* Chọn để gộp vào sự cố này (Sự cố được chọn sẽ đóng)</small>
+            
+            <div class="merge-hint">
+              <i class="fas fa-info-circle"></i> Tích chọn để gộp ảnh và cộng điểm cho người báo cáo.
+            </div>
           </div>
 
           <div class="btn-row">
-            <button class="btn-reject" (click)="reject()">🚫 Từ chối</button>
-            <button class="btn-approve" (click)="approveAndAssign()">✅ Duyệt & Chuyển xử lý</button>
+            <button class="btn btn-reject" (click)="reject()">
+              <i class="fas fa-times-circle"></i> Từ chối
+            </button>
+            
+            <button class="btn btn-approve" (click)="approveAndAssign()">
+              <i class="fas fa-check-circle"></i> 
+              {{ selectedDuplicateIds.length > 0 ? 'Gộp & Duyệt (' + (selectedDuplicateIds.length + 1) + ' phiếu)' : 'Duyệt & Chuyển Xử Lý' }}
+            </button>
           </div>
         </div>
 
@@ -129,22 +162,64 @@
           <h3><i class="fas fa-tools"></i> Cập nhật tiến độ</h3>
           
           <div class="current-status">
-            Trạng thái hiện tại: <span class="status-text-bold">{{ selectedIncident.status }}</span>
+            Trạng thái: <span class="status-text-bold">{{ selectedIncident.status }}</span>
           </div>
 
           <div class="control-group" style="margin-top: 15px;">
-            <label>Ghi chú tiến độ / Kết quả:</label>
+            <label>Ghi chú tiến độ:</label>
             <textarea [(ngModel)]="updateData.note" rows="3" placeholder="Nhập nội dung cập nhật..."></textarea>
           </div>
 
           <div class="btn-row">
-            <button class="btn-process" (click)="updateProgress('Đang xử lý')">🛠 Đang xử lý</button>
-            <button class="btn-complete" (click)="updateProgress('Đã hoàn thành')">🎉 Hoàn thành</button>
+            <button class="btn btn-process" (click)="updateProgress('Đang xử lý')">
+              <i class="fas fa-spinner"></i> Đang xử lý
+            </button>
+            <button class="btn btn-complete" (click)="updateProgress('Đã hoàn thành')">
+              <i class="fas fa-check-double"></i> Hoàn thành
+            </button>
           </div>
         </div>
 
       </div>
 
+    </div>
+  </div>
+</div>
+<app-incident-detail-modal 
+  [isVisible]="isModalVisible" 
+  [incident]="selectedIncident" 
+  (onClose)="closeResultModal()">
+</app-incident-detail-modal>
+
+<div class="modal-backdrop" *ngIf="confirmModal.show" style="z-index: 3000;">
+  <div class="modal-content-small">
+    <div class="modal-icon" [ngClass]="confirmModal.type === 'reject' ? 'icon-warning' : 'icon-info'">
+      <i class="fas" [ngClass]="confirmModal.type === 'reject' ? 'fa-exclamation-triangle' : 'fa-question'"></i>
+    </div>
+    <h3 class="modal-title">{{ confirmModal.title }}</h3>
+    <p class="modal-desc">{{ confirmModal.message }}</p>
+    <div class="modal-actions">
+      <button class="btn-modal btn-cancel" (click)="confirmModal.show = false">Hủy bỏ</button>
+      <button class="btn-modal" 
+              [ngClass]="confirmModal.type === 'reject' ? 'btn-danger' : 'btn-primary'"
+              (click)="onConfirm()">
+        Đồng ý
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" *ngIf="resultModal.show" style="z-index: 3001;">
+  <div class="modal-content-small">
+    <div class="modal-icon" [ngClass]="resultModal.isSuccess ? 'icon-success' : 'icon-error'">
+      <i class="fas" [ngClass]="resultModal.isSuccess ? 'fa-check' : 'fa-times'"></i>
+    </div>
+    <h3 class="modal-title">{{ resultModal.isSuccess ? 'Thành công!' : 'Thất bại' }}</h3>
+    <p class="modal-desc">{{ resultModal.message }}</p>
+    <div class="modal-actions">
+      <button class="btn-modal btn-primary" style="width: 100%;" (click)="closeResultModal()">
+        Đóng
+      </button>
     </div>
   </div>
 </div>

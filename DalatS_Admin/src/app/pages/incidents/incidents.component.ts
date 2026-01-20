@@ -23,11 +23,11 @@ export class IncidentsComponent implements OnInit {
   // Dữ liệu bổ trợ
   departments: DepartmentOption[] = [];
   suggestedDuplicates: IncidentDTO[] = [];
+  isModalVisible: boolean = false;
   
   // User info
   currentUser: any = null;
   isAdmin: boolean = false;
-
   // Form
   isLoading: boolean = false;
   updateData: UpdateStatusDTO = {
@@ -41,7 +41,19 @@ export class IncidentsComponent implements OnInit {
   
   // Cấu hình Base URL API (Sửa lại port nếu khác 5084)
   private readonly baseUrl = 'http://localhost:5084'; 
+  confirmModal = {
+    show: false,
+    title: '',
+    message: '',
+    type: 'confirm', // 'confirm' | 'reject'
+    action: () => {} // Hàm callback sẽ chạy khi bấm Đồng ý
+  };
 
+  resultModal = {
+    show: false,
+    isSuccess: true,
+    message: ''
+  };
   constructor(
     private incidentService: IncidentService,
     private staffService: StaffService,
@@ -63,7 +75,7 @@ export class IncidentsComponent implements OnInit {
       depts: this.isAdmin ? this.staffService.getDepartments() : of([]) 
     }).subscribe({
       next: (res) => {
-        this.incidents = res.incidents;
+        this.incidents = res.incidents.filter(x => x.status !== 'Đã gộp');
         this.departments = res.depts as DepartmentOption[]; 
         this.isLoading = false;
         this.cdr.detectChanges();
@@ -135,10 +147,21 @@ export class IncidentsComponent implements OnInit {
     if (!this.selectedIncident) return;
     
     if (!this.updateData.assignedDepartmentId) {
-      alert('Vui lòng chọn đơn vị xử lý!');
+      this.showResultModal(false, 'Vui lòng chọn đơn vị xử lý trước khi duyệt!');
       return;
     }
 
+    // Mở Modal xác nhận thay vì làm luôn
+    this.openConfirmModal(
+      'Xác nhận duyệt?', 
+      `Bạn có chắc chắn muốn duyệt sự cố này và giao cho đơn vị đã chọn?`, 
+      'confirm',
+      () => {
+        this.executeApprove();
+      }
+    );
+  }
+  private executeApprove() {
     const dto: UpdateStatusDTO = {
       status: 'Đang xử lý',
       alertLevel: this.updateData.alertLevel,
@@ -155,23 +178,36 @@ export class IncidentsComponent implements OnInit {
 
   reject() {
     if (!this.selectedIncident) return;
-    if (!confirm('Bạn chắc chắn muốn từ chối sự cố này?')) return;
 
-    const dto: UpdateStatusDTO = {
-      status: 'Từ chối',
-      note: this.updateData.note || 'Không đủ thông tin hoặc không đúng thẩm quyền'
-    };
-    this.callUpdateApi(dto);
+    this.openConfirmModal(
+      'Xác nhận từ chối?',
+      'Hành động này sẽ đóng sự cố và thông báo cho người dân. Bạn có chắc chắn không?',
+      'reject',
+      () => {
+        const dto: UpdateStatusDTO = {
+          status: 'Từ chối',
+          note: this.updateData.note || 'Không đủ thông tin hoặc không đúng thẩm quyền'
+        };
+        this.callUpdateApi(dto);
+      }
+    );
   }
 
   updateProgress(status: string) {
     if (!this.selectedIncident) return;
     
-    const dto: UpdateStatusDTO = {
-      status: status,
-      note: this.updateData.note
-    };
-    this.callUpdateApi(dto);
+    this.openConfirmModal(
+      'Cập nhật trạng thái',
+      `Chuyển trạng thái sự cố thành "${status}"?`,
+      'confirm',
+      () => {
+        const dto: UpdateStatusDTO = {
+          status: status,
+          note: this.updateData.note
+        };
+        this.callUpdateApi(dto);
+      }
+    );
   }
 
   callUpdateApi(dto: UpdateStatusDTO) {
@@ -180,14 +216,17 @@ export class IncidentsComponent implements OnInit {
     this.isLoading = true;
     this.incidentService.updateStatus(this.selectedIncident.incidentId, dto).subscribe({
       next: () => {
-        alert('Cập nhật thành công!');
         this.isLoading = false;
-        this.selectedIncident = null; // Clear selection
-        this.loadData();
+        this.showResultModal(true, 'Cập nhật trạng thái thành công!');
+        this.loadData(); // Reload lại list
+        // Giữ nguyên selectedIncident để user thấy kết quả thay đổi
+        if (this.selectedIncident) {
+            this.selectedIncident.status = dto.status; 
+        }
       },
       error: () => {
-        alert('Lỗi cập nhật');
         this.isLoading = false;
+        this.showResultModal(false, 'Có lỗi xảy ra khi cập nhật.');
       }
     });
   }
@@ -204,7 +243,10 @@ export class IncidentsComponent implements OnInit {
       next: () => {
         this.callUpdateApi(updateDto);
       },
-      error: () => alert('Lỗi khi gộp sự cố')
+      error: () => {
+        this.isLoading = false;
+        this.showResultModal(false, 'Lỗi khi gộp các sự cố trùng lặp.');
+      }
     });
   }
 
@@ -215,5 +257,31 @@ export class IncidentsComponent implements OnInit {
     } else {
       this.selectedDuplicateIds.push(id);
     }
+  }
+  openConfirmModal(title: string, msg: string, type: 'confirm'|'reject', action: any) {
+    this.confirmModal = {
+      show: true,
+      title: title,
+      message: msg,
+      type: type,
+      action: action
+    };
+  }
+
+  onConfirm() {
+    this.confirmModal.show = false;
+    this.confirmModal.action(); // Chạy hàm callback
+  }
+
+  showResultModal(isSuccess: boolean, msg: string) {
+    this.resultModal = {
+      show: true,
+      isSuccess: isSuccess,
+      message: msg
+    };
+  }
+
+  closeResultModal() {
+    this.resultModal.show = false;
   }
 }

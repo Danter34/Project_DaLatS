@@ -1,0 +1,58 @@
+<div class="modal-backdrop" *ngIf="isVisible" (click)="close()">
+  
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    
+    <button class="btn-close" (click)="close()">
+        <i class="fas fa-times"></i>
+    </button>
+
+    <div class="modal-body" *ngIf="incident">
+      
+      <div class="left-col">
+        <div class="main-image-container">
+          <img [src]="activeImage" alt="Chi tiết sự cố" class="main-img">
+        </div>
+        
+        <div class="thumb-list" *ngIf="incident.images && incident.images.length > 1">
+          <img *ngFor="let img of incident.images" 
+               [src]="getImageUrl(img.filePath)" 
+               (click)="setActiveImage(img.filePath)"
+               [class.active-thumb]="activeImage === getImageUrl(img.filePath)">
+        </div>
+      </div>
+
+      <div class="right-col">
+        <h2 class="incident-title">{{ incident.title }}</h2>
+        
+        <div class="meta-row">
+          <span class="meta-item"><i class="far fa-clock"></i> {{ incident.createdAt | date:'dd/MM/yyyy HH:mm' }}</span>
+          <span class="meta-item"><i class="fas fa-tag"></i> {{ incident.categoryName }}</span>
+        </div>
+
+        <div class="status-box">
+           <span class="status-badge" [ngClass]="{
+              'status-pending': incident.status === 'Chờ xử lý',
+              'status-processing': incident.status === 'Đang xử lý',
+              'status-completed': incident.status === 'Đã hoàn thành',
+              'status-rejected': incident.status === 'Từ chối'
+            }">{{ incident.status }}</span>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+          <div class="section-label"><i class="fas fa-align-left"></i> Mô tả chi tiết:</div>
+          <p class="section-text">{{ incident.description }}</p>
+        </div>
+
+        <div class="section">
+          <div class="section-label"><i class="fas fa-map-marker-alt text-red"></i> Địa điểm:</div>
+          <p class="address-text">
+            {{ incident.address }}, {{ incident.streetName }}, {{ incident.ward }}
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

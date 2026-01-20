@@ -1,0 +1,113 @@
+<div class="detail-container" *ngIf="!isLoading && profile">
+  
+  <div class="header-row">
+    <button class="btn-back" (click)="goBack()">
+      <i class="fas fa-arrow-left"></i> Quay lại
+    </button>
+    <h2>Hồ sơ nhân viên</h2>
+  </div>
+
+  <div class="profile-card-horizontal">
+    <div class="pc-left">
+      <div class="avatar-sq">{{ profile.fullName.charAt(0) }}</div>
+      <div class="pc-info">
+        <h3>{{ profile.fullName }}</h3>
+        <span class="role-badge">{{ profile.role }}</span>
+        <p><i class="fas fa-envelope"></i> {{ profile.email }}</p>
+      </div>
+    </div>
+    <div class="pc-right">
+      <div class="dept-box">
+        <label>Phòng ban</label>
+        <strong>{{ profile.departmentName || 'Chưa phân bổ' }}</strong>
+      </div>
+      <div class="date-box">
+        <label>Ngày tham gia</label>
+        <span>{{ profile.createdAt | date:'dd/MM/yyyy' }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="kpi-grid">
+    
+    <div class="kpi-card highlight">
+      <div class="kpi-title">Hiệu suất xử lý</div>
+      <div class="kpi-circle-wrap">
+        <div class="kpi-value">{{ stats.completionRate }}%</div>
+        <div class="kpi-label">Tỷ lệ hoàn thành</div>
+      </div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-icon blue"><i class="fas fa-tasks"></i></div>
+      <div class="kpi-number">{{ stats.assignedTasks }}</div>
+      <div class="kpi-text">Nhiệm vụ được giao</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-icon green"><i class="fas fa-check-double"></i></div>
+      <div class="kpi-number">{{ stats.completedTasks }}</div>
+      <div class="kpi-text">Đã hoàn thành</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-icon orange"><i class="fas fa-spinner"></i></div>
+      <div class="kpi-number">{{ stats.inProgressTasks }}</div>
+      <div class="kpi-text">Đang xử lý</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-icon red"><i class="fas fa-fire"></i></div>
+      <div class="kpi-number">{{ stats.highPriorityTasks }}</div>
+      <div class="kpi-text">Sự cố khẩn cấp</div>
+    </div>
+
+  </div>
+
+ <div class="task-panel">
+  <h3><i class="fas fa-briefcase"></i> Nhiệm vụ gần đây</h3>
+  
+  <div class="empty-task" *ngIf="tasks.length === 0">
+    <img src="assets/images/no-data.png" width="100" onerror="this.style.display='none'">
+    <p>Chưa có dữ liệu nhiệm vụ chi tiết.</p>
+  </div>
+
+  <div class="table-responsive" *ngIf="tasks.length > 0">
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Tiêu đề</th>
+          <th>Địa điểm</th>
+          <th>Ngày giao</th>
+          <th>Trạng thái</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of tasks" (click)="openIncidentModal(item)" style="cursor: pointer;">
+          <td>#{{ item.incidentId }}</td>
+          <td style="font-weight: 500;">{{ item.title }}</td>
+          <td>{{ item.ward }}</td>
+          <td>{{ item.createdAt | date:'dd/MM/yyyy' }}</td>
+          <td>
+            <span class="status-badge" [ngClass]="{
+              'status-pending': item.status === 'Chờ xử lý',
+              'status-processing': item.status === 'Đang xử lý',
+              'status-completed': item.status === 'Đã hoàn thành',
+              'status-rejected': item.status === 'Từ chối'
+            }">
+              {{ item.status }}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<app-incident-detail-modal 
+  [isVisible]="isModalVisible" 
+  [incident]="selectedIncident" 
+  (onClose)="closeModal()">
+</app-incident-detail-modal>
+
+</div>

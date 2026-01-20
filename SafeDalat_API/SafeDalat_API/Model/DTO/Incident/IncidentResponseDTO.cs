@@ -19,7 +19,7 @@ namespace SafeDalat_API.Model.DTO.Icident
         public bool IsPublic { get; set; }
         public int UserId { get; set; }
         public string CategoryName { get; set; }
-
+        public int VoteCount { get; set; }
         public string? AssignedDepartmentName { get; set; }
         public int? AssignedDepartmentId { get; set; }
 

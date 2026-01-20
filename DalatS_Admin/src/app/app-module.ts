@@ -21,6 +21,10 @@ import { IncidentsComponent } from './pages/incidents/incidents.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { QaComponent } from './pages/qa/qa.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { CitizenDetailComponent } from './pages/citizen-detail/citizen-detail.component';
+import { StaffDetailComponent } from './pages/staff-detail/staff-detail.component';
+import { IncidentDetailModalComponent } from './pages/incident-detail-modal/incident-detail-modal.component';
+import { NotificationSenderComponent } from './pages/notification-sender/notification-sender.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,11 @@ import { ProfileComponent } from './pages/profile/profile.component';
     IncidentsComponent,
     CategoriesComponent,
     QaComponent,
-    ProfileComponent
+    ProfileComponent,
+    CitizenDetailComponent,
+    StaffDetailComponent,
+    IncidentDetailModalComponent,
+    NotificationSenderComponent
   ],
   imports: [
     BrowserModule,

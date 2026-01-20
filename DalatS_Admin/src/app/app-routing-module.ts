@@ -14,6 +14,9 @@ import { CategoriesComponent } from './pages/categories/categories.component';
 import { QaComponent } from './pages/qa/qa.component';
 import { adminGuard } from './guards/admin.guard';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { CitizenDetailComponent } from './pages/citizen-detail/citizen-detail.component';
+import { StaffDetailComponent } from './pages/staff-detail/staff-detail.component';
+import { NotificationSenderComponent } from './pages/notification-sender/notification-sender.component';
 // Guard đơn giản (Bạn có thể tách ra file riêng)
 const authGuard = () => {
   const authService = inject(AuthService);
@@ -37,9 +40,12 @@ const routes: Routes = [
       // Chỉ Admin mới vào được Dashboard, Staff, Dept...
       { path: 'dashboard', component: DashboardComponent, canActivate: [adminGuard] },
       { path: 'citizens', component: CitizensComponent, canActivate: [adminGuard] },
+      { path: 'citizens/:id', component: CitizenDetailComponent, canActivate: [adminGuard] },
       { path: 'staff', component: StaffComponent, canActivate: [adminGuard] },
+      { path: 'staff/:id', component: StaffDetailComponent, canActivate: [adminGuard] },
       { path: 'departments', component: DepartmentsComponent, canActivate: [adminGuard] },
       { path: 'categories', component: CategoriesComponent, canActivate: [adminGuard] },
+      { path: 'send-notification', component: NotificationSenderComponent, canActivate: [adminGuard] },
       
       // Mấy trang này ai vào cũng được (miễn là đã login)
       { path: 'incidents', component: IncidentsComponent },

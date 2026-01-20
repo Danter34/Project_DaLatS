@@ -12,7 +12,7 @@ export interface LockUserDTO {
 })
 export class CitizenService {
   // Giả sử API của bạn nằm ở /api/auth hoặc /api/users
-  private apiUrl = 'http://localhost:5084/api/auth'; 
+  private apiUrl = 'http://localhost:5084/api'; 
 
   constructor(private http: HttpClient) { }
 
@@ -25,14 +25,22 @@ export class CitizenService {
   }
 
   getAllUsers(): Observable<AdminUser[]> {
-    return this.http.get<AdminUser[]>(`${this.apiUrl}/get-all`, { headers: this.getHeaders() });
+    return this.http.get<AdminUser[]>(`${this.apiUrl}/Auth/get-all`, { headers: this.getHeaders() });
   }
 
   lockUser(id: number, reason: string): Observable<any> {
-    return this.http.put(`${this.apiUrl}/${id}/lock`, { reason }, { headers: this.getHeaders(), responseType: 'text' });
+    return this.http.put(`${this.apiUrl}/Auth/${id}/lock`, { reason }, { headers: this.getHeaders(), responseType: 'text' });
   }
 
   unlockUser(id: number, reason: string): Observable<any> {
-    return this.http.put(`${this.apiUrl}/${id}/unlock`, { reason }, { headers: this.getHeaders(), responseType: 'text' });
+    return this.http.put(`${this.apiUrl}/Auth/${id}/lock`, { reason }, { headers: this.getHeaders(), responseType: 'text' });
+  }
+  getUserDetail(userId: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/Auth/admin/user-dashboard/${userId}`, { headers: this.getHeaders() });
+  }
+
+  // 2. Lấy danh sách lịch sử báo cáo
+  getUserIncidents(userId: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/Incidents/admin/get-by-user/${userId}`, { headers: this.getHeaders() });
   }
 }

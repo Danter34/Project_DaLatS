@@ -519,6 +519,22 @@
   },
   {
     "ContainingType": "SafeDalat_API.Controllers.IncidentsController",
+    "Method": "GetIncidentsByUserId",
+    "RelativePath": "api/Incidents/get-by-user-admin/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SafeDalat_API.Controllers.IncidentsController",
     "Method": "Map",
     "RelativePath": "api/Incidents/map",
     "HttpMethod": "GET",
