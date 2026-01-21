@@ -43,6 +43,38 @@
   },
   {
     "ContainingType": "SafeDalat_API.Controllers.AuthController",
+    "Method": "GetStaffDashboardForAdmin",
+    "RelativePath": "api/Auth/admin/staff-dashboard/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SafeDalat_API.Controllers.AuthController",
+    "Method": "GetUserDashboardForAdmin",
+    "RelativePath": "api/Auth/admin/user-dashboard/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SafeDalat_API.Controllers.AuthController",
     "Method": "ChangePassword",
     "RelativePath": "api/Auth/change-password",
     "HttpMethod": "PUT",
@@ -477,6 +509,38 @@
   },
   {
     "ContainingType": "SafeDalat_API.Controllers.IncidentsController",
+    "Method": "GetIncidentsByDepartmentForAdmin",
+    "RelativePath": "api/Incidents/admin/get-by-department/{deptId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "deptId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SafeDalat_API.Controllers.IncidentsController",
+    "Method": "GetIncidentsByUserIdForAdmin",
+    "RelativePath": "api/Incidents/admin/get-by-user/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SafeDalat_API.Controllers.IncidentsController",
     "Method": "Create",
     "RelativePath": "api/Incidents/create",
     "HttpMethod": "POST",
@@ -511,22 +575,6 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SafeDalat_API.Controllers.IncidentsController",
-    "Method": "GetIncidentsByUserId",
-    "RelativePath": "api/Incidents/get-by-user-admin/{userId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userId",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -624,6 +672,22 @@
   },
   {
     "ContainingType": "SafeDalat_API.Controllers.NotificationsController",
+    "Method": "Broadcast",
+    "RelativePath": "api/Notifications/broadcast",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "SafeDalat_API.Model.DTO.Notification.SendNotificationDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SafeDalat_API.Controllers.NotificationsController",
     "Method": "MyNotifications",
     "RelativePath": "api/Notifications/get",
     "HttpMethod": "GET",
@@ -709,6 +773,16 @@
     "ContainingType": "SafeDalat_API.Controllers.QAController",
     "Method": "GetMyQuestions",
     "RelativePath": "api/QA/my-questions",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SafeDalat_API.Controllers.TrafficController",
+    "Method": "GetTrafficHotspots",
+    "RelativePath": "api/Traffic/hotspots",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

@@ -1,24 +1,36 @@
 package com.example.dalats.activity;
 
+import android.Manifest;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.dalats.R;
 import com.example.dalats.api.ApiClient;
+import com.example.dalats.api.ApiService; // Import Interface API
 import com.example.dalats.fragment.ChatFragment;
 import com.example.dalats.fragment.HomeFragment;
 import com.example.dalats.fragment.MapFragment;
 import com.example.dalats.fragment.ProfileFragment;
-import android.content.Intent;
-import com.example.dalats.activity.ReportIncidentActivity;
+import com.google.firebase.messaging.FirebaseMessaging;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class MainActivity extends AppCompatActivity {
 
     // Khai báo View
@@ -26,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView imgHome, imgMap, imgChat, imgProfile;
     private TextView tvHome, tvMap, tvChat, tvProfile;
 
-    // Màu sắc (Lấy từ colors.xml hoặc mã hex)
+    // Màu sắc
     private int colorActive;
     private int colorInactive;
 
@@ -35,27 +47,38 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // 1. Cấu hình Token đăng nhập
         SharedPreferences pref = getSharedPreferences("UserSession", MODE_PRIVATE);
         String savedToken = pref.getString("TOKEN", null);
         if (savedToken != null) {
             ApiClient.setAuthToken(savedToken);
         }
-        // 1. Khởi tạo màu sắc
-        // colorActive = ContextCompat.getColor(this, R.color.green_primary); // Nếu dùng colors.xml
-        // colorInactive = ContextCompat.getColor(this, R.color.text_gray);
 
-        // Hoặc dùng mã màu trực tiếp để test luôn:
-        colorActive = Color.parseColor("#4CAF50"); // Màu xanh lá
-        colorInactive = Color.parseColor("#757575"); // Màu xám
+        // 2. Khởi tạo màu sắc
+        colorActive = Color.parseColor("#4CAF50");
+        colorInactive = Color.parseColor("#757575");
 
-        // 2. Ánh xạ View
+        // 3. Ánh xạ View
         initViews();
 
-        // 3. Mặc định load Home
+        // 4. Mặc định load Home
         loadFragment(new HomeFragment());
-        setTabState(1); // 1 = Home
+        setTabState(1);
 
-        // 4. Sự kiện Click
+        // 5. Sự kiện Click chuyển Tab
+        setupEvents();
+
+        // --- [MỚI] TÍCH HỢP THÔNG BÁO ---
+        // Xin quyền thông báo (Android 13+)
+        askNotificationPermission();
+
+        // Cập nhật Token Firebase lên Server (Nếu đã đăng nhập)
+        if (savedToken != null) {
+            updateFcmTokenToServer();
+        }
+    }
+
+    private void setupEvents() {
         btnHome.setOnClickListener(v -> {
             loadFragment(new HomeFragment());
             setTabState(1);
@@ -69,8 +92,6 @@ public class MainActivity extends AppCompatActivity {
         btnReport.setOnClickListener(v -> {
             if (!isLoggedIn()) {
                 Toast.makeText(this, "Vui lòng đăng nhập để gửi phản ánh", Toast.LENGTH_SHORT).show();
-
-                // Tự động chuyển sang tab Cá nhân (Profile) để người dùng đăng nhập
                 switchToTab(4);
                 return;
             }
@@ -78,10 +99,9 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-
-        btnChat.setOnClickListener(v -> { // Hỏi đáp
-           loadFragment(new ChatFragment());
-           setTabState(3);
+        btnChat.setOnClickListener(v -> {
+            loadFragment(new ChatFragment());
+            setTabState(3);
         });
 
         btnProfile.setOnClickListener(v -> {
@@ -89,32 +109,78 @@ public class MainActivity extends AppCompatActivity {
             setTabState(4);
         });
     }
+
+    // --- [MỚI] HÀM CẬP NHẬT FCM TOKEN ---
+    private void updateFcmTokenToServer() {
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(task -> {
+                    if (!task.isSuccessful()) {
+                        Log.w("FCM", "Lỗi lấy token FCM", task.getException());
+                        return;
+                    }
+
+                    // Lấy được token mới
+                    String token = task.getResult();
+                    Log.d("FCM", "Token của máy này: " + token);
+
+                    // Gọi API gửi lên Server
+                    ApiService api = ApiClient.getClient().create(ApiService.class);
+                    // Lưu ý: Chuỗi token gửi lên phải bọc trong object hoặc gửi raw string tùy API quy định
+                    // Ở đây giả sử gửi chuỗi raw string "token"
+                    api.updateFcmToken(token).enqueue(new Callback<Void>() {
+                        @Override
+                        public void onResponse(Call<Void> call, Response<Void> response) {
+                            if(response.isSuccessful()) {
+                                Log.d("FCM", "Đã cập nhật Token lên Server thành công");
+                            } else {
+                                Log.e("FCM", "Server trả lỗi: " + response.code());
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<Void> call, Throwable t) {
+                            Log.e("FCM", "Lỗi mạng khi cập nhật token: " + t.getMessage());
+                        }
+                    });
+                });
+    }
+
+    // --- [MỚI] HÀM XIN QUYỀN THÔNG BÁO ---
+    private void askNotificationPermission() {
+        // Chỉ cần xin quyền với Android 13 (API 33) trở lên
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
+                    != PackageManager.PERMISSION_GRANTED) {
+                // Hiển thị popup xin quyền
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.POST_NOTIFICATIONS}, 101);
+            }
+        }
+    }
+
     private boolean isLoggedIn() {
         SharedPreferences pref = getSharedPreferences("UserSession", MODE_PRIVATE);
         return pref.contains("TOKEN");
     }
+
     private void initViews() {
-        // Layout nút bấm
         btnHome = findViewById(R.id.btn_nav_home);
         btnMap = findViewById(R.id.btn_nav_map);
         btnChat = findViewById(R.id.btn_nav_chat);
         btnProfile = findViewById(R.id.btn_nav_profile);
         btnReport = findViewById(R.id.btn_nav_report);
 
-        // Icon bên trong (Dùng ID mới thêm ở XML)
         imgHome = findViewById(R.id.img_home);
         imgMap = findViewById(R.id.img_map);
         imgChat = findViewById(R.id.img_chat);
         imgProfile = findViewById(R.id.img_profile);
 
-        // Text bên trong (Dùng ID mới thêm ở XML)
         tvHome = findViewById(R.id.tv_home);
         tvMap = findViewById(R.id.tv_map);
         tvChat = findViewById(R.id.tv_chat);
         tvProfile = findViewById(R.id.tv_profile);
     }
 
-    // Hàm chuyển Fragment
     private void loadFragment(Fragment fragment) {
         if (fragment != null) {
             getSupportFragmentManager()
@@ -124,26 +190,22 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // Hàm thay đổi màu sắc Tab
     private void setTabState(int tabIndex) {
-        // Reset tất cả về màu Xám (Inactive)
         resetTabs();
-
-        // Đổi màu nút được chọn thành Xanh (Active)
         switch (tabIndex) {
-            case 1: // Home
+            case 1:
                 imgHome.setColorFilter(colorActive);
                 tvHome.setTextColor(colorActive);
                 break;
-            case 2: // Map
+            case 2:
                 imgMap.setColorFilter(colorActive);
                 tvMap.setTextColor(colorActive);
                 break;
-            case 3: // Chat
+            case 3:
                 imgChat.setColorFilter(colorActive);
                 tvChat.setTextColor(colorActive);
                 break;
-            case 4: // Profile
+            case 4:
                 imgProfile.setColorFilter(colorActive);
                 tvProfile.setTextColor(colorActive);
                 break;
@@ -151,27 +213,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void resetTabs() {
-        // Set màu xám cho icon
         imgHome.setColorFilter(colorInactive);
         imgMap.setColorFilter(colorInactive);
         imgChat.setColorFilter(colorInactive);
         imgProfile.setColorFilter(colorInactive);
 
-        // Set màu xám cho text
         tvHome.setTextColor(colorInactive);
         tvMap.setTextColor(colorInactive);
         tvChat.setTextColor(colorInactive);
         tvProfile.setTextColor(colorInactive);
     }
-    public void switchToTab(int tabIndex) {
-        // Gọi lại logic chuyển tab đã viết trước đó
-        setTabState(tabIndex);
 
-        // Load Fragment tương ứng
+    public void switchToTab(int tabIndex) {
+        setTabState(tabIndex);
         switch (tabIndex) {
             case 1: loadFragment(new HomeFragment()); break;
             case 2: loadFragment(new MapFragment()); break;
-            case 3: loadFragment(new ChatFragment()); break; // Bỏ comment khi có
+            case 3: loadFragment(new ChatFragment()); break;
             case 4: loadFragment(new ProfileFragment()); break;
         }
     }

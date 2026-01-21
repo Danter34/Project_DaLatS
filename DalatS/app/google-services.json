@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "192376900930",
+    "project_id": "dalats-298cd",
+    "storage_bucket": "dalats-298cd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:192376900930:android:38f613d7836745b60a4cdb",
+        "android_client_info": {
+          "package_name": "com.example.dalats"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOiy19OfGB5C0TfLLTQoFC04YpP0WmyHY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -54,6 +54,10 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
+            "FirebaseAdmin": {
+              "target": "Package",
+              "version": "[3.4.0, )"
+            },
             "Google.Cloud.Vision.V1": {
               "target": "Package",
               "version": "[3.8.0, )"

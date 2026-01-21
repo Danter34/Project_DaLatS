@@ -221,9 +221,9 @@
 
             <LinearLayout android:id="@+id/btn_feature_report" style="@style/GridItemStyle" android:layout_width="0dp" android:layout_columnWeight="1">
                 <androidx.cardview.widget.CardView android:layout_width="50dp" android:layout_height="50dp" app:cardBackgroundColor="@color/bg_red" app:cardCornerRadius="16dp" app:cardElevation="0dp">
-                    <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:padding="12dp" android:src="@drawable/pa" app:tint="@color/icon_red"/>
+                    <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:padding="12dp" android:src="@drawable/ic_camera" app:tint="@color/icon_red"/>
                 </androidx.cardview.widget.CardView>
-                <TextView style="@style/GridTextStyle" android:text="Phản ánh" />
+                <TextView style="@style/GridTextStyle" android:text="Phản án" />
             </LinearLayout>
 
             <LinearLayout android:id="@+id/btn_feature_map" style="@style/GridItemStyle" android:layout_width="0dp" android:layout_columnWeight="1">
@@ -235,9 +235,9 @@
 
             <LinearLayout android:id="@+id/btn_feature_warning" style="@style/GridItemStyle" android:layout_width="0dp" android:layout_columnWeight="1">
                 <androidx.cardview.widget.CardView android:layout_width="50dp" android:layout_height="50dp" app:cardBackgroundColor="@color/bg_orange" app:cardCornerRadius="16dp" app:cardElevation="0dp">
-                    <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:padding="12dp" android:src="@drawable/cb1" app:tint="@color/icon_orange"/>
+                    <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:padding="12dp" android:src="@drawable/gt" app:tint="@color/icon_orange"/>
                 </androidx.cardview.widget.CardView>
-                <TextView style="@style/GridTextStyle" android:text="Cảnh báo" />
+                <TextView style="@style/GridTextStyle" android:text="Giao thông" />
             </LinearLayout>
 
             <LinearLayout android:id="@+id/btn_feature_chat" style="@style/GridItemStyle" android:layout_width="0dp" android:layout_columnWeight="1">

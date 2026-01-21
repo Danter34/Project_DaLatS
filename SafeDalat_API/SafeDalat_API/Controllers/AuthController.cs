@@ -328,5 +328,20 @@ namespace SafeDalat_API.Controllers
                 Stats = stats
             });
         }
+        [HttpPut("update-fcm")]
+        public async Task<IActionResult> UpdateFcmToken([FromBody] string token)
+        {
+            int userId = User.GetUserId();
+            var user = await _context.Users.FindAsync(userId);
+            if (user == null) return NotFound("User không tồn tại");
+
+            // [FIX LỖI] Xóa bỏ dấu ngoặc kép thừa và khoảng trắng nếu có
+            string cleanToken = token.Replace("\"", "").Trim();
+
+            user.FcmToken = cleanToken; // Lưu token sạch
+            await _context.SaveChangesAsync();
+
+            return Ok(new { message = "Đã cập nhật FCM Token thành công", token = cleanToken });
+        }
     }
 }

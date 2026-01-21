@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using FirebaseAdmin;
+using Google.Apis.Auth.OAuth2;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -98,6 +100,19 @@ builder.Services.AddHttpClient<IEnvironmentRepository, EnvironmentRepository>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
 builder.Services.AddScoped<IImageAnalysisRepository, ImageAnalysisRepository>();
+builder.Services.AddHostedService<SafeDalat_API.Workers.TrafficAlertWorker>();
+builder.Services.AddScoped<ITrafficRepository, TrafficRepository>();
+
+if (File.Exists("firebase-key.json"))
+{
+    FirebaseApp.Create(new AppOptions()
+    {
+        Credential = GoogleCredential.FromFile("firebase-key.json")
+    });
+}
+builder.Services.AddScoped<IFcmService, FcmService>();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
