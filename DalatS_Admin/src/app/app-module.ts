@@ -25,6 +25,7 @@ import { CitizenDetailComponent } from './pages/citizen-detail/citizen-detail.co
 import { StaffDetailComponent } from './pages/staff-detail/staff-detail.component';
 import { IncidentDetailModalComponent } from './pages/incident-detail-modal/incident-detail-modal.component';
 import { NotificationSenderComponent } from './pages/notification-sender/notification-sender.component';
+import { VerifyResultComponent } from './pages/verify-result/verify-result.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { NotificationSenderComponent } from './pages/notification-sender/notific
     CitizenDetailComponent,
     StaffDetailComponent,
     IncidentDetailModalComponent,
-    NotificationSenderComponent
+    NotificationSenderComponent,
+    VerifyResultComponent,
   ],
   imports: [
     BrowserModule,

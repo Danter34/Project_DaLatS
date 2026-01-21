@@ -26,6 +26,7 @@ import com.example.dalats.activity.DashboardActivity;
 import com.example.dalats.activity.NotificationActivity;
 import com.example.dalats.activity.ReportIncidentActivity;
 import com.example.dalats.activity.SearchIncidentActivity;
+import com.example.dalats.activity.TrafficMapActivity;
 import com.example.dalats.activity.WeatherActivity;
 import com.example.dalats.adapter.IncidentAdapter;
 import com.example.dalats.api.ApiClient;
@@ -95,7 +96,7 @@ public class HomeFragment extends Fragment {
         // Sử dụng findViewById trực tiếp từ view cha cho gọn
         view.findViewById(R.id.btn_feature_report).setOnClickListener(v -> startActivity(new Intent(getActivity(), ReportIncidentActivity.class)));
 
-        view.findViewById(R.id.btn_feature_warning).setOnClickListener(v -> startActivity(new Intent(getActivity(), SearchIncidentActivity.class)));
+        view.findViewById(R.id.btn_feature_warning).setOnClickListener(v -> startActivity(new Intent(getActivity(), TrafficMapActivity.class)));
 
         view.findViewById(R.id.btn_feature_stats).setOnClickListener(v -> startActivity(new Intent(getActivity(), DashboardActivity.class)));
 
@@ -224,7 +225,7 @@ public class HomeFragment extends Fragment {
 
         if (condition.contains("mưa") || condition.contains("dông")) {
             startColor = Color.parseColor("#373B44"); endColor = Color.parseColor("#4286f4");
-            iconResId = R.drawable.rainy;
+            iconResId = R.drawable.rain;
         } else if (condition.contains("nắng") && temp > 25) {
             startColor = Color.parseColor("#FF512F"); endColor = Color.parseColor("#DD2476");
             iconResId = R.drawable.sunny;

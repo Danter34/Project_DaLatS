@@ -32,26 +32,41 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.FViewH
     public void onBindViewHolder(@NonNull FViewHolder holder, int position) {
         ForecastResponse.ForecastItem item = list.get(position);
 
-        String time = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date(item.dt * 1000));
-        // Nếu là đầu ngày mới (00:00) hoặc item đầu tiên thì hiện Thứ (T2, T3..)
-        if (time.equals("00:00") || position == 0) {
-            time = new SimpleDateFormat("EE HH:mm", new Locale("vi", "VN")).format(new Date(item.dt * 1000));
-        }
+        // [CẬP NHẬT] Định dạng hiển thị: Thứ + Giờ (VD: T2 14:00) để dễ phân biệt các ngày
+        // EEE: Thứ (Mon/Tue...), HH:mm: Giờ
+        String time = new SimpleDateFormat("EEE HH:mm", new Locale("vi", "VN")).format(new Date(item.dt * 1000));
+
+        // Viết hoa chữ cái đầu (tùy chọn)
+        time = time.substring(0, 1).toUpperCase() + time.substring(1);
+
         holder.tvTime.setText(time);
         holder.tvTemp.setText(Math.round(item.main.temp) + "°");
 
-        // Logic icon cơ bản
+        // Logic icon giữ nguyên như cũ
         String condition = item.weather.get(0).main.toLowerCase();
-        int iconRes = R.drawable.tt; // Mặc định
-        if (condition.contains("rain")) iconRes = R.drawable.rainy;
-        else if (condition.contains("clear")) iconRes = R.drawable.sunny;
-        else if (condition.contains("clouds")) iconRes = R.drawable.cloudy;
+        int iconRes;
+
+        if (condition.contains("rain") || condition.contains("drizzle")) {
+            iconRes = R.drawable.rain;
+        } else if (condition.contains("thunder")) {
+            iconRes = R.drawable.thunder;
+        } else if (condition.contains("clear")) {
+            iconRes = R.drawable.sunny;
+        } else if (condition.contains("cloud")) {
+            iconRes = R.drawable.cloudy;
+        } else {
+            iconRes = R.drawable.cloudy;
+        }
 
         holder.imgIcon.setImageResource(iconRes);
     }
 
     @Override
-    public int getItemCount() { return list == null ? 0 : list.size(); }
+    public int getItemCount() {
+        // Giới hạn hiển thị khoảng 8-10 mốc thời gian thôi cho đẹp (24h tới)
+        if (list == null) return 0;
+        return list.size();
+    }
 
     static class FViewHolder extends RecyclerView.ViewHolder {
         TextView tvTime, tvTemp;

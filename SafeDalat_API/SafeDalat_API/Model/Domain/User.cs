@@ -35,5 +35,7 @@ namespace SafeDalat_API.Model.Domain
 
         // [NEW] Thời gian được mở khóa (nếu bị khóa tạm)
         public DateTime? LockUntil { get; set; }
+
+        public string? FcmToken { get; set; }
     }
 }

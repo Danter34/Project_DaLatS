@@ -17,6 +17,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { CitizenDetailComponent } from './pages/citizen-detail/citizen-detail.component';
 import { StaffDetailComponent } from './pages/staff-detail/staff-detail.component';
 import { NotificationSenderComponent } from './pages/notification-sender/notification-sender.component';
+import { VerifyResultComponent } from './pages/verify-result/verify-result.component';
 // Guard đơn giản (Bạn có thể tách ra file riêng)
 const authGuard = () => {
   const authService = inject(AuthService);
@@ -31,6 +32,7 @@ const authGuard = () => {
 };
 
 const routes: Routes = [
+  { path: 'verify-email', component: VerifyResultComponent },
   { path: 'login', component: LoginComponent },
   { 
     path: 'admin', 

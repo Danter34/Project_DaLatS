@@ -13,7 +13,7 @@ namespace SafeDalat_API.Repositories.Services
         private string LogoUrl => _config["Email:LogoUrl"] ?? "http://localhost:5084/assets/email/logo.png";
 
         private const string BrandColor = "#2E7D32";
-        private const string BrandName = "SafeDalat";
+        private const string BrandName = "Dalats";
 
         public EmailService(IConfiguration config)
         {
@@ -22,7 +22,7 @@ namespace SafeDalat_API.Repositories.Services
 
         public async Task SendVerifyEmail(string email, string token)
         {
-            var link = $"{_config["ApiUrl"]}/api/auth/verify-email?token={token}";
+            var link = $"{_config["ClientUrl"]}/verify-email?token={token}";
 
             var content = $@"
                 <p>Xin chào,</p>

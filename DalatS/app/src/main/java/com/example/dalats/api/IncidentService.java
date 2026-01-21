@@ -7,6 +7,7 @@ import com.example.dalats.model.Incident;
 import com.example.dalats.model.IncidentCategory;
 import com.example.dalats.model.IncidentMap;
 import com.example.dalats.model.IncidentSearchDTO;
+import com.example.dalats.model.TrafficHotspot;
 
 import java.util.List;
 
@@ -55,4 +56,6 @@ public interface IncidentService {
             @Query("incidentId") int incidentId,
             @Part List<MultipartBody.Part> files
     );
+    @GET("api/Traffic/hotspots")
+    Call<List<TrafficHotspot>> getTrafficHotspots();
 }

@@ -12,8 +12,8 @@ public interface EnviService {
 
     //ẩn để giảm số lần rq khi app đang ở prototype
 
-    @GET("api/e/weather")
+    @GET("api/Environment/weather")
     Call<wt> getWeather();
-    @GET("api/E/air-quality")
+    @GET("api/Environment/air-quality")
     Call<AirQualityResponse> getAirQuality();
 }
