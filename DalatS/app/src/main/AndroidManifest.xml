@@ -12,6 +12,8 @@
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <uses-feature android:name="android.hardware.camera" android:required="true" />
 
     <queries>
@@ -57,8 +59,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.WeatherActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name=".activity.WeatherActivity" android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".activity.TrafficMapActivity"/>
         <activity android:name=".activity.SearchIncidentActivity"/>
         <activity android:name=".activity.NotificationActivity"/>
@@ -74,4 +75,5 @@
         <activity android:name=".activity.ImageDetailActivity" android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".activity.IncidentDetailActivity" android:exported="false" />
 
-    </application> </manifest>
+    </application>
+</manifest>

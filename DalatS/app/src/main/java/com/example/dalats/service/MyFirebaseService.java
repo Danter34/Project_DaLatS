@@ -26,7 +26,9 @@ import java.util.Random;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
+import android.media.AudioAttributes;
+import android.content.ContentResolver;
+import android.net.Uri;
 public class MyFirebaseService extends FirebaseMessagingService {
 
     private static final String TAG = "MyFirebaseService";
@@ -67,45 +69,62 @@ public class MyFirebaseService extends FirebaseMessagingService {
 
     // 3. Hàm hiển thị thông báo ra thanh trạng thái (Ting Ting)
     private void showNotification(String title, String body) {
-        String channelId = "SafeDalat_Alert_Channel";
+        // [QUAN TRỌNG] Đổi tên Channel ID mỗi khi thay đổi cấu hình âm thanh/rung
+        // Nếu giữ nguyên ID cũ, Android sẽ nhớ cài đặt cũ và không cập nhật cái mới đâu.
+        String channelId = "SafeDalat_Alert_Channel_V2";
 
-        // Intent: Khi bấm vào thông báo sẽ mở MainActivity
         Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent,
                 PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_IMMUTABLE);
-
-        // Âm thanh mặc định của hệ thống
-        Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-        // Android 8.0 (Oreo) trở lên bắt buộc phải tạo Channel
+        // 1. CẤU HÌNH ÂM THANH
+        // Cách A: Dùng âm thanh mặc định của hệ thống (dễ nhất)
+        // Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+
+        // Cách B: Dùng âm thanh riêng (file alert_sound.mp3 trong thư mục res/raw)
+        Uri soundUri = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" + getPackageName() + "/" + R.raw.arlet);
+
+        // 2. CẤU HÌNH RUNG (Mẫu: nghỉ 0ms, rung 500ms, nghỉ 200ms, rung 500ms)
+        long[] vibrationPattern = {0, 500, 200, 500};
+
+        // 3. TẠO CHANNEL (Cho Android 8.0+)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
                     channelId,
-                    "Thông báo SafeDalat", // Tên hiển thị trong cài đặt
-                    NotificationManager.IMPORTANCE_HIGH // Mức độ cao để hiện popup
+                    "Cảnh báo SafeDalat",
+                    NotificationManager.IMPORTANCE_HIGH // Phải là HIGH mới bung popup và kêu to
             );
-            channel.setDescription("Nhận cảnh báo giao thông và tin tức");
-            channel.enableLights(true);
+
+            // Thiết lập Âm thanh cho Channel
+            AudioAttributes audioAttributes = new AudioAttributes.Builder()
+                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                    .setUsage(AudioAttributes.USAGE_NOTIFICATION)
+                    .build();
+            channel.setSound(soundUri, audioAttributes);
+
+            // Thiết lập Rung cho Channel
             channel.enableVibration(true);
+            channel.setVibrationPattern(vibrationPattern);
+
             notificationManager.createNotificationChannel(channel);
         }
 
+        // 4. TẠO THÔNG BÁO
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, channelId)
-                .setSmallIcon(R.mipmap.ic_launcher) // Tốt nhất nên dùng icon trong suốt (white icon) ở drawable
+                .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle(title)
                 .setContentText(body)
-                .setAutoCancel(true) // Bấm vào tự biến mất
-                .setSound(defaultSoundUri)
+                .setAutoCancel(true)
                 .setContentIntent(pendingIntent)
-                .setPriority(NotificationCompat.PRIORITY_HIGH) // Ưu tiên cao
-                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                // Thiết lập cho các máy Android cũ (< 8.0)
+                .setSound(soundUri)
+                .setVibrate(vibrationPattern);
 
-        // Hiển thị thông báo với ID ngẫu nhiên để không bị đè lên nhau
         int notificationId = new Random().nextInt();
         notificationManager.notify(notificationId, builder.build());
     }
