@@ -27,14 +27,13 @@ namespace SafeDalat_API.Repositories.Services
             var user = await _context.Users.FindAsync(userId);
             if (user == null) throw new Exception("User not found");
 
-            // 1. CHECK SHADOW BAN (Điểm âm)
+        
             if (user.TrustScore < 0)
             {
                 throw new Exception("Tài khoản của bạn đã bị khóa tính năng báo cáo do điểm tin cậy quá thấp (Spam/Báo cáo sai).");
             }
 
-            // 2. CHECK DAILY QUOTA (Giới hạn ngày)
-            // Quy định: < 50 điểm -> 1 bài/ngày. >= 50 điểm -> 5 bài/ngày
+            
             int limit = user.TrustScore >= 50 ? 5 : 1;
 
             var countToday = await _context.Incidents
@@ -44,7 +43,7 @@ namespace SafeDalat_API.Repositories.Services
             {
                 throw new Exception($"Bạn đã đạt giới hạn báo cáo trong ngày ({limit} lượt). Hãy tích cực đóng góp để nâng điểm tin cậy!");
             }
-            // --- 1. RATE LIMITING: Chặn Spam tần suất (2 phút/lần) ---
+          
             var lastIncident = await _context.Incidents
                 .Where(x => x.UserId == userId)
                 .OrderByDescending(x => x.CreatedAt)
@@ -59,15 +58,14 @@ namespace SafeDalat_API.Repositories.Services
                 }
             }
 
-            // --- 2. DUPLICATE CHECK: Chặn trùng lặp CÁ NHÂN ---
             // (Ngăn user tự spam lại bài của chính mình khi chưa được duyệt)
             double latDiff = 0.001;
             double lngDiff = 0.001;
 
             bool isPersonalDuplicate = await _context.Incidents.AnyAsync(x =>
-                x.UserId == userId &&             // Của chính user này
-                x.CategoryId == dto.CategoryId && // Cùng loại
-                x.Status == "Chờ xử lý" &&        // Đang chờ duyệt
+                x.UserId == userId &&            
+                x.CategoryId == dto.CategoryId && 
+                x.Status == "Chờ xử lý" &&       
                 Math.Abs(x.Latitude - dto.Latitude) < latDiff &&
                 Math.Abs(x.Longitude - dto.Longitude) < lngDiff
             );
@@ -80,7 +78,7 @@ namespace SafeDalat_API.Repositories.Services
             // NẾU USER CHƯA XÁC NHẬN (IsForceCreate == false) -> CHẠY CÁC CHECK CẢNH BÁO
             if (!dto.IsForceCreate)
             {
-                // --- 3. DISTANCE CHECK: Cảnh báo khoảng cách (Anti-Fake / Offline Report) ---
+                
                 double distance = CalculateDistance(dto.Latitude, dto.Longitude, dto.DeviceLatitude, dto.DeviceLongitude);
                 double maxDistanceMeters = 500;
 
@@ -89,7 +87,7 @@ namespace SafeDalat_API.Repositories.Services
                     throw new Exception("DISTANCE_WARNING: Vị trí báo cáo cách xa vị trí đứng của bạn. Nếu bạn đang báo cáo nguội (đã chụp ảnh trước đó), hãy xác nhận để tiếp tục.");
                 }
 
-                // --- 4. CROWD CHECK: Gợi ý Vote nếu đông người báo ---
+               
                 int nearbyCount = await _context.Incidents.CountAsync(x =>
                     x.CategoryId == dto.CategoryId &&
                     (x.Status == "Chờ xử lý" || x.Status == "Đang xử lý") &&
@@ -102,10 +100,19 @@ namespace SafeDalat_API.Repositories.Services
                     throw new Exception("SUGGEST_VOTE: Có vẻ sự cố này đã được báo cáo bởi nhiều người. Bạn có muốn 'Vote' (Ủng hộ) thay vì tạo mới không?");
                 }
             }
+         
+            var category = await _context.IncidentCategories
+                .AsNoTracking()
+                .FirstOrDefaultAsync(c => c.CategoryId == dto.CategoryId);
 
-            // --- LOGIC TẠO MỚI (Khi đã qua hết các ải hoặc đã ForceCreate) ---
+            int? autoAssignDeptId = null;
 
-            // Tính lại khoảng cách để lưu log (nếu cần)
+            if (category != null && category.DefaultDepartmentId.HasValue)
+            {
+                
+                autoAssignDeptId = category.DefaultDepartmentId.Value;
+            }
+         
             double finalDist = CalculateDistance(dto.Latitude, dto.Longitude, dto.DeviceLatitude, dto.DeviceLongitude);
 
             var incident = new Incident
@@ -125,7 +132,8 @@ namespace SafeDalat_API.Repositories.Services
                 Status = "Chờ xử lý",
                 AlertLevel = AlertLevel.Green,
                 IsMaster = true,
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = DateTime.UtcNow,
+                AssignedDepartmentId = autoAssignDeptId
             };
 
             _context.Incidents.Add(incident);
@@ -195,17 +203,15 @@ namespace SafeDalat_API.Repositories.Services
         //  UPDATE STATUS 
         public async Task<bool> UpdateStatusAsync(int incidentId, int responderId, UpdateIncidentStatusDTO dto)
         {
-            // [EDIT] Sửa FindAsync thành Include(x => x.User) để lấy được thông tin User (cần để cộng/trừ điểm)
+            
             var incident = await _context.Incidents
                 .Include(x => x.User)
                 .FirstOrDefaultAsync(x => x.IncidentId == incidentId);
 
             if (incident == null) return false;
 
-            // [NEW] Lưu lại trạng thái cũ để so sánh (chỉ tính điểm khi chuyển từ "Chờ xử lý")
             string oldStatus = incident.Status;
 
-            // --- LOGIC CŨ GIỮ NGUYÊN ---
             incident.Status = dto.Status;
 
             if (dto.AlertLevel.HasValue)
@@ -252,27 +258,27 @@ namespace SafeDalat_API.Repositories.Services
                 UpdatedAt = DateTime.UtcNow
             });
 
-            // Tạo biến thông báo điểm để ghép vào tin nhắn gửi User
+        
             string scoreMsg = "";
 
-            // Chỉ tính điểm lần đầu tiên khi Admin xử lý (trạng thái cũ là Chờ xử lý)
+      
             if (oldStatus == "Chờ xử lý" && incident.User != null)
             {
                 if (dto.Status == "Đang xử lý" || dto.Status == "Đã hoàn thành")
                 {
-                    // Báo cáo ĐÚNG -> Cộng 10 điểm
+                  
                     incident.User.TrustScore += 10;
                     scoreMsg = " (+10 điểm uy tín)";
                 }
                 else if (dto.Status == "Từ chối")
                 {
-                    // Báo cáo SAI -> Trừ 20 điểm
+                   
                     incident.User.TrustScore -= 20;
                     scoreMsg = " (-20 điểm uy tín)";
                 }
             }
 
-            // --- CẬP NHẬT NỘI DUNG THÔNG BÁO CHO USER (GHÉP THÊM ĐIỂM) ---
+      
             string userMessage = "";
             switch (dto.Status)
             {
@@ -403,50 +409,50 @@ namespace SafeDalat_API.Repositories.Services
         // MERGE 
         public async Task<bool> MergeAsync(MergeIncidentDTO dto, int adminId)
         {
-            // 1. Lấy sự cố gốc (Master)
+
             var master = await _context.Incidents.FindAsync(dto.MasterIncidentId);
             if (master == null) return false;
 
-            // 2. Duyệt qua danh sách sự cố trùng
+    
             foreach (var dupId in dto.DuplicateIncidentIds)
             {
                 if (dupId == master.IncidentId) continue;
 
-                // Lấy sự cố trùng KÈM THEO User để cộng điểm
+          
                 var duplicate = await _context.Incidents
                     .Include(x => x.User)
                     .FirstOrDefaultAsync(x => x.IncidentId == dupId);
 
                 if (duplicate == null) continue;
 
-                // A. Cập nhật trạng thái sự cố trùng
+            
                 duplicate.IsMaster = false;
                 duplicate.Status = "Đã gộp";
 
-                // B. Lưu lịch sử liên kết
+            
                 _context.IncidentDuplicates.Add(new IncidentDuplicate
                 {
                     MasterIncidentId = master.IncidentId,
                     DuplicateIncidentId = duplicate.IncidentId
                 });
 
-                // C. CHUYỂN ẢNH TỪ DUPLICATE SANG MASTER
+   
                 var dupImages = await _context.IncidentImages
                     .Where(img => img.IncidentId == dupId)
                     .ToListAsync();
 
                 foreach (var img in dupImages)
                 {
-                    img.IncidentId = master.IncidentId; // Đổi chủ sở hữu ảnh
+                    img.IncidentId = master.IncidentId;
                 }
 
-                // D. [NEW] CỘNG ĐIỂM CHO USER BÁO CÁO TRÙNG
+               
                 if (duplicate.User != null)
                 {
-                    int rewardPoints = 5; // Cộng 5 điểm (ít hơn người gốc 1 chút)
+                    int rewardPoints = 5; 
                     duplicate.User.TrustScore += rewardPoints;
 
-                    // Gửi thông báo
+                
                     await _notificationRepo.CreateAsync(
                         duplicate.UserId,
                         $"Báo cáo \"{duplicate.Title}\" của bạn đã được gộp vào sự cố gốc #{master.IncidentId}. Bạn nhận được +{rewardPoints} điểm uy tín nhờ đóng góp chính xác."
@@ -454,7 +460,7 @@ namespace SafeDalat_API.Repositories.Services
                 }
             }
 
-            // 3. Cập nhật trạng thái Master
+           
             master.Status = "Đang xử lý";
 
             _context.IncidentStatusHistories.Add(new IncidentStatusHistory

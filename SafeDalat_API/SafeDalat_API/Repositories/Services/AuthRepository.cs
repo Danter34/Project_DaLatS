@@ -97,7 +97,7 @@ namespace SafeDalat_API.Repositories.Services
 
                 // Reset trạng thái xác minh
                 user.EmailVerified = false;
-                user.IsLocked = true; // Khóa tạm thời cho đến khi xác minh
+                user.IsLocked = true; 
 
                 // Tạo token xác minh mới
                 var token = Guid.NewGuid().ToString();
@@ -130,7 +130,7 @@ namespace SafeDalat_API.Repositories.Services
             var user = await _context.Users.FindAsync(userId);
             int currentScore = user?.TrustScore ?? 0;
 
-            // --- LOGIC TÍNH GIỚI HẠN (Trust Score) ---
+           
             // Mặc định: Uy tín thấp (Limit 1)
             int dailyLimit = 1;
             string status = "Thành viên mới";
@@ -140,13 +140,13 @@ namespace SafeDalat_API.Repositories.Services
                 dailyLimit = 0; // Shadow ban
                 status = "Bị khóa quyền báo cáo";
             }
-            else if (currentScore >= 50) // Giả sử > 50 điểm là uy tín
+            else if (currentScore >= 50) 
             {
                 dailyLimit = 5;
                 status = "Thành viên uy tín";
             }
 
-            // Đếm số bài đã đăng trong ngày (theo giờ Server - UTC)
+
             int postedToday = await incidents
                 .CountAsync(x => x.CreatedAt.Date == DateTime.UtcNow.Date);
 
@@ -250,7 +250,7 @@ namespace SafeDalat_API.Repositories.Services
                 InProgressTasks = processing,
                 HighPriorityTasks = highPriority,
                 CompletionRate = total > 0 ? Math.Round((double)completed / total * 100, 1) : 0,
-                LastActive = DateTime.UtcNow // Cái này có thể lấy từ bảng log đăng nhập nếu có
+                LastActive = DateTime.UtcNow 
             };
         }
 

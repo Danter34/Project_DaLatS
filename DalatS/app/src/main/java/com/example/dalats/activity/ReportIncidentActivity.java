@@ -363,9 +363,7 @@ public class ReportIncidentActivity extends AppCompatActivity {
         }
     }
 
-    // =========================================================================
-    // PHẦN LOGIC GỬI API (ĐÃ SỬA: BẮT BUỘC CÓ ẢNH)
-    // =========================================================================
+
 
     private void submitIncident() {
         String title = edtTitle.getText().toString().trim();
@@ -533,7 +531,7 @@ public class ReportIncidentActivity extends AppCompatActivity {
                         String msg = jsonObject.optString("message", "Ảnh bị từ chối.");
 
                         new AlertDialog.Builder(ReportIncidentActivity.this)
-                                .setTitle("⛔ Báo cáo thất bại")
+                                .setTitle("Báo cáo thất bại")
                                 .setMessage("Hệ thống phát hiện ảnh không phù hợp.\n\n" +
                                         "Lý do: " + msg + "\n\n" )
                                 .setPositiveButton("Đóng", (dialog, which) -> {

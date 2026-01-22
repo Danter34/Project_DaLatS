@@ -22,14 +22,13 @@ namespace SafeDalat_API.Controllers
         {
             try
             {
-                // Gọi Repo (đã có logic check AI bên trong)
+                
                 var result = await _repo.UploadAsync(incidentId, files);
                 return Ok(result);
             }
             catch (Exception ex)
             {
-                // Nếu AI phát hiện ảnh bậy, Exception sẽ được ném ra ở đây
-                // Trả về lỗi 400 để Mobile hiển thị thông báo
+               
                 return BadRequest(new { message = ex.Message });
             }
         }

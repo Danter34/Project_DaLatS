@@ -25,21 +25,21 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     private ViewFlipper viewFlipper;
     private ImageView btnBack;
 
-    // STEP 1
+
     private EditText edtEmail;
     private Button btnSendCode;
 
-    // STEP 2
+
     private EditText edtOtp;
     private TextView tvTimer, tvResendCode, tvOtpMessage;
     private Button btnVerifyCode;
     private CountDownTimer countDownTimer;
 
-    // STEP 3
+
     private EditText edtNewPass, edtConfirmPass;
     private Button btnResetPass;
 
-    // State Variables (Lưu giữ liệu để truyền giữa các bước)
+
     private String currentEmail = "";
     private String currentCode = "";
 
@@ -51,7 +51,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         initViews();
 
         btnBack.setOnClickListener(v -> {
-            // Nếu đang ở trang đầu thì thoát, còn không thì quay lại trang trước
+
             if (viewFlipper.getDisplayedChild() == 0) finish();
             else {
                 viewFlipper.showPrevious();
@@ -59,7 +59,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             }
         });
 
-        // --- SỰ KIỆN BƯỚC 1: GỬI EMAIL ---
+
         btnSendCode.setOnClickListener(v -> {
             String email = edtEmail.getText().toString().trim();
             if (email.isEmpty()) {
@@ -69,7 +69,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             sendForgotPassword(email);
         });
 
-        // --- SỰ KIỆN BƯỚC 2: CHECK OTP ---
+
         btnVerifyCode.setOnClickListener(v -> {
             String otp = edtOtp.getText().toString().trim();
             if (otp.isEmpty()) {
@@ -86,7 +86,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             edtOtp.setText("");
         });
 
-        // --- SỰ KIỆN BƯỚC 3: ĐỔI PASS ---
+
         btnResetPass.setOnClickListener(v -> {
             String pass = edtNewPass.getText().toString().trim();
             String confirm = edtConfirmPass.getText().toString().trim();
@@ -107,24 +107,24 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         viewFlipper = findViewById(R.id.view_flipper);
         btnBack = findViewById(R.id.btn_back);
 
-        // Step 1
+
         edtEmail = findViewById(R.id.edt_forgot_email);
         btnSendCode = findViewById(R.id.btn_send_code);
 
-        // Step 2
+
         edtOtp = findViewById(R.id.edt_otp_code);
         tvTimer = findViewById(R.id.tv_timer);
         tvResendCode = findViewById(R.id.tv_resend_code);
         tvOtpMessage = findViewById(R.id.tv_otp_message);
         btnVerifyCode = findViewById(R.id.btn_verify_code);
 
-        // Step 3
+
         edtNewPass = findViewById(R.id.edt_new_pass);
         edtConfirmPass = findViewById(R.id.edt_confirm_pass);
         btnResetPass = findViewById(R.id.btn_reset_pass);
     }
 
-    // API 1: Gửi yêu cầu quên mật khẩu
+
     private void sendForgotPassword(String email) {
         btnSendCode.setEnabled(false);
         btnSendCode.setText("Đang gửi...");
@@ -139,7 +139,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                     currentEmail = email; // Lưu email lại
                     tvOtpMessage.setText("Mã xác minh đã được gửi đến " + email);
 
-                    // Chuyển sang Slide 2 (Nhập OTP)
+
                     viewFlipper.setDisplayedChild(1);
 
                     // Bắt đầu đếm ngược

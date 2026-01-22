@@ -34,11 +34,11 @@ namespace SafeDalat_API.Controllers
 
                 if (user != null)
                 {
-                    // 1. Check khóa vĩnh viễn (Admin khóa)
+                   
                     if (user.IsLocked)
                         return BadRequest(new { message = "Tài khoản của bạn đã bị khóa vĩnh viễn do vi phạm chính sách." });
 
-                    // 2. Check khóa tạm thời (Do spam ảnh)
+           
                     if (user.LockUntil.HasValue && user.LockUntil > DateTime.UtcNow)
                     {
                         var minutesLeft = (int)(user.LockUntil.Value - DateTime.UtcNow).TotalMinutes;
@@ -50,31 +50,31 @@ namespace SafeDalat_API.Controllers
             }
             catch (Exception ex)
             {
-                // 1. Lỗi gợi ý Vote (Do đông người báo)
+               
                 if (ex.Message.StartsWith("SUGGEST_VOTE:"))
                 {
                     return Conflict(new
                     {
-                        type = "vote", // App sẽ hiện Popup hỏi: "Muốn Vote hay Tạo tiếp?"
+                        type = "vote", 
                         message = ex.Message.Replace("SUGGEST_VOTE: ", "")
                     });
                 }
 
-                // 2. Lỗi cảnh báo khoảng cách (Báo cáo nguội)
+                
                 if (ex.Message.StartsWith("DISTANCE_WARNING:"))
                 {
                     return Conflict(new
                     {
-                        type = "distance", // App sẽ hiện Popup hỏi: "Bạn đang báo cáo từ xa?"
+                        type = "distance",
                         message = ex.Message.Replace("DISTANCE_WARNING: ", "")
                     });
                 }
 
-                // 3. Các lỗi chặn cứng (Spam cá nhân, Rate limit...) -> 400 Bad Request
+                
                 return BadRequest(new { message = ex.Message });
             }
         }
-        // [FIX] Thêm API để Admin xem lịch sử của User khác
+       
         [Authorize(Roles = "Admin")]
         [HttpGet("admin/get-by-user/{userId}")]
         public async Task<IActionResult> GetIncidentsByUserIdForAdmin(int userId)
@@ -86,7 +86,7 @@ namespace SafeDalat_API.Controllers
         [HttpGet("admin/get-by-department/{deptId}")]
         public async Task<IActionResult> GetIncidentsByDepartmentForAdmin(int deptId)
         {
-            // Tái sử dụng hàm GetByDepartmentAsync có sẵn trong Repo
+            
             var incidents = await _repo.GetByDepartmentAsync(deptId);
             return Ok(incidents);
         }
@@ -173,13 +173,13 @@ namespace SafeDalat_API.Controllers
         {
             return Ok(await _repo.GetPublicFeedAsync());
         }
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Staff")]
         [HttpGet("suggest-duplicates/{id}")]
         public async Task<IActionResult> Suggest(int id)
         {
             return Ok(await _repo.SuggestDuplicatesAsync(id));
         }
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Staff")]
         [HttpPost("merge")]
         public async Task<IActionResult> Merge(MergeIncidentDTO dto)
         {

@@ -103,9 +103,7 @@ public class LoginActivity extends AppCompatActivity {
                     // 2. Cấu hình Token cho các request sau
                     ApiClient.setAuthToken(response.body().getToken());
 
-                    // ============================================================
-                    // [QUAN TRỌNG] GỬI FCM TOKEN LÊN SERVER NGAY LẬP TỨC
-                    // ============================================================
+
                     FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
                         if (!task.isSuccessful()) {
                             Log.w("Login", "Lỗi lấy FCM Token", task.getException());
@@ -116,8 +114,7 @@ public class LoginActivity extends AppCompatActivity {
                         String fcmToken = task.getResult();
                         Log.d("Login", "FCM Token: " + fcmToken);
 
-                        // Gọi API cập nhật Token (Sử dụng ApiService chung hoặc tạo mới)
-                        // Giả sử updateFcmToken nằm trong ApiService
+
                         ApiService api = ApiClient.getClient().create(ApiService.class);
                         api.updateFcmToken(fcmToken).enqueue(new Callback<Void>() {
                             @Override
@@ -131,7 +128,7 @@ public class LoginActivity extends AppCompatActivity {
                             }
                         });
                     });
-                    // ============================================================
+
 
                     Toast.makeText(LoginActivity.this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
                     goToMainActivity();

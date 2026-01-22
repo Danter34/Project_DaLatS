@@ -126,7 +126,7 @@ public class IncidentDetailActivity extends AppCompatActivity {
         });
     }
 
-    // --- LOGIC MÀU SẮC (GIỐNG ADAPTER) ---
+
     private void updateTagColor(int level) {
         int bgColor, textColor;
 
@@ -178,7 +178,7 @@ public class IncidentDetailActivity extends AppCompatActivity {
                 TypedValue.COMPLEX_UNIT_DIP, dp, getResources().getDisplayMetrics());
     }
 
-    // ... (Giữ nguyên loadComments và postComment)
+
     private void loadComments() {
         ApiClient.getIncidentService().getComments(incidentId).enqueue(new Callback<List<CommentResponse>>() {
             @Override

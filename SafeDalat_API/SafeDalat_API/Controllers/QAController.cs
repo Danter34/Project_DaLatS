@@ -74,10 +74,10 @@ namespace SafeDalat_API.Controllers
             return Ok(await _repo.GetAllCategoriesAsync());
         }
         [HttpGet("my-questions")]
-        [Authorize] // Bắt buộc đăng nhập
+        [Authorize] 
         public async Task<IActionResult> GetMyQuestions()
         {
-            int userId = User.GetUserId(); // Lấy ID từ Token
+            int userId = User.GetUserId();
             return Ok(await _repo.GetQuestionsByUserIdAsync(userId));
         }
     }

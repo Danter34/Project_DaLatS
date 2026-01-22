@@ -31,15 +31,15 @@ public class CreateQuestionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // 1. KIỂM TRA ĐĂNG NHẬP NGAY ĐẦU
+
         if (!isLoggedIn()) {
             Toast.makeText(this, "Vui lòng đăng nhập để đặt câu hỏi", Toast.LENGTH_SHORT).show();
 
-            // Chuyển hướng về trang đăng nhập
+
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
 
-            // Đóng màn hình tạo câu hỏi lại để người dùng không back lại được
+
             finish();
             return;
         }

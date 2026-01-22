@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "D:\\Project\\SafeDalat\\SafeDalat_API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\services\\fcmservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\services\\fcmservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\services\\trafficrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\services\\trafficrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\services\\trafficalertworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,40 +19,256 @@
       "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\services\\notificationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\services\\incidentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\services\\incidentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\services\\incidentimagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\services\\incidentimagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\services\\incidentcommentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\services\\incidentcommentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\services\\incidentcategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\services\\incidentcategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\services\\imageanalysisrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\services\\imageanalysisrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\services\\fcmservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\services\\fcmservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\services\\environmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\services\\environmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\controllers\\notificationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\controllers\\notificationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\services\\departmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\services\\departmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\services\\trafficrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\services\\trafficrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\services\\dashboardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\services\\dashboardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\domain\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\domain\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\services\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\services\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\interface\\idashboardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\interface\\idashboardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\interface\\iauthrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\interface\\iauthrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\interface\\fcmservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\interface\\fcmservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\dashboard\\incidentbycategorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\dashboard\\incidentbycategorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\dashboard\\incidentbyalertdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\dashboard\\incidentbyalertdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\dashboard\\dashboardsummarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\dashboard\\dashboardsummarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\auth\\userdashboarddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\auth\\userdashboarddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\auth\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\auth\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\auth\\verifyemaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\auth\\verifyemaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\auth\\staffdashboarddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\auth\\staffdashboarddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\auth\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\auth\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\auth\\forgotpassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\auth\\forgotpassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\auth\\adminuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\auth\\adminuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\domain\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\domain\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\domain\\questioncategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\domain\\questioncategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\domain\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\domain\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\domain\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\domain\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\domain\\incidentstatushistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\domain\\incidentstatushistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\domain\\incidentimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\domain\\incidentimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\domain\\incidentduplicate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\domain\\incidentduplicate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\domain\\incidentcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\domain\\incidentcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\domain\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\domain\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\domain\\answer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\domain\\answer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\middleware\\checkaccountstatusmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\middleware\\checkaccountstatusmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\helpers\\claimsprincipalextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\helpers\\claimsprincipalextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\controllers\\trafficcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\controllers\\trafficcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\controllers\\qacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\controllers\\qacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\controllers\\notificationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\controllers\\notificationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\controllers\\incidentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\controllers\\incidentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\controllers\\incidentimagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\controllers\\incidentimagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\controllers\\incidentcommentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\controllers\\incidentcommentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\controllers\\incidentcategoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\controllers\\incidentcategoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\controllers\\environmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\controllers\\environmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\controllers\\departmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\controllers\\departmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Migrations\\20260122110238_ud category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SafeDalat_API\\Migrations\\20260122110238_ud category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\incidentcategory\\createincidentcategorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\incidentcategory\\createincidentcategorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\incident\\uploadincidentimagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\incident\\uploadincidentimagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\incident\\updateincidentstatusdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\incident\\updateincidentstatusdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\incident\\mergeincidentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\incident\\mergeincidentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\incident\\incidentresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\incident\\incidentresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\incident\\incidentimagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\incident\\incidentimagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\incident\\incidentmapdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\incident\\incidentmapdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\incident\\createincidentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\incident\\createincidentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\department\\updatedepartmentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\department\\updatedepartmentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\department\\departmentresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\department\\departmentresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\department\\createdepartmentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\department\\createdepartmentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\domain\\incident.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\domain\\incident.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -61,10 +277,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\firebase-key.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\firebase-key.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\interface\\fcmservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\interface\\fcmservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\notification\\notificationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -95,36 +307,8 @@
       "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\interface\\idepartmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\interface\\idashboardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\interface\\idashboardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\interface\\iauthrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\interface\\iauthrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\auth\\adminuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\auth\\adminuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\services\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\services\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\trafficdto\\traffichotspotdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\trafficdto\\traffichotspotdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\controllers\\trafficcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\controllers\\trafficcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\controllers\\departmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\controllers\\departmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\services\\incidentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\services\\incidentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\interface\\iincidentimagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -139,76 +323,8 @@
       "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\interface\\inotificationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\domain\\questioncategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\domain\\questioncategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\services\\incidentimagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\services\\incidentimagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\auth\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\auth\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\interface\\iincidentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\interface\\iincidentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\controllers\\incidentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\controllers\\incidentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\auth\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\auth\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\auth\\staffdashboarddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\auth\\staffdashboarddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\auth\\userdashboarddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\auth\\userdashboarddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\incident\\incidentresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\incident\\incidentresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\incident\\uploadincidentimagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\incident\\uploadincidentimagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\incident\\updateincidentstatusdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\incident\\updateincidentstatusdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\incident\\incidentimagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\incident\\incidentimagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\incident\\createincidentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\incident\\createincidentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\domain\\incidentimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\domain\\incidentimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\domain\\incidentduplicate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\domain\\incidentduplicate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\domain\\incidentcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\domain\\incidentcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\domain\\incident.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\domain\\incident.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\controllers\\incidentimagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\controllers\\incidentimagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\auth\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -219,52 +335,12 @@
       "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\interface\\iimageanalysisrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\incidentcategory\\createincidentcategorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\incidentcategory\\createincidentcategorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\services\\imageanalysisrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\services\\imageanalysisrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\safedalat-key.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\safedalat-key.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\services\\environmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\services\\environmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\services\\dashboardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\services\\dashboardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\dashboard\\dashboardsummarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\dashboard\\dashboardsummarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\controllers\\qacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\controllers\\qacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\incident\\mergeincidentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\incident\\mergeincidentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\incident\\incidentmapdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\incident\\incidentmapdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\incident\\incidentfeeddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\incident\\incidentfeeddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\domain\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\domain\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\domain\\incidentstatushistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\domain\\incidentstatushistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\domain\\incidentcomment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -283,52 +359,12 @@
       "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\qa\\createanswerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\domain\\answer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\domain\\answer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\auth\\changepassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\auth\\changepassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\auth\\createstaffdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\auth\\createstaffdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\department\\createdepartmentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\department\\createdepartmentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\domain\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\domain\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\department\\departmentresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\department\\departmentresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\services\\departmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\services\\departmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\department\\updatedepartmentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\department\\updatedepartmentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\controllers\\incidentcategoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\controllers\\incidentcategoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\controllers\\incidentcommentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\controllers\\incidentcommentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\controllers\\environmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\controllers\\environmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\services\\incidentcategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\services\\incidentcategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\comment\\createcommentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -343,44 +379,12 @@
       "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\auth\\lockuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\dashboard\\incidentbycategorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\dashboard\\incidentbycategorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\dashboard\\incidentbyalertdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\dashboard\\incidentbyalertdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\auth\\forgotpassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\auth\\forgotpassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\incident\\incidentsearchdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\incident\\incidentsearchdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\middleware\\checkaccountstatusmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\middleware\\checkaccountstatusmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\safedalat_api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\safedalat_api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\repositories\\services\\incidentcommentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\repositories\\services\\incidentcommentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|d:\\project\\safedalat\\safedalat_api\\safedalat_api\\model\\dto\\auth\\verifyemaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B988DEF-9E76-8F7D-C0BE-A94E9229F463}|SafeDalat_API\\SafeDalat_API.csproj|solutionrelative:safedalat_api\\model\\dto\\auth\\verifyemaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Migrations\\20260115080239_add department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -438,7 +442,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -446,40 +450,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "NotificationRepository.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\NotificationRepository.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Services\\NotificationRepository.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\NotificationRepository.cs",
-              "RelativeToolTip": "SafeDalat_API\\Repositories\\Services\\NotificationRepository.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAiwEwAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "IncidentRepository.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\IncidentRepository.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Services\\IncidentRepository.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\IncidentRepository.cs*",
+              "RelativeToolTip": "SafeDalat_API\\Repositories\\Services\\IncidentRepository.cs*",
+              "ViewState": "AgIAADECAAAAAAAAAAAUwM4BAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T09:59:41.891Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FcmService.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\FcmService.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Services\\FcmService.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\FcmService.cs",
-              "RelativeToolTip": "SafeDalat_API\\Repositories\\Services\\FcmService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-21T12:05:03.808Z",
+              "WhenOpened": "2026-01-12T08:42:53.588Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "EmailService.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\EmailService.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Services\\EmailService.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\EmailService.cs",
-              "RelativeToolTip": "SafeDalat_API\\Repositories\\Services\\EmailService.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwBgAAABMAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "NotificationRepository.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\NotificationRepository.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Services\\NotificationRepository.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\NotificationRepository.cs*",
+              "RelativeToolTip": "SafeDalat_API\\Repositories\\Services\\NotificationRepository.cs*",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAQwDsAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-15T01:36:56.658Z"
+              "WhenOpened": "2026-01-12T09:59:41.891Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -489,9 +482,10 @@
               "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Services\\QARepository.cs",
               "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\QARepository.cs",
               "RelativeToolTip": "SafeDalat_API\\Repositories\\Services\\QARepository.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAgwJ4AAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAAJUAAAAAAAAAAADwv54AAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T10:30:01.73Z"
+              "WhenOpened": "2026-01-12T10:30:01.73Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -499,39 +493,367 @@
               "Title": "TrafficAlertWorker.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\TrafficAlertWorker.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Services\\TrafficAlertWorker.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\TrafficAlertWorker.cs",
-              "RelativeToolTip": "SafeDalat_API\\Repositories\\Services\\TrafficAlertWorker.cs",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAqwDAAAABNAAAAAAAAAA==",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\TrafficAlertWorker.cs*",
+              "RelativeToolTip": "SafeDalat_API\\Repositories\\Services\\TrafficAlertWorker.cs*",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAYwGQAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-21T01:51:05.422Z"
+              "WhenOpened": "2026-01-21T01:51:05.422Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TrafficRepository.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\TrafficRepository.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Services\\TrafficRepository.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\TrafficRepository.cs*",
+              "RelativeToolTip": "SafeDalat_API\\Repositories\\Services\\TrafficRepository.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-21T01:34:17.962Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "NotificationsController.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\NotificationsController.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Controllers\\NotificationsController.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\NotificationsController.cs",
-              "RelativeToolTip": "SafeDalat_API\\Controllers\\NotificationsController.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAkwFMAAAAAAAAAAAAAAA==",
+              "Title": "IncidentImageRepository.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\IncidentImageRepository.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Services\\IncidentImageRepository.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\IncidentImageRepository.cs*",
+              "RelativeToolTip": "SafeDalat_API\\Repositories\\Services\\IncidentImageRepository.cs*",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAYwDIAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T10:01:06.393Z"
+              "WhenOpened": "2026-01-12T09:39:01.715Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "TrafficRepository.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\TrafficRepository.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Services\\TrafficRepository.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\TrafficRepository.cs",
-              "RelativeToolTip": "SafeDalat_API\\Repositories\\Services\\TrafficRepository.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAxwDAAAAABAAAAAAAAAA==",
+              "Title": "IncidentCommentRepository.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\IncidentCommentRepository.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Services\\IncidentCommentRepository.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\IncidentCommentRepository.cs",
+              "RelativeToolTip": "SafeDalat_API\\Repositories\\Services\\IncidentCommentRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-21T01:34:17.962Z"
+              "WhenOpened": "2026-01-12T10:23:04.259Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
+              "Title": "IncidentCategoryRepository.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\IncidentCategoryRepository.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Services\\IncidentCategoryRepository.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\IncidentCategoryRepository.cs",
+              "RelativeToolTip": "SafeDalat_API\\Repositories\\Services\\IncidentCategoryRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAQwE8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T08:55:09.303Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ImageAnalysisRepository.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\ImageAnalysisRepository.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Services\\ImageAnalysisRepository.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\ImageAnalysisRepository.cs*",
+              "RelativeToolTip": "SafeDalat_API\\Repositories\\Services\\ImageAnalysisRepository.cs*",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAqwEcAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T11:04:25.746Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "FcmService.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\FcmService.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Services\\FcmService.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\FcmService.cs",
+              "RelativeToolTip": "SafeDalat_API\\Repositories\\Services\\FcmService.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAYwBcAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-21T12:05:03.808Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "EnvironmentRepository.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\EnvironmentRepository.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Services\\EnvironmentRepository.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\EnvironmentRepository.cs",
+              "RelativeToolTip": "SafeDalat_API\\Repositories\\Services\\EnvironmentRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEMAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T10:41:48.951Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\EmailService.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Services\\EmailService.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\EmailService.cs*",
+              "RelativeToolTip": "SafeDalat_API\\Repositories\\Services\\EmailService.cs*",
+              "ViewState": "AgIAALUAAAAAAAAAAADwv5AAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-15T01:36:56.658Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "DepartmentRepository.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\DepartmentRepository.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Services\\DepartmentRepository.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\DepartmentRepository.cs",
+              "RelativeToolTip": "SafeDalat_API\\Repositories\\Services\\DepartmentRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-15T13:50:34.073Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "DashboardRepository.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\DashboardRepository.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Services\\DashboardRepository.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\DashboardRepository.cs",
+              "RelativeToolTip": "SafeDalat_API\\Repositories\\Services\\DashboardRepository.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAgwCYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T10:13:38.62Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AuthRepository.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\AuthRepository.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Services\\AuthRepository.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\AuthRepository.cs*",
+              "RelativeToolTip": "SafeDalat_API\\Repositories\\Services\\AuthRepository.cs*",
+              "ViewState": "AgIAANQAAAAAAAAAAAAowPwAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T08:09:22.764Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IDashboardRepository.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Interface\\IDashboardRepository.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Interface\\IDashboardRepository.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Interface\\IDashboardRepository.cs",
+              "RelativeToolTip": "SafeDalat_API\\Repositories\\Interface\\IDashboardRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T10:13:10.761Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IAuthRepository.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Interface\\IAuthRepository.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Interface\\IAuthRepository.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Interface\\IAuthRepository.cs",
+              "RelativeToolTip": "SafeDalat_API\\Repositories\\Interface\\IAuthRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAoAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T08:07:36.539Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "FcmService.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Interface\\FcmService.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Interface\\FcmService.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Interface\\FcmService.cs",
+              "RelativeToolTip": "SafeDalat_API\\Repositories\\Interface\\FcmService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAIAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-21T12:04:19.963Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "IncidentByCategoryDTO.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Dashboard\\IncidentByCategoryDTO.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Dashboard\\IncidentByCategoryDTO.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Dashboard\\IncidentByCategoryDTO.cs",
+              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Dashboard\\IncidentByCategoryDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T10:12:51.513Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "IncidentByAlertDTO.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Dashboard\\IncidentByAlertDTO.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Dashboard\\IncidentByAlertDTO.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Dashboard\\IncidentByAlertDTO.cs",
+              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Dashboard\\IncidentByAlertDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T10:12:26.364Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "DashboardSummaryDTO.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Dashboard\\DashboardSummaryDTO.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Dashboard\\DashboardSummaryDTO.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Dashboard\\DashboardSummaryDTO.cs",
+              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Dashboard\\DashboardSummaryDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T10:12:05.742Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "UserDashboardDTO.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\UserDashboardDTO.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Auth\\UserDashboardDTO.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\UserDashboardDTO.cs",
+              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Auth\\UserDashboardDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-15T01:20:25.17Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "UserDTO.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\UserDTO.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Auth\\UserDTO.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\UserDTO.cs",
+              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Auth\\UserDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-15T01:17:34.87Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "VerifyEmailDTO.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\VerifyEmailDTO.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Auth\\VerifyEmailDTO.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\VerifyEmailDTO.cs",
+              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Auth\\VerifyEmailDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-15T08:45:15.941Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "StaffDashboardDTO.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\StaffDashboardDTO.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Auth\\StaffDashboardDTO.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\StaffDashboardDTO.cs",
+              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Auth\\StaffDashboardDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwBAAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T16:15:34.903Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "LoginDTO.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\LoginDTO.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Auth\\LoginDTO.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\LoginDTO.cs",
+              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Auth\\LoginDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T08:23:25.221Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "ForgotPasswordDTO.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\ForgotPasswordDTO.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Auth\\ForgotPasswordDTO.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\ForgotPasswordDTO.cs",
+              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Auth\\ForgotPasswordDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-15T01:37:25.234Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "AdminUserDTO.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\AdminUserDTO.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Auth\\AdminUserDTO.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\AdminUserDTO.cs",
+              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Auth\\AdminUserDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-15T01:44:17.291Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\User.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\Domain\\User.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\User.cs*",
+              "RelativeToolTip": "SafeDalat_API\\Model\\Domain\\User.cs*",
+              "ViewState": "AgIAABYAAAAAAAAAAADwvyMAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T07:18:40.25Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "QuestionCategory.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\QuestionCategory.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\Domain\\QuestionCategory.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\QuestionCategory.cs",
+              "RelativeToolTip": "SafeDalat_API\\Model\\Domain\\QuestionCategory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-15T07:36:56.027Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Question.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\Question.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\Domain\\Question.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\Question.cs",
+              "RelativeToolTip": "SafeDalat_API\\Model\\Domain\\Question.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T07:22:14.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
               "Title": "Notification.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\Notification.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Model\\Domain\\Notification.cs",
@@ -539,23 +861,454 @@
               "RelativeToolTip": "SafeDalat_API\\Model\\Domain\\Notification.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAQAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T07:23:20.78Z"
+              "WhenOpened": "2026-01-12T07:23:20.78Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 32,
+              "Title": "IncidentStatusHistory.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\IncidentStatusHistory.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\Domain\\IncidentStatusHistory.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\IncidentStatusHistory.cs",
+              "RelativeToolTip": "SafeDalat_API\\Model\\Domain\\IncidentStatusHistory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T07:21:53.034Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "IncidentImage.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\IncidentImage.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\Domain\\IncidentImage.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\IncidentImage.cs",
+              "RelativeToolTip": "SafeDalat_API\\Model\\Domain\\IncidentImage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T07:20:53.833Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "IncidentDuplicate.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\IncidentDuplicate.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\Domain\\IncidentDuplicate.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\IncidentDuplicate.cs",
+              "RelativeToolTip": "SafeDalat_API\\Model\\Domain\\IncidentDuplicate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T07:21:32.224Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "IncidentCategory.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\IncidentCategory.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\Domain\\IncidentCategory.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\IncidentCategory.cs",
+              "RelativeToolTip": "SafeDalat_API\\Model\\Domain\\IncidentCategory.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T07:19:08.399Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "Department.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\Department.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\Domain\\Department.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\Department.cs",
+              "RelativeToolTip": "SafeDalat_API\\Model\\Domain\\Department.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-15T07:33:19.949Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "Answer.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\Answer.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\Domain\\Answer.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\Answer.cs",
+              "RelativeToolTip": "SafeDalat_API\\Model\\Domain\\Answer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T07:22:51.506Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "CheckAccountStatusMiddleware.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Middleware\\CheckAccountStatusMiddleware.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Middleware\\CheckAccountStatusMiddleware.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Middleware\\CheckAccountStatusMiddleware.cs",
+              "RelativeToolTip": "SafeDalat_API\\Middleware\\CheckAccountStatusMiddleware.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAYwDEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-16T07:30:55.379Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "ClaimsPrincipalExtensions.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Helpers\\ClaimsPrincipalExtensions.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Helpers\\ClaimsPrincipalExtensions.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Helpers\\ClaimsPrincipalExtensions.cs",
+              "RelativeToolTip": "SafeDalat_API\\Helpers\\ClaimsPrincipalExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-13T08:10:18.292Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Data\\AppDbContext.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "SafeDalat_API\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAQwKEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T07:28:41.465Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Controllers\\WeatherForecastController.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "SafeDalat_API\\Controllers\\WeatherForecastController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwAUAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T08:28:30.894Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "TrafficController.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\TrafficController.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Controllers\\TrafficController.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\TrafficController.cs",
+              "RelativeToolTip": "SafeDalat_API\\Controllers\\TrafficController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-21T01:49:11.451Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "QAController.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\QAController.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Controllers\\QAController.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\QAController.cs*",
+              "RelativeToolTip": "SafeDalat_API\\Controllers\\QAController.cs*",
+              "ViewState": "AgIAADgAAAAAAAAAAAAgwEwAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T10:31:19.225Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "NotificationsController.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\NotificationsController.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Controllers\\NotificationsController.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\NotificationsController.cs*",
+              "RelativeToolTip": "SafeDalat_API\\Controllers\\NotificationsController.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T10:01:06.393Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "IncidentsController.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\IncidentsController.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Controllers\\IncidentsController.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\IncidentsController.cs*",
+              "RelativeToolTip": "SafeDalat_API\\Controllers\\IncidentsController.cs*",
+              "ViewState": "AgIAALEAAAAAAAAAAAAswFgAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T08:44:32.58Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "IncidentImagesController.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\IncidentImagesController.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Controllers\\IncidentImagesController.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\IncidentImagesController.cs*",
+              "RelativeToolTip": "SafeDalat_API\\Controllers\\IncidentImagesController.cs*",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABgAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T09:39:48.788Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "IncidentCommentsController.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\IncidentCommentsController.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Controllers\\IncidentCommentsController.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\IncidentCommentsController.cs",
+              "RelativeToolTip": "SafeDalat_API\\Controllers\\IncidentCommentsController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T10:24:11.186Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "IncidentCategoriesController.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\IncidentCategoriesController.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Controllers\\IncidentCategoriesController.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\IncidentCategoriesController.cs",
+              "RelativeToolTip": "SafeDalat_API\\Controllers\\IncidentCategoriesController.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAYwBgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T08:57:34.787Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "EnvironmentController.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\EnvironmentController.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Controllers\\EnvironmentController.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\EnvironmentController.cs",
+              "RelativeToolTip": "SafeDalat_API\\Controllers\\EnvironmentController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBMAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T10:43:54.101Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "DepartmentsController.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\DepartmentsController.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Controllers\\DepartmentsController.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\DepartmentsController.cs",
+              "RelativeToolTip": "SafeDalat_API\\Controllers\\DepartmentsController.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAYwBkAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-15T13:50:56.168Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "DashboardController.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\DashboardController.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Controllers\\DashboardController.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\DashboardController.cs",
+              "RelativeToolTip": "SafeDalat_API\\Controllers\\DashboardController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T10:15:21.883Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
               "Title": "AuthController.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Controllers\\AuthController.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "SafeDalat_API\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAD0BAAAAAAAAAAAiwFQBAAA5AAAAAAAAAA==",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\AuthController.cs*",
+              "RelativeToolTip": "SafeDalat_API\\Controllers\\AuthController.cs*",
+              "ViewState": "AgIAAD0BAAAAAAAAAAAUwFEBAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T08:19:55.2Z"
+              "WhenOpened": "2026-01-12T08:19:55.2Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 53,
+              "Title": "20260122110238_ud category.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Migrations\\20260122110238_ud category.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Migrations\\20260122110238_ud category.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Migrations\\20260122110238_ud category.cs",
+              "RelativeToolTip": "SafeDalat_API\\Migrations\\20260122110238_ud category.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-22T11:02:38.562Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "CreateIncidentCategoryDTO.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\IncidentCategory\\CreateIncidentCategoryDTO.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\IncidentCategory\\CreateIncidentCategoryDTO.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\IncidentCategory\\CreateIncidentCategoryDTO.cs",
+              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\IncidentCategory\\CreateIncidentCategoryDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T08:51:19.5Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "UploadIncidentImageDTO.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Incident\\UploadIncidentImageDTO.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Incident\\UploadIncidentImageDTO.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Incident\\UploadIncidentImageDTO.cs",
+              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Incident\\UploadIncidentImageDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T09:37:44.018Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "UpdateIncidentStatusDTO.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Incident\\UpdateIncidentStatusDTO.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Incident\\UpdateIncidentStatusDTO.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Incident\\UpdateIncidentStatusDTO.cs",
+              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Incident\\UpdateIncidentStatusDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T09:01:50.457Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "MergeIncidentDTO.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Incident\\MergeIncidentDTO.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Incident\\MergeIncidentDTO.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Incident\\MergeIncidentDTO.cs",
+              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Incident\\MergeIncidentDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T09:51:14.42Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "IncidentResponseDTO.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Incident\\IncidentResponseDTO.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Incident\\IncidentResponseDTO.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Incident\\IncidentResponseDTO.cs",
+              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Incident\\IncidentResponseDTO.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAmwBUAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T08:41:31.827Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "IncidentImageDTO.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Incident\\IncidentImageDTO.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Incident\\IncidentImageDTO.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Incident\\IncidentImageDTO.cs",
+              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Incident\\IncidentImageDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T09:31:38.732Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "IncidentMapDTO.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Incident\\IncidentMapDTO.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Incident\\IncidentMapDTO.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Incident\\IncidentMapDTO.cs",
+              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Incident\\IncidentMapDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T10:09:37.947Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "CreateIncidentDTO.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Incident\\CreateIncidentDTO.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Incident\\CreateIncidentDTO.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Incident\\CreateIncidentDTO.cs",
+              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Incident\\CreateIncidentDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T08:40:37.88Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "UpdateDepartmentDTO.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Department\\UpdateDepartmentDTO.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Department\\UpdateDepartmentDTO.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Department\\UpdateDepartmentDTO.cs",
+              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Department\\UpdateDepartmentDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-15T13:49:38.053Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "DepartmentResponseDTO.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Department\\DepartmentResponseDTO.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Department\\DepartmentResponseDTO.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Department\\DepartmentResponseDTO.cs",
+              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Department\\DepartmentResponseDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-15T13:49:54.66Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "CreateDepartmentDTO.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Department\\CreateDepartmentDTO.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Department\\CreateDepartmentDTO.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Department\\CreateDepartmentDTO.cs",
+              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Department\\CreateDepartmentDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-15T13:49:16.356Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 65,
+              "Title": "Incident.cs",
+              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\Incident.cs",
+              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\Domain\\Incident.cs",
+              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\Incident.cs",
+              "RelativeToolTip": "SafeDalat_API\\Model\\Domain\\Incident.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAwwCwAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T07:19:44.214Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 66,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Program.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Program.cs",
@@ -567,43 +1320,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\User.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\Domain\\User.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\User.cs",
-              "RelativeToolTip": "SafeDalat_API\\Model\\Domain\\User.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAA3wCYAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T07:18:40.25Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "DashboardController.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\DashboardController.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Controllers\\DashboardController.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\DashboardController.cs",
-              "RelativeToolTip": "SafeDalat_API\\Controllers\\DashboardController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T10:15:21.883Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ClaimsPrincipalExtensions.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Helpers\\ClaimsPrincipalExtensions.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Helpers\\ClaimsPrincipalExtensions.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Helpers\\ClaimsPrincipalExtensions.cs",
-              "RelativeToolTip": "SafeDalat_API\\Helpers\\ClaimsPrincipalExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-13T08:10:18.292Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 67,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\appsettings.json",
               "RelativeDocumentMoniker": "SafeDalat_API\\appsettings.json",
@@ -615,7 +1332,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 68,
               "Title": "firebase-key.json",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\firebase-key.json",
               "RelativeDocumentMoniker": "SafeDalat_API\\firebase-key.json",
@@ -627,19 +1344,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "FcmService.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Interface\\FcmService.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Interface\\FcmService.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Interface\\FcmService.cs",
-              "RelativeToolTip": "SafeDalat_API\\Repositories\\Interface\\FcmService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAIAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-21T12:04:19.963Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 106,
+              "DocumentIndex": 107,
               "Title": "20260121120320_AddFcmToken.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Migrations\\20260121120320_AddFcmToken.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Migrations\\20260121120320_AddFcmToken.cs",
@@ -651,7 +1356,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 69,
               "Title": "NotificationDTO.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Notification\\NotificationDTO.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Notification\\NotificationDTO.cs",
@@ -663,7 +1368,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 70,
               "Title": "SendNotificationDTO.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Notification\\SendNotificationDTO.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Notification\\SendNotificationDTO.cs",
@@ -675,7 +1380,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 71,
               "Title": "IEnvironmentRepository.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Interface\\IEnvironmentRepository.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Interface\\IEnvironmentRepository.cs",
@@ -687,7 +1392,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 72,
               "Title": "ITrafficRepository.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Interface\\ITrafficRepository.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Interface\\ITrafficRepository.cs",
@@ -699,7 +1404,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 73,
               "Title": "IQARepository.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Interface\\IQARepository.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Interface\\IQARepository.cs",
@@ -711,7 +1416,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 74,
               "Title": "IEmailService.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Interface\\IEmailService.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Interface\\IEmailService.cs",
@@ -723,7 +1428,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 75,
               "Title": "IDepartmentRepository.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Interface\\IDepartmentRepository.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Interface\\IDepartmentRepository.cs",
@@ -735,55 +1440,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "IDashboardRepository.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Interface\\IDashboardRepository.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Interface\\IDashboardRepository.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Interface\\IDashboardRepository.cs",
-              "RelativeToolTip": "SafeDalat_API\\Repositories\\Interface\\IDashboardRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T10:13:10.761Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "IAuthRepository.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Interface\\IAuthRepository.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Interface\\IAuthRepository.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Interface\\IAuthRepository.cs",
-              "RelativeToolTip": "SafeDalat_API\\Repositories\\Interface\\IAuthRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAoAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T08:07:36.539Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "AdminUserDTO.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\AdminUserDTO.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Auth\\AdminUserDTO.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\AdminUserDTO.cs",
-              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Auth\\AdminUserDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-15T01:44:17.291Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "AuthRepository.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\AuthRepository.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Services\\AuthRepository.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\AuthRepository.cs",
-              "RelativeToolTip": "SafeDalat_API\\Repositories\\Services\\AuthRepository.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAASwDgAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T08:09:22.764Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 76,
               "Title": "TrafficHotspotDTO.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\TrafficDTO\\TrafficHotspotDTO.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\TrafficDTO\\TrafficHotspotDTO.cs",
@@ -795,43 +1452,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "TrafficController.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\TrafficController.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Controllers\\TrafficController.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\TrafficController.cs",
-              "RelativeToolTip": "SafeDalat_API\\Controllers\\TrafficController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-21T01:49:11.451Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "DepartmentsController.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\DepartmentsController.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Controllers\\DepartmentsController.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\DepartmentsController.cs",
-              "RelativeToolTip": "SafeDalat_API\\Controllers\\DepartmentsController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAA1wC8AAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-15T13:50:56.168Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "IncidentRepository.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\IncidentRepository.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Services\\IncidentRepository.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\IncidentRepository.cs",
-              "RelativeToolTip": "SafeDalat_API\\Repositories\\Services\\IncidentRepository.cs",
-              "ViewState": "AgIAAIUAAAAAAAAAAADwv6QAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T08:42:53.588Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 77,
               "Title": "IIncidentImageRepository.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Interface\\IIncidentImageRepository.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Interface\\IIncidentImageRepository.cs",
@@ -843,7 +1464,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 79,
               "Title": "INotificationRepository.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Interface\\INotificationRepository.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Interface\\INotificationRepository.cs",
@@ -855,7 +1476,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 78,
               "Title": "QuestionResponseDTO.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\QA\\QuestionResponseDTO.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\QA\\QuestionResponseDTO.cs",
@@ -867,7 +1488,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 104,
+              "DocumentIndex": 105,
               "Title": "20260120170245_ud notification.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Migrations\\20260120170245_ud notification.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Migrations\\20260120170245_ud notification.cs",
@@ -879,43 +1500,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "QuestionCategory.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\QuestionCategory.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\Domain\\QuestionCategory.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\QuestionCategory.cs",
-              "RelativeToolTip": "SafeDalat_API\\Model\\Domain\\QuestionCategory.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-15T07:36:56.027Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "IncidentImageRepository.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\IncidentImageRepository.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Services\\IncidentImageRepository.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\IncidentImageRepository.cs",
-              "RelativeToolTip": "SafeDalat_API\\Repositories\\Services\\IncidentImageRepository.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAqwEoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T09:39:01.715Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "LoginDTO.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\LoginDTO.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Auth\\LoginDTO.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\LoginDTO.cs",
-              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Auth\\LoginDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T08:23:25.221Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 80,
               "Title": "IIncidentRepository.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Interface\\IIncidentRepository.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Interface\\IIncidentRepository.cs",
@@ -927,175 +1512,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "IncidentsController.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\IncidentsController.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Controllers\\IncidentsController.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\IncidentsController.cs",
-              "RelativeToolTip": "SafeDalat_API\\Controllers\\IncidentsController.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAowFkAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T08:44:32.58Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "UserDTO.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\UserDTO.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Auth\\UserDTO.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\UserDTO.cs",
-              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Auth\\UserDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-15T01:17:34.87Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "StaffDashboardDTO.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\StaffDashboardDTO.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Auth\\StaffDashboardDTO.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\StaffDashboardDTO.cs",
-              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Auth\\StaffDashboardDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwBAAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-20T16:15:34.903Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "UserDashboardDTO.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\UserDashboardDTO.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Auth\\UserDashboardDTO.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\UserDashboardDTO.cs",
-              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Auth\\UserDashboardDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-15T01:20:25.17Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "IncidentResponseDTO.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Incident\\IncidentResponseDTO.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Incident\\IncidentResponseDTO.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Incident\\IncidentResponseDTO.cs",
-              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Incident\\IncidentResponseDTO.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAzwBUAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T08:41:31.827Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "UploadIncidentImageDTO.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Incident\\UploadIncidentImageDTO.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Incident\\UploadIncidentImageDTO.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Incident\\UploadIncidentImageDTO.cs",
-              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Incident\\UploadIncidentImageDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T09:37:44.018Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
-              "Title": "UpdateIncidentStatusDTO.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Incident\\UpdateIncidentStatusDTO.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Incident\\UpdateIncidentStatusDTO.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Incident\\UpdateIncidentStatusDTO.cs",
-              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Incident\\UpdateIncidentStatusDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T09:01:50.457Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 45,
-              "Title": "IncidentImageDTO.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Incident\\IncidentImageDTO.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Incident\\IncidentImageDTO.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Incident\\IncidentImageDTO.cs",
-              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Incident\\IncidentImageDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T09:31:38.732Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 46,
-              "Title": "CreateIncidentDTO.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Incident\\CreateIncidentDTO.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Incident\\CreateIncidentDTO.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Incident\\CreateIncidentDTO.cs",
-              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Incident\\CreateIncidentDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T08:40:37.88Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 47,
-              "Title": "IncidentImage.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\IncidentImage.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\Domain\\IncidentImage.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\IncidentImage.cs",
-              "RelativeToolTip": "SafeDalat_API\\Model\\Domain\\IncidentImage.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T07:20:53.833Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 48,
-              "Title": "IncidentDuplicate.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\IncidentDuplicate.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\Domain\\IncidentDuplicate.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\IncidentDuplicate.cs",
-              "RelativeToolTip": "SafeDalat_API\\Model\\Domain\\IncidentDuplicate.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T07:21:32.224Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 49,
-              "Title": "IncidentCategory.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\IncidentCategory.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\Domain\\IncidentCategory.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\IncidentCategory.cs",
-              "RelativeToolTip": "SafeDalat_API\\Model\\Domain\\IncidentCategory.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T07:19:08.399Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 50,
-              "Title": "Incident.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\Incident.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\Domain\\Incident.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\Incident.cs",
-              "RelativeToolTip": "SafeDalat_API\\Model\\Domain\\Incident.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAcwDcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T07:19:44.214Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 51,
-              "Title": "IncidentImagesController.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\IncidentImagesController.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Controllers\\IncidentImagesController.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\IncidentImagesController.cs",
-              "RelativeToolTip": "SafeDalat_API\\Controllers\\IncidentImagesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T09:39:48.788Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 81,
               "Title": "RegisterDTO.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\RegisterDTO.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Auth\\RegisterDTO.cs",
@@ -1107,7 +1524,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 105,
+              "DocumentIndex": 106,
               "Title": "20260120144124_UD user.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Migrations\\20260120144124_UD user.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Migrations\\20260120144124_UD user.cs",
@@ -1119,7 +1536,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 82,
               "Title": "IImageAnalysisRepository.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Interface\\IImageAnalysisRepository.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Interface\\IImageAnalysisRepository.cs",
@@ -1131,31 +1548,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
-              "Title": "CreateIncidentCategoryDTO.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\IncidentCategory\\CreateIncidentCategoryDTO.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\IncidentCategory\\CreateIncidentCategoryDTO.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\IncidentCategory\\CreateIncidentCategoryDTO.cs",
-              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\IncidentCategory\\CreateIncidentCategoryDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T08:51:19.5Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 55,
-              "Title": "ImageAnalysisRepository.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\ImageAnalysisRepository.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Services\\ImageAnalysisRepository.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\ImageAnalysisRepository.cs",
-              "RelativeToolTip": "SafeDalat_API\\Repositories\\Services\\ImageAnalysisRepository.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAmwCoAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-20T11:04:25.746Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 83,
               "Title": "safedalat-key.json",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\safedalat-key.json",
               "RelativeDocumentMoniker": "SafeDalat_API\\safedalat-key.json",
@@ -1167,43 +1560,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
-              "Title": "EnvironmentRepository.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\EnvironmentRepository.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Services\\EnvironmentRepository.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\EnvironmentRepository.cs",
-              "RelativeToolTip": "SafeDalat_API\\Repositories\\Services\\EnvironmentRepository.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAYwEMAAABMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T10:41:48.951Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 58,
-              "Title": "DashboardRepository.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\DashboardRepository.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Services\\DashboardRepository.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\DashboardRepository.cs",
-              "RelativeToolTip": "SafeDalat_API\\Repositories\\Services\\DashboardRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T10:13:38.62Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 59,
-              "Title": "DashboardSummaryDTO.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Dashboard\\DashboardSummaryDTO.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Dashboard\\DashboardSummaryDTO.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Dashboard\\DashboardSummaryDTO.cs",
-              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Dashboard\\DashboardSummaryDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T10:12:05.742Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 103,
+              "DocumentIndex": 104,
               "Title": "20260120102357_ud trust user score table user.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Migrations\\20260120102357_ud trust user score table user.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Migrations\\20260120102357_ud trust user score table user.cs",
@@ -1215,43 +1572,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
-              "Title": "QAController.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\QAController.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Controllers\\QAController.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\QAController.cs",
-              "RelativeToolTip": "SafeDalat_API\\Controllers\\QAController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAIBZwDQAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T10:31:19.225Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 61,
-              "Title": "MergeIncidentDTO.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Incident\\MergeIncidentDTO.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Incident\\MergeIncidentDTO.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Incident\\MergeIncidentDTO.cs",
-              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Incident\\MergeIncidentDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T09:51:14.42Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 62,
-              "Title": "IncidentMapDTO.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Incident\\IncidentMapDTO.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Incident\\IncidentMapDTO.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Incident\\IncidentMapDTO.cs",
-              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Incident\\IncidentMapDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T10:09:37.947Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 84,
               "Title": "IncidentFeedDTO.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Incident\\IncidentFeedDTO.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Incident\\IncidentFeedDTO.cs",
@@ -1263,31 +1584,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
-              "Title": "Question.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\Question.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\Domain\\Question.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\Question.cs",
-              "RelativeToolTip": "SafeDalat_API\\Model\\Domain\\Question.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T07:22:14.722Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 65,
-              "Title": "IncidentStatusHistory.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\IncidentStatusHistory.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\Domain\\IncidentStatusHistory.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\IncidentStatusHistory.cs",
-              "RelativeToolTip": "SafeDalat_API\\Model\\Domain\\IncidentStatusHistory.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T07:21:53.034Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 85,
               "Title": "IncidentComment.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\IncidentComment.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Model\\Domain\\IncidentComment.cs",
@@ -1299,7 +1596,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 67,
+              "DocumentIndex": 86,
               "Title": "CreateQuestionDTO.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\QA\\CreateQuestionDTO.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\QA\\CreateQuestionDTO.cs",
@@ -1311,7 +1608,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 68,
+              "DocumentIndex": 87,
               "Title": "AnswerResponseDTO.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\QA\\AnswerResponseDTO.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\QA\\AnswerResponseDTO.cs",
@@ -1323,7 +1620,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 69,
+              "DocumentIndex": 88,
               "Title": "CreateAnswerDTO.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\QA\\CreateAnswerDTO.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\QA\\CreateAnswerDTO.cs",
@@ -1335,19 +1632,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 70,
-              "Title": "Answer.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\Answer.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\Domain\\Answer.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\Answer.cs",
-              "RelativeToolTip": "SafeDalat_API\\Model\\Domain\\Answer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T07:22:51.506Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 71,
+              "DocumentIndex": 89,
               "Title": "ChangePasswordDTO.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\ChangePasswordDTO.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Auth\\ChangePasswordDTO.cs",
@@ -1359,19 +1644,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 73,
-              "Title": "CreateDepartmentDTO.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Department\\CreateDepartmentDTO.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Department\\CreateDepartmentDTO.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Department\\CreateDepartmentDTO.cs",
-              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Department\\CreateDepartmentDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-15T13:49:16.356Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 72,
+              "DocumentIndex": 90,
               "Title": "CreateStaffDTO.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\CreateStaffDTO.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Auth\\CreateStaffDTO.cs",
@@ -1383,103 +1656,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 74,
-              "Title": "Department.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\Department.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\Domain\\Department.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\Domain\\Department.cs",
-              "RelativeToolTip": "SafeDalat_API\\Model\\Domain\\Department.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAgAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-15T07:33:19.949Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 75,
-              "Title": "DepartmentResponseDTO.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Department\\DepartmentResponseDTO.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Department\\DepartmentResponseDTO.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Department\\DepartmentResponseDTO.cs",
-              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Department\\DepartmentResponseDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-15T13:49:54.66Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 76,
-              "Title": "DepartmentRepository.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\DepartmentRepository.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Services\\DepartmentRepository.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\DepartmentRepository.cs",
-              "RelativeToolTip": "SafeDalat_API\\Repositories\\Services\\DepartmentRepository.cs",
-              "ViewState": "AgIAAFMAAAAAAAAAAAAwwGsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-15T13:50:34.073Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 77,
-              "Title": "UpdateDepartmentDTO.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Department\\UpdateDepartmentDTO.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Department\\UpdateDepartmentDTO.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Department\\UpdateDepartmentDTO.cs",
-              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Department\\UpdateDepartmentDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-15T13:49:38.053Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 78,
-              "Title": "IncidentCategoriesController.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\IncidentCategoriesController.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Controllers\\IncidentCategoriesController.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\IncidentCategoriesController.cs",
-              "RelativeToolTip": "SafeDalat_API\\Controllers\\IncidentCategoriesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T08:57:34.787Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 79,
-              "Title": "IncidentCommentsController.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\IncidentCommentsController.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Controllers\\IncidentCommentsController.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\IncidentCommentsController.cs",
-              "RelativeToolTip": "SafeDalat_API\\Controllers\\IncidentCommentsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T10:24:11.186Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 80,
-              "Title": "EnvironmentController.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\EnvironmentController.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Controllers\\EnvironmentController.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\EnvironmentController.cs",
-              "RelativeToolTip": "SafeDalat_API\\Controllers\\EnvironmentController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T10:43:54.101Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 81,
-              "Title": "IncidentCategoryRepository.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\IncidentCategoryRepository.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Services\\IncidentCategoryRepository.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\IncidentCategoryRepository.cs",
-              "RelativeToolTip": "SafeDalat_API\\Repositories\\Services\\IncidentCategoryRepository.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAQwB0AAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T08:55:09.303Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 82,
+              "DocumentIndex": 91,
               "Title": "CreateCommentDTO.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Comment\\CreateCommentDTO.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Comment\\CreateCommentDTO.cs",
@@ -1491,7 +1668,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 83,
+              "DocumentIndex": 92,
               "Title": "CommentResponseDTO.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Comment\\CommentResponseDTO.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Comment\\CommentResponseDTO.cs",
@@ -1503,7 +1680,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 84,
+              "DocumentIndex": 93,
               "Title": "LockUserDTO.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\LockUserDTO.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Auth\\LockUserDTO.cs",
@@ -1515,55 +1692,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 85,
-              "Title": "IncidentByCategoryDTO.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Dashboard\\IncidentByCategoryDTO.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Dashboard\\IncidentByCategoryDTO.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Dashboard\\IncidentByCategoryDTO.cs",
-              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Dashboard\\IncidentByCategoryDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T10:12:51.513Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 86,
-              "Title": "IncidentByAlertDTO.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Dashboard\\IncidentByAlertDTO.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Dashboard\\IncidentByAlertDTO.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Dashboard\\IncidentByAlertDTO.cs",
-              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Dashboard\\IncidentByAlertDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T10:12:26.364Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 87,
-              "Title": "ForgotPasswordDTO.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\ForgotPasswordDTO.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Auth\\ForgotPasswordDTO.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\ForgotPasswordDTO.cs",
-              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Auth\\ForgotPasswordDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-15T01:37:25.234Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 88,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Data\\AppDbContext.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "SafeDalat_API\\Data\\AppDbContext.cs",
-              "ViewState": "AgIAAIoAAAAAAAAAAAAQwKEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T07:28:41.465Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 89,
+              "DocumentIndex": 94,
               "Title": "IncidentSearchDTO.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Incident\\IncidentSearchDTO.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Incident\\IncidentSearchDTO.cs",
@@ -1575,19 +1704,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 90,
-              "Title": "CheckAccountStatusMiddleware.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Middleware\\CheckAccountStatusMiddleware.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Middleware\\CheckAccountStatusMiddleware.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Middleware\\CheckAccountStatusMiddleware.cs",
-              "RelativeToolTip": "SafeDalat_API\\Middleware\\CheckAccountStatusMiddleware.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwDEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-16T07:30:55.379Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 91,
+              "DocumentIndex": 95,
               "Title": "SafeDalat_API.csproj",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\SafeDalat_API.csproj",
               "RelativeDocumentMoniker": "SafeDalat_API\\SafeDalat_API.csproj",
@@ -1599,43 +1716,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 92,
-              "Title": "IncidentCommentRepository.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\IncidentCommentRepository.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Services\\IncidentCommentRepository.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Services\\IncidentCommentRepository.cs",
-              "RelativeToolTip": "SafeDalat_API\\Repositories\\Services\\IncidentCommentRepository.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAADwv0UAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T10:23:04.259Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 93,
-              "Title": "WeatherForecastController.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\WeatherForecastController.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Controllers\\WeatherForecastController.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Controllers\\WeatherForecastController.cs",
-              "RelativeToolTip": "SafeDalat_API\\Controllers\\WeatherForecastController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwAUAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T08:28:30.894Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 94,
-              "Title": "VerifyEmailDTO.cs",
-              "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\VerifyEmailDTO.cs",
-              "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Auth\\VerifyEmailDTO.cs",
-              "ToolTip": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Auth\\VerifyEmailDTO.cs",
-              "RelativeToolTip": "SafeDalat_API\\Model\\DTO\\Auth\\VerifyEmailDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-15T08:45:15.941Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 101,
+              "DocumentIndex": 102,
               "Title": "20260115132939_ud qa.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Migrations\\20260115132939_ud qa.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Migrations\\20260115132939_ud qa.cs",
@@ -1647,7 +1728,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 102,
+              "DocumentIndex": 103,
               "Title": "20260115124902_ud.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Migrations\\20260115124902_ud.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Migrations\\20260115124902_ud.cs",
@@ -1659,7 +1740,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 95,
+              "DocumentIndex": 96,
               "Title": "20260115080239_add department.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Migrations\\20260115080239_add department.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Migrations\\20260115080239_add department.cs",
@@ -1670,7 +1751,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 97,
+              "DocumentIndex": 98,
               "Title": "AirQualityResponseDTO.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Environment\\AirQualityResponseDTO.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Environment\\AirQualityResponseDTO.cs",
@@ -1682,7 +1763,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 98,
+              "DocumentIndex": 99,
               "Title": "WeatherResponseDTO.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Model\\DTO\\Environment\\WeatherResponseDTO.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Model\\DTO\\Environment\\WeatherResponseDTO.cs",
@@ -1694,7 +1775,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 99,
+              "DocumentIndex": 100,
               "Title": "IIncidentCommentRepository.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Interface\\IIncidentCommentRepository.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Interface\\IIncidentCommentRepository.cs",
@@ -1706,7 +1787,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 100,
+              "DocumentIndex": 101,
               "Title": "IIncidentCategoryRepository.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Repositories\\Interface\\IIncidentCategoryRepository.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Repositories\\Interface\\IIncidentCategoryRepository.cs",
@@ -1718,7 +1799,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 96,
+              "DocumentIndex": 97,
               "Title": "20260112074245_first create add database.cs",
               "DocumentMoniker": "D:\\Project\\SafeDalat\\SafeDalat_API\\SafeDalat_API\\Migrations\\20260112074245_first create add database.cs",
               "RelativeDocumentMoniker": "SafeDalat_API\\Migrations\\20260112074245_first create add database.cs",

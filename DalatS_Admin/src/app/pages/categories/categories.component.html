@@ -47,26 +47,39 @@
 </div>
 
 <div class="modal-backdrop" *ngIf="showFormModal">
-  <div class="modal-content">
-    <h3>{{ formMode === 'create' ? 'Thêm Danh Mục Mới' : 'Cập Nhật Danh Mục' }}</h3>
-    
-    <div style="margin: 20px 0;">
-      <label style="display: block; margin-bottom: 8px; font-weight: 500;">Tên danh mục:</label>
-      <input 
-        type="text" 
-        class="form-input" 
-        [(ngModel)]="categoryNameInput" 
-        placeholder="Ví dụ: Tai nạn giao thông..."
-        (keyup.enter)="submitForm()">
-    </div>
-
-    <div class="modal-actions">
-      <button class="btn-cancel" (click)="closeFormModal()">Hủy</button>
-      <button class="btn-confirm bg-blue" (click)="submitForm()">
-        Lưu lại
-      </button>
-    </div>
+ <div class="modal-content">
+  <h3>{{ formMode === 'create' ? 'Thêm Danh Mục Mới' : 'Cập Nhật Danh Mục' }}</h3>
+  
+  <div style="margin: 20px 0;">
+    <label style="display: block; margin-bottom: 8px; font-weight: 500;">Tên danh mục:</label>
+    <input 
+      type="text" 
+      class="form-input" 
+      [(ngModel)]="categoryNameInput" 
+      placeholder="Tai nạn giao thông..."
+      (keyup.enter)="submitForm()">
   </div>
+
+  <div style="margin-bottom: 20px;">
+    <label style="display: block; margin-bottom: 8px; font-weight: 500;">
+      Phòng ban xử lý mặc định:
+      <small style="color: #888; font-weight: normal;">(Tự động chuyển đơn về đây)</small>
+    </label>
+    <select class="form-input" [(ngModel)]="selectedDepartmentId">
+      <option [ngValue]="null">-- Tùy Chọn</option>
+      <option *ngFor="let dept of departments" [ngValue]="dept.departmentId">
+        {{ dept.name }}
+      </option>
+    </select>
+  </div>
+
+  <div class="modal-actions">
+    <button class="btn-cancel" (click)="closeFormModal()">Hủy</button>
+    <button class="btn-confirm bg-blue" (click)="submitForm()">
+      Lưu lại
+    </button>
+  </div>
+</div>
 </div>
 
 <div class="modal-backdrop" *ngIf="showDeleteModal">

@@ -46,7 +46,7 @@ namespace SafeDalat_API.Repositories.Services
 
         public async Task CreateAsync(int userId, string message)
         {
-            // 1. Lưu vào DB
+            
             _context.Notifications.Add(new Model.Domain.Notification
             {
                 UserId = userId,
@@ -57,13 +57,13 @@ namespace SafeDalat_API.Repositories.Services
             });
             await _context.SaveChangesAsync();
 
-            // 2. Gửi FCM cá nhân
+           
             var userToken = await _context.Users
                 .Where(u => u.UserId == userId)
                 .Select(u => u.FcmToken)
                 .FirstOrDefaultAsync();
 
-            // [FIX] Làm sạch token trước khi gửi
+           
             if (!string.IsNullOrEmpty(userToken))
             {
                 string cleanToken = userToken.Replace("\"", "").Trim();
@@ -77,7 +77,7 @@ namespace SafeDalat_API.Repositories.Services
      
         public async Task BroadcastAsync(SendNotificationDTO dto)
         {
-            // 1. Lấy toàn bộ User (Chỉ lấy ID và Token cho nhẹ)
+            
             var users = await _context.Users
                 .AsNoTracking()
                 .Select(x => new { x.UserId, x.FcmToken })
@@ -136,7 +136,7 @@ namespace SafeDalat_API.Repositories.Services
                 }
                 catch (Exception ex)
                 {
-                    // Nếu nhóm này lỗi, ghi log nhưng VẪN TIẾP TỤC vòng lặp gửi cho nhóm sau
+                   
                     Console.WriteLine($"[Lỗi Broadcast] Batch {i}: {ex.Message}");
                 }
             }

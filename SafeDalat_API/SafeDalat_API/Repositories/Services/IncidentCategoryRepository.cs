@@ -43,7 +43,8 @@ namespace SafeDalat_API.Repositories.Services
         {
             var category = new IncidentCategory
             {
-                Name = dto.Name
+                Name = dto.Name,
+                DefaultDepartmentId = dto.DefaultDepartmentId
             };
 
             _context.IncidentCategories.Add(category);
@@ -52,7 +53,9 @@ namespace SafeDalat_API.Repositories.Services
             return new IncidentCategory
             {
                 CategoryId = category.CategoryId,
-                Name = category.Name
+                Name = category.Name,
+                DefaultDepartmentId = dto.DefaultDepartmentId
+             
             };
         }
 
@@ -62,12 +65,14 @@ namespace SafeDalat_API.Repositories.Services
             if (category == null) return null;
 
             category.Name = dto.Name;
+            category.DefaultDepartmentId = dto.DefaultDepartmentId;
             await _context.SaveChangesAsync();
 
             return new IncidentCategory
             {
                 CategoryId = category.CategoryId,
-                Name = category.Name
+                Name = category.Name,
+                DefaultDepartmentId = dto.DefaultDepartmentId
             };
         }
 

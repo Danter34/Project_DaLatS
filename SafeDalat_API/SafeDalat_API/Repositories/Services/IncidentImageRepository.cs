@@ -10,7 +10,7 @@ namespace SafeDalat_API.Repositories.Services
         private readonly AppDbContext _context;
         private readonly IWebHostEnvironment _env;
 
-        // Service AI (Đã đăng ký trong Program.cs)
+   
         private readonly IImageAnalysisRepository _imageAnalysis;
 
         public IncidentImageRepository(
@@ -26,7 +26,7 @@ namespace SafeDalat_API.Repositories.Services
         public async Task<List<string>> UploadAsync(int incidentId, List<IFormFile> files)
         {
             var incident = await _context.Incidents
-                 .Include(x => x.User) // <--- Quan trọng: Phải Include User mới sửa được điểm
+                 .Include(x => x.User) 
                  .FirstOrDefaultAsync(x => x.IncidentId == incidentId);
             if (incident == null) throw new Exception("Không tìm thấy sự cố để đính kèm ảnh.");
             if (incident.User == null) throw new Exception("Không tìm thấy người dùng tạo sự cố.");
@@ -39,28 +39,28 @@ namespace SafeDalat_API.Repositories.Services
 
                     if (!isValid)
                     {
-                        // --- XỬ LÝ PHẠT ---
-                        incident.User.TrustScore -= 5;          // Trừ 5 điểm uy tín
-                        incident.User.ConsecutiveViolations++;  // Tăng đếm vi phạm
+                        
+                        incident.User.TrustScore -= 5;         
+                        incident.User.ConsecutiveViolations++;  
 
                         string errorMsg = $"Ảnh vi phạm tiêu chuẩn cộng đồng. Bạn bị trừ 5 điểm uy tín.";
 
-                        // Kiểm tra ngưỡng khóa tạm thời (Ví dụ: 3 lần liên tiếp)
+                       
                         if (incident.User.ConsecutiveViolations >= 3)
                         {
                             // Khóa 1 giờ
                             incident.User.LockUntil = DateTime.UtcNow.AddHours(1);
-                            incident.User.ConsecutiveViolations = 0; // Reset đếm
+                            incident.User.ConsecutiveViolations = 0; 
                             errorMsg = "Tài khoản bị KHÓA TẠM THỜI (1 giờ) do vi phạm liên tục.";
                         }
 
-                        // --- ROLLBACK: XÓA SỰ CỐ ---
+                       
                         _context.Incidents.Remove(incident);
 
-                        // Lưu thay đổi (Cập nhật User + Xóa Incident)
+                       
                         await _context.SaveChangesAsync();
 
-                        // Ném lỗi ra Controller
+                        
                         throw new Exception(errorMsg);
                     }
                 }

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SafeDalat_API.Model.Domain
 {
@@ -7,5 +8,9 @@ namespace SafeDalat_API.Model.Domain
         [Key]
         public int CategoryId { get; set; }
         public string Name { get; set; } = null!;
+        public int? DefaultDepartmentId { get; set; }
+
+        [ForeignKey("DefaultDepartmentId")]
+        public Department? DefaultDepartment { get; set; }
     }
 }

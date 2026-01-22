@@ -31,25 +31,25 @@ namespace SafeDalat_API.Repositories.Services
                     safeSearch.Violence > Likelihood.Possible ||
                     safeSearch.Racy > Likelihood.Possible ||
                     safeSearch.Medical > Likelihood.Possible ||
-                    safeSearch.Spoof > Likelihood.Possible) // Spoof: Chặn ảnh chế/photoshop lộ liễu
+                    safeSearch.Spoof > Likelihood.Possible) 
                 {
                     Console.WriteLine($"[BLOCKED BY SAFESEARCH] Spoof: {safeSearch.Spoof}, Adult: {safeSearch.Adult}");
                     return false;
                 }
                 var labels = await client.DetectLabelsAsync(image);
 
-                // DANH SÁCH TỪ KHÓA CẤM (Đã bổ sung mạnh tay hơn)
+                
                 var forbiddenLabels = new[]
                 { 
-                    // 1. Nhóm Hoạt hình/Vẽ (Cũ)
+                    
                     "cartoon", "illustration", "drawing", "sketch", "anime",
                     "clip art", "animated cartoon", "cg artwork", "fictional character", "comics", "poster",
                     
-                    // 2. Nhóm Meme/Hài hước (Mới - Để chặn ảnh con chó)
+                   
                     "meme", "internet meme", "joke", "comedy", "fun", "humor", "photo caption",
-                    "snout" /* Từ này hơi nguy hiểm vì chó thật cũng có, nhưng meme chó hay dính từ này */,
+                    "snout" ,
                     
-                    // 3. Nhóm Game/Screenshot (Mới - Để chặn ảnh pixel art)
+                  
                     "screenshot", "video game", "software", "multimedia", "pixel art",
                     "game", "font", "text", "display device"
                 };
@@ -57,11 +57,10 @@ namespace SafeDalat_API.Repositories.Services
                 Console.WriteLine("--- AI ANALYZING LABELS ---");
                 foreach (var label in labels)
                 {
-                    // In ra để Debug xem Google nhìn thấy cái gì
+                    
                     Console.WriteLine($"- Detect: {label.Description} (Score: {label.Score})");
 
-                    // GIẢM SCORE XUỐNG 0.65 (65%) ĐỂ BẮT NHẠY HƠN
-                    // Chuyển label về chữ thường để so sánh
+                   
                     if (label.Score > 0.65 && forbiddenLabels.Contains(label.Description.ToLower()))
                     {
                         Console.WriteLine($"[BLOCKED BY LABEL] Forbidden word found: {label.Description}");
@@ -70,7 +69,7 @@ namespace SafeDalat_API.Repositories.Services
                 }
                 Console.WriteLine("---------------------------");
 
-                return true; // Ảnh SẠCH
+                return true; 
             }
             catch (Exception ex)
             {

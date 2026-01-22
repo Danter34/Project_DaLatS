@@ -9,8 +9,7 @@ namespace SafeDalat_API.Workers
         private readonly IServiceProvider _serviceProvider;
         private readonly ILogger<TrafficAlertWorker> _logger;
 
-        // [FIX] Dùng Dictionary để lưu thời gian báo lần cuối
-        // Key: Tên đường, Value: Thời gian báo gần nhất
+  
         private static Dictionary<string, DateTime> _lastAlertTime = new Dictionary<string, DateTime>();
 
         // Cấu hình: Bao lâu thì được báo lại 1 lần (Ví dụ: 30 phút)
@@ -35,10 +34,10 @@ namespace SafeDalat_API.Workers
                         var trafficRepo = scope.ServiceProvider.GetRequiredService<ITrafficRepository>();
                         var notiRepo = scope.ServiceProvider.GetRequiredService<INotificationRepository>();
 
-                        // 1. Lấy danh sách điểm nóng
+                      
                         var hotspots = await trafficRepo.GetHotspotsAsync();
 
-                        // 2. Lọc điểm nóng nghiêm trọng (>= 3 reports)
+                   
                         var seriousHotspots = hotspots.Where(h => h.ReportCount >= 3).ToList();
 
                         foreach (var spot in seriousHotspots)
@@ -48,12 +47,12 @@ namespace SafeDalat_API.Workers
 
                             if (!_lastAlertTime.ContainsKey(spot.StreetName))
                             {
-                                shouldAlert = true; // Chưa báo bao giờ -> Báo luôn
+                                shouldAlert = true; 
                             }
                             else
                             {
                                 var lastTime = _lastAlertTime[spot.StreetName];
-                                // Nếu đã báo quá 30 phút trước -> Báo lại nhắc nhở
+                              
                                 if (DateTime.UtcNow - lastTime > _alertCooldown)
                                 {
                                     shouldAlert = true;
@@ -62,7 +61,7 @@ namespace SafeDalat_API.Workers
 
                             if (shouldAlert)
                             {
-                                // 3. Tạo & Gửi thông báo
+                                
                                 var notiDto = new SendNotificationDTO
                                 {
                                     Title = $"⚠️ ÙN TẮC TẠI {spot.StreetName.ToUpper()}",
@@ -73,7 +72,7 @@ namespace SafeDalat_API.Workers
 
                                 await notiRepo.BroadcastAsync(notiDto);
 
-                                // 4. Cập nhật thời gian báo lần cuối
+                                
                                 if (_lastAlertTime.ContainsKey(spot.StreetName))
                                     _lastAlertTime[spot.StreetName] = DateTime.UtcNow;
                                 else
@@ -99,7 +98,7 @@ namespace SafeDalat_API.Workers
                     _logger.LogError(ex, "Lỗi trong Traffic Worker");
                 }
 
-                // Chờ 5 phút (300000ms) hoặc 10 giây (10000ms) nếu muốn test nhanh
+            
                 await Task.Delay(300000, stoppingToken);
             }
         }

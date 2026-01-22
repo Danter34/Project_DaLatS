@@ -50,15 +50,12 @@ export class StaffService {
   }
   // Thêm hàm này
 getStaffDashboard(userId: number): Observable<any> {
-  const token = localStorage.getItem('token');
-  const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
-  return this.http.get<any>(`${this.apiUrl}/auth/admin/staff-dashboard/${userId}`, { headers });
+
+  return this.http.get<any>(`${this.apiUrl}/auth/admin/staff-dashboard/${userId}`, { headers: this.getHeaders() });
 }
 
 getStaffTasks(deptId: number): Observable<any[]> {
-  const token = localStorage.getItem('token');
-  const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
-  // Gọi đúng API vừa tạo ở Bước 2
-  return this.http.get<any[]>(`${this.apiUrl}/Incidents/admin/get-by-department/${deptId}`, { headers });
+
+  return this.http.get<any[]>(`${this.apiUrl}/Incidents/admin/get-by-department/${deptId}`, { headers: this.getHeaders() });
 }
 }

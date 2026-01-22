@@ -15,10 +15,10 @@ import retrofit2.Response;
 
 public class DashboardActivity extends AppCompatActivity {
 
-    // View cũ
+
     private TextView tvPending, tvProcessing, tvCompleted, tvRejected;
 
-    // View mới (Trust Score & Quota)
+
     private TextView tvTrustScore, tvTrustStatus, tvQuotaText, tvQuotaPercent;
     private ProgressBar pbDailyQuota;
 
@@ -95,7 +95,7 @@ public class DashboardActivity extends AppCompatActivity {
                         tvQuotaPercent.setText("0%");
                         pbDailyQuota.setMax(100);
                         pbDailyQuota.setProgress(100);
-                        // Đổi màu progress bar thành đỏ nếu cần (cần custom drawable)
+
                     }
                 }
             }

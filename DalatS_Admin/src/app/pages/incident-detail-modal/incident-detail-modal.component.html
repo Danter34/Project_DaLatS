@@ -28,7 +28,14 @@
           <span class="meta-item"><i class="far fa-clock"></i> {{ incident.createdAt | date:'dd/MM/yyyy HH:mm' }}</span>
           <span class="meta-item"><i class="fas fa-tag"></i> {{ incident.categoryName }}</span>
         </div>
-
+        <div class="department-info" *ngIf="incident.assignedDepartmentName">
+    <i class="fas fa-building"></i> 
+    Đơn vị xử lý: <strong>{{ incident.assignedDepartmentName }}</strong>
+  </div>
+  <div class="department-info" *ngIf="!incident.assignedDepartmentName" style="color: #666;">
+    <i class="fas fa-user-shield"></i> 
+    Đơn vị xử lý: <strong>Ban Quản trị (Admin)</strong>
+  </div>
         <div class="status-box">
            <span class="status-badge" [ngClass]="{
               'status-pending': incident.status === 'Chờ xử lý',

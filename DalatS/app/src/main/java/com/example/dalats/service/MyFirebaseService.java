@@ -33,18 +33,18 @@ public class MyFirebaseService extends FirebaseMessagingService {
 
     private static final String TAG = "MyFirebaseService";
 
-    // 1. Hàm này chạy khi có tin nhắn tới (App đang mở hoặc chạy ngầm)
+
     @Override
     public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
 
-        // A. Xử lý thông báo (Notification Payload) - Thường dùng khi App đang chạy foreground
+
         if (remoteMessage.getNotification() != null) {
             String title = remoteMessage.getNotification().getTitle();
             String body = remoteMessage.getNotification().getBody();
             showNotification(title, body);
         }
-        // B. Xử lý dữ liệu ngầm (Data Payload) - Backend gửi kèm data tùy chỉnh
+
         else if (remoteMessage.getData().size() > 0) {
             String title = remoteMessage.getData().get("title");
             String body = remoteMessage.getData().get("body");
@@ -57,20 +57,19 @@ public class MyFirebaseService extends FirebaseMessagingService {
         }
     }
 
-    // 2. Hàm này chạy khi Google cấp lại Token mới (khi cài lại app hoặc token hết hạn)
+
     @Override
     public void onNewToken(@NonNull String token) {
         super.onNewToken(token);
         Log.d(TAG, "Refreshed token: " + token);
 
-        // Gửi token mới lên Server ngay lập tức để đồng bộ
+
         sendRegistrationToServer(token);
     }
 
-    // 3. Hàm hiển thị thông báo ra thanh trạng thái (Ting Ting)
+
     private void showNotification(String title, String body) {
-        // [QUAN TRỌNG] Đổi tên Channel ID mỗi khi thay đổi cấu hình âm thanh/rung
-        // Nếu giữ nguyên ID cũ, Android sẽ nhớ cài đặt cũ và không cập nhật cái mới đâu.
+
         String channelId = "SafeDalat_Alert_Channel_V2";
 
         Intent intent = new Intent(this, MainActivity.class);
@@ -81,17 +80,17 @@ public class MyFirebaseService extends FirebaseMessagingService {
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-        // 1. CẤU HÌNH ÂM THANH
+        // CẤU HÌNH ÂM THANH
         // Cách A: Dùng âm thanh mặc định của hệ thống (dễ nhất)
         // Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
         // Cách B: Dùng âm thanh riêng (file alert_sound.mp3 trong thư mục res/raw)
         Uri soundUri = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" + getPackageName() + "/" + R.raw.arlet);
 
-        // 2. CẤU HÌNH RUNG (Mẫu: nghỉ 0ms, rung 500ms, nghỉ 200ms, rung 500ms)
+        // CẤU HÌNH RUNG (Mẫu: nghỉ 0ms, rung 500ms, nghỉ 200ms, rung 500ms)
         long[] vibrationPattern = {0, 500, 200, 500};
 
-        // 3. TẠO CHANNEL (Cho Android 8.0+)
+        // TẠO CHANNEL (Cho Android 8.0+)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
                     channelId,
@@ -113,7 +112,7 @@ public class MyFirebaseService extends FirebaseMessagingService {
             notificationManager.createNotificationChannel(channel);
         }
 
-        // 4. TẠO THÔNG BÁO
+        // TẠO THÔNG BÁO
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, channelId)
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle(title)
@@ -129,7 +128,7 @@ public class MyFirebaseService extends FirebaseMessagingService {
         notificationManager.notify(notificationId, builder.build());
     }
 
-    // 4. Gọi API Backend để cập nhật Token
+    // Gọi API Backend để cập nhật Token
     private void sendRegistrationToServer(String token) {
         // Kiểm tra xem user đã đăng nhập chưa bằng SharedPreferences
         SharedPreferences pref = getSharedPreferences("UserSession", MODE_PRIVATE);
@@ -143,7 +142,6 @@ public class MyFirebaseService extends FirebaseMessagingService {
             ApiService api = ApiClient.getClient().create(ApiService.class);
 
             // Gọi API Update FCM
-            // Lưu ý: Gửi chuỗi token bọc trong dấu ngoặc kép để khớp với định dạng JSON string ở Backend
             api.updateFcmToken("\"" + token + "\"").enqueue(new Callback<Void>() {
                 @Override
                 public void onResponse(Call<Void> call, Response<Void> response) {

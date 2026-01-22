@@ -3,5 +3,6 @@
     public class CreateIncidentCategoryDTO
     {
         public string Name { get; set; }
+        public int? DefaultDepartmentId { get; set; }
     }
 }

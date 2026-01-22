@@ -22,8 +22,7 @@ public interface QAService {
     @POST("api/QA")
     Call<QuestionResponseDTO> createQuestion(@Body CreateQuestionDTO dto);
 
-    // Lấy danh mục câu hỏi (Giả sử bạn dùng chung API với Incident hoặc có API riêng)
-    // Nếu chưa có API riêng, hãy dùng tạm danh sách cứng hoặc tạo API này bên C#
+
     @GET("api/QA/categories")
     Call<List<QuestionCategory>> getCategories();
 }

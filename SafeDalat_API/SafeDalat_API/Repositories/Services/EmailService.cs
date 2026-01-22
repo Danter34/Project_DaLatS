@@ -142,7 +142,7 @@ namespace SafeDalat_API.Repositories.Services
                             </div>
 
                             <div class='footer'>
-                                <p>Email này được gửi tự động từ hệ thống SafeDalat.</p>
+                                <p>Email này được gửi tự động từ hệ thống Dalats.</p>
                                 <p>Đà Lạt, Lâm Đồng, Việt Nam</p>
                             </div>
                         </td>

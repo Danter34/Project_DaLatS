@@ -14,7 +14,7 @@ namespace SafeDalat_API.Controllers
     public class NotificationsController : ControllerBase
     {
         private readonly INotificationRepository _repo;
-        private readonly IFcmService _fcmService; // <--- Thêm dòng này
+        private readonly IFcmService _fcmService; 
         private readonly AppDbContext _context;
 
         public NotificationsController(INotificationRepository repo, IFcmService fcmService, AppDbContext context)
@@ -49,10 +49,9 @@ namespace SafeDalat_API.Controllers
         [HttpPost("test-push-me")]
         public async Task<IActionResult> TestPushMe()
         {
-            // 1. Lấy User ID đang đăng nhập
+        
             int userId = User.GetUserId();
 
-            // 2. Kiểm tra trong Database xem có Token chưa
             var user = await _context.Users.FindAsync(userId);
             if (user == null) return NotFound("Không tìm thấy User này trong DB");
 
@@ -61,11 +60,10 @@ namespace SafeDalat_API.Controllers
                 return BadRequest($"LỖI: User ID {userId} chưa có FCM Token trong Database. Hãy đăng xuất và đăng nhập lại trên App.");
             }
 
-            // 3. Test gửi thông báo
+          
             try
             {
-                // Gọi trực tiếp FcmService để xem có lỗi không
-                // (Giả sử bạn đã Inject IFcmService vào Controller này, nếu chưa thì thêm vào Constructor nhé)
+                
                 await _fcmService.SendToTokenAsync(user.FcmToken, "Test Backend", "Backend gửi thành công rồi nè!");
 
                 return Ok(new

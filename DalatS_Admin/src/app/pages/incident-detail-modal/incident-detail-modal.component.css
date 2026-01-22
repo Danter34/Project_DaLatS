@@ -92,3 +92,12 @@
 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.department-info {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #1890ff;
+    background: #e6f7ff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    display: inline-block;
+}

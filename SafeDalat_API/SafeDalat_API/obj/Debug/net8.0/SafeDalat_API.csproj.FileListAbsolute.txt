@@ -317,3 +317,4 @@ D:\Project\SafeDalat\SafeDalat_API\SafeDalat_API\bin\Debug\net8.0\runtimes\win\l
 D:\Project\SafeDalat\SafeDalat_API\SafeDalat_API\bin\Debug\net8.0\FirebaseAdmin.dll
 D:\Project\SafeDalat\SafeDalat_API\SafeDalat_API\bin\Debug\net8.0\Google.Api.Gax.Rest.dll
 D:\Project\SafeDalat\SafeDalat_API\SafeDalat_API\bin\Debug\net8.0\firebase-key.json
+D:\Project\SafeDalat\SafeDalat_API\SafeDalat_API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         // 5. Sự kiện Click chuyển Tab
         setupEvents();
 
-        // --- [MỚI] TÍCH HỢP THÔNG BÁO ---
+
         // Xin quyền thông báo (Android 13+)
         askNotificationPermission();
 
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // --- [MỚI] HÀM CẬP NHẬT FCM TOKEN ---
+    // --- HÀM CẬP NHẬT FCM TOKEN ---
     private void updateFcmTokenToServer() {
         FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(task -> {
@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-    // --- [MỚI] HÀM XIN QUYỀN THÔNG BÁO ---
+    // --- HÀM XIN QUYỀN THÔNG BÁO ---
     private void askNotificationPermission() {
         // Chỉ cần xin quyền với Android 13 (API 33) trở lên
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {

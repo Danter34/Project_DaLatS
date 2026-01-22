@@ -150,8 +150,7 @@ namespace SafeDalat_API.Controllers
         [HttpPost("reset-password")]
         public async Task<IActionResult> ResetPassword(ResetPasswordDTO dto)
         {
-            // Vẫn phải kiểm tra lại Code một lần nữa để bảo mật
-            // Tránh trường hợp hacker bỏ qua bước 2 và gọi thẳng API bước 3
+            
             var user = await _context.Users.FirstOrDefaultAsync(x =>
                 x.Email == dto.Email &&
                 x.ResetPasswordCode == dto.Code &&
@@ -161,10 +160,10 @@ namespace SafeDalat_API.Controllers
             if (user == null)
                 return BadRequest("Phiên giao dịch hết hạn, vui lòng xin lại mã mới");
 
-            // Hash mật khẩu mới
+           
             user.Password = BCrypt.Net.BCrypt.HashPassword(dto.NewPassword);
 
-            // Xóa mã OTP để không dùng lại được nữa
+
             user.ResetPasswordCode = null;
             user.ResetCodeExpire = null;
 
@@ -188,9 +187,9 @@ namespace SafeDalat_API.Controllers
             var message = await _jwt.UpdateProfileAsync(userId, dto);
 
             if (message.Contains("thành công"))
-                return Ok(new { message }); // Trả về 200 kèm thông báo
+                return Ok(new { message }); 
 
-            return BadRequest(message); // Trả về 400 nếu lỗi (trùng email...)
+            return BadRequest(message); 
         }
         [Authorize]
         [HttpGet("dashboard")]
@@ -210,7 +209,7 @@ namespace SafeDalat_API.Controllers
         [HttpPut("{id}/lock")]
         public async Task<IActionResult> Lock(int id, [FromBody] LockUserDTO dto)
         {
-            // Nếu admin không nhập lý do, lấy mặc định
+            
             string reason = string.IsNullOrEmpty(dto.Reason) ? "Vi phạm điều khoản" : dto.Reason;
 
             if (!await _jwt.LockUserAsync(id, reason))
@@ -251,29 +250,28 @@ namespace SafeDalat_API.Controllers
             return Ok("Xác minh email thành công");
         }
 
-        [Authorize(Roles = "Admin")] // Chỉ Admin mới được tạo nhân viên
+        [Authorize(Roles = "Admin")] 
         [HttpPost("create-staff")]
         public async Task<IActionResult> CreateStaff([FromBody] CreateStaffDTO dto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            // 1. Kiểm tra Email trùng
+
             if (_context.Users.Any(x => x.Email == dto.Email))
                 return BadRequest("Email này đã tồn tại trong hệ thống.");
 
-            // 2. Tạo User mới
             var user = new User
             {
                 FullName = dto.FullName,
                 Email = dto.Email,
-                // Mã hóa mật khẩu
+  
                 Password = BCrypt.Net.BCrypt.HashPassword(dto.Password),
 
                 Role = dto.Role, // "Staff" hoặc "Manager"
                 DepartmentId = dto.DepartmentId,
 
-                // QUAN TRỌNG: Nhân viên do Admin tạo thì auto kích hoạt
+             
                 IsLocked = false,
                 EmailVerified = true,
                 CreatedAt = DateTime.UtcNow
@@ -284,7 +282,7 @@ namespace SafeDalat_API.Controllers
                 _context.Users.Add(user);
                 await _context.SaveChangesAsync();
 
-                // (Tùy chọn) Có thể gửi email thông báo password cho nhân viên tại đây
+             
             }
             catch (Exception ex)
             {
@@ -293,20 +291,19 @@ namespace SafeDalat_API.Controllers
 
             return Ok(new { message = "Tạo nhân viên thành công!", userId = user.UserId });
         }
-        // [FIX] Thêm API để Admin xem Dashboard của User khác
+      
         [Authorize(Roles = "Admin")]
         [HttpGet("admin/user-dashboard/{userId}")]
         public async Task<IActionResult> GetUserDashboardForAdmin(int userId)
         {
-            // 1. Lấy Dashboard (Thống kê + Điểm)
+           
             var stats = await _jwt.GetDashboardAsync(userId);
 
-            // 2. Lấy Profile (Tên, Email...)
+            
             var profile = await _jwt.GetProfileAsync(userId);
 
             if (profile == null) return NotFound("User not found");
 
-            // 3. Trả về cục dữ liệu gộp
             return Ok(new
             {
                 Profile = profile,
@@ -335,10 +332,10 @@ namespace SafeDalat_API.Controllers
             var user = await _context.Users.FindAsync(userId);
             if (user == null) return NotFound("User không tồn tại");
 
-            // [FIX LỖI] Xóa bỏ dấu ngoặc kép thừa và khoảng trắng nếu có
+  
             string cleanToken = token.Replace("\"", "").Trim();
 
-            user.FcmToken = cleanToken; // Lưu token sạch
+            user.FcmToken = cleanToken; 
             await _context.SaveChangesAsync();
 
             return Ok(new { message = "Đã cập nhật FCM Token thành công", token = cleanToken });

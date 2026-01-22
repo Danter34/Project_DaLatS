@@ -22,19 +22,19 @@ public class AppInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_info);
 
-        // 1. Xử lý nút Back
+
         findViewById(R.id.btn_back_info).setOnClickListener(v -> finish());
 
-        // 2. Xử lý Facebook
+
         findViewById(R.id.btn_contact_fb).setOnClickListener(v -> openWebUrl(FACEBOOK_URL));
 
-        // 3. Xử lý Zalo
+
         findViewById(R.id.btn_contact_zalo).setOnClickListener(v -> openWebUrl(ZALO_URL));
 
-        // 4. Xử lý Email
+
         findViewById(R.id.btn_contact_email).setOnClickListener(v -> sendEmail());
 
-        // 5. Xử lý Chính sách bảo mật (Hiện Popup)
+
         findViewById(R.id.btn_privacy_policy).setOnClickListener(v -> showPrivacyDialog());
     }
 

@@ -7,7 +7,6 @@ namespace SafeDalat_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Admin")] // Chỉ Admin mới được quản lý phòng ban
     public class DepartmentsController : ControllerBase
     {
         private readonly IDepartmentRepository _repo;

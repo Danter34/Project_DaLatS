@@ -4,40 +4,25 @@
     <div class="panel-header">
       <h3><i class="fas fa-exclamation-triangle"></i> Danh sách sự cố</h3>
     </div>
-    
     <div class="incident-list">
-      <div 
-        class="incident-card" 
-        *ngFor="let item of incidents" 
-        [class.active]="selectedIncident?.incidentId === item.incidentId"
-        (click)="selectIncident(item)">
-        
+      <div class="incident-card" *ngFor="let item of incidents" 
+        [class.active]="selectedIncident?.incidentId === item.incidentId" (click)="selectIncident(item)">
         <div class="card-thumb">
-          <img 
-            [src]="item.images && item.images.length > 0 ? getImageUrl(item.images[0].filePath) : 'assets/images/no-image.png'" 
-            alt="thumb">
+          <img [src]="item.images && item.images.length > 0 ? getImageUrl(item.images[0].filePath) : 'assets/images/no-image.png'">
         </div>
-        
         <div class="card-info">
           <div class="title-row">
              <h4 class="card-title" title="{{ item.title }}">{{ item.title }}</h4>
-             <span class="vote-badge" *ngIf="item.voteCount > 1" title="{{ item.voteCount }} người báo cáo">
-                🔥 {{ item.voteCount }}
-             </span>
+             <span class="vote-badge" *ngIf="item.voteCount > 1">🔥 {{ item.voteCount }}</span>
           </div>
-
           <div class="card-addr"><i class="fas fa-map-marker-alt"></i> {{ item.ward }}</div>
-          
-          <span class="status-badge" [ngClass]="getStatusClass(item.status)">
-            {{ item.status }}
-          </span>
+          <span class="status-badge" [ngClass]="getStatusClass(item.status)">{{ item.status }}</span>
         </div>
       </div>
     </div>
   </div>
 
   <div class="detail-panel">
-    
     <div class="empty-state" *ngIf="!selectedIncident">
       <img src="assets/images/select-incident.png" onerror="this.style.display='none'" width="150">
       <p>Chọn một sự cố để xem chi tiết và xử lý</p>
@@ -48,13 +33,11 @@
       <div class="detail-top">
         <div class="image-gallery">
           <div class="main-img-box">
-            <img [src]="activeImage ? getImageUrl(activeImage.filePath) : 'assets/images/no-image.png'" alt="Main">
+            <img [src]="activeImage ? getImageUrl(activeImage.filePath) : 'assets/images/no-image.png'">
           </div>
           <div class="sub-images" *ngIf="selectedIncident.images && selectedIncident.images.length > 1">
-            <img *ngFor="let img of selectedIncident.images" 
-              [src]="getImageUrl(img.filePath)"
-              [class.active-thumb]="activeImage === img"
-              (click)="activeImage = img">
+            <img *ngFor="let img of selectedIncident.images" [src]="getImageUrl(img.filePath)"
+              [class.active-thumb]="activeImage === img" (click)="activeImage = img">
           </div>
         </div>
 
@@ -63,16 +46,11 @@
           <div class="meta-row">
             <span><i class="far fa-clock"></i> {{ selectedIncident.createdAt | date:'dd/MM/yyyy HH:mm' }}</span>
             <span><i class="fas fa-tag"></i> {{ selectedIncident.categoryName }}</span>
-            <span *ngIf="selectedIncident.voteCount > 1" style="color: #ff4d4f; font-weight: bold;">
-                <i class="fas fa-fire"></i> {{ selectedIncident.voteCount }} báo cáo trùng
-            </span>
           </div>
-          
           <div class="desc-box">
             <strong><i class="fas fa-align-left"></i> Mô tả chi tiết:</strong>
             <p>{{ selectedIncident.description }}</p>
           </div>
-
           <div class="addr-box">
             <i class="fas fa-map-marker-alt text-red"></i> 
             {{ selectedIncident.address }}, {{ selectedIncident.streetName }}, {{ selectedIncident.ward }}
@@ -86,94 +64,96 @@
         
         <div class="alert-processed" 
              [class.alert-rejected]="selectedIncident.status === 'Từ chối'"
-             *ngIf="selectedIncident.status !== 'Chờ xử lý' && isAdmin">
-           <div>
-               <i class="fas" [ngClass]="selectedIncident.status === 'Từ chối' ? 'fa-times-circle' : 'fa-check-circle'"></i> 
-               Sự cố này đang ở trạng thái: <b>{{ selectedIncident.status }}</b>
-           </div>
-           <div *ngIf="selectedIncident.assignedDepartmentName">
-              <small>Đơn vị phụ trách: {{ selectedIncident.assignedDepartmentName }}</small>
-           </div>
+             *ngIf="selectedIncident.status !== 'Chờ xử lý' && !isStaff && !isAdmin">
+             <div>
+                <i class="fas" [ngClass]="selectedIncident.status === 'Từ chối' ? 'fa-times-circle' : 'fa-check-circle'"></i> 
+                Sự cố này đang ở trạng thái: <b>{{ selectedIncident.status }}</b>
+             </div>
+             <div *ngIf="selectedIncident.assignedDepartmentName">
+                <small>Đơn vị phụ trách: {{ selectedIncident.assignedDepartmentName }}</small>
+             </div>
         </div>
 
         <div class="admin-actions" *ngIf="isAdmin && selectedIncident.status === 'Chờ xử lý'">
-          <h3><i class="fas fa-user-shield"></i> Duyệt & Điều phối</h3>
-          
+          <h3><i class="fas fa-user-shield"></i> Duyệt & Điều phối (Admin)</h3>
           <div class="control-row">
             <div class="control-group">
               <label>Mức độ cảnh báo:</label>
               <select [(ngModel)]="updateData.alertLevel">
-                <option [value]="1">🟢 Bình thường</option>
-                <option [value]="2">🟠 Cảnh báo</option>
-                <option [value]="3">🔴 Nguy hiểm</option>
+                <option [ngValue]="1">🟢 Bình thường</option>
+                <option [ngValue]="2">🟠 Cảnh báo</option>
+                <option [ngValue]="3">🔴 Nguy hiểm</option>
               </select>
             </div>
-
             <div class="control-group">
               <label>Đơn vị xử lý:</label>
               <select [(ngModel)]="updateData.assignedDepartmentId">
                 <option [ngValue]="undefined">-- Chọn phòng ban --</option>
-                <option *ngFor="let d of departments" [value]="d.departmentId">{{ d.name }}</option>
+                <option *ngFor="let d of departments" [ngValue]="d.departmentId">{{ d.name }}</option>
               </select>
             </div>
           </div>
-
-          <div class="duplicate-section" *ngIf="suggestedDuplicates.length > 0">
-            <div class="dup-header">
-              <i class="fas fa-clone"></i> Phát hiện {{ suggestedDuplicates.length }} sự cố trùng lặp
-            </div>
-            
-            <div class="dup-list">
-              <div class="dup-item" *ngFor="let dup of suggestedDuplicates">
-                <label class="checkbox-container">
-                  <input type="checkbox" (change)="toggleDuplicate(dup.incidentId)">
-                  <span class="checkmark"></span>
-                </label>
-                
-                <div class="dup-info">
-                  <div class="dup-title">{{ dup.title }}</div>
-                  <div class="dup-meta">
-                    <i class="far fa-clock"></i> {{ dup.createdAt | date:'dd/MM' }}
-                  </div>
-                </div>
-                
-                <span class="badge-dup">Trùng lặp</span>
-              </div>
-            </div>
-            
-            <div class="merge-hint">
-              <i class="fas fa-info-circle"></i> Tích chọn để gộp ảnh và cộng điểm cho người báo cáo.
-            </div>
-          </div>
-
+          <ng-container *ngTemplateOutlet="duplicateTemplate"></ng-container>
           <div class="btn-row">
-            <button class="btn btn-reject" (click)="reject()">
-              <i class="fas fa-times-circle"></i> Từ chối
-            </button>
-            
+            <button class="btn btn-reject" (click)="reject()"><i class="fas fa-times-circle"></i> Từ chối</button>
             <button class="btn btn-approve" (click)="approveAndAssign()">
               <i class="fas fa-check-circle"></i> 
-              {{ selectedDuplicateIds.length > 0 ? 'Gộp & Duyệt (' + (selectedDuplicateIds.length + 1) + ' phiếu)' : 'Duyệt & Chuyển Xử Lý' }}
+              {{ selectedDuplicateIds.length > 0 ? 'Gộp & Duyệt' : 'Duyệt & Chuyển' }}
             </button>
           </div>
         </div>
 
-        <div class="staff-actions" *ngIf="!isAdmin">
-          <h3><i class="fas fa-tools"></i> Cập nhật tiến độ</h3>
+        <div class="staff-actions" *ngIf="isStaff || (isAdmin && selectedIncident.status !== 'Chờ xử lý')">
           
-          <div class="current-status">
-            Trạng thái: <span class="status-text-bold">{{ selectedIncident.status }}</span>
+          <h3><i class="fas fa-tools"></i> Xử lý sự cố</h3>
+          
+          <div class="transfer-section" *ngIf="selectedIncident.status !== 'Đã hoàn thành' && selectedIncident.status !== 'Từ chối'">
+             <div class="control-row">
+                
+                <div class="control-group">
+                   <label>Mức độ cảnh báo:</label>
+                   <select [(ngModel)]="updateData.alertLevel">
+                      <option [ngValue]="1">🟢 Bình thường</option>
+                      <option [ngValue]="2">🟠 Cảnh báo</option>
+                      <option [ngValue]="3">🔴 Nguy hiểm</option>
+                   </select>
+                </div>
+
+                <div class="control-group">
+                   <label>Chuyển đơn vị (Nếu sai):</label>
+                   <div style="display: flex; gap: 5px;">
+                      <select [(ngModel)]="updateData.assignedDepartmentId" style="flex: 1;">
+                         <option *ngFor="let d of departments" [ngValue]="d.departmentId">{{ d.name }}</option>
+                      </select>
+                      <button class="btn-icon-only" title="Chuyển ngay" (click)="transferDepartment()">
+                         <i class="fas fa-share-square"></i>
+                      </button>
+                   </div>
+                </div>
+             </div>
           </div>
+
+          <ng-container *ngTemplateOutlet="duplicateTemplate"></ng-container>
 
           <div class="control-group" style="margin-top: 15px;">
-            <label>Ghi chú tiến độ:</label>
-            <textarea [(ngModel)]="updateData.note" rows="3" placeholder="Nhập nội dung cập nhật..."></textarea>
+            <label>Ghi chú / Kết quả xử lý:</label>
+            <textarea [(ngModel)]="updateData.note" rows="3" placeholder="Nhập nội dung..."></textarea>
           </div>
 
-          <div class="btn-row">
-            <button class="btn btn-process" (click)="updateProgress('Đang xử lý')">
-              <i class="fas fa-spinner"></i> Đang xử lý
+          <div class="btn-row" *ngIf="selectedIncident.status !== 'Đã hoàn thành' && selectedIncident.status !== 'Từ chối'">
+            
+            <button class="btn btn-reject" (click)="reject()">
+              <i class="fas fa-times-circle"></i> Từ chối
             </button>
+
+            <button class="btn btn-approve" *ngIf="selectedDuplicateIds.length > 0" (click)="updateProgress('Đang xử lý')">
+               <i class="fas fa-object-group"></i> Gộp {{ selectedDuplicateIds.length }} phiếu
+            </button>
+
+            <button class="btn btn-process" *ngIf="selectedIncident.status === 'Chờ xử lý'" (click)="updateProgress('Đang xử lý')">
+              <i class="fas fa-play"></i> Tiếp nhận
+            </button>
+            
             <button class="btn btn-complete" (click)="updateProgress('Đã hoàn thành')">
               <i class="fas fa-check-double"></i> Hoàn thành
             </button>
@@ -181,15 +161,29 @@
         </div>
 
       </div>
-
     </div>
   </div>
 </div>
-<app-incident-detail-modal 
-  [isVisible]="isModalVisible" 
-  [incident]="selectedIncident" 
-  (onClose)="closeResultModal()">
-</app-incident-detail-modal>
+
+<ng-template #duplicateTemplate>
+  <div class="duplicate-section" *ngIf="suggestedDuplicates.length > 0 && selectedIncident?.status !== 'Đã hoàn thành' && selectedIncident?.status !== 'Từ chối'">
+    <div class="dup-header"><i class="fas fa-clone"></i> Phát hiện {{ suggestedDuplicates.length }} sự cố tương tự</div>
+    <div class="dup-list">
+      <div class="dup-item" *ngFor="let dup of suggestedDuplicates">
+        <label class="checkbox-container">
+          <input type="checkbox" (change)="toggleDuplicate(dup.incidentId)">
+          <span class="checkmark"></span>
+        </label>
+        <div class="dup-info">
+          <div class="dup-title">{{ dup.title }}</div>
+          <div class="dup-meta"><i class="far fa-clock"></i> {{ dup.createdAt | date:'dd/MM' }} - {{ dup.status }}</div>
+        </div>
+        <span class="badge-dup">Trùng lặp</span>
+      </div>
+    </div>
+    <div class="merge-hint"><i class="fas fa-info-circle"></i> Tích chọn để gộp ảnh và cộng điểm cho người báo cáo.</div>
+  </div>
+</ng-template>
 
 <div class="modal-backdrop" *ngIf="confirmModal.show" style="z-index: 3000;">
   <div class="modal-content-small">
@@ -200,11 +194,7 @@
     <p class="modal-desc">{{ confirmModal.message }}</p>
     <div class="modal-actions">
       <button class="btn-modal btn-cancel" (click)="confirmModal.show = false">Hủy bỏ</button>
-      <button class="btn-modal" 
-              [ngClass]="confirmModal.type === 'reject' ? 'btn-danger' : 'btn-primary'"
-              (click)="onConfirm()">
-        Đồng ý
-      </button>
+      <button class="btn-modal" [ngClass]="confirmModal.type === 'reject' ? 'btn-danger' : 'btn-primary'" (click)="onConfirm()">Đồng ý</button>
     </div>
   </div>
 </div>
@@ -217,9 +207,7 @@
     <h3 class="modal-title">{{ resultModal.isSuccess ? 'Thành công!' : 'Thất bại' }}</h3>
     <p class="modal-desc">{{ resultModal.message }}</p>
     <div class="modal-actions">
-      <button class="btn-modal btn-primary" style="width: 100%;" (click)="closeResultModal()">
-        Đóng
-      </button>
+      <button class="btn-modal btn-primary" style="width: 100%;" (click)="closeResultModal()">Đóng</button>
     </div>
   </div>
 </div>
