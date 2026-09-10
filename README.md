@@ -327,17 +327,6 @@ Project_DaLatS/
   <img src="docs/images/web/incidents.png" width="95%" alt="Quản lý sự cố" />
 </p>
 
-
-#### 1. Dashboard Thống kê Trực quan & Giám sát Toàn diện
-<p align="center">
-  <img src="docs/images/web/dashboard.png" width="95%" alt="Admin Dashboard" />
-</p>
-
-#### 2. Tiếp nhận & Điều phối Sự cố Đô thị
-<p align="center">
-  <img src="docs/images/web/incidents.png" width="95%" alt="Quản lý sự cố" />
-</p>
-
 #### 3. Quản lý Dân cư & Điểm uy tín Công dân
 | Danh sách Người dân & Điểm uy tín | Hồ sơ Chi tiết & Lịch sử Báo cáo |
 | :---: | :---: |
