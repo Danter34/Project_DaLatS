@@ -345,7 +345,7 @@ Dự án đã tích hợp sẵn cơ chế **Seeder tự động** (`DemoSeeder.c
 | `user6@demo.dalats.test` | **User** | Tài khoản bị khóa (Dùng thử tính năng kỷ luật/mở khóa) |
 
 > [!NOTE]
-> 📌 **Xem chi tiết hướng dẫn nạp dữ liệu mẫu, kịch bản test và GPS tại:** 👉 **[SafeDalat_API/DEMO.md](SafeDalat_API/DEMO.md)** *(hoặc [DEMO.md](DEMO.md))*
+> 📌 **Xem chi tiết hướng dẫn nạp dữ liệu mẫu, kịch bản test và GPS tại:** 👉 **[DEMO.md](SafeDalat_API/DEMO.md)**
 >
 > *(Bộ dữ liệu nạp sẵn bao gồm 15 sự cố phân bổ khắp các phường nội ô Đà Lạt với tọa độ GPS 11.9338–11.9663, kinh độ 108.4248–108.4668, 5 phòng ban, đầy đủ lịch sử trạng thái, câu hỏi Q&A, thông báo mẫu và script kiểm tra tự động).*
 
