@@ -3,7 +3,7 @@
   <img src="docs/images/logo.png" alt="DalatS Logo" width="160 " />
 
   # 🌲 DalatS - HỆ THỐNG QUẢN LÝ SỰ CỐ ĐÔ THỊ THÀNH PHỐ ĐÀ LẠT
-  ### *Nền tảng Tiếp nhận, Điều phối và Giám sát Sự cố Đô thị Thời gian thực*
+  ### *Tiếp nhận, điều phối và giám sát sự cố đô thị theo thời gian thực*
 
   [![.NET](https://img.shields.io/badge/.NET%208.0-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/)
   [![Angular](https://img.shields.io/badge/Angular%2021-DD0031?style=for-the-badge&logo=angular&logoColor=white)](https://angular.dev/)
@@ -47,13 +47,13 @@
 <a id="gioi-thieu-du-an"></a>
 ## 🌿 Giới thiệu Dự án
 
-Đà Lạt là trung tâm du lịch trọng điểm với địa hình đồi dốc, khí hậu sương mù mưa bão đặc thù, kéo theo nhiều rủi ro về hạ tầng đô thị như: sạt lở cây cối, hư hỏng mặt đường, tắc nghẽn cống thoát nước ngập úng, hư hỏng đèn chiếu sáng công cộng và ùn ứ giao thông vào mùa cao điểm.
+Đà Lạt là trung tâm du lịch với địa hình đồi dốc, khí hậu sương mù mưa bão đặc thù, kéo theo nhiều rủi ro hạ tầng đô thị: cây đổ, sạt lở, mặt đường hư hỏng, cống thoát nước ngập úng, đèn chiếu sáng hỏng và ùn ứ giao thông vào mùa cao điểm.
 
-**DalatS** ra đời như một **Nền tảng Đô thị Thông minh (Smart City Platform)** toàn diện, đóng vai trò cầu nối tương tác 2 chiều giữa **Người dân (Citizen)** và **Chính quyền thành phố / Các đơn vị sự nghiệp công ích (City Administration & Specialized Departments)**:
+**DalatS** là cầu nối hai chiều giữa **người dân** và **chính quyền thành phố / các đơn vị sự nghiệp công ích**:
 
-- 📣 **Người dân:** Dễ dàng ghi nhận hiện trường bằng ảnh chụp, định vị GPS tức thời, gửi báo cáo chỉ trong 30 giây và theo dõi minh bạch tiến độ xử lý từ cơ quan nhà nước.
-- 🏢 **Chính quyền & Cán bộ phụ trách:** Tiếp nhận tập trung, phân luồng tự động tới từng phòng ban chuyên trách (Thoát nước, Cây xanh, Chiếu sáng, Vệ sinh, Giao thông), điều phối xử lý nhanh chóng, giảm thiểu tối đa thủ tục hành chính giấy tờ.
-- 🛡️ **Kiểm soát & Giám sát thông minh:** Ứng dụng Trí tuệ nhân tạo (AI) kiểm duyệt hình ảnh, phòng ngừa tin giả mạo; tích hợp đẩy thông báo khẩn cấp toàn dân và tự động cảnh báo ùn tắc giao thông.
+- 📣 **Người dân:** chụp ảnh hiện trường, định vị GPS, gửi báo cáo trong khoảng 30 giây và theo dõi tiến độ xử lý.
+- 🏢 **Chính quyền & cán bộ phụ trách:** tiếp nhận tập trung, phân luồng tự động tới đúng phòng ban (Thoát nước, Cây xanh, Chiếu sáng, Vệ sinh, Giao thông), giảm bớt giấy tờ và các bước trung gian.
+- 🛡️ **Kiểm soát chất lượng dữ liệu:** AI kiểm duyệt hình ảnh để hạn chế ảnh giả/spam, kèm cơ chế đẩy thông báo khẩn cấp và cảnh báo ùn tắc tự động.
 
 ---
 
@@ -62,46 +62,46 @@
 
 <a id="google-cloud-vision-ai"></a>
 ### 1. 🤖 Trí tuệ nhân tạo kiểm duyệt ảnh (Google Cloud Vision AI)
-Hệ thống tích hợp trực tiếp thư viện **`Google.Cloud.Vision.V1`** để kiểm duyệt tự động 100% hình ảnh người dân tải lên ngay tại tầng Backend (`ImageAnalysisRepository`):
-* **SafeSearch Detection:** Quét và từ chối lập tức các hình ảnh có yếu tố khiêu dâm (`Adult`), bạo lực (`Violence`), nhạy cảm (`Racy`), nội dung y tế/kinh dị (`Medical`) hoặc hình ảnh giả mạo cắt ghép (`Spoof`).
-* **AI Label Detection (Chặn tin giả & Troll):** Phân tích nhãn tự động với ngưỡng tự tin `Score > 0.65`. Ngăn chặn người dùng tải lên ảnh hoạt hình (`cartoon`, `anime`, `drawing`), ảnh chế meme trên mạng (`meme`, `joke`, `snout`), ảnh chụp màn hình game/ứng dụng (`screenshot`, `pixel art`, `video game`).
-* **Ý nghĩa:** Đảm bảo toàn bộ phản ánh lưu trữ trong cơ sở dữ liệu đều là hình ảnh chụp hiện trường thực tế có giá trị điều tra, xử lý.
+Hệ thống gọi trực tiếp thư viện **`Google.Cloud.Vision.V1`** để kiểm duyệt mọi ảnh người dân tải lên, ngay tại tầng Backend (`ImageAnalysisRepository`):
+* **SafeSearch Detection:** từ chối ảnh có yếu tố khiêu dâm (`Adult`), bạo lực (`Violence`), nhạy cảm (`Racy`), y tế/kinh dị (`Medical`) hoặc dấu hiệu cắt ghép (`Spoof`).
+* **AI Label Detection (chặn tin giả & troll):** phân tích nhãn với ngưỡng `Score > 0.65`, chặn ảnh hoạt hình (`cartoon`, `anime`, `drawing`), ảnh chế (`meme`, `joke`, `snout`), ảnh chụp màn hình game/ứng dụng (`screenshot`, `pixel art`, `video game`).
+* Mục tiêu là để dữ liệu trong hệ thống chỉ gồm ảnh chụp hiện trường thật, có thể dùng để xác minh và xử lý.
 
 <a id="firebase-cloud-messaging-fcm"></a>
 ### 2. 🔔 Hệ thống Thông báo Đẩy thời gian thực (Firebase Cloud Messaging - FCM)
-Tích hợp **`Firebase Admin SDK`** tại Backend và **`Firebase Messaging Client`** tại ứng dụng Android:
-* **Thông báo sự kiện cá nhân:** Gửi thông báo tức thời về điện thoại người dân khi cán bộ tiếp nhận sự cố, chuyển sang "Đang xử lý", hoàn thành xử lý hoặc khi có phản hồi bình luận mới.
-* **Giao việc tức thì cho nhân viên:** Khi sự cố được gán cho một phòng ban (hoặc sự cố khẩn cấp mức báo động Đỏ), toàn bộ cán bộ thuộc phòng ban đó sẽ nhận thông báo nhiệm vụ mới ngay trên thiết bị.
-* **Phát thanh diện rộng (Broadcast Push Notification):** Quản trị viên Web Admin có thể gửi thông báo khẩn cấp hoặc bản tin thời sự tới toàn bộ người dân thành phố, hỗ trợ cơ chế chia gói Multicast tự động (500 tokens/lô) nhằm tối ưu băng thông và tốc độ phân phối.
+Dùng **`Firebase Admin SDK`** ở Backend và **`Firebase Messaging Client`** ở app Android:
+* **Thông báo cá nhân:** báo cho người dân khi cán bộ tiếp nhận, chuyển "Đang xử lý", hoàn thành, hoặc có bình luận mới.
+* **Giao việc cho cán bộ:** khi sự cố được gán cho một phòng ban (hoặc ở mức báo động Đỏ), toàn bộ cán bộ phòng ban đó nhận thông báo ngay.
+* **Phát thanh diện rộng:** Admin gửi thông báo khẩn hoặc bản tin tới toàn thành phố; hệ thống tự chia gói Multicast 500 token/lô để gửi không bị nghẽn.
 
 <a id="trust-score-system"></a>
 ### 3. ⭐ Hệ thống Điểm uy tín Công dân (Trust Score System)
-Nhằm xây dựng văn hóa đóng góp cộng đồng lành mạnh và hạn chế tối đa việc spam phản ánh sai sự thật:
-* Người dân khi mới kích hoạt tài khoản có điểm uy tín cơ sở.
-* **Cộng 10 điểm (+10):** Khi phản ánh được cán bộ xác minh là chính xác và chuyển trạng thái "Đang xử lý" / "Đã hoàn thành".
-* **Trừ 20 điểm (-20):** Khi phản ánh là sai sự thật, tin giả và bị cơ quan chức năng "Từ chối".
-* Biến động điểm uy tín được thông báo trực tiếp qua FCM và hiển thị minh bạch trong hồ sơ cá nhân. Điểm uy tín giúp quản trị viên dễ dàng nhận diện công dân tích cực hoặc gắn cờ theo dõi các tài khoản có nguy cơ quấy rối.
+Mục đích là hạn chế phản ánh sai sự thật:
+* Tài khoản mới có điểm uy tín khởi điểm.
+* **+10 điểm:** khi cán bộ xác minh phản ánh đúng và chuyển "Đang xử lý" / "Đã hoàn thành".
+* **-20 điểm:** khi phản ánh là tin giả và bị "Từ chối".
+* Biến động điểm được báo qua FCM và hiện trong hồ sơ cá nhân, giúp Admin nhận ra công dân đóng góp tích cực hoặc tài khoản cần theo dõi.
 
 <a id="traffic-alert-worker"></a>
 ### 4. 🚗 Cảnh báo Ùn tắc Giao thông Tự động (Traffic Alert Worker)
-Backend vận hành một dịch vụ nền chạy ngầm độc lập **`TrafficAlertWorker : BackgroundService`**:
-* Chu kỳ mỗi 5 phút quét toàn bộ bản đồ sự cố tại các tuyến đường chính nội ô Đà Lạt.
-* Khi một tuyến đường ghi nhận từ **3 phản ánh sự cố/tai nạn trở lên cùng lúc** (`ReportCount >= 3`), Worker sẽ tự động kích hoạt gửi cảnh báo diện rộng:
+Một background service riêng, **`TrafficAlertWorker : BackgroundService`**, chạy độc lập:
+* Cứ 5 phút quét lại toàn bộ sự cố trên các tuyến đường chính nội ô.
+* Khi một tuyến có từ **3 sự cố/tai nạn trở lên cùng lúc** (`ReportCount >= 3`), Worker gửi cảnh báo diện rộng:
   > *`⚠️ ÙN TẮC TẠI [TÊN ĐƯỜNG]: Hệ thống phát hiện X sự cố tại khu vực này. Vui lòng hạn chế di chuyển qua đây.`*
-* Cơ chế **Cooldown 30 phút** thông minh ngăn việc gửi thông báo lặp gây phiền hà cho người dùng và tự giải phóng bộ nhớ khi cung đường đã thông thoáng.
+* Có cooldown 30 phút để không spam thông báo lặp, và tự dọn khi tuyến đường đã thông thoáng.
 
 <a id="duplicate-detection"></a>
 ### 5. 🔍 Phát hiện và Hợp nhất Sự cố Trùng lặp (Duplicate Detection)
-Khi xảy ra một sự cố lớn (ví dụ: cây ngã đổ tại đường Trần Phú), nhiều người dân cùng đi ngang qua và gửi báo cáo:
-* Hệ thống tự động so khớp tọa độ GPS, tuyến đường và danh mục sự cố để đưa ra danh sách gợi ý trùng lặp (`SuggestDuplicates`).
-* Cho phép cán bộ gộp các phản ánh phụ vào một **Master Incident**, giúp tinh gọn dữ liệu thống kê, tránh phân bổ trùng lặp nhân lực và vẫn cập nhật thông báo kết quả xử lý đến tất cả người dân đã báo cáo.
+Một sự cố lớn (ví dụ cây ngã trên đường Trần Phú) thường có nhiều người cùng báo:
+* Hệ thống so khớp tọa độ GPS, tuyến đường và danh mục để gợi ý các báo cáo trùng (`SuggestDuplicates`).
+* Cán bộ có thể gộp các phản ánh phụ vào một **Master Incident** — tránh phân công trùng người xử lý, dữ liệu thống kê gọn hơn, và tất cả người báo cáo vẫn nhận được cập nhật kết quả.
 
 ---
 
 <a id="kien-truc-he-thong"></a>
 ## 🏗️ Kiến trúc Hệ thống (System Architecture)
 
-Hệ thống được thiết kế theo mô hình **Client-Server 3 lớp (3-Tier Clean Architecture)** phân tách rành mạch:
+Hệ thống theo mô hình **Client-Server 3 lớp (3-Tier Clean Architecture)**:
 
 ```mermaid
 flowchart TB
@@ -147,32 +147,32 @@ flowchart TB
 ---
 
 <a id="tech-stack"></a>
-## 🛠️ Tech Stack Toàn diện
+## 🛠️ Tech Stack
 
 | Phân hệ | Công nghệ / Thư viện | Vai trò & Mục đích sử dụng |
 | :--- | :--- | :--- |
-| **Backend Core** | **.NET 8 (C#)** | Framework xây dựng RESTful Web API hiệu năng cao, bảo mật cao. |
+| **Backend Core** | **.NET 8 (C#)** | Framework xây dựng RESTful Web API. |
 | | **Entity Framework Core 8** | ORM quản lý dữ liệu, quan hệ bảng, Code-First Migrations. |
-| | **Microsoft SQL Server** | Hệ quản trị cơ sở dữ liệu quan hệ, lưu trữ toàn bộ thực thể. |
-| | **JWT Bearer + BCrypt.Net** | Xác thực phân quyền không trạng thái (Stateless Authentication) và băm mật khẩu bảo mật cao. |
-| | **Hosted Background Service** | Vận hành tác vụ ngầm định kỳ phân tích điểm nóng giao thông (`TrafficAlertWorker`). |
-| | **Swashbuckle / Swagger UI** | Sinh tài liệu kiểm thử API tự động trực quan tại `/swagger`. |
-| **Cloud & AI** | **Google Cloud Vision v3.8.0** | Trí tuệ nhân tạo kiểm duyệt ảnh đầu vào (SafeSearch & Label Detection). |
-| | **Firebase Admin v3.4.0** | Quản lý kết nối và gửi Push Notification qua FCM protocol. |
-| | **Google Maps & Location API** | Hiển thị bản đồ nhiệt, ghim vị trí sự cố, định vị vị trí người dùng. |
-| | **OpenWeather & IQAir APIs** | Cung cấp dữ liệu môi trường và thời tiết thực tế tại TP Đà Lạt. |
-| | **MailKit / SMTP Gmail** | Dịch vụ gửi email thông báo xác thực, cấp phát OTP và kỷ luật tài khoản. |
-| **Web Admin** | **Angular 21 (Modern Angular)** | Single Page Application (SPA), Standalone Components, Reactive Forms. |
-| | **TypeScript 5.9** | Ngôn ngữ phát triển phía client với kiểu dữ liệu an toàn. |
-| | **Chart.js & ng2-charts 8.0** | Trực quan hóa dữ liệu Dashboard (Biểu đồ Doughnut, Bar, Line). |
-| | **FontAwesome 7 Free** | Hệ thống icon chuẩn giao diện quản trị chuyên nghiệp. |
-| | **RxJS 7.8** | Xử lý bất đồng bộ, Data Streams và HTTP Interceptors. |
-| **Mobile App** | **Android Native (Java 17)** | Ứng dụng di động tối ưu hiệu năng phần cứng cho nền tảng Android. |
-| | **Retrofit 2.9 & Gson** | Thư viện HTTP Client gọi REST API và chuyển đổi đối tượng JSON. |
-| | **Firebase Messaging 23.4** | Bắt sự kiện thông báo nền và hiển thị Notification trên Android. |
-| | **Glide 4.16** | Tải và cache ảnh hiện trường mượt mà với kích thước nén tối ưu. |
-| | **Google Play Services Maps 18.2** | Tích hợp bản đồ vệ tinh/giao thông tương tác trực tiếp trong app. |
-| | **PhotoView 2.3** | Hỗ trợ người dùng và cán bộ zoom phóng to/thu nhỏ ảnh chi tiết hiện trường. |
+| | **Microsoft SQL Server** | Database quan hệ, lưu toàn bộ thực thể. |
+| | **JWT Bearer + BCrypt.Net** | Xác thực stateless và băm mật khẩu. |
+| | **Hosted Background Service** | Chạy tác vụ ngầm định kỳ phân tích điểm nóng giao thông (`TrafficAlertWorker`). |
+| | **Swashbuckle / Swagger UI** | Sinh tài liệu API tự động tại `/swagger`. |
+| **Cloud & AI** | **Google Cloud Vision v3.8.0** | Kiểm duyệt ảnh đầu vào (SafeSearch & Label Detection). |
+| | **Firebase Admin v3.4.0** | Kết nối và gửi Push Notification qua FCM. |
+| | **Google Maps & Location API** | Bản đồ nhiệt, ghim vị trí sự cố, định vị người dùng. |
+| | **OpenWeather & IQAir APIs** | Dữ liệu môi trường và thời tiết tại Đà Lạt. |
+| | **MailKit / SMTP Gmail** | Gửi email xác thực, OTP và thông báo khóa tài khoản. |
+| **Web Admin** | **Angular 21 (Modern Angular)** | SPA, Standalone Components, Reactive Forms. |
+| | **TypeScript 5.9** | Ngôn ngữ phía client, kiểu dữ liệu tĩnh. |
+| | **Chart.js & ng2-charts 8.0** | Biểu đồ Dashboard (Doughnut, Bar, Line). |
+| | **FontAwesome 7 Free** | Icon cho giao diện quản trị. |
+| | **RxJS 7.8** | Xử lý bất đồng bộ, Data Streams, HTTP Interceptors. |
+| **Mobile App** | **Android Native (Java 17)** | Ứng dụng di động cho nền tảng Android. |
+| | **Retrofit 2.9 & Gson** | HTTP Client gọi REST API, chuyển đổi JSON. |
+| | **Firebase Messaging 23.4** | Nhận và hiển thị Notification trên Android. |
+| | **Glide 4.16** | Tải và cache ảnh, nén để giảm dung lượng. |
+| | **Google Play Services Maps 18.2** | Bản đồ vệ tinh/giao thông trong app. |
+| | **PhotoView 2.3** | Zoom ảnh hiện trường. |
 
 ---
 
@@ -259,42 +259,41 @@ Project_DaLatS/
 
 <a id="mobile-app"></a>
 ### 📱 Ứng dụng Di động (Mobile App - Dành cho Người dân)
-* **Xác thực & Bảo mật:** Đăng ký tài khoản có xác minh Email qua liên kết kích hoạt an toàn. Đổi mật khẩu, quên mật khẩu thông qua mã xác minh OTP gửi vào hòm thư.
-* **Gửi Phản ánh Sự cố Đa phương tiện:**
-  - Chụp ảnh trực tiếp từ Camera hoặc chọn từ thư viện ảnh.
-  - Tự động lấy tọa độ GPS chính xác tại hiện trường và gợi ý địa chỉ tuyến đường/phường nội thành Đà Lạt.
-  - Chọn danh mục sự cố: Giao thông, Vệ sinh môi trường, Cây xanh, Chiếu sáng, Thoát nước...
-  - Thiết lập mức độ khẩn cấp (Bình thường, Vàng, Cam, Đỏ).
-  - **Tự động kích hoạt Google Cloud Vision AI:** Chặn ngay tại cổng gửi nếu ảnh là ảnh vẽ, meme hài hước, game hoặc ảnh 18+.
-* **Bản đồ Sự cố Trực quan (Map View):** Hiển thị bản đồ Google Maps với các marker sự cố đang công khai xung quanh, giúp người dân nắm bắt các đoạn đường đang thi công hoặc nguy hiểm.
-* **Hỏi - Đáp Công quyền (Q&A):** Đăng câu hỏi thắc mắc về trật tự đô thị, giấy tờ, an sinh và nhận câu trả lời chính thức từ cán bộ có thẩm quyền.
-* **Cộng đồng & Bình luận (Incident Comments):** Cho phép người dân thảo luận, cung cấp thêm thông tin cập nhật dưới từng sự cố.
-* **Tiện ích Đô thị Đà Lạt:** Xem dự báo thời tiết theo thời gian thực (nhiệt độ, độ ẩm, khả năng mưa) và chỉ số chất lượng không khí AQI.
-* **Hồ sơ Cá nhân & Điểm uy tín:** Quản lý thông tin, theo dõi lịch sử các phản ánh đã gửi và cấp bậc điểm uy tín cá nhân.
+* **Xác thực:** đăng ký kèm xác minh email qua link kích hoạt; đổi/quên mật khẩu qua OTP gửi vào hòm thư.
+* **Gửi phản ánh sự cố:**
+  - Chụp ảnh trực tiếp hoặc chọn từ thư viện.
+  - Tự lấy tọa độ GPS và gợi ý tuyến đường/phường.
+  - Chọn danh mục: Giao thông, Vệ sinh môi trường, Cây xanh, Chiếu sáng, Thoát nước...
+  - Chọn mức độ khẩn cấp (Bình thường, Vàng, Cam, Đỏ).
+  - **Google Cloud Vision AI chạy tự động:** chặn ngay ở khâu gửi nếu ảnh là ảnh vẽ, meme, game hoặc nội dung 18+.
+* **Bản đồ sự cố:** hiển thị marker các sự cố công khai gần khu vực, để người dân biết đoạn đường nào đang thi công hoặc nguy hiểm.
+* **Hỏi - Đáp Công quyền:** đăng câu hỏi về trật tự đô thị, giấy tờ, an sinh, nhận trả lời từ cán bộ có thẩm quyền.
+* **Bình luận sự cố:** người dân thảo luận, bổ sung thông tin dưới từng sự cố.
+* **Tiện ích:** thời tiết real-time (nhiệt độ, độ ẩm, khả năng mưa) và chỉ số AQI.
+* **Hồ sơ cá nhân:** theo dõi lịch sử phản ánh và điểm uy tín.
 
 ---
 
 <a id="web-admin"></a>
 ### 💻 Trang Quản trị (Web Admin - Dành cho Cán bộ & Quản trị viên)
-* **Phân quyền người dùng nghiêm ngặt (RBAC):**
-  - **Administrator (Quản trị viên hệ thống):** Toàn quyền truy cập Dashboard thống kê, Quản lý tài khoản công dân, Quản lý nhân viên/cán bộ, Quản lý phòng ban, Danh mục sự cố và Phát thông báo toàn thành phố.
-  - **Staff / Manager (Cán bộ phụ trách phòng ban):** Chỉ xem và điều phối các sự cố thuộc thẩm quyền phòng ban mình (ví dụ: Cán bộ Cây xanh chỉ xử lý cây đổ, gãy cành; Cán bộ Chiếu sáng xử lý đèn đường hư hỏng); tham gia trả lời Q&A.
-* **Dashboard Phân tích Dữ liệu Hiện đại:**
-  - Biểu đồ thống kê tỷ lệ sự cố theo cấp độ khẩn cấp (Xanh, Vàng, Cam, Đỏ).
-  - Biểu đồ phân bổ sự cố theo từng danh mục hạ tầng.
-  - Thống kê tổng số lượng phản ánh: Chờ duyệt, Đang xử lý, Đã giải quyết xong.
-* **Quy trình Xử lý & Điều phối Sự cố:**
-  - Xem chi tiết hình ảnh độ phân giải cao, hỗ trợ phóng to kiểm tra hiện trường.
-  - Xem vị trí chính xác trên bản đồ số.
-  - Điều phối chuyển giao sự cố về đúng phòng ban xử lý.
-  - Cập nhật trạng thái kèm ghi chú kết quả giải quyết.
-  - Tự động cộng (+10) hoặc trừ (-20) điểm uy tín của công dân gửi phản ánh.
-* **Phát hiện & Xử lý Trùng lặp (Merge Incidents):** Phát hiện các phản ánh trùng vị trí/nội dung và gộp vào sự cố gốc để tối ưu quy trình xử lý.
-* **Quản lý Dân cư & Kiểm soát Vi phạm:**
-  - Danh sách công dân, tra cứu điểm uy tín, số lượng phản ánh đúng/sai.
-  - Chức năng Khóa/Mở khóa tài khoản: Nhập lý do vi phạm, hệ thống tự động gửi Email thông báo chính thức đến công dân và kích hoạt middleware chặn đăng nhập tức thì.
-* **Trung tâm Phát sóng Thông báo Toàn thành phố (Notification Sender):**
-  - Gửi bản tin thông báo (thông thường hoặc khẩn cấp) đến hàng ngàn thiết bị di động của người dân trong nháy mắt thông qua Firebase Cloud Messaging.
+* **Phân quyền (RBAC):**
+  - **Administrator:** toàn quyền Dashboard, quản lý tài khoản công dân, nhân viên/cán bộ, phòng ban, danh mục sự cố, và phát thông báo toàn thành phố.
+  - **Staff / Manager:** chỉ xem và xử lý sự cố thuộc phòng ban mình (ví dụ cán bộ Cây xanh chỉ xử lý cây đổ, gãy cành; cán bộ Chiếu sáng xử lý đèn hỏng); tham gia trả lời Q&A.
+* **Dashboard:**
+  - Tỷ lệ sự cố theo cấp độ khẩn cấp (Xanh, Vàng, Cam, Đỏ).
+  - Phân bổ sự cố theo danh mục hạ tầng.
+  - Tổng số phản ánh: chờ duyệt, đang xử lý, đã giải quyết.
+* **Xử lý & điều phối sự cố:**
+  - Xem ảnh độ phân giải cao, phóng to kiểm tra hiện trường.
+  - Xem vị trí trên bản đồ.
+  - Chuyển sự cố về đúng phòng ban.
+  - Cập nhật trạng thái kèm ghi chú kết quả.
+  - Tự động +10 hoặc -20 điểm uy tín của người báo cáo.
+* **Gộp sự cố trùng lặp:** phát hiện phản ánh trùng vị trí/nội dung, gộp vào sự cố gốc.
+* **Quản lý dân cư & vi phạm:**
+  - Danh sách công dân, điểm uy tín, số phản ánh đúng/sai.
+  - Khóa/mở khóa tài khoản: nhập lý do, hệ thống tự gửi email thông báo và middleware chặn đăng nhập ngay lập tức.
+* **Phát thông báo toàn thành phố:** gửi bản tin (thường hoặc khẩn cấp) tới các thiết bị đã đăng ký FCM.
 
 ---
 
@@ -317,27 +316,27 @@ Project_DaLatS/
 <a id="ui-web-admin"></a>
 ### Giao diện Web Admin
 
-#### 1. Dashboard Thống kê Trực quan & Giám sát Toàn diện
+#### 1. Dashboard thống kê
 <p align="center">
   <img src="docs/images/web/dashboard.png" width="95%" alt="Admin Dashboard" />
 </p>
 
-#### 2. Tiếp nhận & Điều phối Sự cố Đô thị
+#### 2. Tiếp nhận & điều phối sự cố
 <p align="center">
   <img src="docs/images/web/incidents.png" width="95%" alt="Quản lý sự cố" />
 </p>
 
-#### 3. Quản lý Dân cư & Điểm uy tín Công dân
+#### 3. Quản lý dân cư & điểm uy tín
 | Danh sách Người dân & Điểm uy tín | Hồ sơ Chi tiết & Lịch sử Báo cáo |
 | :---: | :---: |
 | <img src="docs/images/web/citizens.png" width="100%" alt="Danh sách người dân" /> | <img src="docs/images/web/citizen-detail.png" width="100%" alt="Chi tiết công dân" /> |
 
-#### 4. Quản lý Nhân sự & Phân bổ Phòng ban Chuyên trách
+#### 4. Quản lý nhân sự & phòng ban
 | Danh sách Cán bộ theo Đơn vị | Hồ sơ Cán bộ & Phân quyền |
 | :---: | :---: |
 | <img src="docs/images/web/staff.png" width="100%" alt="Danh sách cán bộ" /> | <img src="docs/images/web/staff-detail.png" width="100%" alt="Chi tiết cán bộ" /> |
 
-#### 5. Quản lý Danh mục Sự cố & Giải đáp Thắc mắc (Q&A)
+#### 5. Quản lý danh mục sự cố & Q&A
 | Danh mục Phân loại Sự cố | Quản lý & Phản hồi Hỏi - Đáp |
 | :---: | :---: |
 | <img src="docs/images/web/categories.png" width="100%" alt="Danh mục sự cố" /> | <img src="docs/images/web/qa.png" width="100%" alt="Hỏi đáp quản trị" /> |
@@ -347,10 +346,10 @@ Project_DaLatS/
 <a id="tai-khoan-demo"></a>
 ## 👥 Tài khoản Demo & Dữ liệu Mẫu (Demo Data)
 
- **Seeder tự động** (`DemoSeeder.cs`) dữ liệu demo chạy test
+`DemoSeeder.cs` nạp sẵn một bộ dữ liệu demo để chạy thử.
 
 > [!NOTE]
-> 📌 **Xem chi tiết hướng dẫn nạp dữ liệu mẫu và kịch bản test tại:** 👉 **[DEMO.md](SafeDalat_API/DEMO.md)**
+> 📌 **Hướng dẫn nạp dữ liệu mẫu và kịch bản test:** 👉 **[DEMO.md](SafeDalat_API/DEMO.md)**
 
 ---
 
@@ -360,24 +359,24 @@ Project_DaLatS/
 <a id="yeu-cau-moi-truong"></a>
 ### 1. Yêu cầu Môi trường (Prerequisites)
 * **Hệ điều hành:** Windows 10/11, macOS, hoặc Linux.
-* **.NET SDK:** Phiên bản **.NET 8.0 SDK** trở lên.
-* **Node.js & npm:** Node.js **>= v18** (khuyến nghị v20.x hoặc v22.x LTS) và npm.
+* **.NET SDK:** .NET 8.0 SDK trở lên.
+* **Node.js & npm:** Node.js >= v18 (khuyến nghị v20.x hoặc v22.x LTS) và npm.
 * **Cơ sở dữ liệu:** Microsoft SQL Server 2019/2022 hoặc SQL Server Express / LocalDB.
-* **Mobile Tooling:** Android Studio (phiên bản Hedgehog / Iguana / Koala trở lên) và JDK 17.
+* **Mobile Tooling:** Android Studio (Hedgehog / Iguana / Koala trở lên) và JDK 17.
 
 ---
 
 <a id="cai-dat-backend-api"></a>
 ### 2. Cấu hình & Khởi chạy Backend API
 
-#### Bước 2.1: Clone dự án & Điều hướng thư mục
+#### Bước 2.1: Clone dự án & điều hướng thư mục
 ```bash
 git clone https://github.com/Danter34/Project_DaLatS.git
 cd Project_DaLatS/SafeDalat_API/SafeDalat_API
 ```
 
 #### Bước 2.2: Cấu hình `appsettings.json`
-Mở file `appsettings.json` và cập nhật thông số kết nối cơ sở dữ liệu cùng các khóa dịch vụ của bạn:
+Mở file và cập nhật thông số kết nối database cùng các khóa dịch vụ:
 ```json
 {
   "ConnectionStrings": {
@@ -405,42 +404,42 @@ Mở file `appsettings.json` và cập nhật thông số kết nối cơ sở d
 ```
 
 #### Bước 2.3: Thêm khóa Cloud Vision & Firebase
-Đặt các file khóa ủy quyền sau vào thư mục `SafeDalat_API/SafeDalat_API/`:
-1. `firebase-key.json`: Tải từ Firebase Console -> *Project Settings* -> *Service Accounts* -> *Generate new private key*.
-2. `safedalat-key.json`: Tải từ Google Cloud Console -> *IAM & Admin* -> *Service Accounts* (có quyền truy cập Cloud Vision API).
+Đặt các file khóa vào `SafeDalat_API/SafeDalat_API/`:
+1. `firebase-key.json`: từ Firebase Console → *Project Settings* → *Service Accounts* → *Generate new private key*.
+2. `safedalat-key.json`: từ Google Cloud Console → *IAM & Admin* → *Service Accounts* (cần quyền truy cập Cloud Vision API).
 
-#### Bước 2.4: Nạp dữ liệu Seeder Demo & Chạy ứng dụng
-Mở terminal tại thư mục `Project_DaLatS`:
+#### Bước 2.4: Nạp dữ liệu Seeder Demo & chạy ứng dụng
+Terminal tại thư mục `Project_DaLatS`:
 
 ```powershell
-# Chạy nạp dữ liệu mẫu Demo (Chỉ cần chạy 1 lần duy nhất)
+# Nạp dữ liệu mẫu Demo (chỉ cần chạy 1 lần)
 dotnet run --project SafeDalat_API/SafeDalat_API/SafeDalat_API.csproj --launch-profile http -- --seed-demo
 
 # Khởi chạy Backend API Server
 dotnet run --project SafeDalat_API/SafeDalat_API/SafeDalat_API.csproj --launch-profile http
 ```
-* Ứng dụng Backend sẽ chạy tại: **`http://localhost:5084`**
-* Kiểm thử trực quan qua Swagger UI: **`http://localhost:5084/swagger`**
+* Backend chạy tại: **`http://localhost:5084`**
+* Swagger UI: **`http://localhost:5084/swagger`**
 
 ---
 
 <a id="cai-dat-web-admin"></a>
 ### 3. Cấu hình & Khởi chạy Web Admin
 
-#### Bước 3.1: Cài đặt Dependencies
+#### Bước 3.1: Cài dependencies
 ```bash
 cd Project_DaLatS/DalatS_Admin
 npm install
 ```
 
-#### Bước 3.2: Khởi chạy Development Server
+#### Bước 3.2: Chạy dev server
 ```bash
 npm start
 # hoặc
 ng serve --port 4200
 ```
-* Mở trình duyệt và truy cập: **`http://localhost:4200`**
-* Đăng nhập với tài khoản Admin: `admin@demo.dalats.test` / `DalatS@Demo2026`.
+* Truy cập: **`http://localhost:4200`**
+* Tài khoản Admin: `admin@demo.dalats.test` / `DalatS@Demo2026`.
 
 ---
 
@@ -448,75 +447,73 @@ ng serve --port 4200
 ### 4. Cấu hình & Khởi chạy Mobile App (Android)
 
 #### Bước 4.1: Mở dự án trong Android Studio
-* Mở **Android Studio** -> Chọn **Open** -> Điều hướng đến thư mục `Project_DaLatS/DalatS`.
-* Chờ Gradle Sync hoàn tất tải các thư viện.
+* Mở Android Studio → **Open** → chọn thư mục `Project_DaLatS/DalatS`.
+* Chờ Gradle Sync tải xong thư viện.
 
 #### Bước 4.2: Cấu hình `google-services.json` & Maps API Key
-* Đảm bảo file `DalatS/app/google-services.json` khớp với cấu hình Firebase App của bạn (Package name: `com.example.dalats`).
-* Mở `DalatS/app/src/main/AndroidManifest.xml` và điền Google Maps API Key vào thẻ:
+* Đảm bảo `DalatS/app/google-services.json` khớp với Firebase App của bạn (package name: `com.example.dalats`).
+* Mở `DalatS/app/src/main/AndroidManifest.xml`, điền Maps API Key:
   ```xml
   <meta-data
       android:name="com.google.android.geo.API_KEY"
       android:value="YOUR_GOOGLE_MAPS_API_KEY" />
   ```
 
-#### Bước 4.3: Lưu ý về địa chỉ kết nối API (`BASE_URL`)
-* Mặc định trong code, Retrofit kết nối tới Backend thông qua `http://10.0.2.2:5084/` (địa chỉ Loopback tiêu chuẩn của **Android Emulator** trỏ về máy tính Host).
-* Nếu chạy trên **Thiết bị thật (Real Phone)** qua cáp USB / Wi-Fi, mở file `DalatS/app/src/main/java/com/example/dalats/api/ApiClient.java` và đổi thành địa chỉ IP nội mạng của máy tính bạn (ví dụ: `http://192.168.1.15:5084/`).
+#### Bước 4.3: Lưu ý về `BASE_URL`
+* Mặc định Retrofit trỏ tới `http://10.0.2.2:5084/` — địa chỉ loopback chuẩn của **Android Emulator** về máy host.
+* Chạy trên **điện thoại thật** qua USB/Wi-Fi: mở `DalatS/app/src/main/java/com/example/dalats/api/ApiClient.java` và đổi sang IP nội mạng của máy bạn (ví dụ `http://192.168.1.15:5084/`).
 
 #### Bước 4.4: Build & Run
-* Chọn thiết bị Emulator hoặc điện thoại thật đã bật chế độ Developer Mode.
-* Nhấn nút **Run 'app' (Shift + F10)** trên thanh công cụ để trải nghiệm ứng dụng.
+* Chọn Emulator hoặc điện thoại thật (đã bật Developer Mode).
+* Nhấn **Run 'app'** (Shift + F10).
 
 ---
 
 <a id="danh-muc-api"></a>
 ## 📡 Danh mục API Endpoints (RESTful API)
 
-Dưới đây là tóm tắt các cụm API tiêu biểu của hệ thống:
-
 ### 🔐 1. Xác thực & Tài khoản (`/api/Auth`)
-* `POST /api/Auth/register`: Đăng ký tài khoản người dân mới (gửi email kích hoạt).
-* `POST /api/Auth/login`: Đăng nhập hệ thống, trả về JWT Token và thông tin User.
-* `GET  /api/Auth/verify-email`: Xác nhận kích hoạt tài khoản qua Token Email.
-* `POST /api/Auth/forgot-password`: Yêu cầu mã xác minh OTP đặt lại mật khẩu.
-* `POST /api/Auth/reset-password`: Thiết lập mật khẩu mới bằng OTP.
-* `GET  /api/Auth/profile`: Lấy thông tin cá nhân của người dùng đang đăng nhập.
-* `PUT  /api/Auth/update-fcm`: Cập nhật FCM Device Token nhận Push Notification.
-* `PUT  /api/Auth/{id}/lock` & `unlock`: [Admin] Khóa hoặc mở khóa tài khoản vi phạm.
-* `POST /api/Auth/create-staff`: [Admin] Cấp phát tài khoản cán bộ phòng ban.
+* `POST /api/Auth/register`: đăng ký tài khoản mới (gửi email kích hoạt).
+* `POST /api/Auth/login`: đăng nhập, trả về JWT Token và thông tin User.
+* `GET  /api/Auth/verify-email`: xác nhận kích hoạt qua token email.
+* `POST /api/Auth/forgot-password`: yêu cầu OTP đặt lại mật khẩu.
+* `POST /api/Auth/reset-password`: đặt mật khẩu mới bằng OTP.
+* `GET  /api/Auth/profile`: thông tin người dùng đang đăng nhập.
+* `PUT  /api/Auth/update-fcm`: cập nhật FCM Device Token.
+* `PUT  /api/Auth/{id}/lock` & `unlock`: [Admin] khóa/mở khóa tài khoản.
+* `POST /api/Auth/create-staff`: [Admin] cấp tài khoản cán bộ.
 
 ### 🚨 2. Sự cố Đô thị (`/api/Incidents`)
-* `POST /api/Incidents`: Tạo báo cáo sự cố mới kèm ảnh hiện trường (Tự động kiểm duyệt AI Vision).
-* `GET  /api/Incidents`: Tra cứu, phân trang, lọc theo trạng thái, phòng ban, phường, mức độ khẩn cấp.
-* `GET  /api/Incidents/{id}`: Chi tiết thông tin sự cố, ảnh, lịch sử trạng thái và bình luận.
-* `PUT  /api/Incidents/{id}/status`: [Cán bộ/Admin] Chuyển trạng thái, điều phối phòng ban, cập nhật Trust Score.
-* `GET  /api/Incidents/suggest-duplicates/{id}`: Gợi ý các sự cố trùng lặp trên cùng tuyến đường.
-* `POST /api/Incidents/merge`: Hợp nhất các sự cố trùng lặp thành một sự cố chính.
-* `GET  /api/Incidents/map`: Lấy danh sách sự cố công khai hiển thị trên bản đồ số.
+* `POST /api/Incidents`: tạo báo cáo kèm ảnh (tự động kiểm duyệt AI Vision).
+* `GET  /api/Incidents`: tra cứu, phân trang, lọc theo trạng thái/phòng ban/phường/mức khẩn cấp.
+* `GET  /api/Incidents/{id}`: chi tiết sự cố, ảnh, lịch sử trạng thái, bình luận.
+* `PUT  /api/Incidents/{id}/status`: [Cán bộ/Admin] chuyển trạng thái, điều phối phòng ban, cập nhật Trust Score.
+* `GET  /api/Incidents/suggest-duplicates/{id}`: gợi ý sự cố trùng lặp.
+* `POST /api/Incidents/merge`: hợp nhất sự cố trùng lặp.
+* `GET  /api/Incidents/map`: danh sách sự cố công khai trên bản đồ.
 
 ### 💬 3. Tương tác & Bình luận (`/api/IncidentComments`)
-* `GET  /api/IncidentComments/{incidentId}`: Lấy danh sách bình luận theo từng sự cố.
-* `POST /api/IncidentComments/{incidentId}`: Gửi trao đổi/bình luận mới của người dân hoặc cán bộ.
+* `GET  /api/IncidentComments/{incidentId}`: danh sách bình luận theo sự cố.
+* `POST /api/IncidentComments/{incidentId}`: gửi bình luận mới.
 
 ### ❓ 4. Hỏi - Đáp Công quyền (`/api/QA`)
-* `GET  /api/QA`: Danh sách các câu hỏi của người dân.
-* `POST /api/QA`: Người dân gửi câu hỏi mới đến cơ quan chức năng.
-* `POST /api/QA/{id}/answer`: [Cán bộ] Trả lời giải đáp chính thức câu hỏi.
+* `GET  /api/QA`: danh sách câu hỏi.
+* `POST /api/QA`: gửi câu hỏi mới.
+* `POST /api/QA/{id}/answer`: [Cán bộ] trả lời chính thức.
 
 ### 📢 5. Thông báo & Phát thanh (`/api/Notifications`)
-* `GET  /api/Notifications/my-notifications`: Danh sách thông báo cá nhân của người dùng.
-* `PUT  /api/Notifications/{id}/read`: Đánh dấu đã đọc thông báo.
-* `POST /api/Notifications/broadcast`: [Admin] Phát thông báo đẩy diện rộng qua Firebase FCM.
+* `GET  /api/Notifications/my-notifications`: thông báo cá nhân.
+* `PUT  /api/Notifications/{id}/read`: đánh dấu đã đọc.
+* `POST /api/Notifications/broadcast`: [Admin] phát thông báo diện rộng qua FCM.
 
 ### 📊 6. Dashboard & Phân tích (`/api/Dashboard`)
-* `GET /api/Dashboard/summary`: [Admin] Thống kê tổng số lượng sự cố theo trạng thái xử lý.
-* `GET /api/Dashboard/by-alert`: [Admin] Thống kê tỷ lệ sự cố theo cấp độ cảnh báo.
-* `GET /api/Dashboard/by-category`: [Admin] Thống kê sự cố phân bổ theo danh mục hạ tầng.
+* `GET /api/Dashboard/summary`: [Admin] tổng số sự cố theo trạng thái.
+* `GET /api/Dashboard/by-alert`: [Admin] tỷ lệ sự cố theo cấp độ cảnh báo.
+* `GET /api/Dashboard/by-category`: [Admin] sự cố theo danh mục hạ tầng.
 
 ### 🚦 7. Giao thông & Môi trường (`/api/Traffic` & `/api/Environment`)
-* `GET /api/Traffic/hotspots`: Danh sách các tuyến đường điểm nóng có nguy cơ ùn tắc cao.
-* `GET /api/Environment/weather`: Dự báo thời tiết tại Đà Lạt từ OpenWeather API.
-* `GET /api/Environment/air-quality`: Chỉ số chất lượng không khí AQI tại Đà Lạt từ IQAir API.
+* `GET /api/Traffic/hotspots`: các tuyến đường có nguy cơ ùn tắc cao.
+* `GET /api/Environment/weather`: thời tiết Đà Lạt từ OpenWeather API.
+* `GET /api/Environment/air-quality`: chỉ số AQI từ IQAir API.
 
 ---
