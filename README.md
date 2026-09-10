@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="docs/images/logo.png" alt="DalatS Logo" width="160" />
+  <img src="docs/images/logo.png" alt="DalatS Logo" width="160 " />
 
   # 🌲 DalatS - HỆ THỐNG QUẢN LÝ SỰ CỐ ĐÔ THỊ THÀNH PHỐ ĐÀ LẠT
   ### *Nền tảng Tiếp nhận, Điều phối và Giám sát Sự cố Đô thị Thời gian thực*
@@ -18,32 +18,33 @@
 
 ## 📑 Mục lục
 
-1. [Giới thiệu Dự án](#-giới-thiệu-dự-án)
-2. [Điểm sáng Công nghệ & Tính năng Nổi bật](#-điểm-sáng-công-nghệ--tính-năng-nổi-bật)
-   - [Trí tuệ nhân tạo kiểm duyệt ảnh (Google Cloud Vision AI)](#1-trí-tuệ-nhân-tạo-kiểm-duyệt-ảnh-google-cloud-vision-ai)
-   - [Hệ thống Thông báo Đẩy thời gian thực (Firebase Cloud Messaging - FCM)](#2-hệ-thống-thông-báo-đẩy-thời-gian-thực-firebase-cloud-messaging---fcm)
-   - [Hệ thống Điểm uy tín Công dân (Trust Score System)](#3-hệ-thống-điểm-uy-tín-công-dân-trust-score-system)
-   - [Cảnh báo Ùn tắc Giao thông Tự động (Traffic Alert Worker)](#4-cảnh-báo-ùn-tắc-giao-thông-tự-động-traffic-alert-worker)
-   - [Phát hiện và Hợp nhất Sự cố Trùng lặp (Duplicate Detection)](#5-phát-hiện-và-hợp-nhất-sự-cố-trùng-lặp-duplicate-detection)
-3. [Kiến trúc Hệ thống (System Architecture)](#-kiến-trúc-hệ-thống-system-architecture)
-4. [Tech Stack Toàn diện](#-tech-stack-toàn-diện)
-5. [Cấu trúc Thư mục Codebase](#-cấu-trúc-thư-mục-codebase)
-6. [Phân hệ Chức năng Chi tiết](#-phân-hệ-chức-năng-chi-tiết)
-   - [📱 Ứng dụng Di động (Mobile App - Người dân)](#-ứng-dụng-di-động-mobile-app---dành-cho-người-dân)
-   - [💻 Trang Quản trị (Web Admin - Cán bộ & Quản trị viên)](#-trang-quản-trị-web-admin---dành-cho-cán-bộ--quản-trị-viên)
-7. [Hình ảnh Giao diện Thực tế (UI Gallery)](#-hình-ảnh-giao-diện-thực-tế-ui-gallery)
-   - [Giao diện Mobile App](#giao-diện-mobile-app)
-   - [Giao diện Web Admin](#giao-diện-web-admin)
-8. [Tài khoản Demo & Dữ liệu Mẫu (Demo Data)](#-tài-khoản-demo--dữ-liệu-mẫu-demo-data)
-9. [Hướng dẫn Cài đặt & Khởi chạy từ A-Z](#-hướng-dẫn-cài-đặt--khởi-chạy-từ-a-z)
-   - [Yêu cầu Môi trường](#1-yêu-cầu-môi-trường-prerequisites)
-   - [Cấu hình & Khởi chạy Backend API](#2-cấu-hình--khởi-chạy-backend-api)
-   - [Cấu hình & Khởi chạy Web Admin](#3-cấu-hình--khởi-chạy-web-admin)
-   - [Cấu hình & Khởi chạy Mobile App (Android)](#4-cấu-hình--khởi-chạy-mobile-app-android)
-10. [Danh mục API Endpoints (RESTful API)](#-danh-mục-api-endpoints-restful-api)
+1. [Giới thiệu Dự án](#gioi-thieu-du-an)
+2. [Điểm sáng Công nghệ & Tính năng Nổi bật](#diem-sang-cong-nghe)
+   - [Trí tuệ nhân tạo kiểm duyệt ảnh (Google Cloud Vision AI)](#google-cloud-vision-ai)
+   - [Hệ thống Thông báo Đẩy thời gian thực (Firebase Cloud Messaging - FCM)](#firebase-cloud-messaging-fcm)
+   - [Hệ thống Điểm uy tín Công dân (Trust Score System)](#trust-score-system)
+   - [Cảnh báo Ùn tắc Giao thông Tự động (Traffic Alert Worker)](#traffic-alert-worker)
+   - [Phát hiện và Hợp nhất Sự cố Trùng lặp (Duplicate Detection)](#duplicate-detection)
+3. [Kiến trúc Hệ thống (System Architecture)](#kien-truc-he-thong)
+4. [Tech Stack Toàn diện](#tech-stack)
+5. [Cấu trúc Thư mục Codebase](#cau-truc-thu-muc)
+6. [Phân hệ Chức năng Chi tiết](#phan-he-chuc-nang)
+   - [Ứng dụng Di động (Mobile App - Người dân)](#mobile-app)
+   - [Trang Quản trị (Web Admin - Cán bộ & Quản trị viên)](#web-admin)
+7. [Hình ảnh Giao diện Thực tế (UI Gallery)](#hinh-anh-giao-dien)
+   - [Giao diện Mobile App](#ui-mobile-app)
+   - [Giao diện Web Admin](#ui-web-admin)
+8. [Tài khoản Demo & Dữ liệu Mẫu (Demo Data)](#tai-khoan-demo)
+9. [Hướng dẫn Cài đặt & Khởi chạy từ A-Z](#huong-dan-cai-dat)
+   - [Yêu cầu Môi trường](#yeu-cau-moi-truong)
+   - [Cấu hình & Khởi chạy Backend API](#cai-dat-backend-api)
+   - [Cấu hình & Khởi chạy Web Admin](#cai-dat-web-admin)
+   - [Cấu hình & Khởi chạy Mobile App (Android)](#cai-dat-mobile-app)
+10. [Danh mục API Endpoints (RESTful API)](#danh-muc-api)
 
 ---
 
+<a id="gioi-thieu-du-an"></a>
 ## 🌿 Giới thiệu Dự án
 
 Đà Lạt là trung tâm du lịch trọng điểm với địa hình đồi dốc, khí hậu sương mù mưa bão đặc thù, kéo theo nhiều rủi ro về hạ tầng đô thị như: sạt lở cây cối, hư hỏng mặt đường, tắc nghẽn cống thoát nước ngập úng, hư hỏng đèn chiếu sáng công cộng và ùn ứ giao thông vào mùa cao điểm.
@@ -56,20 +57,24 @@
 
 ---
 
+<a id="diem-sang-cong-nghe"></a>
 ## ⚡ Điểm sáng Công nghệ & Tính năng Nổi bật
 
+<a id="google-cloud-vision-ai"></a>
 ### 1. 🤖 Trí tuệ nhân tạo kiểm duyệt ảnh (Google Cloud Vision AI)
 Hệ thống tích hợp trực tiếp thư viện **`Google.Cloud.Vision.V1`** để kiểm duyệt tự động 100% hình ảnh người dân tải lên ngay tại tầng Backend (`ImageAnalysisRepository`):
 * **SafeSearch Detection:** Quét và từ chối lập tức các hình ảnh có yếu tố khiêu dâm (`Adult`), bạo lực (`Violence`), nhạy cảm (`Racy`), nội dung y tế/kinh dị (`Medical`) hoặc hình ảnh giả mạo cắt ghép (`Spoof`).
 * **AI Label Detection (Chặn tin giả & Troll):** Phân tích nhãn tự động với ngưỡng tự tin `Score > 0.65`. Ngăn chặn người dùng tải lên ảnh hoạt hình (`cartoon`, `anime`, `drawing`), ảnh chế meme trên mạng (`meme`, `joke`, `snout`), ảnh chụp màn hình game/ứng dụng (`screenshot`, `pixel art`, `video game`).
 * **Ý nghĩa:** Đảm bảo toàn bộ phản ánh lưu trữ trong cơ sở dữ liệu đều là hình ảnh chụp hiện trường thực tế có giá trị điều tra, xử lý.
 
+<a id="firebase-cloud-messaging-fcm"></a>
 ### 2. 🔔 Hệ thống Thông báo Đẩy thời gian thực (Firebase Cloud Messaging - FCM)
 Tích hợp **`Firebase Admin SDK`** tại Backend và **`Firebase Messaging Client`** tại ứng dụng Android:
 * **Thông báo sự kiện cá nhân:** Gửi thông báo tức thời về điện thoại người dân khi cán bộ tiếp nhận sự cố, chuyển sang "Đang xử lý", hoàn thành xử lý hoặc khi có phản hồi bình luận mới.
 * **Giao việc tức thì cho nhân viên:** Khi sự cố được gán cho một phòng ban (hoặc sự cố khẩn cấp mức báo động Đỏ), toàn bộ cán bộ thuộc phòng ban đó sẽ nhận thông báo nhiệm vụ mới ngay trên thiết bị.
 * **Phát thanh diện rộng (Broadcast Push Notification):** Quản trị viên Web Admin có thể gửi thông báo khẩn cấp hoặc bản tin thời sự tới toàn bộ người dân thành phố, hỗ trợ cơ chế chia gói Multicast tự động (500 tokens/lô) nhằm tối ưu băng thông và tốc độ phân phối.
 
+<a id="trust-score-system"></a>
 ### 3. ⭐ Hệ thống Điểm uy tín Công dân (Trust Score System)
 Nhằm xây dựng văn hóa đóng góp cộng đồng lành mạnh và hạn chế tối đa việc spam phản ánh sai sự thật:
 * Người dân khi mới kích hoạt tài khoản có điểm uy tín cơ sở.
@@ -77,6 +82,7 @@ Nhằm xây dựng văn hóa đóng góp cộng đồng lành mạnh và hạn c
 * **Trừ 20 điểm (-20):** Khi phản ánh là sai sự thật, tin giả và bị cơ quan chức năng "Từ chối".
 * Biến động điểm uy tín được thông báo trực tiếp qua FCM và hiển thị minh bạch trong hồ sơ cá nhân. Điểm uy tín giúp quản trị viên dễ dàng nhận diện công dân tích cực hoặc gắn cờ theo dõi các tài khoản có nguy cơ quấy rối.
 
+<a id="traffic-alert-worker"></a>
 ### 4. 🚗 Cảnh báo Ùn tắc Giao thông Tự động (Traffic Alert Worker)
 Backend vận hành một dịch vụ nền chạy ngầm độc lập **`TrafficAlertWorker : BackgroundService`**:
 * Chu kỳ mỗi 5 phút quét toàn bộ bản đồ sự cố tại các tuyến đường chính nội ô Đà Lạt.
@@ -84,6 +90,7 @@ Backend vận hành một dịch vụ nền chạy ngầm độc lập **`Traffi
   > *`⚠️ ÙN TẮC TẠI [TÊN ĐƯỜNG]: Hệ thống phát hiện X sự cố tại khu vực này. Vui lòng hạn chế di chuyển qua đây.`*
 * Cơ chế **Cooldown 30 phút** thông minh ngăn việc gửi thông báo lặp gây phiền hà cho người dùng và tự giải phóng bộ nhớ khi cung đường đã thông thoáng.
 
+<a id="duplicate-detection"></a>
 ### 5. 🔍 Phát hiện và Hợp nhất Sự cố Trùng lặp (Duplicate Detection)
 Khi xảy ra một sự cố lớn (ví dụ: cây ngã đổ tại đường Trần Phú), nhiều người dân cùng đi ngang qua và gửi báo cáo:
 * Hệ thống tự động so khớp tọa độ GPS, tuyến đường và danh mục sự cố để đưa ra danh sách gợi ý trùng lặp (`SuggestDuplicates`).
@@ -91,6 +98,7 @@ Khi xảy ra một sự cố lớn (ví dụ: cây ngã đổ tại đường Tr
 
 ---
 
+<a id="kien-truc-he-thong"></a>
 ## 🏗️ Kiến trúc Hệ thống (System Architecture)
 
 Hệ thống được thiết kế theo mô hình **Client-Server 3 lớp (3-Tier Clean Architecture)** phân tách rành mạch:
@@ -98,32 +106,32 @@ Hệ thống được thiết kế theo mô hình **Client-Server 3 lớp (3-Tie
 ```mermaid
 flowchart TB
     subgraph Clients["📱 TẦNG NGƯỜI DÙNG & QUẢN TRỊ (CLIENTS)"]
-        Mobile["📱 Mobile App (Android Java)\n- Chụp ảnh, GPS, Xem bản đồ\n- Đọc tin tức, Nhận thông báo FCM\n- Hỏi đáp & Bình luận sự cố"]
-        WebAdmin["💻 Web Admin (Angular 21)\n- Dashboard biểu đồ trực quan\n- Điều phối & Xử lý sự cố\n- Quản lý Nhân sự, Dân cư, Phòng ban\n- Phát thông báo khẩn toàn thành phố"]
+        Mobile["📱 Mobile App (Android Java)<br/>- Chụp ảnh, GPS, Xem bản đồ<br/>- Đọc tin tức, Nhận thông báo FCM<br/>- Hỏi đáp & Bình luận sự cố"]
+        WebAdmin["💻 Web Admin (Angular 21)<br/>- Dashboard biểu đồ trực quan<br/>- Điều phối & Xử lý sự cố<br/>- Quản lý Nhân sự, Dân cư, Phòng ban<br/>- Phát thông báo khẩn toàn thành phố"]
     end
 
     subgraph API_Gateway["⚙️ TẦNG XỬ LÝ TRUNG TÂM (ASP.NET CORE 8 API)"]
-        Controllers["Controllers & Endpoints\n(Auth, Incidents, Dept, QA, Traffic...)"]
-        Middleware["Security & Auth Middleware\n- JWT Bearer Validation\n- CheckAccountStatusMiddleware (Khóa real-time)"]
-        BusinessLogic["Services & Repositories\n- Incident Management\n- Duplicate Clustering\n- Trust Score Calculator"]
-        Workers["Background Workers\n- TrafficAlertWorker (Quét điểm nóng ùn tắc 5m/lần)"]
+        Controllers["Controllers & Endpoints<br/>Auth, Incidents, Dept, QA, Traffic..."]
+        Middleware["Security & Auth Middleware<br/>- JWT Bearer Validation<br/>- CheckAccountStatusMiddleware"]
+        BusinessLogic["Services & Repositories<br/>- Incident Management<br/>- Duplicate Clustering<br/>- Trust Score Calculator"]
+        Workers["Background Workers<br/>- TrafficAlertWorker (Quét ùn tắc định kỳ)"]
     end
 
     subgraph External_Cloud["☁️ DỊCH VỤ ĐÁM MÂY & TÍCH HỢP BÊN NGOÀI"]
-        VisionAI["🤖 Google Cloud Vision AI\n- SafeSearch (Chặn 18+, Bạo lực, Spoof)\n- Label Detection (Chặn Meme, Anime, Game)"]
-        FCM["🔔 Firebase Cloud Messaging (FCM)\n- Push Notification cá nhân & theo phòng ban\n- Multicast Broadcast hàng loạt cho toàn dân"]
-        GoogleMaps["🗺️ Google Maps Platform\n- Maps SDK & Geocoding\n- Tọa độ GPS nội đô Đà Lạt"]
-        EnvAPI["🌤️ Weather & Environment APIs\n- OpenWeather API (Thời tiết)\n- IQAir API (Chỉ số không khí AQI)"]
-        SMTP["✉️ Gmail SMTP Service\n- Xác minh Email kích hoạt\n- OTP Quên mật khẩu & Thông báo kỷ luật"]
+        VisionAI["🤖 Google Cloud Vision AI<br/>- SafeSearch & Label Detection"]
+        FCM["🔔 Firebase Cloud Messaging<br/>- Push Notification cá nhân & Broadcast"]
+        GoogleMaps["🗺️ Google Maps Platform<br/>- Maps SDK & Geocoding Đà Lạt"]
+        EnvAPI["🌤️ Weather & Environment APIs<br/>- OpenWeather & IQAir"]
+        SMTP["✉️ Gmail SMTP Service<br/>- Xác minh Email & OTP Mật khẩu"]
     end
 
     subgraph Database_Storage["💾 TẦNG DỮ LIỆU & LƯU TRỮ"]
-        SQLServer[("🗄️ Microsoft SQL Server\n- Relational DB (Users, Incidents, Depts, QA)\n- Foreign Keys, Indexing GPS")]
-        LocalMedia["📁 File System Storage\n- wwwroot/uploads/incidents/"]
+        SQLServer[("🗄️ Microsoft SQL Server<br/>Relational Database")]
+        LocalMedia["📁 File System Storage<br/>Thư mục wwwroot uploads"]
     end
 
-    Mobile -->|REST API (HTTPS/JSON)| Controllers
-    WebAdmin -->|REST API (HTTPS/JSON)| Controllers
+    Mobile -->|REST API| Controllers
+    WebAdmin -->|REST API| Controllers
     Controllers --> Middleware
     Middleware --> BusinessLogic
     BusinessLogic --> Workers
@@ -138,6 +146,7 @@ flowchart TB
 
 ---
 
+<a id="tech-stack"></a>
 ## 🛠️ Tech Stack Toàn diện
 
 | Phân hệ | Công nghệ / Thư viện | Vai trò & Mục đích sử dụng |
@@ -167,7 +176,8 @@ flowchart TB
 
 ---
 
-##  Cấu trúc Thư mục Codebase
+<a id="cau-truc-thu-muc"></a>
+## 📂 Cấu trúc Thư mục Codebase
 
 ```text
 Project_DaLatS/
@@ -232,6 +242,7 @@ Project_DaLatS/
 │   │   ├── safedalat-key.json        # Google Cloud Vision Service Account Key
 │   │   └── Program.cs                # Entry point cấu hình DI, Pipeline & Middleware
 │   ├── scripts/                      # Script Powershell kiểm thử và nạp ảnh demo
+│   ├── DEMO.md                       # Tài liệu dữ liệu mẫu chi tiết của hệ thống
 │   └── SafeDalat_API.sln
 │
 └── docs/                             # 📸 TÀI LIỆU & HÌNH ẢNH DỰ ÁN
@@ -243,8 +254,10 @@ Project_DaLatS/
 
 ---
 
+<a id="phan-he-chuc-nang"></a>
 ## 🎯 Phân hệ Chức năng Chi tiết
 
+<a id="mobile-app"></a>
 ### 📱 Ứng dụng Di động (Mobile App - Dành cho Người dân)
 * **Xác thực & Bảo mật:** Đăng ký tài khoản có xác minh Email qua liên kết kích hoạt an toàn. Đổi mật khẩu, quên mật khẩu thông qua mã xác minh OTP gửi vào hòm thư.
 * **Gửi Phản ánh Sự cố Đa phương tiện:**
@@ -261,6 +274,7 @@ Project_DaLatS/
 
 ---
 
+<a id="web-admin"></a>
 ### 💻 Trang Quản trị (Web Admin - Dành cho Cán bộ & Quản trị viên)
 * **Phân quyền người dùng nghiêm ngặt (RBAC):**
   - **Administrator (Quản trị viên hệ thống):** Toàn quyền truy cập Dashboard thống kê, Quản lý tài khoản công dân, Quản lý nhân viên/cán bộ, Quản lý phòng ban, Danh mục sự cố và Phát thông báo toàn thành phố.
@@ -284,8 +298,10 @@ Project_DaLatS/
 
 ---
 
+<a id="hinh-anh-giao-dien"></a>
 ## 📸 Hình ảnh Giao diện Thực tế (UI Gallery)
 
+<a id="ui-mobile-app"></a>
 ### Giao diện Mobile App
 
 | Trang chủ & Bản tin | Báo cáo sự cố (Tích hợp AI) | Chi tiết sự cố & Tiến độ |
@@ -298,6 +314,7 @@ Project_DaLatS/
 
 ---
 
+<a id="ui-web-admin"></a>
 ### Giao diện Web Admin
 
 #### 1. Dashboard Thống kê Trực quan & Giám sát Toàn diện
@@ -338,6 +355,7 @@ Project_DaLatS/
 
 ---
 
+<a id="tai-khoan-demo"></a>
 ## 👥 Tài khoản Demo & Dữ liệu Mẫu (Demo Data)
 
  **Seeder tự động** (`DemoSeeder.cs`) dữ liệu demo chạy test
@@ -347,8 +365,10 @@ Project_DaLatS/
 
 ---
 
+<a id="huong-dan-cai-dat"></a>
 ## 🚀 Hướng dẫn Cài đặt & Khởi chạy từ A-Z
 
+<a id="yeu-cau-moi-truong"></a>
 ### 1. Yêu cầu Môi trường (Prerequisites)
 * **Hệ điều hành:** Windows 10/11, macOS, hoặc Linux.
 * **.NET SDK:** Phiên bản **.NET 8.0 SDK** trở lên.
@@ -358,6 +378,7 @@ Project_DaLatS/
 
 ---
 
+<a id="cai-dat-backend-api"></a>
 ### 2. Cấu hình & Khởi chạy Backend API
 
 #### Bước 2.1: Clone dự án & Điều hướng thư mục
@@ -414,6 +435,7 @@ dotnet run --project SafeDalat_API/SafeDalat_API/SafeDalat_API.csproj --launch-p
 
 ---
 
+<a id="cai-dat-web-admin"></a>
 ### 3. Cấu hình & Khởi chạy Web Admin
 
 #### Bước 3.1: Cài đặt Dependencies
@@ -433,6 +455,7 @@ ng serve --port 4200
 
 ---
 
+<a id="cai-dat-mobile-app"></a>
 ### 4. Cấu hình & Khởi chạy Mobile App (Android)
 
 #### Bước 4.1: Mở dự án trong Android Studio
@@ -458,6 +481,7 @@ ng serve --port 4200
 
 ---
 
+<a id="danh-muc-api"></a>
 ## 📡 Danh mục API Endpoints (RESTful API)
 
 Dưới đây là tóm tắt các cụm API tiêu biểu của hệ thống:
