@@ -1,62 +1,62 @@
-# Dữ liệu demo DalatS
+# DalatS Demo Data
 
-Bộ dữ liệu giả lập phục vụ chụp màn hình, đã nạp vào database `dalats` theo cấu hình hiện tại. Các tài khoản có sẵn được giữ nguyên.
+A simulated dataset for screenshots, already loaded into the `dalats` database under the current config. The existing accounts are unchanged.
 
-## Tài khoản
+## Accounts
 
-Mật khẩu chung của các tài khoản demo: **`DalatS@Demo2026`**.
+Shared password for all demo accounts: **`DalatS@Demo2026`**.
 
-| Email | Vai trò / phòng ban |
+| Email | Role / department |
 | --- | --- |
-| `admin@demo.dalats.test` | Admin – Nguyễn Minh Anh |
-| `staff1@demo.dalats.test` | Hạ tầng giao thông |
-| `staff2@demo.dalats.test` | Vệ sinh môi trường |
-| `staff3@demo.dalats.test` | Thoát nước đô thị |
-| `staff4@demo.dalats.test` | Công viên và cây xanh |
-| `staff5@demo.dalats.test` | Chiếu sáng công cộng |
-| `user1@demo.dalats.test` đến `user5@demo.dalats.test` | Người dân, đã xác minh email |
-| `user6@demo.dalats.test` | Người dân bị khóa, dùng minh họa quản lý tài khoản |
+| `admin@demo.dalats.test` | Admin – Nguyen Minh Anh |
+| `staff1@demo.dalats.test` | Traffic infrastructure |
+| `staff2@demo.dalats.test` | Sanitation |
+| `staff3@demo.dalats.test` | Urban drainage |
+| `staff4@demo.dalats.test` | Parks and trees |
+| `staff5@demo.dalats.test` | Public lighting |
+| `user1@demo.dalats.test` through `user5@demo.dalats.test` | Citizens, email verified |
+| `user6@demo.dalats.test` | Locked citizen account, used to demo account management |
 
-## Nội dung
+## Content
 
-- 15 sự cố, 5 danh mục, mỗi danh mục 3 sự cố.
-- 4 chờ xử lý, 5 đang xử lý, 5 đã hoàn thành, 1 từ chối. Có 10 sự cố công khai trên bản đồ.
-- 5 phòng ban giả lập, 1 Admin, 5 Staff và 6 người dân.
-- 8 câu hỏi, 5 câu trả lời, 10 bình luận, 16 bản ghi lịch sử và 16 thông báo.
-- Thời gian rải trong khoảng một tháng trước ngày chạy seed.
-- GPS trong nội thành Đà Lạt: vĩ độ 11.9338–11.9663, kinh độ 108.4248–108.4668. Vị trí được đặt gần khu vực các tuyến đường để demo, không phải đo đạc hiện trường. Tên phường giữ theo danh sách hiện có của ứng dụng.
-- 5 ảnh được dùng lại theo đúng nhóm sự cố: ổ gà, rác đổ bên đường, cống tắc, cây đổ, trụ đèn hư hỏng. Đây là ảnh minh họa nước ngoài, không phải ảnh xác nhận sự cố có thật tại Đà Lạt. Ảnh ở các báo cáo đã hoàn thành là ảnh lúc gửi phản ánh.
+- 15 incidents, 5 categories, 3 incidents per category.
+- 4 pending, 5 in progress, 5 resolved, 1 rejected. 10 incidents are public on the map.
+- 5 mock departments, 1 admin, 5 staff, and 6 citizens.
+- 8 questions, 5 answers, 10 comments, 16 history records, and 16 notifications.
+- Timestamps spread across the month before the seed was run.
+- GPS within central Da Lat: latitude 11.9338–11.9663, longitude 108.4248–108.4668. Locations are placed near real streets for demo purposes only, not surveyed on-site. Ward names follow the app's existing list.
+- 5 photos are reused across matching incident types: pothole, roadside dumping, clogged drain, fallen tree, damaged light pole. These are stock photos from outside Vietnam, not confirmation photos of real incidents in Da Lat. Photos on resolved reports are the ones submitted at report time.
 
-Ảnh được lưu tại `SafeDalat_API/wwwroot/uploads/incidents/demo/`, tổng dung lượng khoảng 2.5 MB, không cần truy cập mạng khi hiển thị. Nguồn, tác giả và giấy phép từng ảnh có trong [credits.json](SafeDalat_API/wwwroot/uploads/incidents/demo/credits.json). Khi dùng lại ảnh trong tài liệu công khai, kèm phần ghi công tương ứng.
+Photos are stored at `SafeDalat_API/wwwroot/uploads/incidents/demo/`, about 2.5 MB total, and don't require network access to display. Source, author, and license for each photo are listed in [credits.json](SafeDalat_API/wwwroot/uploads/incidents/demo/credits.json). If reusing these photos in public documentation, include the corresponding attribution.
 
-## Chạy lại seed
+## Re-running the seed
 
-Từ thư mục gốc `Project_DaLatS`, với SQL Server đang chạy:
+From the `Project_DaLatS` root, with SQL Server running:
 
 ```powershell
-# Database hiện tại có schema tạo sẵn nhưng không có baseline migration tương ứng:
+# Existing database with the schema already created but no matching baseline migration:
 dotnet run --project SafeDalat_API/SafeDalat_API/SafeDalat_API.csproj --launch-profile http -- --seed-demo --seed-demo-existing-schema
 
-# Database mới: cấu hình ConnectionStrings:SafeDalatConnection trước, rồi chạy:
+# New database: set ConnectionStrings:SafeDalatConnection first, then run:
 dotnet run --project SafeDalat_API/SafeDalat_API/SafeDalat_API.csproj --launch-profile http -- --seed-demo
 ```
 
-Lệnh chỉ chạy trong Development, nạp dữ liệu trong transaction và kết thúc trước khi HTTP server/worker hoạt động. Nếu email Admin demo đã tồn tại, toàn bộ seed được bỏ qua để không nhân đôi dữ liệu hoặc đặt lại mật khẩu. Không xóa dữ liệu cũ và không tự chạy seed khi khởi động bình thường. Cờ `--seed-demo-existing-schema` chỉ nhập dữ liệu, không sửa schema hoặc giả lập lịch sử migration.
+This only runs in Development, loads the data in a single transaction, and completes before the HTTP server/workers start. If the demo admin's email already exists, the entire seed is skipped, so data isn't duplicated and passwords aren't reset. It never deletes existing data and never auto-seeds on a normal startup. The `--seed-demo-existing-schema` flag only inserts data — it doesn't modify the schema or fake a migration history.
 
-Ảnh đã có trong dự án; chỉ cần lệnh sau khi thiếu ảnh:
+Photos are already included in the project; only run this if photos are missing:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File SafeDalat_API/scripts/Get-DemoImages.ps1
 ```
 
-## Chụp demo và kiểm tra
+## Taking screenshots and testing
 
-Chạy API như bình thường và Web bằng `npm start` trong `DalatS_Admin`. Đăng nhập Admin để chụp dashboard, danh sách sự cố, chi tiết ảnh, phòng ban, người dân và hỏi đáp. Đăng nhập Staff để xem công việc theo phòng ban. Android dùng `user1@demo.dalats.test` để chụp trang chủ, bản đồ, phản ánh cá nhân và thông báo.
+Run the API as usual, and the web app with `npm start` in `DalatS_Admin`. Log in as Admin to capture the dashboard, incident list, photo detail, departments, citizens, and Q&A. Log in as Staff to see department-scoped work. On Android, use `user1@demo.dalats.test` to capture the home screen, map, personal reports, and notifications.
 
-Khi API đang chạy:
+With the API running:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File SafeDalat_API/scripts/Test-Demo.ps1
 ```
 
-Script kiểm tra đăng nhập, số lượng demo, GPS Đà Lạt, tải ảnh qua HTTP, sự cố trên bản đồ, danh sách Staff, hỏi đáp và dashboard; không cập nhật dữ liệu. Google Maps trên Android vẫn cần API key hợp lệ của dự án.
+The script checks login, demo record counts, Da Lat GPS coordinates, photo loading over HTTP, incidents on the map, the staff list, Q&A, and the dashboard; it doesn't modify any data. Google Maps on Android still needs a valid API key for the project.
