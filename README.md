@@ -350,7 +350,7 @@ Project_DaLatS/
  **Seeder tự động** (`DemoSeeder.cs`) dữ liệu demo chạy test
 
 > [!NOTE]
-> 📌 **Xem chi tiết hướng dẫn nạp dữ liệu mẫu và kịch bản test tại:** 👉 **[DEMO.md](SafeDalat_API\DEMO.md)**
+> 📌 **Xem chi tiết hướng dẫn nạp dữ liệu mẫu và kịch bản test tại:** 👉 **[DEMO.md](SafeDalat_API/DEMO.md)**
 
 ---
 
