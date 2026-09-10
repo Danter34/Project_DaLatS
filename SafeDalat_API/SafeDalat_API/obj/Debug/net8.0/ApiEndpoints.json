@@ -217,6 +217,22 @@
   },
   {
     "ContainingType": "SafeDalat_API.Controllers.AuthController",
+    "Method": "UpdateFcmToken",
+    "RelativePath": "api/Auth/update-fcm",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SafeDalat_API.Controllers.AuthController",
     "Method": "UpdateProfile",
     "RelativePath": "api/Auth/update-profile",
     "HttpMethod": "PUT",
@@ -710,6 +726,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SafeDalat_API.Controllers.NotificationsController",
+    "Method": "TestPushMe",
+    "RelativePath": "api/Notifications/test-push-me",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
