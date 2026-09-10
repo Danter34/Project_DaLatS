@@ -98,32 +98,32 @@ Hệ thống được thiết kế theo mô hình **Client-Server 3 lớp (3-Tie
 ```mermaid
 flowchart TB
     subgraph Clients["📱 TẦNG NGƯỜI DÙNG & QUẢN TRỊ (CLIENTS)"]
-        Mobile["📱 Mobile App (Android Java)\n- Chụp ảnh, GPS, Xem bản đồ\n- Đọc tin tức, Nhận thông báo FCM\n- Hỏi đáp & Bình luận sự cố"]
-        WebAdmin["💻 Web Admin (Angular 21)\n- Dashboard biểu đồ trực quan\n- Điều phối & Xử lý sự cố\n- Quản lý Nhân sự, Dân cư, Phòng ban\n- Phát thông báo khẩn toàn thành phố"]
+        Mobile["📱 Mobile App (Android Java)<br/>- Chụp ảnh, GPS, Xem bản đồ<br/>- Đọc tin tức, Nhận thông báo FCM<br/>- Hỏi đáp & Bình luận sự cố"]
+        WebAdmin["💻 Web Admin (Angular 21)<br/>- Dashboard biểu đồ trực quan<br/>- Điều phối & Xử lý sự cố<br/>- Quản lý Nhân sự, Dân cư, Phòng ban<br/>- Phát thông báo khẩn toàn thành phố"]
     end
 
     subgraph API_Gateway["⚙️ TẦNG XỬ LÝ TRUNG TÂM (ASP.NET CORE 8 API)"]
-        Controllers["Controllers & Endpoints\n(Auth, Incidents, Dept, QA, Traffic...)"]
-        Middleware["Security & Auth Middleware\n- JWT Bearer Validation\n- CheckAccountStatusMiddleware (Khóa real-time)"]
-        BusinessLogic["Services & Repositories\n- Incident Management\n- Duplicate Clustering\n- Trust Score Calculator"]
-        Workers["Background Workers\n- TrafficAlertWorker (Quét điểm nóng ùn tắc 5m/lần)"]
+        Controllers["Controllers & Endpoints<br/>Auth, Incidents, Dept, QA, Traffic..."]
+        Middleware["Security & Auth Middleware<br/>- JWT Bearer Validation<br/>- CheckAccountStatusMiddleware"]
+        BusinessLogic["Services & Repositories<br/>- Incident Management<br/>- Duplicate Clustering<br/>- Trust Score Calculator"]
+        Workers["Background Workers<br/>- TrafficAlertWorker (Quét ùn tắc định kỳ)"]
     end
 
     subgraph External_Cloud["☁️ DỊCH VỤ ĐÁM MÂY & TÍCH HỢP BÊN NGOÀI"]
-        VisionAI["🤖 Google Cloud Vision AI\n- SafeSearch (Chặn 18+, Bạo lực, Spoof)\n- Label Detection (Chặn Meme, Anime, Game)"]
-        FCM["🔔 Firebase Cloud Messaging (FCM)\n- Push Notification cá nhân & theo phòng ban\n- Multicast Broadcast hàng loạt cho toàn dân"]
-        GoogleMaps["🗺️ Google Maps Platform\n- Maps SDK & Geocoding\n- Tọa độ GPS nội đô Đà Lạt"]
-        EnvAPI["🌤️ Weather & Environment APIs\n- OpenWeather API (Thời tiết)\n- IQAir API (Chỉ số không khí AQI)"]
-        SMTP["✉️ Gmail SMTP Service\n- Xác minh Email kích hoạt\n- OTP Quên mật khẩu & Thông báo kỷ luật"]
+        VisionAI["🤖 Google Cloud Vision AI<br/>- SafeSearch & Label Detection"]
+        FCM["🔔 Firebase Cloud Messaging<br/>- Push Notification cá nhân & Broadcast"]
+        GoogleMaps["🗺️ Google Maps Platform<br/>- Maps SDK & Geocoding Đà Lạt"]
+        EnvAPI["🌤️ Weather & Environment APIs<br/>- OpenWeather & IQAir"]
+        SMTP["✉️ Gmail SMTP Service<br/>- Xác minh Email & OTP Mật khẩu"]
     end
 
     subgraph Database_Storage["💾 TẦNG DỮ LIỆU & LƯU TRỮ"]
-        SQLServer[("🗄️ Microsoft SQL Server\n- Relational DB (Users, Incidents, Depts, QA)\n- Foreign Keys, Indexing GPS")]
-        LocalMedia["📁 File System Storage\n- wwwroot/uploads/incidents/"]
+        SQLServer[("🗄️ Microsoft SQL Server<br/>Relational Database")]
+        LocalMedia["📁 File System Storage<br/>Thư mục wwwroot uploads"]
     end
 
-    Mobile -->|REST API (HTTPS/JSON)| Controllers
-    WebAdmin -->|REST API (HTTPS/JSON)| Controllers
+    Mobile -->|REST API| Controllers
+    WebAdmin -->|REST API| Controllers
     Controllers --> Middleware
     Middleware --> BusinessLogic
     BusinessLogic --> Workers
@@ -329,10 +329,25 @@ Project_DaLatS/
 
 ## 👥 Tài khoản Demo & Dữ liệu Mẫu (Demo Data)
 
- **Seeder tự động** (`DemoSeeder.cs`) dữ liệu demo chạy test
+Dự án đã tích hợp sẵn cơ chế **Seeder tự động** (`DemoSeeder.cs`) với đầy đủ dữ liệu thực tế tại Đà Lạt:
+* **Mật khẩu chung cho tất cả tài khoản:** `DalatS@Demo2026`
+
+| Email Đăng nhập | Vai trò (Role) | Phòng ban / Mô tả nhiệm vụ |
+| :--- | :--- | :--- |
+| `admin@demo.dalats.test` | **Admin** | Quản trị viên tối cao (Full quyền hệ thống) |
+| `staff1@demo.dalats.test` | **Staff** | Phòng Quản lý Hạ tầng Giao thông |
+| `staff2@demo.dalats.test` | **Staff** | Phòng Vệ sinh & Môi trường Đô thị |
+| `staff3@demo.dalats.test` | **Staff** | Công ty Thoát nước Đô thị Đà Lạt |
+| `staff4@demo.dalats.test` | **Staff** | Ban Quản lý Công viên và Cây xanh |
+| `staff5@demo.dalats.test` | **Staff** | Đơn vị Chiếu sáng Công cộng |
+| `user1@demo.dalats.test` | **User** | Công dân Đà Lạt (Đã xác minh, điểm uy tín cao) |
+| `user2@demo.dalats.test` -> `user5@demo.dalats.test` | **User** | Các tài khoản công dân phục vụ thử nghiệm |
+| `user6@demo.dalats.test` | **User** | Tài khoản bị khóa (Dùng thử tính năng kỷ luật/mở khóa) |
 
 > [!NOTE]
-> 📌 **Xem chi tiết hướng dẫn nạp dữ liệu mẫu và kịch bản test tại:** 👉 **[DEMO.md](DEMO.md)**
+> 📌 **Xem chi tiết hướng dẫn nạp dữ liệu mẫu, kịch bản test và GPS tại:** 👉 **[SafeDalat_API/DEMO.md](SafeDalat_API/DEMO.md)** *(hoặc [DEMO.md](DEMO.md))*
+>
+> *(Bộ dữ liệu nạp sẵn bao gồm 15 sự cố phân bổ khắp các phường nội ô Đà Lạt với tọa độ GPS 11.9338–11.9663, kinh độ 108.4248–108.4668, 5 phòng ban, đầy đủ lịch sử trạng thái, câu hỏi Q&A, thông báo mẫu và script kiểm tra tự động).*
 
 ---
 
