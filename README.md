@@ -1,5 +1,9 @@
 <div align="center">
 
+  <p>
+    <b>🇻🇳 Tiếng Việt</b> | <a href="README.en.md">🇬🇧 English</a>
+  </p>
+
   <img src="docs/images/logo.png" alt="DalatS Logo" width="160 " />
 
   # 🌲 DalatS - HỆ THỐNG QUẢN LÝ SỰ CỐ ĐÔ THỊ THÀNH PHỐ ĐÀ LẠT
