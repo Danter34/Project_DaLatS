@@ -11,12 +11,6 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 //set biến môi trường
 builder.Configuration.AddEnvironmentVariables();
-
-var jwtKey = builder.Configuration["Jwt:Key"];
-var IQAirKey = builder.Configuration["IQAir:ApiKey"];
-var WheatherKey = builder.Configuration["OpenWeather:ApiKey"];
-var emailUser = builder.Configuration["Email:Username"];
-var emailPass = builder.Configuration["Email:Password"];
 // Add services to the container.
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -114,6 +108,17 @@ builder.Services.AddScoped<IFcmService, FcmService>();
 
 
 var app = builder.Build();
+
+// Explicit one-shot command; exits before background workers or HTTP endpoints start.
+if (args.Contains("--seed-demo"))
+{
+    if (!app.Environment.IsDevelopment())
+        throw new InvalidOperationException("Demo seeding is only available in Development.");
+    using var scope = app.Services.CreateScope();
+    await DemoSeeder.SeedAsync(scope.ServiceProvider.GetRequiredService<AppDbContext>(), app.Environment.ContentRootPath,
+        args.Contains("--seed-demo-existing-schema"));
+    return;
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
