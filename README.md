@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="docs/images/logo.png" alt="DalatS Logo" width="160" />
+  <img src="docs/images/logo.png" alt="DalatS Logo" width="160 " />
 
   # 🌲 DalatS - HỆ THỐNG QUẢN LÝ SỰ CỐ ĐÔ THỊ THÀNH PHỐ ĐÀ LẠT
   ### *Nền tảng Tiếp nhận, Điều phối và Giám sát Sự cố Đô thị Thời gian thực*
@@ -11,12 +11,6 @@
   [![Firebase](https://img.shields.io/badge/Firebase%20FCM-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com/)
   [![Google Cloud](https://img.shields.io/badge/Google%20Cloud%20Vision-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)](https://cloud.google.com/vision)
   [![SQL Server](https://img.shields.io/badge/SQL%20Server%202022-CC292B?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)](https://www.microsoft.com/sql-server)
-  [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
-
-  <p align="center">
-    <b>Cầu nối số thông minh giữa Người dân và Chính quyền Thành phố Đà Lạt</b><br/>
-    <i>Vì một Đà Lạt an toàn, văn minh, hiện đại và phát triển bền vững.</i>
-  </p>
 
 </div>
 
@@ -47,7 +41,6 @@
    - [Cấu hình & Khởi chạy Web Admin](#cai-dat-web-admin)
    - [Cấu hình & Khởi chạy Mobile App (Android)](#cai-dat-mobile-app)
 10. [Danh mục API Endpoints (RESTful API)](#danh-muc-api)
-11. [Bản quyền & Liên hệ](#ban-quyen-lien-he)
 
 ---
 
@@ -113,32 +106,32 @@ Hệ thống được thiết kế theo mô hình **Client-Server 3 lớp (3-Tie
 ```mermaid
 flowchart TB
     subgraph Clients["📱 TẦNG NGƯỜI DÙNG & QUẢN TRỊ (CLIENTS)"]
-        Mobile["📱 Mobile App (Android Java)\n- Chụp ảnh, GPS, Xem bản đồ\n- Đọc tin tức, Nhận thông báo FCM\n- Hỏi đáp & Bình luận sự cố"]
-        WebAdmin["💻 Web Admin (Angular 21)\n- Dashboard biểu đồ trực quan\n- Điều phối & Xử lý sự cố\n- Quản lý Nhân sự, Dân cư, Phòng ban\n- Phát thông báo khẩn toàn thành phố"]
+        Mobile["📱 Mobile App (Android Java)<br/>- Chụp ảnh, GPS, Xem bản đồ<br/>- Đọc tin tức, Nhận thông báo FCM<br/>- Hỏi đáp & Bình luận sự cố"]
+        WebAdmin["💻 Web Admin (Angular 21)<br/>- Dashboard biểu đồ trực quan<br/>- Điều phối & Xử lý sự cố<br/>- Quản lý Nhân sự, Dân cư, Phòng ban<br/>- Phát thông báo khẩn toàn thành phố"]
     end
 
     subgraph API_Gateway["⚙️ TẦNG XỬ LÝ TRUNG TÂM (ASP.NET CORE 8 API)"]
-        Controllers["Controllers & Endpoints\n(Auth, Incidents, Dept, QA, Traffic...)"]
-        Middleware["Security & Auth Middleware\n- JWT Bearer Validation\n- CheckAccountStatusMiddleware (Khóa real-time)"]
-        BusinessLogic["Services & Repositories\n- Incident Management\n- Duplicate Clustering\n- Trust Score Calculator"]
-        Workers["Background Workers\n- TrafficAlertWorker (Quét điểm nóng ùn tắc 5m/lần)"]
+        Controllers["Controllers & Endpoints<br/>Auth, Incidents, Dept, QA, Traffic..."]
+        Middleware["Security & Auth Middleware<br/>- JWT Bearer Validation<br/>- CheckAccountStatusMiddleware"]
+        BusinessLogic["Services & Repositories<br/>- Incident Management<br/>- Duplicate Clustering<br/>- Trust Score Calculator"]
+        Workers["Background Workers<br/>- TrafficAlertWorker (Quét ùn tắc định kỳ)"]
     end
 
     subgraph External_Cloud["☁️ DỊCH VỤ ĐÁM MÂY & TÍCH HỢP BÊN NGOÀI"]
-        VisionAI["🤖 Google Cloud Vision AI\n- SafeSearch (Chặn 18+, Bạo lực, Spoof)\n- Label Detection (Chặn Meme, Anime, Game)"]
-        FCM["🔔 Firebase Cloud Messaging (FCM)\n- Push Notification cá nhân & theo phòng ban\n- Multicast Broadcast hàng loạt cho toàn dân"]
-        GoogleMaps["🗺️ Google Maps Platform\n- Maps SDK & Geocoding\n- Tọa độ GPS nội đô Đà Lạt"]
-        EnvAPI["🌤️ Weather & Environment APIs\n- OpenWeather API (Thời tiết)\n- IQAir API (Chỉ số không khí AQI)"]
-        SMTP["✉️ Gmail SMTP Service\n- Xác minh Email kích hoạt\n- OTP Quên mật khẩu & Thông báo kỷ luật"]
+        VisionAI["🤖 Google Cloud Vision AI<br/>- SafeSearch & Label Detection"]
+        FCM["🔔 Firebase Cloud Messaging<br/>- Push Notification cá nhân & Broadcast"]
+        GoogleMaps["🗺️ Google Maps Platform<br/>- Maps SDK & Geocoding Đà Lạt"]
+        EnvAPI["🌤️ Weather & Environment APIs<br/>- OpenWeather & IQAir"]
+        SMTP["✉️ Gmail SMTP Service<br/>- Xác minh Email & OTP Mật khẩu"]
     end
 
     subgraph Database_Storage["💾 TẦNG DỮ LIỆU & LƯU TRỮ"]
-        SQLServer[("🗄️ Microsoft SQL Server\n- Relational DB (Users, Incidents, Depts, QA)\n- Foreign Keys, Indexing GPS")]
-        LocalMedia["📁 File System Storage\n- wwwroot/uploads/incidents/"]
+        SQLServer[("🗄️ Microsoft SQL Server<br/>Relational Database")]
+        LocalMedia["📁 File System Storage<br/>Thư mục wwwroot uploads"]
     end
 
-    Mobile -->|REST API (HTTPS/JSON)| Controllers
-    WebAdmin -->|REST API (HTTPS/JSON)| Controllers
+    Mobile -->|REST API| Controllers
+    WebAdmin -->|REST API| Controllers
     Controllers --> Middleware
     Middleware --> BusinessLogic
     BusinessLogic --> Workers
@@ -323,17 +316,6 @@ Project_DaLatS/
 
 <a id="ui-web-admin"></a>
 ### Giao diện Web Admin
-
-#### 1. Dashboard Thống kê Trực quan & Giám sát Toàn diện
-<p align="center">
-  <img src="docs/images/web/dashboard.png" width="95%" alt="Admin Dashboard" />
-</p>
-
-#### 2. Tiếp nhận & Điều phối Sự cố Đô thị
-<p align="center">
-  <img src="docs/images/web/incidents.png" width="95%" alt="Quản lý sự cố" />
-</p>
-
 
 #### 1. Dashboard Thống kê Trực quan & Giám sát Toàn diện
 <p align="center">
@@ -538,16 +520,3 @@ Dưới đây là tóm tắt các cụm API tiêu biểu của hệ thống:
 * `GET /api/Environment/air-quality`: Chỉ số chất lượng không khí AQI tại Đà Lạt từ IQAir API.
 
 ---
-
-<a id="ban-quyen-lien-he"></a>
-## 📄 Bản quyền & Liên hệ
-
-Dự án được phát hành theo giấy phép **MIT License**. Mọi đóng góp, báo lỗi hoặc yêu cầu tính năng xin vui lòng mở Issue hoặc Pull Request tại kho mã nguồn.
-
-* **Tác giả / Nhóm phát triển:** [Danter34](https://github.com/Danter34) & Đội ngũ Phát triển DalatS
-* **Thành phố ứng dụng:** Thành phố Đà Lạt, Tỉnh Lâm Đồng, Việt Nam 🇻🇳
-* **Kho lưu trữ:** [https://github.com/Danter34/Project_DaLatS](https://github.com/Danter34/Project_DaLatS)
-
-<div align="center">
-  <sub>Được xây dựng với tất cả tâm huyết vì một Thành phố Đà Lạt Thông minh, Xanh - Sạch - Đẹp và An toàn.</sub>
-</div>
